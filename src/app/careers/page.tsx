@@ -414,14 +414,14 @@ export default function CareersPage() {
               </div>
 
               {/* Action Buttons */}
-              <div className="pt-4 flex flex-wrap items-center gap-4">
+              <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
                 <a
                   href={`mailto:sales@zcomnetworks.com.pk?subject=${encodeURIComponent(
                     `Job Application: ${job.title} - Z COM Networks`
                   )}&body=${encodeURIComponent(
                     `Hello HR / Recruitment Team at Z COM Networks,\n\nI am applying for the position of "${job.title}" at your Gulberg-III, Lahore office.\n\nPlease find my resume attached.\n\nName:\nContact Phone / WhatsApp:\nCurrent Location in Lahore:\nYears of Relevant Experience:\n`
                   )}`}
-                  className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-md shadow-brand-orange/20"
+                  className="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-md shadow-brand-orange/20 w-full sm:w-auto"
                 >
                   <Mail className="w-4 h-4" />
                   <span>Apply via Email</span>
@@ -433,7 +433,7 @@ export default function CareersPage() {
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-md shadow-[#25D366]/20"
+                  className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-md shadow-[#25D366]/20 w-full sm:w-auto"
                 >
                   <Send className="w-4 h-4" />
                   <span>Inquire on WhatsApp</span>
@@ -448,7 +448,7 @@ export default function CareersPage() {
           5. GENERAL RESUME SUBMISSION BANNER
           ============================================================ */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-brand-card/70 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-white/10 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
+        <div className="bg-white dark:bg-brand-card/70 p-6 sm:p-10 lg:p-12 rounded-3xl border border-slate-200 dark:border-white/10 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
           <div className="w-14 h-14 rounded-2xl bg-orange-100 dark:bg-brand-orange/15 text-brand-orange flex items-center justify-center mx-auto border border-orange-200 dark:border-brand-orange/30">
             <Mail className="w-7 h-7" />
           </div>
@@ -465,10 +465,10 @@ export default function CareersPage() {
           <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
             <a
               href="mailto:sales@zcomnetworks.com.pk?subject=Open%20Career%20Application%20-%20Z%20COM%20Networks"
-              className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold py-3.5 px-6 sm:px-8 rounded-xl transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5 w-full sm:w-auto text-center break-words"
             >
               <span>Email Your Resume to sales@zcomnetworks.com.pk</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 shrink-0" />
             </a>
           </div>
 

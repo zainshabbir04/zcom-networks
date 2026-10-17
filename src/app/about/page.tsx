@@ -213,7 +213,7 @@ export default function AboutPage() {
         {/* Executive Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Card 1: CEO Mudasir Riaz */}
-          <div className="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 bg-white dark:bg-[#101422] p-8 sm:p-10 shadow-xl shadow-slate-200/50 dark:shadow-black/60 flex flex-col justify-between space-y-6">
+          <div className="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 bg-white dark:bg-[#101422] p-6 sm:p-10 shadow-xl shadow-slate-200/50 dark:shadow-black/60 flex flex-col justify-between space-y-6">
             <div className="space-y-6">
               {/* Profile Header */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
@@ -292,7 +292,7 @@ export default function AboutPage() {
           </div>
 
           {/* Card 2: CFO Mubasir Riaz */}
-          <div className="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 bg-white dark:bg-[#101422] p-8 sm:p-10 shadow-xl shadow-slate-200/50 dark:shadow-black/60 flex flex-col justify-between space-y-6">
+          <div className="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 bg-white dark:bg-[#101422] p-6 sm:p-10 shadow-xl shadow-slate-200/50 dark:shadow-black/60 flex flex-col justify-between space-y-6">
             <div className="space-y-6">
               {/* Profile Header */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
@@ -484,7 +484,7 @@ export default function AboutPage() {
           8. BOTTOM CALL TO ACTION
           ============================================================ */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-brand-card/70 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-white/10 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
+        <div className="bg-white dark:bg-brand-card/70 p-6 sm:p-10 lg:p-12 rounded-3xl border border-slate-200 dark:border-white/10 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
             Experience the Z COM Difference Today
           </h3>
@@ -492,10 +492,10 @@ export default function AboutPage() {
             Contact our Lahore team for a customized enterprise connectivity proposal or residential
             fiber connection setup.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5 w-full sm:w-auto"
             >
               <span>Get Connected With Us</span>
               <ArrowRight className="w-4 h-4" />
@@ -505,7 +505,7 @@ export default function AboutPage() {
               href="https://wa.me/923171118042"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg hover:-translate-y-0.5 w-full sm:w-auto"
             >
               <span>Chat on WhatsApp</span>
             </a>

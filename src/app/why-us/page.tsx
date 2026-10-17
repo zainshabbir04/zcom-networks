@@ -328,7 +328,7 @@ export default function WhyUsPage() {
 
       {/* Bottom CTA */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-brand-card/70 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-white/10 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
+        <div className="bg-white dark:bg-brand-card/70 p-6 sm:p-10 lg:p-12 rounded-3xl border border-slate-200 dark:border-white/10 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
             Ready to Connect Your Organization?
           </h3>
@@ -338,7 +338,7 @@ export default function WhyUsPage() {
           <div className="pt-2">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5 w-full sm:w-auto text-center"
             >
               <span>Schedule Free Site Survey</span>
               <ArrowRight className="w-4 h-4" />

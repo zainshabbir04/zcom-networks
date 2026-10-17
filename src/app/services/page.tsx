@@ -239,15 +239,15 @@ export default function ServicesPage() {
         {filteredServices.map((service) => (
           <div
             key={service.id}
-            className="bg-white dark:bg-brand-card/70 p-8 sm:p-10 rounded-3xl border border-slate-200 dark:border-white/10 hover:border-brand-orange/40 transition-all duration-300 shadow-xl shadow-slate-200/50 dark:shadow-black/50 space-y-6"
+            className="bg-white dark:bg-brand-card/70 p-6 sm:p-10 rounded-3xl border border-slate-200 dark:border-white/10 hover:border-brand-orange/40 transition-all duration-300 shadow-xl shadow-slate-200/50 dark:shadow-black/50 space-y-6"
           >
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-white/5">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-2xl bg-orange-100 dark:bg-brand-orange/15 border border-orange-200 dark:border-brand-orange/20 flex items-center justify-center shrink-0">
+              <div className="flex items-center gap-3 sm:gap-4">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-orange-100 dark:bg-brand-orange/15 border border-orange-200 dark:border-brand-orange/20 flex items-center justify-center shrink-0">
                   {service.icon}
                 </div>
                 <div>
-                  <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white font-heading">
+                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-900 dark:text-white font-heading">
                     {service.title}
                   </h2>
                   <p className="text-xs sm:text-sm text-brand-orange font-semibold mt-0.5">
@@ -258,7 +258,7 @@ export default function ServicesPage() {
 
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-orange-100 dark:bg-brand-orange/20 hover:bg-brand-orange text-brand-orange hover:text-white px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold border border-orange-200 dark:border-brand-orange/30 transition-colors shrink-0"
+                className="inline-flex items-center justify-center gap-2 bg-orange-100 dark:bg-brand-orange/20 hover:bg-brand-orange text-brand-orange hover:text-white px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold border border-orange-200 dark:border-brand-orange/30 transition-colors shrink-0 w-full sm:w-auto text-center"
               >
                 <span>Request Feasibility</span>
                 <ArrowRight className="w-4 h-4" />
@@ -313,7 +313,7 @@ export default function ServicesPage() {
 
       {/* Bottom CTA */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-brand-card/70 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-white/10 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
+        <div className="bg-white dark:bg-brand-card/70 p-6 sm:p-10 lg:p-12 rounded-3xl border border-slate-200 dark:border-white/10 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
           <div className="w-12 h-12 rounded-full bg-orange-100 dark:bg-brand-orange/15 text-brand-orange flex items-center justify-center mx-auto">
             <ShieldCheck className="w-6 h-6" />
           </div>
@@ -327,7 +327,7 @@ export default function ServicesPage() {
           <div className="pt-2">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5 w-full sm:w-auto text-center"
             >
               <span>Consult Our Engineering Team</span>
               <ArrowRight className="w-4 h-4" />

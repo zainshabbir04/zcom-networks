@@ -88,7 +88,7 @@ export default function Header() {
           </nav>
 
           {/* Desktop Right Actions: Telemetry + Phone Hotline + Theme Toggle + CTA */}
-          <div className="hidden md:flex items-center gap-2.5 xl:gap-3 shrink-0">
+          <div className="hidden lg:flex items-center gap-2.5 xl:gap-3 shrink-0">
             {/* Live Status Pill */}
             <div className="hidden xl:flex items-center gap-1.5 text-[11px] font-bold text-slate-700 dark:text-gray-200 bg-slate-100 dark:bg-white/5 px-3 py-1.5 rounded-full border border-slate-200/80 dark:border-white/10 whitespace-nowrap">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -133,7 +133,7 @@ export default function Header() {
 
       {/* Mobile Full-Screen Frosted Drawer */}
       {isOpen && (
-        <div className="lg:hidden mt-2 rounded-3xl bg-white/90 dark:bg-[#0C0F1D]/90 backdrop-blur-2xl border border-white/30 dark:border-white/10 shadow-2xl p-6 space-y-6 animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="lg:hidden mt-2 rounded-3xl bg-white/95 dark:bg-[#0C0F1D]/95 backdrop-blur-2xl border border-white/30 dark:border-white/10 shadow-2xl p-5 sm:p-6 space-y-5 max-h-[85vh] overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-200">
           <div className="space-y-1">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;

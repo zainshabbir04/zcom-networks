@@ -46,8 +46,8 @@ export default function HomePage() {
             ============================================================ */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 sm:-mt-20 relative z-20">
           <div className="rounded-3xl bg-white/80 dark:bg-[#0E1220]/80 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 shadow-2xl p-6 sm:p-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 divide-y lg:divide-y-0 lg:divide-x divide-slate-100 dark:divide-white/5">
-            <div className="flex items-center gap-3 pt-2 lg:pt-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 lg:divide-x divide-slate-200/60 dark:divide-white/5">
+            <div className="flex items-center gap-3 pt-2 sm:pt-0">
               <div className="w-11 h-11 rounded-2xl bg-orange-100 dark:bg-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0">
                 <CheckCircle2 className="w-5 h-5" />
               </div>
@@ -61,7 +61,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3 pt-4 lg:pt-0 lg:pl-6">
+            <div className="flex items-center gap-3 pt-4 sm:pt-0 sm:pl-4 lg:pl-6">
               <div className="w-11 h-11 rounded-2xl bg-orange-100 dark:bg-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0">
                 <Zap className="w-5 h-5" />
               </div>
@@ -75,7 +75,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3 pt-4 lg:pt-0 lg:pl-6">
+            <div className="flex items-center gap-3 pt-4 sm:pt-0 lg:pl-6">
               <div className="w-11 h-11 rounded-2xl bg-orange-100 dark:bg-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0">
                 <ShieldCheck className="w-5 h-5" />
               </div>
@@ -89,7 +89,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-3 pt-4 lg:pt-0 lg:pl-6">
+            <div className="flex items-center gap-3 pt-4 sm:pt-0 sm:pl-4 lg:pl-6">
               <div className="w-11 h-11 rounded-2xl bg-orange-100 dark:bg-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0">
                 <Clock className="w-5 h-5" />
               </div>
@@ -271,7 +271,7 @@ export default function HomePage() {
           9. CAREERS & TEAM SPOTLIGHT BANNER
           ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-2xl p-8 sm:p-14 bg-slate-950">
+        <div className="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-2xl p-6 sm:p-10 lg:p-14 bg-slate-950">
           <div className="absolute inset-0 -z-20">
             <Image
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80"
@@ -314,15 +314,15 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center gap-3">
+            <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center gap-3 w-full">
               <Link
                 href="/careers"
-                className="inline-flex items-center gap-2.5 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-xl transition-all shadow-xl shadow-brand-orange/30 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2.5 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-xl transition-all shadow-xl shadow-brand-orange/30 hover:-translate-y-0.5 w-full sm:w-auto"
               >
                 <span>Explore Open Positions</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <span className="text-xs text-gray-300 font-medium">
+              <span className="text-xs text-gray-300 font-medium text-left lg:text-right">
                 <AnimatedCounter from={0} to={5} /> Active Openings · Direct Application
               </span>
             </div>
@@ -355,7 +355,7 @@ export default function HomePage() {
           11. FINAL BOTTOM CALL TO ACTION (LIGHT FROSTED GLASS ISLAND)
           ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-        <div className="relative rounded-3xl overflow-hidden border border-orange-200/80 dark:border-white/10 bg-gradient-to-br from-orange-50/70 via-white/85 to-amber-50/40 dark:from-[#101426]/80 dark:via-[#0C0F1D]/90 dark:to-[#141930]/80 backdrop-blur-2xl p-8 sm:p-14 lg:p-16 text-center space-y-6 shadow-2xl shadow-orange-500/5 dark:shadow-black/60">
+        <div className="relative rounded-3xl overflow-hidden border border-orange-200/80 dark:border-white/10 bg-gradient-to-br from-orange-50/70 via-white/85 to-amber-50/40 dark:from-[#101426]/80 dark:via-[#0C0F1D]/90 dark:to-[#141930]/80 backdrop-blur-2xl p-6 sm:p-10 lg:p-16 text-center space-y-6 shadow-2xl shadow-orange-500/5 dark:shadow-black/60">
           {/* Ambient Optical Glows */}
           <div className="absolute -top-24 -left-24 w-80 h-80 bg-brand-orange/15 dark:bg-brand-orange/20 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-amber-400/15 dark:bg-brand-orangeLight/15 rounded-full blur-3xl pointer-events-none" />
@@ -387,10 +387,10 @@ export default function HomePage() {
               Contact our Lahore engineering desk today for a free optical site survey, feasibility inspection, and custom enterprise quote.
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-sm sm:text-base px-8 py-4 rounded-xl transition-all shadow-xl shadow-brand-orange/30 hover:shadow-brand-orange/50 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-sm sm:text-base px-8 py-4 rounded-xl transition-all shadow-xl shadow-brand-orange/30 hover:shadow-brand-orange/50 hover:-translate-y-0.5 w-full sm:w-auto"
               >
                 <span>Schedule Free Site Survey</span>
                 <ArrowRight className="w-4 h-4" />
@@ -400,30 +400,30 @@ export default function HomePage() {
                 href="https://wa.me/923171118042"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm sm:text-base px-8 py-4 rounded-xl transition-all shadow-xl shadow-emerald-600/25 hover:shadow-emerald-600/40 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm sm:text-base px-8 py-4 rounded-xl transition-all shadow-xl shadow-emerald-600/25 hover:shadow-emerald-600/40 hover:-translate-y-0.5 w-full sm:w-auto"
               >
                 <span>Chat on WhatsApp</span>
               </a>
             </div>
 
             {/* Micro Guarantees Trust Strip */}
-            <div className="pt-6 border-t border-slate-200/70 dark:border-white/10 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500 dark:text-gray-400 font-semibold">
+            <div className="pt-6 border-t border-slate-200/70 dark:border-white/10 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-slate-500 dark:text-gray-400 font-semibold text-left sm:text-center">
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                <span>Free On-Site Optical Survey</span>
+                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                <span>Free On-Site Survey</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                 <span>24-48h Rapid Turnaround</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                 <span>
                   <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> Contractual SLA
                 </span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                 <span>Zero FUP Throttling</span>
               </div>
             </div>

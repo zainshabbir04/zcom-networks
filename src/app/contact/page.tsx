@@ -67,7 +67,7 @@ export default function ContactPage() {
 
       {/* Coverage Checker Card (Interactive Form) */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-brand-card/70 p-8 sm:p-12 rounded-3xl border border-orange-200 dark:border-brand-orange/30 shadow-xl shadow-orange-500/5 dark:shadow-black/50 relative overflow-hidden">
+        <div className="bg-white dark:bg-brand-card/70 p-6 sm:p-10 lg:p-12 rounded-3xl border border-orange-200 dark:border-brand-orange/30 shadow-xl shadow-orange-500/5 dark:shadow-black/50 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
           <div className="max-w-xl mx-auto space-y-6">
@@ -140,7 +140,7 @@ export default function ContactPage() {
 
           {/* Right: Message Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white dark:bg-brand-card/70 p-8 sm:p-10 rounded-3xl border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 space-y-6">
+            <div className="bg-white dark:bg-brand-card/70 p-6 sm:p-10 rounded-3xl border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 space-y-6">
               <div>
                 <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
                   MESSAGE OUR DESK

@@ -256,13 +256,13 @@ export default function ClientsAnimatedMarquee() {
       )}
 
       {/* Colorful Trust & Scale Metrics Banner */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
-        <div className="p-5 rounded-2xl bg-gradient-to-br from-orange-500/10 via-amber-500/5 to-transparent bg-white dark:bg-brand-card/50 border border-orange-200/70 dark:border-white/10 shadow-sm flex items-center gap-3.5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 pt-4">
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-orange-500/10 via-amber-500/5 to-transparent bg-white dark:bg-brand-card/50 border border-orange-200/70 dark:border-white/10 shadow-sm flex items-center gap-3 sm:gap-3.5">
           <div className="w-10 h-10 rounded-xl bg-orange-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-orange-500/30">
             <Building2 className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-heading block">
+            <span className="text-lg sm:text-xl lg:text-2xl font-extrabold text-slate-900 dark:text-white font-heading block">
               <AnimatedCounter from={0} to={500} suffix="+" duration={1800} />
             </span>
             <span className="text-xs text-slate-500 dark:text-gray-400 font-semibold">
@@ -271,12 +271,12 @@ export default function ClientsAnimatedMarquee() {
           </div>
         </div>
 
-        <div className="p-5 rounded-2xl bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-transparent bg-white dark:bg-brand-card/50 border border-emerald-200/70 dark:border-white/10 shadow-sm flex items-center gap-3.5">
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-emerald-500/10 via-teal-500/5 to-transparent bg-white dark:bg-brand-card/50 border border-emerald-200/70 dark:border-white/10 shadow-sm flex items-center gap-3 sm:gap-3.5">
           <div className="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-emerald-500/30">
             <ShieldCheck className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-heading block">
+            <span className="text-lg sm:text-xl lg:text-2xl font-extrabold text-slate-900 dark:text-white font-heading block">
               <AnimatedCounter from={0} to={99.99} decimals={2} suffix="%" duration={1800} />
             </span>
             <span className="text-xs text-slate-500 dark:text-gray-400 font-semibold">
@@ -285,12 +285,12 @@ export default function ClientsAnimatedMarquee() {
           </div>
         </div>
 
-        <div className="p-5 rounded-2xl bg-gradient-to-br from-blue-500/10 via-indigo-500/5 to-transparent bg-white dark:bg-brand-card/50 border border-blue-200/70 dark:border-white/10 shadow-sm flex items-center gap-3.5">
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-blue-500/10 via-indigo-500/5 to-transparent bg-white dark:bg-brand-card/50 border border-blue-200/70 dark:border-white/10 shadow-sm flex items-center gap-3 sm:gap-3.5">
           <div className="w-10 h-10 rounded-xl bg-blue-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-blue-500/30">
             <Zap className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-heading block">
+            <span className="text-lg sm:text-xl lg:text-2xl font-extrabold text-slate-900 dark:text-white font-heading block">
               <AnimatedCounter from={0} to={30} prefix="< " suffix=" min" duration={1800} />
             </span>
             <span className="text-xs text-slate-500 dark:text-gray-400 font-semibold">
@@ -299,12 +299,12 @@ export default function ClientsAnimatedMarquee() {
           </div>
         </div>
 
-        <div className="p-5 rounded-2xl bg-gradient-to-br from-purple-500/10 via-fuchsia-500/5 to-transparent bg-white dark:bg-brand-card/50 border border-purple-200/70 dark:border-white/10 shadow-sm flex items-center gap-3.5">
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-purple-500/10 via-fuchsia-500/5 to-transparent bg-white dark:bg-brand-card/50 border border-purple-200/70 dark:border-white/10 shadow-sm flex items-center gap-3 sm:gap-3.5">
           <div className="w-10 h-10 rounded-xl bg-purple-500 text-white flex items-center justify-center shrink-0 shadow-md shadow-purple-500/30">
             <Award className="w-5 h-5" />
           </div>
           <div>
-            <span className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white font-heading block">
+            <span className="text-lg sm:text-xl lg:text-2xl font-extrabold text-slate-900 dark:text-white font-heading block">
               <AnimatedCounter from={0} to={100} suffix="%" duration={1800} />
             </span>
             <span className="text-xs text-slate-500 dark:text-gray-400 font-semibold">

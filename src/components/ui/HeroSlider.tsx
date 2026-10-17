@@ -168,30 +168,30 @@ export default function HeroSlider() {
       <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-slate-100/30 dark:from-black/10 dark:via-black/30 dark:to-[#060810]/50 pointer-events-none -z-10" />
 
       {/* Slide Content Container */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 sm:space-y-7">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5 sm:space-y-7">
         {/* Dynamic Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 dark:bg-orange-500/15 border border-orange-500/30 text-orange-600 dark:text-orange-400 text-xs sm:text-sm font-bold tracking-wider uppercase backdrop-blur-md shadow-lg shadow-orange-500/10">
-          <span className="w-2 h-2 rounded-full bg-brand-orange animate-ping" />
-          <span>{slide.pillBadge}</span>
+        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-orange-500/10 dark:bg-orange-500/15 border border-orange-500/30 text-orange-600 dark:text-orange-400 text-[11px] sm:text-sm font-bold tracking-wider uppercase backdrop-blur-md shadow-lg shadow-orange-500/10 max-w-full truncate">
+          <span className="w-2 h-2 rounded-full bg-brand-orange animate-ping shrink-0" />
+          <span className="truncate">{slide.pillBadge}</span>
         </div>
 
         {/* 0.5s Continuous Speed Loop Badge: "GET THE SPEED YOU NEED" */}
         <div className="flex justify-center pt-0.5">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-orange-600/40 via-brand-orange/50 to-amber-500/40 border-2 border-brand-orange text-white shadow-xl shadow-brand-orange/30 backdrop-blur-md animate-speed-loop-half">
-            <Zap className="w-4 h-4 text-amber-300 fill-amber-300 animate-pulse shrink-0" />
-            <span className="text-xs sm:text-sm font-black tracking-[0.25em] uppercase text-white font-heading drop-shadow-md">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-orange-600/40 via-brand-orange/50 to-amber-500/40 border-2 border-brand-orange text-white shadow-xl shadow-brand-orange/30 backdrop-blur-md animate-speed-loop-half max-w-full">
+            <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-300 fill-amber-300 animate-pulse shrink-0" />
+            <span className="text-[11px] xs:text-xs sm:text-sm font-black tracking-[0.15em] sm:tracking-[0.25em] uppercase text-white font-heading drop-shadow-md truncate">
               GET THE SPEED YOU NEED
             </span>
-            <Zap className="w-4 h-4 text-amber-300 fill-amber-300 animate-pulse shrink-0" />
+            <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-300 fill-amber-300 animate-pulse shrink-0" />
           </div>
         </div>
 
         {/* Main Cinematic Heading (Stacked Layout from screenshot) */}
         <div key={slide.id} className="space-y-1 sm:space-y-2 animate-in fade-in zoom-in-95 duration-500">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light text-slate-800 dark:text-white tracking-[0.22em] uppercase font-heading drop-shadow-sm">
+          <h1 className="text-2xl sm:text-4xl lg:text-6xl font-light text-slate-800 dark:text-white tracking-[0.15em] sm:tracking-[0.22em] uppercase font-heading drop-shadow-sm">
             {slide.titleLight}
           </h1>
-          <h2 className="text-4xl sm:text-7xl lg:text-8xl font-black text-slate-900 dark:text-white tracking-tight uppercase font-heading drop-shadow-md">
+          <h2 className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-slate-900 dark:text-white tracking-tight uppercase font-heading drop-shadow-md">
             {slide.titleBold.split(" ")[0]}{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-orange-500 to-amber-500 dark:from-white dark:via-orange-200 dark:to-brand-orange">
               {slide.titleBold.split(" ").slice(1).join(" ")}
@@ -200,15 +200,15 @@ export default function HeroSlider() {
         </div>
 
         {/* Description Text (high-contrast text) */}
-        <p className="text-base sm:text-xl text-slate-600 dark:text-slate-200 max-w-2xl mx-auto leading-relaxed font-sans">
+        <p className="text-sm sm:text-lg lg:text-xl text-slate-600 dark:text-slate-200 max-w-2xl mx-auto leading-relaxed font-sans px-2 sm:px-0">
           {slide.description}
         </p>
 
         {/* Action Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2 w-full max-w-sm sm:max-w-none mx-auto">
           <Link
             href={slide.primaryButtonHref}
-            className="inline-flex items-center gap-2.5 bg-[#0070F3] hover:bg-[#005fd2] text-white font-bold text-sm sm:text-base px-8 py-3.5 sm:px-9 sm:py-4 rounded-xl transition-all duration-200 shadow-xl shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#0070F3] hover:bg-[#005fd2] text-white font-bold text-sm sm:text-base px-7 py-3.5 sm:px-9 sm:py-4 rounded-xl transition-all duration-200 shadow-xl shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5"
           >
             <span>{slide.primaryButtonText}</span>
             <ArrowRight className="w-4 h-4" />
@@ -216,17 +216,17 @@ export default function HeroSlider() {
 
           <Link
             href={slide.secondaryButtonHref}
-            className="inline-flex items-center gap-2.5 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-sm sm:text-base px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl transition-all duration-200 shadow-xl shadow-brand-orange/30 hover:shadow-brand-orange/50 hover:-translate-y-0.5"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-sm sm:text-base px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl transition-all duration-200 shadow-xl shadow-brand-orange/30 hover:shadow-brand-orange/50 hover:-translate-y-0.5"
           >
             <span>{slide.secondaryButtonText}</span>
           </Link>
         </div>
 
         {/* Real-time Animated Number Counters (Count up from 0 to max upon view) */}
-        <div className="pt-8 max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-slate-200 dark:border-white/10 text-center">
+        <div className="pt-6 sm:pt-8 max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 border-t border-slate-200 dark:border-white/10 text-center">
           {slide.stats.map((st, i) => (
-            <div key={i} className={`p-2.5 ${i > 0 ? "sm:border-l sm:border-slate-200 dark:sm:border-white/10" : ""}`}>
-              <div className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-heading">
+            <div key={i} className={`p-2 sm:p-2.5 ${i > 0 ? "sm:border-l sm:border-slate-200 dark:sm:border-white/10" : ""}`}>
+              <div className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading">
                 <AnimatedCounter
                   from={0}
                   to={st.val}
@@ -236,7 +236,7 @@ export default function HeroSlider() {
                   duration={1800}
                 />
               </div>
-              <div className="text-xs text-slate-500 dark:text-slate-300 font-semibold mt-1">
+              <div className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-300 font-semibold mt-1">
                 {st.label}
               </div>
             </div>

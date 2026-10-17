@@ -180,16 +180,16 @@ export default function SolutionExplorer() {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* 1. Interactive Slider Tabs Track */}
-      <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+      <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-3">
         {SOLUTIONS.map((s, idx) => {
           const isActive = idx === currentSlide;
           return (
             <button
               key={s.id}
               onClick={() => setCurrentSlide(idx)}
-              className={`flex items-center gap-2 px-4 sm:px-6 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-300 border ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl text-[11px] sm:text-sm font-bold transition-all duration-300 border ${
                 isActive
-                  ? "bg-brand-orange text-white border-brand-orange shadow-lg shadow-brand-orange/30 scale-[1.03]"
+                  ? "bg-brand-orange text-white border-brand-orange shadow-lg shadow-brand-orange/30 scale-[1.02] sm:scale-[1.03]"
                   : "bg-white dark:bg-white/5 text-slate-700 dark:text-gray-300 border-slate-200/90 dark:border-white/10 hover:border-brand-orange/40 hover:bg-orange-50/50 dark:hover:bg-white/10"
               }`}
             >
@@ -202,20 +202,20 @@ export default function SolutionExplorer() {
 
       {/* 2. Slider Main Card with Horizontal Sliding Track */}
       <div className="relative group">
-        {/* Left Arrow Button */}
+        {/* Left Arrow Button (Hidden on tiny screens to prevent side overflow; swipe gesture enabled) */}
         <button
           onClick={prevSlide}
           aria-label="Previous Solution"
-          className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/95 dark:bg-[#121624]/95 hover:bg-brand-orange hover:text-white dark:hover:bg-brand-orange text-slate-800 dark:text-white border border-slate-200/90 dark:border-white/10 shadow-xl flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
+          className="hidden sm:flex absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/95 dark:bg-[#121624]/95 hover:bg-brand-orange hover:text-white dark:hover:bg-brand-orange text-slate-800 dark:text-white border border-slate-200/90 dark:border-white/10 shadow-xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
 
-        {/* Right Arrow Button */}
+        {/* Right Arrow Button (Hidden on tiny screens to prevent side overflow; swipe gesture enabled) */}
         <button
           onClick={nextSlide}
           aria-label="Next Solution"
-          className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/95 dark:bg-[#121624]/95 hover:bg-brand-orange hover:text-white dark:hover:bg-brand-orange text-slate-800 dark:text-white border border-slate-200/90 dark:border-white/10 shadow-xl flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
+          className="hidden sm:flex absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/95 dark:bg-[#121624]/95 hover:bg-brand-orange hover:text-white dark:hover:bg-brand-orange text-slate-800 dark:text-white border border-slate-200/90 dark:border-white/10 shadow-xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
@@ -237,16 +237,16 @@ export default function SolutionExplorer() {
             {SOLUTIONS.map((sol) => (
               <div
                 key={sol.id}
-                className="w-full shrink-0 p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+                className="w-full shrink-0 p-5 sm:p-8 lg:p-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center"
               >
                 {/* Left: Solution Specifications */}
-                <div className="lg:col-span-7 space-y-5">
+                <div className="lg:col-span-7 space-y-4 sm:space-y-5">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 dark:bg-brand-orange/15 border border-orange-200 dark:border-brand-orange/30 text-brand-orange text-xs font-bold tracking-wide uppercase">
                     <ShieldCheck className="w-3.5 h-3.5 text-brand-orange" />
                     <span>{sol.badge}</span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight">
+                  <h3 className="text-xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight">
                     {sol.title}
                   </h3>
 
@@ -254,12 +254,12 @@ export default function SolutionExplorer() {
                     Recommended for: {sol.target}
                   </p>
 
-                  <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300 leading-relaxed">
+                  <p className="text-xs sm:text-base text-slate-600 dark:text-gray-300 leading-relaxed">
                     {sol.description}
                   </p>
 
                   {/* Feature checklist */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-2 sm:pt-3">
                     {sol.features.map((feat, idx) => (
                       <div
                         key={idx}
@@ -276,7 +276,7 @@ export default function SolutionExplorer() {
 
                 {/* Right: Action Box */}
                 <div className="lg:col-span-5">
-                  <div className="p-8 rounded-2xl bg-slate-50 dark:bg-brand-cardDark/90 border border-slate-200 dark:border-white/10 text-center space-y-6 relative overflow-hidden shadow-lg">
+                  <div className="p-5 sm:p-8 rounded-2xl bg-slate-50 dark:bg-brand-cardDark/90 border border-slate-200 dark:border-white/10 text-center space-y-5 sm:space-y-6 relative overflow-hidden shadow-lg">
                     <div className="w-16 h-16 rounded-2xl bg-orange-100 dark:bg-brand-orange/15 text-brand-orange mx-auto flex items-center justify-center border border-orange-200 dark:border-brand-orange/30">
                       {sol.icon}
                     </div>

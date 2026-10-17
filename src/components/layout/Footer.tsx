@@ -24,7 +24,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
         {/* Tier 1: Modern Pre-Footer Quick Action Grid */}
-        <div className="rounded-3xl bg-gradient-to-r from-white/5 via-white/[0.07] to-white/5 border border-white/10 p-8 sm:p-10 backdrop-blur-xl shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div className="rounded-3xl bg-gradient-to-r from-white/5 via-white/[0.07] to-white/5 border border-white/10 p-6 sm:p-10 backdrop-blur-xl shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-bold uppercase tracking-wider">
               <Zap className="w-3.5 h-3.5" />
@@ -39,10 +39,10 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 shrink-0 w-full sm:w-auto">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-sm px-7 py-3.5 rounded-full transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-sm px-7 py-3.5 rounded-full transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5 w-full sm:w-auto"
             >
               <span>Schedule Site Survey</span>
               <ArrowRight className="w-4 h-4" />
@@ -52,7 +52,7 @@ export default function Footer() {
               href="https://wa.me/923171118042"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold text-sm px-6 py-3.5 rounded-full transition-all border border-white/15 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold text-sm px-6 py-3.5 rounded-full transition-all border border-white/15 hover:-translate-y-0.5 w-full sm:w-auto"
             >
               <span>WhatsApp NOC</span>
             </a>
