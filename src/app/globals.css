@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-orange: #F05A22;
+    --brand-orange-light: #FF7A38;
+    --brand-orange-soft: #FFF7ED;
+  }
+
+  /* Default Light Mode */
+  body {
+    background-color: #FAFAFA;
+    color: #0F172A;
+    font-family: var(--font-manrope), sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Dark Mode */
+  .dark body {
+    background-color: #0B0D14;
+    color: #F8FAFC;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sora), sans-serif;
+  }
+}
+
+/* Glassmorphism styling - adaptive for Light & Dark */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+}
+
+.dark .glass-panel {
+  background: rgba(24, 28, 40, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.dark .glass-panel-light {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-card-hover {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(240, 90, 34, 0.4);
+  box-shadow: 0 16px 36px -12px rgba(240, 90, 34, 0.15);
+}
+
+.dark .glass-card-hover:hover {
+  box-shadow: 0 16px 36px -12px rgba(240, 90, 34, 0.25);
+}
+
+/* Glow effects */
+.orange-glow {
+  box-shadow: 0 0 35px -5px rgba(240, 90, 34, 0.35);
+}
+
+.orange-text-glow {
+  text-shadow: 0 0 24px rgba(240, 90, 34, 0.4);
+}
+
+/* Signin.com.pk inspired highlight badge pills */
+.highlight-badge-orange {
+  background-color: #FFF7ED;
+  color: #C2410C;
+  border: 1px solid #FFEDD5;
+}
+
+.dark .highlight-badge-orange {
+  background-color: rgba(240, 90, 34, 0.15);
+  color: #FB923C;
+  border-color: rgba(240, 90, 34, 0.3);
+}
+
+.highlight-badge-gold {
+  background-color: #FEF9C3;
+  color: #854D0E;
+}
+
+.dark .highlight-badge-gold {
+  background-color: rgba(234, 179, 8, 0.15);
+  color: #FDE047;
+}
+
+/* Marquee continuous animations */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marqueeReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marqueeReverse 40s linear infinite;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Optical line pulse animation for map */
+@keyframes opticalPulse {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.3;
+  }
+}
+
+.animate-optical-pulse {
+  stroke-dasharray: 10 15;
+  animation: opticalPulse 4s linear infinite;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #0E1019;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #252A38;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F05A22;
+}
+
+/* Subtle continuous ambient animation loops */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes shimmerWave {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmerWave 3.5s infinite;
+}
+
+/* 0.5s Continuous Speed Pulse Loop for Hero Section */
+@keyframes speedLoopHalf {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 8px rgba(240, 90, 34, 0.75)) drop-shadow(0 0 16px rgba(255, 122, 56, 0.4));
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.04);
+    filter: drop-shadow(0 0 22px rgba(255, 122, 56, 1)) drop-shadow(0 0 32px rgba(250, 204, 21, 0.75));
+    opacity: 0.88;
+  }
+}
+
+.animate-speed-loop-half {
+  animation: speedLoopHalf 0.5s ease-in-out infinite;
+}
+
+
