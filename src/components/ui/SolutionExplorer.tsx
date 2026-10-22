@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Check,
   ArrowRight,
@@ -12,7 +13,6 @@ import {
   Code2,
   ChevronLeft,
   ChevronRight,
-  Sparkles,
   ExternalLink,
 } from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
@@ -21,6 +21,8 @@ interface SolutionItem {
   id: string;
   badge: string;
   icon: React.ReactNode;
+  image: string;
+  href: string;
   title: string;
   target: string;
   description: string;
@@ -34,6 +36,8 @@ const SOLUTIONS: SolutionItem[] = [
     id: "corporate",
     badge: "Corporate Internet",
     icon: <Globe className="w-5 h-5 text-brand-orange" />,
+    image: "/images/services/corporate-internet.jpg",
+    href: "/services/corporate-internet",
     title: "Corporate Internet Solutions",
     target: "Enterprises, Financial Institutions, Corporate HQs & Campuses",
     description:
@@ -57,6 +61,8 @@ const SOLUTIONS: SolutionItem[] = [
     id: "cloud",
     badge: "Cloud & Hosting",
     icon: <Cloud className="w-5 h-5 text-brand-orange" />,
+    image: "/images/services/cloud-hosting.jpg",
+    href: "/services/cloud-hosting",
     title: "Cloud and Hosting Solutions",
     target: "Tech Startups, Enterprises, Digital Teams & Mission-Critical Portals",
     description:
@@ -76,6 +82,8 @@ const SOLUTIONS: SolutionItem[] = [
     id: "managed-it",
     badge: "Managed IT Services",
     icon: <Cpu className="w-5 h-5 text-brand-orange" />,
+    image: "/images/services/managed-it.jpg",
+    href: "/services/managed-it",
     title: "Managed IT Solutions and Services",
     target: "Corporate Campuses, Commercial Facilities, Healthcare & Branch Networks",
     description:
@@ -95,6 +103,8 @@ const SOLUTIONS: SolutionItem[] = [
     id: "cybersecurity",
     badge: "Cybersecurity Defense",
     icon: <ShieldCheck className="w-5 h-5 text-brand-orange" />,
+    image: "/images/services/cybersecurity.jpg",
+    href: "/services/cybersecurity",
     title: "Cybersecurity Services",
     target: "Enterprises, Financial Institutions, Healthcare & Sensitive Networks",
     description:
@@ -114,6 +124,8 @@ const SOLUTIONS: SolutionItem[] = [
     id: "digital",
     badge: "Digital Solutions",
     icon: <Code2 className="w-5 h-5 text-brand-orange" />,
+    image: "/images/services/digital-solutions.jpg",
+    href: "/services/digital-solutions",
     title: "Digital Solutions",
     target: "Growing Brands, Modern Enterprises, Startups & Commercial Businesses",
     description:
@@ -276,10 +288,10 @@ export default function SolutionExplorer() {
                   {/* CTAs */}
                   <div className="flex flex-wrap items-center gap-3 pt-4">
                     <Link
-                      href="/contact"
+                      href={sol.href}
                       className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white text-xs sm:text-sm font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl transition-all shadow-md shadow-brand-orange/30 hover:-translate-y-0.5"
                     >
-                      <span>Request Feasibility</span>
+                      <span>Explore Dedicated Service Page</span>
                       <ArrowRight className="w-4 h-4" />
                     </Link>
 
@@ -295,22 +307,35 @@ export default function SolutionExplorer() {
                   </div>
                 </div>
 
-                {/* Right: Technical Spec Card */}
-                <div className="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 space-y-5 text-center relative overflow-hidden shadow-inner">
-                  <div className="w-16 h-16 rounded-2xl bg-orange-100 border border-orange-200 text-brand-orange flex items-center justify-center mx-auto shadow-sm">
-                    {sol.icon}
-                  </div>
+                {/* Right: Technical Spec Card with Dedicated Image */}
+                <div className="lg:col-span-5 p-5 sm:p-6 rounded-2xl bg-slate-50 border border-slate-200 space-y-4 text-center relative overflow-hidden shadow-inner">
+                  {/* Service Visual Preview */}
+                  <Link href={sol.href} className="block group">
+                    <div className="relative h-44 sm:h-52 w-full rounded-xl overflow-hidden border border-slate-200 shadow-md">
+                      <Image
+                        src={sol.image}
+                        alt={sol.title}
+                        fill
+                        className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      <div className="absolute bottom-2.5 left-3 right-3 text-left">
+                        <span className="text-[10px] font-bold text-orange-300 block uppercase">Dedicated Architecture</span>
+                        <span className="text-xs sm:text-sm font-bold text-white block truncate">{sol.title} &rarr;</span>
+                      </div>
+                    </div>
+                  </Link>
 
                   <div>
-                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest block">
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">
                       ARCHITECTURAL HIGHLIGHT
                     </span>
-                    <h4 className="text-base sm:text-lg font-black text-slate-900 font-heading mt-1">
+                    <h4 className="text-sm sm:text-base font-black text-slate-900 font-heading mt-0.5">
                       {sol.highlight}
                     </h4>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-white border border-slate-200 text-left space-y-2">
+                  <div className="p-3 rounded-xl bg-white border border-slate-200 text-left space-y-1.5">
                     <div className="flex items-center justify-between text-xs">
                       <span className="text-slate-500 font-medium">Network SLA:</span>
                       <span className="font-extrabold text-brand-orange">99.99% Core</span>
@@ -323,17 +348,13 @@ export default function SolutionExplorer() {
                       <span className="text-slate-500 font-medium">Support:</span>
                       <span className="font-bold text-slate-800">24/7/365 Direct NOC</span>
                     </div>
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-slate-500 font-medium">Deployment:</span>
-                      <span className="font-bold text-slate-800">Dedicated Turnkey</span>
-                    </div>
                   </div>
 
                   <Link
-                    href="/services"
+                    href={sol.href}
                     className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-brand-orange hover:text-brand-orangeLight transition-colors w-full"
                   >
-                    <span>View All Services &amp; Products</span>
+                    <span>View Detailed Specifications</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>

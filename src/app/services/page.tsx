@@ -34,6 +34,8 @@ const SERVICES_DATA = [
   {
     id: "corporate",
     category: "corporate",
+    href: "/services/corporate-internet",
+    image: "/images/services/corporate-internet.jpg",
     icon: <Globe className="w-8 h-8 text-brand-orange" />,
     title: "Corporate Internet Solutions",
     tagline: "Dedicated, uncontended enterprise connectivity backed by contractual SLAs.",
@@ -61,6 +63,8 @@ const SERVICES_DATA = [
   {
     id: "cloud",
     category: "cloud",
+    href: "/services/cloud-hosting",
+    image: "/images/services/cloud-hosting.jpg",
     icon: <Cloud className="w-8 h-8 text-brand-orange" />,
     title: "Cloud and Hosting Solutions",
     tagline: "Scalable virtual compute, secure data center colocation, and corporate email suites.",
@@ -88,6 +92,8 @@ const SERVICES_DATA = [
   {
     id: "managed-it",
     category: "managed-it",
+    href: "/services/managed-it",
+    image: "/images/services/managed-it.jpg",
     icon: <Cpu className="w-8 h-8 text-brand-orange" />,
     title: "Managed IT Solutions and Services",
     tagline: "24/7 NOC oversight, proactive hardware maintenance, and rapid field dispatch.",
@@ -115,6 +121,8 @@ const SERVICES_DATA = [
   {
     id: "cybersecurity",
     category: "cybersecurity",
+    href: "/services/cybersecurity",
+    image: "/images/services/cybersecurity.jpg",
     icon: <ShieldCheck className="w-8 h-8 text-brand-orange" />,
     title: "Cybersecurity Services",
     tagline: "Multi-layered perimeter defense, threat detection, and corporate data protection.",
@@ -142,6 +150,8 @@ const SERVICES_DATA = [
   {
     id: "digital",
     category: "digital",
+    href: "/services/digital-solutions",
+    image: "/images/services/digital-solutions.jpg",
     icon: <Code2 className="w-8 h-8 text-brand-orange" />,
     title: "Digital Solutions",
     tagline: "Custom web development, cross-platform mobile apps, and creative brand design.",
@@ -229,50 +239,83 @@ export default function ServicesPage() {
       </section>
 
       {/* ============================================================
-          2. 5 OFFICIAL SERVICES & PRODUCTS CARDS
+          2. 5 OFFICIAL SERVICES & PRODUCTS CARDS (WITH DEDICATED IMAGES)
           ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         {filteredServices.map((service) => (
           <div
             key={service.id}
             className="bg-white p-6 sm:p-10 rounded-3xl border border-slate-200 hover:border-brand-orange/60 transition-all duration-300 shadow-xl shadow-slate-200/50 space-y-6"
           >
-            {/* Header row */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-slate-100">
-              <div className="flex items-center gap-3 sm:gap-4">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-center shrink-0 shadow-sm">
-                  {service.icon}
+            {/* Top row with Image and Info */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pb-6 border-b border-slate-100">
+              {/* Left Column: Heading and info */}
+              <div className="lg:col-span-8 space-y-4">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-orange-50 border border-orange-200 flex items-center justify-center shrink-0 shadow-sm">
+                    {service.icon}
+                  </div>
+                  <div>
+                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 font-heading">
+                      <Link href={service.href} className="hover:text-brand-orange transition-colors">
+                        {service.title}
+                      </Link>
+                    </h2>
+                    <p className="text-xs sm:text-sm text-brand-orange font-bold mt-0.5">
+                      {service.tagline}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 font-heading">
-                    {service.title}
-                  </h2>
-                  <p className="text-xs sm:text-sm text-brand-orange font-bold mt-0.5">
-                    {service.tagline}
-                  </p>
+
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl">
+                  {service.description}
+                </p>
+
+                {/* Direct Action Links */}
+                <div className="flex flex-wrap items-center gap-3 pt-2">
+                  <Link
+                    href={service.href}
+                    className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-brand-orange/25 transition-all"
+                  >
+                    <span>View Dedicated {service.title} Page</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold border border-slate-200 transition-all"
+                  >
+                    <span>Request Feasibility</span>
+                  </Link>
                 </div>
               </div>
 
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-brand-orange/25 transition-all shrink-0 w-full sm:w-auto text-center"
-              >
-                <span>Request Feasibility</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+              {/* Right Column: Relative Service Image */}
+              <div className="lg:col-span-4">
+                <Link href={service.href} className="block group">
+                  <div className="relative h-48 sm:h-56 w-full rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                    <div className="absolute bottom-3 left-3 right-3 text-white">
+                      <span className="text-[11px] font-bold text-orange-300 block uppercase">Explore Architecture</span>
+                      <span className="text-xs sm:text-sm font-bold block truncate">{service.title} &rarr;</span>
+                    </div>
+                  </div>
+                </Link>
+              </div>
             </div>
 
-            {/* Description */}
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-4xl">
-              {service.description}
-            </p>
-
             {/* Sub-services Grid (Matching Flyer Bullet Points) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pt-1">
               {service.items.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-2xl bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 hover:border-orange-200 transition-all space-y-2 group"
+                  className="p-4 sm:p-5 rounded-2xl bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 hover:border-orange-200 transition-all space-y-2 group"
                 >
                   <div className="flex items-center gap-2 font-bold text-slate-900 text-sm group-hover:text-brand-orange transition-colors">
                     <div className="w-5 h-5 rounded-full bg-orange-100 text-brand-orange flex items-center justify-center shrink-0">
