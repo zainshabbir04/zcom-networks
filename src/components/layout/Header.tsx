@@ -141,7 +141,7 @@ export default function Header() {
               {!isHome && (
                 <>
                   <div className="hidden xl:flex items-center gap-1.5 text-[11px] font-bold text-slate-700 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 whitespace-nowrap">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
                     <span>Core <AnimatedCounter from={0} to={100} duration={1400} />G: Optimal</span>
                   </div>
 
@@ -217,7 +217,7 @@ export default function Header() {
 
             <div className="flex items-center gap-4">
               <div className="hidden sm:flex items-center gap-2 text-xs text-slate-600 font-semibold">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
                 <span>Gulberg-III Network Operations Center: Online</span>
               </div>
 
@@ -328,7 +328,7 @@ export default function Header() {
                   href="https://wa.me/923171118042"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs py-2.5 px-4 rounded-xl shadow-md transition-all"
+                  className="inline-flex items-center justify-center gap-2 w-full bg-slate-900 hover:bg-brand-orange text-white font-bold text-xs py-2.5 px-4 rounded-xl shadow-md transition-all"
                 >
                   <span>WhatsApp Chat</span>
                   <ExternalLink className="w-3.5 h-3.5" />

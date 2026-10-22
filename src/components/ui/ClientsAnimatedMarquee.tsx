@@ -37,7 +37,7 @@ const ALL_CLIENTS: ClientOrg[] = [
     category: "Hospitality",
     service: "Multi-branch Leased Connectivity",
     badgeColor: "bg-orange-500/10 text-brand-orange dark:text-orange-400 border-orange-500/20",
-    gradient: "from-orange-500/10 via-amber-500/5 to-transparent",
+    gradient: "from-orange-500/10 via-orange-400/5 to-transparent",
   },
   {
     name: "Zameen.com",
@@ -61,7 +61,7 @@ const ALL_CLIENTS: ClientOrg[] = [
     category: "Enterprise",
     service: "Low-Latency Point-to-Point VPN",
     badgeColor: "bg-orange-500/10 text-brand-orange dark:text-orange-400 border-orange-500/20",
-    gradient: "from-orange-500/10 via-amber-500/5 to-transparent",
+    gradient: "from-orange-500/10 via-orange-400/5 to-transparent",
   },
   {
     name: "Lahore Leads University",
@@ -109,7 +109,7 @@ const ALL_CLIENTS: ClientOrg[] = [
     category: "Enterprise",
     service: "Corporate Optical Fiber Pipe",
     badgeColor: "bg-orange-500/10 text-brand-orange dark:text-orange-400 border-orange-500/20",
-    gradient: "from-orange-500/10 via-amber-500/5 to-transparent",
+    gradient: "from-orange-500/10 via-orange-400/5 to-transparent",
   },
   {
     name: "Meraki Matrix",
@@ -141,7 +141,7 @@ const ALL_CLIENTS: ClientOrg[] = [
     category: "Enterprise",
     service: "High-Bandwidth ERP Connection",
     badgeColor: "bg-orange-500/10 text-brand-orange dark:text-orange-400 border-orange-500/20",
-    gradient: "from-orange-500/10 via-amber-500/5 to-transparent",
+    gradient: "from-orange-500/10 via-orange-400/5 to-transparent",
   },
   {
     name: "4S Security",
@@ -189,7 +189,7 @@ const ALL_CLIENTS: ClientOrg[] = [
     category: "Enterprise",
     service: "Multi-Site Metro Ring",
     badgeColor: "bg-orange-500/10 text-brand-orange dark:text-orange-400 border-orange-500/20",
-    gradient: "from-orange-500/10 via-amber-500/5 to-transparent",
+    gradient: "from-orange-500/10 via-orange-400/5 to-transparent",
   },
 ];
 

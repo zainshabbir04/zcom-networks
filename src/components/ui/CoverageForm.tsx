@@ -22,10 +22,10 @@ export default function CoverageForm() {
 
   if (submitted) {
     return (
-      <div className="p-6 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 text-center space-y-3">
-        <CheckCircle2 className="w-10 h-10 text-emerald-500 mx-auto" />
-        <h4 className="font-bold text-slate-900 dark:text-white text-lg">Inquiry Forwarded!</h4>
-        <p className="text-sm text-slate-600 dark:text-gray-300">
+      <div className="p-6 rounded-2xl bg-orange-50 border border-orange-200 text-center space-y-3">
+        <CheckCircle2 className="w-10 h-10 text-brand-orange mx-auto" />
+        <h4 className="font-bold text-slate-900 text-lg">Inquiry Forwarded!</h4>
+        <p className="text-sm text-slate-600">
           Our Lahore field team has received your location and will confirm node
           feasibility with you momentarily via WhatsApp.
         </p>
@@ -35,7 +35,7 @@ export default function CoverageForm() {
             setArea("");
             setPhone("");
           }}
-          className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold hover:underline pt-2"
+          className="text-xs text-brand-orange font-semibold hover:underline pt-2"
         >
           Check another location
         </button>

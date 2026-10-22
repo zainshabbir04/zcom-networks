@@ -505,7 +505,7 @@ export default function AboutPage() {
               href="https://wa.me/923171118042"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg hover:-translate-y-0.5 w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-brand-orange text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg hover:-translate-y-0.5 w-full sm:w-auto"
             >
               <span>Chat on WhatsApp</span>
             </a>

@@ -300,7 +300,7 @@ export default function SolutionExplorer() {
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] text-white text-sm font-bold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-md shadow-[#25D366]/25 hover:-translate-y-0.5"
+                        className="w-full inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-brand-orange text-white text-sm font-bold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-md shadow-slate-900/20 hover:-translate-y-0.5"
                       >
                         <span>Inquire on WhatsApp</span>
                         <ArrowRight className="w-4 h-4" />
@@ -358,7 +358,7 @@ export default function SolutionExplorer() {
         <div className="flex items-center gap-1.5 text-[11px] font-medium">
           <span
             className={`w-2 h-2 rounded-full ${
-              isPaused ? "bg-amber-400" : "bg-emerald-500 animate-pulse"
+              isPaused ? "bg-slate-400" : "bg-brand-orange animate-pulse"
             }`}
           />
           <span>{isPaused ? "Paused" : "Auto-looping"}</span>

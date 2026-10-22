@@ -258,15 +258,15 @@ export default function WhyUsPage() {
                     <td className="py-4 px-6 font-bold text-slate-900 dark:text-white">
                       {row.feature}
                     </td>
-                    <td className="py-4 px-6 font-medium text-emerald-600 dark:text-emerald-400 bg-orange-50/40 dark:bg-orange-500/5 border-x border-orange-200/60 dark:border-orange-500/20">
+                    <td className="py-4 px-6 font-medium text-brand-orange bg-orange-50/40 border-x border-orange-200/60">
                       <div className="flex items-center gap-2">
                         <Check className="w-4 h-4 text-brand-orange shrink-0 stroke-[3]" />
                         <span>{row.zcom}</span>
                       </div>
                     </td>
-                    <td className="py-4 px-6 text-slate-500 dark:text-slate-400">
+                    <td className="py-4 px-6 text-slate-500">
                       <div className="flex items-center gap-2">
-                        <X className="w-4 h-4 text-rose-500 shrink-0 stroke-[2.5]" />
+                        <X className="w-4 h-4 text-slate-400 shrink-0 stroke-[2.5]" />
                         <span>{row.traditional}</span>
                       </div>
                     </td>

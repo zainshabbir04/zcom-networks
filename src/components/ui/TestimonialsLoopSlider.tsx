@@ -231,7 +231,7 @@ export default function TestimonialsLoopSlider() {
               {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
-                  className="w-4 h-4 fill-amber-400 text-amber-400"
+                  className="w-4 h-4 fill-brand-orange text-brand-orange"
                 />
               ))}
               <span className="text-xs font-bold text-slate-700 dark:text-slate-300 ml-2">
@@ -269,7 +269,7 @@ export default function TestimonialsLoopSlider() {
 
           {/* Right Column: Key Highlight & Verified Quote */}
           <div className="lg:col-span-7 space-y-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950/40 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400 text-xs font-bold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 border border-orange-200 text-brand-orange text-xs font-bold">
               <CheckCircle2 className="w-3.5 h-3.5" />
               <span>{current.highlight}</span>
             </div>

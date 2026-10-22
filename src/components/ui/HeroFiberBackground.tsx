@@ -354,8 +354,8 @@ export default function HeroFiberBackground() {
     <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden select-none">
       {/* 1. Ambient Optical Glow Flares (Stripe / Linear Inspired Depth) */}
       <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-brand-orange/15 dark:bg-brand-orange/20 blur-[110px] pointer-events-none" />
-      <div className="absolute top-1/4 -right-32 w-[30rem] h-[30rem] rounded-full bg-sky-400/10 dark:bg-sky-500/15 blur-[120px] pointer-events-none" />
-      <div className="absolute -bottom-32 left-1/3 w-[26rem] h-[26rem] rounded-full bg-amber-400/10 dark:bg-amber-500/15 blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 -right-32 w-[30rem] h-[30rem] rounded-full bg-slate-300/20 blur-[120px] pointer-events-none" />
+      <div className="absolute -bottom-32 left-1/3 w-[26rem] h-[26rem] rounded-full bg-brand-orange/10 blur-[100px] pointer-events-none" />
 
       {/* 2. Micro Cyber Perspective Grid Pattern */}
       <div

@@ -27,10 +27,10 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="p-8 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 text-center space-y-4">
-        <CheckCircle2 className="w-12 h-12 text-emerald-500 mx-auto" />
-        <h4 className="font-bold text-slate-900 dark:text-white text-xl">Thank You for Reaching Out!</h4>
-        <p className="text-sm text-slate-600 dark:text-gray-300">
+      <div className="p-8 rounded-2xl bg-orange-50 border border-orange-200 text-center space-y-4">
+        <CheckCircle2 className="w-12 h-12 text-brand-orange mx-auto" />
+        <h4 className="font-bold text-slate-900 text-xl">Thank You for Reaching Out!</h4>
+        <p className="text-sm text-slate-600">
           Your inquiry has been dispatched to our sales &amp; engineering desk.
           Our team in Gulberg-III, Lahore will connect with you shortly.
         </p>
@@ -45,7 +45,7 @@ export default function ContactForm() {
               message: "",
             });
           }}
-          className="text-xs text-emerald-600 dark:text-emerald-400 hover:underline pt-2 font-medium"
+          className="text-xs text-brand-orange hover:underline pt-2 font-medium"
         >
           Send another inquiry
         </button>

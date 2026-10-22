@@ -264,7 +264,7 @@ export default function InfrastructureLoopSlider() {
               <div className="space-y-2 pt-2">
                 {slide.features.map((feature, i) => (
                   <div key={i} className="flex items-center gap-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-brand-orange shrink-0" />
                     <span>{feature}</span>
                   </div>
                 ))}

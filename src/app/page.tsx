@@ -349,12 +349,12 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
         <div className="relative rounded-3xl overflow-hidden border border-orange-200/80 dark:border-slate-700/60 bg-gradient-to-br from-orange-50/70 via-white/85 to-slate-100/60 dark:from-[#161B26]/90 dark:via-[#12161F]/95 dark:to-[#0E1118]/90 backdrop-blur-2xl p-6 sm:p-10 lg:p-16 text-center space-y-6 shadow-2xl shadow-orange-500/5 dark:shadow-black/60">
           {/* Ambient Optical Glows */}
-          <div className="absolute -top-24 -left-24 w-80 h-80 bg-brand-orange/15 dark:bg-brand-orange/20 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-amber-400/15 dark:bg-brand-orangeLight/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -top-24 -left-24 w-80 h-80 bg-brand-orange/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-orange-400/10 rounded-full blur-3xl pointer-events-none" />
           
           {/* Subtle Grid Pattern Overlay */}
           <div
-            className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
+            className="absolute inset-0 opacity-[0.03] pointer-events-none"
             style={{
               backgroundImage: "radial-gradient(#F05A22 1px, transparent 1px)",
               backgroundSize: "24px 24px",
@@ -362,12 +362,12 @@ export default function HomePage() {
           />
 
           <div className="relative z-10 space-y-5 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange/10 dark:bg-brand-orange/20 border border-brand-orange/30 text-brand-orange text-xs font-bold uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange/10 border border-brand-orange/30 text-brand-orange text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
               <span>GET CONNECTED IN LAHORE</span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight leading-tight">
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-slate-900 font-heading tracking-tight leading-tight">
               Ready for{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-orangeLight to-orange-500">
                 lightning-fast fiber
@@ -375,7 +375,7 @@ export default function HomePage() {
               connectivity?
             </h2>
 
-            <p className="text-base sm:text-lg text-slate-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed font-medium">
+            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed font-medium">
               Contact our Lahore engineering desk today for a free optical site survey, feasibility inspection, and custom enterprise quote.
             </p>
 
@@ -392,30 +392,30 @@ export default function HomePage() {
                 href="https://wa.me/923171118042"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm sm:text-base px-8 py-4 rounded-xl transition-all shadow-xl shadow-emerald-600/25 hover:shadow-emerald-600/40 hover:-translate-y-0.5 w-full sm:w-auto"
+                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-brand-orange text-white font-bold text-sm sm:text-base px-8 py-4 rounded-xl transition-all shadow-xl shadow-slate-900/20 hover:-translate-y-0.5 w-full sm:w-auto"
               >
                 <span>Chat on WhatsApp</span>
               </a>
             </div>
 
             {/* Micro Guarantees Trust Strip */}
-            <div className="pt-6 border-t border-slate-200/70 dark:border-white/10 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-slate-500 dark:text-gray-400 font-semibold text-left sm:text-center">
+            <div className="pt-6 border-t border-slate-200 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-slate-600 font-semibold text-left sm:text-center">
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-brand-orange shrink-0" />
                 <span>Free On-Site Survey</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-brand-orange shrink-0" />
                 <span>24-48h Rapid Turnaround</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-brand-orange shrink-0" />
                 <span>
                   <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> Contractual SLA
                 </span>
               </div>
               <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-brand-orange shrink-0" />
                 <span>Zero FUP Throttling</span>
               </div>
             </div>
