@@ -22,22 +22,14 @@ import ClientsAnimatedMarquee from "@/components/ui/ClientsAnimatedMarquee";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import TestimonialsLoopSlider from "@/components/ui/TestimonialsLoopSlider";
-import StickyBackground3D from "@/components/3d/StickyBackground3D";
 
 export default function HomePage() {
   return (
     <div className="relative transition-colors duration-300 -mt-20 sm:-mt-24">
-      {/* ============================================================
-          STICKY 3D ANIMATED BACKGROUND (Sticks in viewport until footer)
-          ============================================================ */}
-      <div className="sticky top-0 h-screen w-full -mb-[100vh] pointer-events-none z-0 overflow-hidden">
-        <StickyBackground3D />
-      </div>
-
       {/* Main Page Sections Content Layer */}
       <div className="relative z-10 space-y-24 sm:space-y-32">
         {/* ============================================================
-            1. CINEMATIC HERO SLIDER WITH 3D ROTATING GLOBE
+            1. CINEMATIC HERO VIDEO BANNER
             ============================================================ */}
         <HeroSlider />
 
