@@ -43,9 +43,9 @@ interface SlideData {
 }
 
 const BANNER_VIDEOS = [
-  { id: "v1", src: "/videos/1.mp4", label: "01 · Metro Fiber Core" },
-  { id: "v2", src: "/videos/2.mp4", label: "02 · Enterprise DIA" },
-  { id: "v3", src: "/videos/3.mp4", label: "03 · High-Speed Transport" },
+  { id: "v1", src: "/videos/1.mp4", label: "01 · Metro Fiber Core", duration: 10 },
+  { id: "v2", src: "/videos/2.mp4", label: "02 · Enterprise DIA", duration: 6 },
+  { id: "v3", src: "/videos/3.mp4", label: "03 · High-Speed Transport", duration: 8 },
 ];
 
 const ROTATING_WORDS = [
@@ -129,57 +129,74 @@ const SLIDES: SlideData[] = [
 
 export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
   const [isPlayingVideo, setIsPlayingVideo] = useState(true);
   const [rotatingIndex, setRotatingIndex] = useState(0);
-  const slideTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const [currentProgress, setCurrentProgress] = useState(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const isTransitioningRef = useRef(false);
 
   const totalSlides = SLIDES.length;
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
+    setCurrentProgress(0);
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
+    setCurrentProgress(0);
   };
 
   const goToSlide = (index: number) => {
+    const targetVideo = videoRefs.current[index % BANNER_VIDEOS.length];
+    if (targetVideo) {
+      targetVideo.currentTime = 0;
+      targetVideo.play().catch(() => {});
+    }
     setCurrentSlide(index);
+    setCurrentProgress(0);
   };
 
-  // Guarantee active video playback across all modern browsers
+  // Active video controller: plays full video without skipping any second
   useEffect(() => {
+    const activeIdx = currentSlide % BANNER_VIDEOS.length;
+
     BANNER_VIDEOS.forEach((_, idx) => {
       const vid = videoRefs.current[idx];
-      if (vid) {
-        vid.muted = true;
-        vid.defaultMuted = true;
-        vid.playsInline = true;
-        if (idx === currentSlide % BANNER_VIDEOS.length) {
-          if (isPlayingVideo) {
-            const playPromise = vid.play();
-            if (playPromise !== undefined) {
-              playPromise.catch((err) => {
-                console.warn("Video play prevented by browser policy:", err);
-              });
-            }
-          } else {
-            vid.pause();
+      if (!vid) return;
+
+      vid.muted = true;
+      vid.defaultMuted = true;
+      vid.playsInline = true;
+
+      if (idx === activeIdx) {
+        if (isPlayingVideo) {
+          if (vid.paused) {
+            vid.currentTime = 0;
+            const p = vid.play();
+            if (p !== undefined) p.catch(() => {});
           }
         } else {
           vid.pause();
         }
+      } else {
+        // Keep fading-out video playing for 600ms so cross-fade has zero freeze frames
+        const timeoutId = setTimeout(() => {
+          if (idx !== currentSlide % BANNER_VIDEOS.length) {
+            vid.pause();
+            vid.currentTime = 0;
+          }
+        }, 700);
+        return () => clearTimeout(timeoutId);
       }
     });
   }, [currentSlide, isPlayingVideo]);
 
-  // First interaction unlock (click, touch, scroll) for strict browser autoplay policies
+  // First interaction unlock for strict browser autoplay policies
   useEffect(() => {
     const unlockPlay = () => {
       const activeVid = videoRefs.current[currentSlide % BANNER_VIDEOS.length];
-      if (activeVid && isPlayingVideo) {
+      if (activeVid && isPlayingVideo && activeVid.paused) {
         activeVid.muted = true;
         activeVid.play().catch(() => {});
       }
@@ -196,6 +213,39 @@ export default function HeroSlider() {
     };
   }, [currentSlide, isPlayingVideo]);
 
+  // Track live playback second-by-second and pre-cue next video seamlessly
+  const handleVideoTimeUpdate = (idx: number, e: React.SyntheticEvent<HTMLVideoElement>) => {
+    const activeIdx = currentSlide % BANNER_VIDEOS.length;
+    if (idx !== activeIdx) return;
+    const vid = e.currentTarget;
+    if (vid.duration && !isNaN(vid.duration)) {
+      const pct = Math.min(100, (vid.currentTime / vid.duration) * 100);
+      setCurrentProgress(pct);
+
+      // Pre-cue next video 0.5s before end so it is pre-buffered with 0ms delay
+      const nextIdx = (activeIdx + 1) % BANNER_VIDEOS.length;
+      const nextVid = videoRefs.current[nextIdx];
+      if (nextVid && isPlayingVideo && vid.currentTime >= vid.duration - 0.5) {
+        if (nextVid.paused) {
+          nextVid.currentTime = 0;
+          nextVid.play().catch(() => {});
+        }
+      }
+    }
+  };
+
+  // Called when video completes 100% of its full duration (no cut off!)
+  const handleVideoEnded = (idx: number) => {
+    const activeIdx = currentSlide % BANNER_VIDEOS.length;
+    if (idx !== activeIdx) return;
+    if (isTransitioningRef.current) return;
+    isTransitioningRef.current = true;
+    nextSlide();
+    setTimeout(() => {
+      isTransitioningRef.current = false;
+    }, 800);
+  };
+
   // Rotating kinetic words loop (like gcspvt.com)
   useEffect(() => {
     const wordInterval = setInterval(() => {
@@ -204,21 +254,6 @@ export default function HeroSlider() {
 
     return () => clearInterval(wordInterval);
   }, []);
-
-  // Slide Auto-play timer (rotates every 7 seconds if not paused)
-  useEffect(() => {
-    if (isPaused) return;
-
-    slideTimerRef.current = setTimeout(() => {
-      nextSlide();
-    }, 7000);
-
-    return () => {
-      if (slideTimerRef.current) {
-        clearTimeout(slideTimerRef.current);
-      }
-    };
-  }, [currentSlide, isPaused]);
 
   // Video play/pause toggle
   const toggleVideoPlayback = () => {
@@ -239,12 +274,10 @@ export default function HeroSlider() {
 
   return (
     <section
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
       className="relative min-h-[95vh] flex items-center justify-center pt-24 pb-20 sm:pt-28 lg:pt-32 lg:pb-24 overflow-hidden bg-black text-white transition-colors duration-300"
     >
       {/* ============================================================
-          1. BACKGROUND VIDEO LAYER (Triple-Buffered Cross-Fade)
+          1. BACKGROUND VIDEO LAYER (Seamless Gapless Cross-Fade)
           ============================================================ */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         {BANNER_VIDEOS.map((vid, idx) => {
@@ -257,26 +290,29 @@ export default function HeroSlider() {
                 if (el) {
                   el.muted = true;
                   el.defaultMuted = true;
-                  if (isActive && isPlayingVideo) {
+                  el.playsInline = true;
+                  if (isActive && isPlayingVideo && el.paused) {
                     el.play().catch(() => {});
                   }
                 }
               }}
               src={vid.src}
               autoPlay
-              loop
+              loop={false}
               muted
               playsInline
               preload="auto"
+              onTimeUpdate={(e) => handleVideoTimeUpdate(idx, e)}
+              onEnded={() => handleVideoEnded(idx)}
               onLoadedData={(e) => {
                 const target = e.currentTarget;
                 target.muted = true;
-                if (isActive && isPlayingVideo) {
+                if (isActive && isPlayingVideo && target.paused) {
                   target.play().catch(() => {});
                 }
               }}
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
-                isActive ? "opacity-100" : "opacity-0 pointer-events-none"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ease-in-out ${
+                isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
               }`}
             >
               <source src={vid.src} type="video/mp4" />
@@ -384,14 +420,24 @@ export default function HeroSlider() {
               <button
                 key={vid.id}
                 onClick={() => goToSlide(idx)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-200 flex items-center gap-2 backdrop-blur-md cursor-pointer ${
+                className={`relative overflow-hidden px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-200 flex items-center gap-2 backdrop-blur-md cursor-pointer ${
                   isActive
-                    ? "bg-brand-orange text-white shadow-lg shadow-brand-orange/30 scale-102 border border-brand-orange"
+                    ? "bg-slate-900/90 text-white shadow-lg shadow-brand-orange/30 border border-brand-orange ring-1 ring-brand-orange/50"
                     : "bg-slate-900/70 text-slate-300 hover:text-white border border-slate-700/60 hover:border-slate-500"
                 }`}
               >
-                <Video className="w-3 h-3 text-current" />
-                <span>{vid.label}</span>
+                {/* Live continuous progress bar fill (0% to 100%) */}
+                {isActive && (
+                  <span
+                    className="absolute inset-y-0 left-0 bg-brand-orange/35 transition-[width] duration-150 ease-linear pointer-events-none"
+                    style={{ width: `${currentProgress}%` }}
+                  />
+                )}
+                <Video className={`w-3 h-3 relative z-10 ${isActive ? "text-brand-orange" : "text-current"}`} />
+                <span className="relative z-10">{vid.label}</span>
+                <span className="relative z-10 text-[10px] opacity-75 font-mono px-1 py-0.5 rounded bg-black/40">
+                  {vid.duration}s
+                </span>
               </button>
             );
           })}
