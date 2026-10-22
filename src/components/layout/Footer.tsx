@@ -93,8 +93,8 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-brand-orange shrink-0" />
-                <a href="mailto:sales@zcomnetworks.com.pk" className="text-white hover:text-brand-orange transition-colors">
-                  sales@zcomnetworks.com.pk
+                <a href="mailto:info@zcomnetworks.com.pk" className="text-white hover:text-brand-orange transition-colors">
+                  info@zcomnetworks.com.pk
                 </a>
               </div>
             </div>
@@ -130,37 +130,37 @@ export default function Footer() {
           <div className="lg:col-span-3 space-y-4">
             <h4 className="text-white font-bold text-sm tracking-wider uppercase font-heading flex items-center gap-2">
               <Server className="w-4 h-4 text-brand-orange" />
-              <span>Optical Solutions</span>
+              <span>Services &amp; Products</span>
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link href="/services" className="hover:text-brand-orange transition-colors">
-                  Dedicated Internet Access (DIA)
+                  Corporate Internet (DIA &amp; MPLS)
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="hover:text-brand-orange transition-colors">
-                  Corporate Point-to-Point Links
+                  Point to Point Fiber Connectivity
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="hover:text-brand-orange transition-colors">
-                  Metro Ethernet Layer-2 Transport
+                  Cloud &amp; Hosting (VMs / Colocation)
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="hover:text-brand-orange transition-colors">
-                  Dark Fiber Leasing &amp; Core IRU
+                  Managed IT Solutions &amp; NOC Services
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="hover:text-brand-orange transition-colors">
-                  Campus High-Density Wi-Fi
+                  Cybersecurity &amp; DDoS Defense
                 </Link>
               </li>
               <li>
                 <Link href="/services" className="hover:text-brand-orange transition-colors">
-                  Data Center Colocation &amp; Cross-Connects
+                  Digital Solutions (Web &amp; Apps)
                 </Link>
               </li>
             </ul>

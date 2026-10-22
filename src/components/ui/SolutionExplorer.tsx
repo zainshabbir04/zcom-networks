@@ -6,15 +6,14 @@ import {
   Check,
   ArrowRight,
   ShieldCheck,
-  Zap,
   Globe,
-  Server,
-  Laptop,
-  Building2,
+  Cloud,
+  Cpu,
+  Code2,
   ChevronLeft,
   ChevronRight,
   Sparkles,
-  Sliders,
+  ExternalLink,
 } from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
@@ -32,102 +31,103 @@ interface SolutionItem {
 
 const SOLUTIONS: SolutionItem[] = [
   {
-    id: "residential",
-    badge: "Residential Connectivity",
-    icon: <Laptop className="w-5 h-5 text-brand-orange" />,
-    title: "High-Speed Home Fiber",
-    target: "Home Entertainment, Remote Work, 4K Streaming & Gaming",
-    description:
-      "Engineered for households requiring buffer-free streaming, competitive low-latency gaming, and reliable simultaneous connections for remote work and study.",
-    features: [
-      <span>Unlimited Data with Zero Fair Usage Policy (No FUP)</span>,
-      <span>
-        <AnimatedCounter from={0} to={100} suffix="%" /> Symmetrical Upload and Download Speeds
-      </span>,
-      <span>Low-ping routing to primary gaming, Zoom, and streaming CDNs</span>,
-      <span>Dual-band Gigabit Wi-Fi optical terminal router included</span>,
-      <span>Free site survey and standard installation in Lahore</span>,
-      <span>
-        <AnimatedCounter from={0} to={24} suffix="/7" /> localized WhatsApp &amp; phone technical support
-      </span>,
-    ],
-    highlight: <span>Symmetrical Speed Guaranteed</span>,
-    whatsappMessage:
-      "Hello Z COM! I am inquiring about Residential Fiber Internet for my home in Lahore. Please share coverage feasibility.",
-  },
-  {
-    id: "sme",
-    badge: "SME Solutions",
-    icon: <Building2 className="w-5 h-5 text-brand-orange" />,
-    title: "SME Internet Business Solutions",
-    target: "Commercial Offices, Tech Startups, Branch Locations",
-    description:
-      "Robust fiber and wireless connectivity built for small and medium businesses needing reliable cloud synchronisation, video conferencing, and priority business routing.",
-    features: [
-      <span>High-priority business routing for critical cloud apps</span>,
-      <span>Low jitter and packet priority for Zoom, Microsoft Teams &amp; VoIP</span>,
-      <span>Rapid turnaround on-site technical assistance in Lahore</span>,
-      <span>Multiple static IP configurations available upon request</span>,
-      <span>Local L2 networking and internal Wi-Fi distribution support</span>,
-      <span>Continuous network monitoring with dedicated support channel</span>,
-    ],
-    highlight: <span>Priority Business Routing</span>,
-    whatsappMessage:
-      "Hello Z COM! I am inquiring about SME Business Fiber Internet for our office in Lahore. Please share solution details.",
-  },
-  {
     id: "corporate",
-    badge: "Corporate & Enterprise",
-    icon: <Server className="w-5 h-5 text-brand-orange" />,
-    title: "Dedicated Internet Access (DIA)",
-    target: "Enterprises, Financial Institutions, Hospitals, Campuses",
+    badge: "Corporate Internet",
+    icon: <Globe className="w-5 h-5 text-brand-orange" />,
+    title: "Corporate Internet Solutions",
+    target: "Enterprises, Financial Institutions, Corporate HQs & Campuses",
     description:
-      "Dedicated 1:1 contention ratio fiber connection with contractual SLA, static IPs, and redundant carrier-grade routing for mission-critical operations.",
+      "Enterprise-grade optical connectivity featuring true 1:1 contention, multi-site MPLS routing, encrypted VPN tunnels, and subterranean Point-to-Point fiber links across Lahore.",
     features: [
+      <span>DIA (Dedicated Internet Access) with 1:1 symmetrical bandwidth</span>,
       <span>
-        True <AnimatedCounter from={0} to={1} prefix="1:" suffix=" dedicated" />, unshared optical bandwidth pipe
+        Contractual <AnimatedCounter from={0} to={99.99} decimals={2} suffix="%" /> Uptime Service Level Agreement (SLA)
       </span>,
+      <span>MPLS &amp; encrypted corporate site-to-site VPN solutions</span>,
+      <span>Point to Point subterranean fiber connectivity across Lahore</span>,
       <span>
-        Contractual <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> Uptime Service Level Agreement (SLA)
+        Proactive <AnimatedCounter from={0} to={24} suffix="/7" /> NOC monitoring with sub-30 minute MTTR dispatch
       </span>,
-      <span>
-        Proactive <AnimatedCounter from={0} to={24} suffix="/7" /> NOC monitoring with{" "}
-        <AnimatedCounter from={0} to={30} prefix="< " suffix="-min" /> MTTR dispatch
-      </span>,
-      <span>Multiple public IPv4 / IPv6 subnets with BGP routing support</span>,
-      <span>Direct low-latency interconnects to major cloud providers</span>,
-      <span>Dual-homed fiber path redundancy available on request</span>,
     ],
-    highlight: (
-      <span>
-        <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> SLA Contract Guarantee
-      </span>
-    ),
+    highlight: <span>1:1 Symmetrical Bandwidth SLA</span>,
     whatsappMessage:
-      "Hello Z COM! I am inquiring about Dedicated Internet Access (DIA) for our enterprise in Lahore. Please arrange a feasibility survey.",
+      "Hello Z COM! I am inquiring about Corporate Internet Solutions (DIA, MPLS, P2P Fiber) for our organization in Lahore.",
   },
   {
-    id: "data-connectivity",
-    badge: "Metro & Dark Fiber",
-    icon: <Globe className="w-5 h-5 text-brand-orange" />,
-    title: "Point-to-Point & Metro Ethernet",
-    target: "Multi-branch Networks, Data Centers, Financial Networks",
+    id: "cloud",
+    badge: "Cloud & Hosting",
+    icon: <Cloud className="w-5 h-5 text-brand-orange" />,
+    title: "Cloud and Hosting Solutions",
+    target: "Tech Startups, Enterprises, Digital Teams & Mission-Critical Portals",
     description:
-      "Secure, private Layer-2 optical interconnects across Lahore to link your headquarters, branches, and disaster recovery centers with wire-speed throughput.",
+      "Scalable virtual compute, secure data center colocation, dedicated corporate email suites, and high-performance web hosting built for high availability and rapid growth.",
     features: [
-      <span>Private Layer-2 point-to-point and point-to-multipoint circuits</span>,
-      <span>Sub-millisecond intra-city latency across Lahore metro ring</span>,
-      <span>Dark fiber leases and leased wavelength options</span>,
-      <span>Secure isolated transport outside the public internet</span>,
-      <span>
-        Scalable from <AnimatedCounter from={0} to={100} suffix=" Mbps" /> to{" "}
-        <AnimatedCounter from={0} to={10} suffix=" Gbps" /> on demand
-      </span>,
-      <span>Fully redundant physical fiber routing options</span>,
+      <span>High-performance VMs and VPS with dedicated vCPUs &amp; NVMe SSDs</span>,
+      <span>Tier-3 secure server rack co-location in Lahore with redundant UPS</span>,
+      <span>Dedicated business email hosting on clean, spam-filtered IPs</span>,
+      <span>Ultra-fast Linux and Windows web hosting with free SSL certificates</span>,
+      <span>Automated daily off-site backups with <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> availability</span>,
     ],
-    highlight: <span>Sub-Millisecond Metro Latency</span>,
+    highlight: <span>Tier-3 Secure Data Center</span>,
     whatsappMessage:
-      "Hello Z COM! I am inquiring about Metro Ethernet / Point-to-Point connectivity in Lahore. Please share technical options.",
+      "Hello Z COM! I am inquiring about Cloud and Hosting Solutions (VMs, VPS, Colocation, Email). Please share details.",
+  },
+  {
+    id: "managed-it",
+    badge: "Managed IT Services",
+    icon: <Cpu className="w-5 h-5 text-brand-orange" />,
+    title: "Managed IT Solutions and Services",
+    target: "Corporate Campuses, Commercial Facilities, Healthcare & Branch Networks",
+    description:
+      "End-to-end IT operations management, preventative server and hardware maintenance, structured network cabling, and rapid on-site field engineering dispatch in Lahore.",
+    features: [
+      <span>Continuous <AnimatedCounter from={0} to={24} suffix="/7" /> NOC network telemetry and health monitoring</span>,
+      <span>Preventative and emergency server, switch &amp; router maintenance</span>,
+      <span>Structured CAT6/Fiber optic cabling and campus Wi-Fi architecture</span>,
+      <span>Dedicated Lahore-based Level-3 field engineering emergency dispatch</span>,
+      <span>Proactive OTDR fiber health monitoring and ring auto-failover</span>,
+    ],
+    highlight: <span>24/7 Managed NOC Engineering</span>,
+    whatsappMessage:
+      "Hello Z COM! I am inquiring about Managed IT Solutions and NOC Services. Please share technical options.",
+  },
+  {
+    id: "cybersecurity",
+    badge: "Cybersecurity Defense",
+    icon: <ShieldCheck className="w-5 h-5 text-brand-orange" />,
+    title: "Cybersecurity Services",
+    target: "Enterprises, Financial Institutions, Healthcare & Sensitive Networks",
+    description:
+      "Multi-layered defense safeguarding corporate perimeters, cloud servers, and confidential data against sophisticated intrusion, malware, and volumetric DDoS disruptions.",
+    features: [
+      <span>Next-Generation Firewall (NGFW) deployment and rule administration</span>,
+      <span>High-capacity scrubbing centers for volumetric DDoS attack mitigation</span>,
+      <span>Routine network vulnerability assessments and security penetration audits</span>,
+      <span>Endpoint protection, automated patch deployment, and threat detection</span>,
+      <span>Zero-Trust network access (ZTNA) with multi-factor authentication</span>,
+    ],
+    highlight: <span>Zero-Trust Perimeter Defense</span>,
+    whatsappMessage:
+      "Hello Z COM! I am inquiring about Cybersecurity Services (Firewalls, DDoS Mitigation, Audits). Please share details.",
+  },
+  {
+    id: "digital",
+    badge: "Digital Solutions",
+    icon: <Code2 className="w-5 h-5 text-brand-orange" />,
+    title: "Digital Solutions",
+    target: "Growing Brands, Modern Enterprises, Startups & Commercial Businesses",
+    description:
+      "Bespoke digital engineering encompassing high-speed responsive web development, native iOS/Android mobile applications, and impactful corporate visual brand design.",
+    features: [
+      <span>Full-stack responsive corporate website development &amp; web portals</span>,
+      <span>Native and cross-platform mobile application development (iOS &amp; Android)</span>,
+      <span>Complete corporate graphic designing, branding, and UI/UX systems</span>,
+      <span>Headless CMS integrations, custom APIs, and cloud microservices</span>,
+      <span>Ongoing technical maintenance, security patches, and SEO optimization</span>,
+    ],
+    highlight: <span>Full-Stack Digital Engineering</span>,
+    whatsappMessage:
+      "Hello Z COM! I am inquiring about Digital Solutions (Website Development, Mobile Apps, Graphic Design). Please share details.",
   },
 ];
 
@@ -180,17 +180,17 @@ export default function SolutionExplorer() {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* 1. Interactive Slider Tabs Track */}
-      <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-3">
+      <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5">
         {SOLUTIONS.map((s, idx) => {
           const isActive = idx === currentSlide;
           return (
             <button
               key={s.id}
               onClick={() => setCurrentSlide(idx)}
-              className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl text-[11px] sm:text-sm font-bold transition-all duration-300 border ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl sm:rounded-2xl text-[11px] sm:text-xs font-bold transition-all duration-300 border cursor-pointer ${
                 isActive
-                  ? "bg-brand-orange text-white border-brand-orange shadow-lg shadow-brand-orange/30 scale-[1.02] sm:scale-[1.03]"
-                  : "bg-white dark:bg-[#12161F] text-slate-700 dark:text-slate-300 border-slate-200/90 dark:border-slate-700/60 hover:border-brand-orange/40 hover:bg-orange-50/50 dark:hover:bg-slate-800"
+                  ? "bg-brand-orange text-white border-brand-orange shadow-lg shadow-brand-orange/30 scale-102"
+                  : "bg-white text-slate-700 border-slate-200 hover:border-orange-300 hover:bg-orange-50/50"
               }`}
             >
               {s.icon}
@@ -202,31 +202,31 @@ export default function SolutionExplorer() {
 
       {/* 2. Slider Main Card with Horizontal Sliding Track */}
       <div className="relative group">
-        {/* Left Arrow Button (Hidden on tiny screens to prevent side overflow; swipe gesture enabled) */}
+        {/* Left Arrow Button */}
         <button
           onClick={prevSlide}
           aria-label="Previous Solution"
-          className="hidden sm:flex absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/95 dark:bg-[#12161F]/95 hover:bg-brand-orange hover:text-white dark:hover:bg-brand-orange text-slate-800 dark:text-slate-200 border border-slate-200/90 dark:border-slate-700/60 shadow-xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
+          className="hidden sm:flex absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white hover:bg-brand-orange hover:text-white text-slate-800 border border-slate-200 shadow-xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
 
-        {/* Right Arrow Button (Hidden on tiny screens to prevent side overflow; swipe gesture enabled) */}
+        {/* Right Arrow Button */}
         <button
           onClick={nextSlide}
           aria-label="Next Solution"
-          className="hidden sm:flex absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/95 dark:bg-[#12161F]/95 hover:bg-brand-orange hover:text-white dark:hover:bg-brand-orange text-slate-800 dark:text-slate-200 border border-slate-200/90 dark:border-slate-700/60 shadow-xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
+          className="hidden sm:flex absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white hover:bg-brand-orange hover:text-white text-slate-800 border border-slate-200 shadow-xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
 
         {/* Viewport Frame */}
         <div
-          className="overflow-hidden rounded-3xl border border-slate-200/90 dark:border-slate-700/60 shadow-xl shadow-slate-200/50 dark:shadow-black/50 bg-white dark:bg-[#12161F] relative"
+          className="overflow-hidden rounded-3xl border border-slate-200 shadow-xl shadow-slate-200/50 bg-white relative"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          {/* Ambient Glow */}
+          {/* Ambient Subtle Orange Glow */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
           {/* Horizontal Slide Strip */}
@@ -241,128 +241,121 @@ export default function SolutionExplorer() {
               >
                 {/* Left: Solution Specifications */}
                 <div className="lg:col-span-7 space-y-4 sm:space-y-5">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 dark:bg-brand-orange/15 border border-orange-200 dark:border-brand-orange/30 text-brand-orange text-xs font-bold tracking-wide uppercase">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-brand-orange text-xs font-bold tracking-wide uppercase">
                     <ShieldCheck className="w-3.5 h-3.5 text-brand-orange" />
                     <span>{sol.badge}</span>
                   </div>
 
-                  <h3 className="text-xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight">
+                  <h3 className="text-xl sm:text-3xl font-extrabold text-slate-900 font-heading tracking-tight">
                     {sol.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm font-semibold text-brand-orange">
-                    Recommended for: {sol.target}
+                  <p className="text-xs sm:text-sm font-semibold text-slate-500">
+                    <span className="text-brand-orange font-bold uppercase text-[11px] tracking-wider block sm:inline sm:mr-2">
+                      Target Deployment:
+                    </span>
+                    {sol.target}
                   </p>
 
-                  <p className="text-xs sm:text-base text-slate-600 dark:text-gray-300 leading-relaxed">
+                  <p className="text-sm text-slate-600 leading-relaxed">
                     {sol.description}
                   </p>
 
-                  {/* Feature checklist */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 pt-2 sm:pt-3">
-                    {sol.features.map((feat, idx) => (
-                      <div
-                        key={idx}
-                        className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 dark:text-gray-300"
-                      >
-                        <div className="w-5 h-5 rounded-full bg-orange-100 dark:bg-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0 mt-0.5">
-                          <Check className="w-3 h-3 stroke-[3]" />
+                  {/* Bullet features */}
+                  <div className="space-y-2.5 pt-1">
+                    {sol.features.map((feat, fIdx) => (
+                      <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 font-medium">
+                        <div className="w-4 h-4 rounded-full bg-orange-100 text-brand-orange flex items-center justify-center shrink-0 mt-0.5">
+                          <Check className="w-2.5 h-2.5 stroke-[3]" />
                         </div>
                         <span>{feat}</span>
                       </div>
                     ))}
                   </div>
-                </div>
 
-                {/* Right: Action Box */}
-                <div className="lg:col-span-5">
-                  <div className="p-5 sm:p-8 rounded-2xl bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60 text-center space-y-5 sm:space-y-6 relative overflow-hidden shadow-lg">
-                    <div className="w-16 h-16 rounded-2xl bg-orange-100 dark:bg-brand-orange/15 text-brand-orange mx-auto flex items-center justify-center border border-orange-200 dark:border-brand-orange/30">
-                      {sol.icon}
-                    </div>
+                  {/* CTAs */}
+                  <div className="flex flex-wrap items-center gap-3 pt-4">
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white text-xs sm:text-sm font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl transition-all shadow-md shadow-brand-orange/30 hover:-translate-y-0.5"
+                    >
+                      <span>Request Feasibility</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </Link>
 
-                    <div>
-                      <span className="text-xs uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider">
-                        Specification Standard
-                      </span>
-                      <h4 className="text-xl font-bold text-slate-900 dark:text-white mt-1">
-                        {sol.highlight}
-                      </h4>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
-                        Free on-site optical feasibility survey across Lahore. Fast 24-48h activation.
-                      </p>
-                    </div>
-
-                    <div className="space-y-3 pt-2">
-                      <a
-                        href={`https://wa.me/923171118042?text=${encodeURIComponent(
-                          sol.whatsappMessage
-                        )}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-brand-orange text-white text-sm font-bold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-md shadow-slate-900/20 hover:-translate-y-0.5"
-                      >
-                        <span>Inquire on WhatsApp</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </a>
-
-                      <Link
-                        href="/contact"
-                        className="w-full inline-flex items-center justify-center gap-2 bg-white dark:bg-slate-800/80 hover:bg-orange-50 dark:hover:bg-slate-700 text-slate-800 dark:text-white text-xs font-semibold py-3 px-6 rounded-xl border border-slate-300 dark:border-slate-700 transition-colors shadow-sm"
-                      >
-                        <span>Request Custom Quote &amp; Survey</span>
-                      </Link>
-                    </div>
-
-                    <div className="text-[11px] text-slate-400 dark:text-gray-500 pt-1">
-                      Official Hotline:{" "}
-                      <a
-                        href="tel:+924234511111"
-                        className="text-brand-orange underline font-semibold"
-                      >
-                        +92 42 345 11 111
-                      </a>
-                    </div>
+                    <a
+                      href={`https://wa.me/923171118042?text=${encodeURIComponent(sol.whatsappMessage)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl transition-all border border-slate-200"
+                    >
+                      <span>Inquire via WhatsApp</span>
+                      <ExternalLink className="w-3.5 h-3.5 text-brand-orange" />
+                    </a>
                   </div>
                 </div>
+
+                {/* Right: Technical Spec Card */}
+                <div className="lg:col-span-5 p-6 sm:p-8 rounded-2xl bg-slate-50 border border-slate-200 space-y-5 text-center relative overflow-hidden shadow-inner">
+                  <div className="w-16 h-16 rounded-2xl bg-orange-100 border border-orange-200 text-brand-orange flex items-center justify-center mx-auto shadow-sm">
+                    {sol.icon}
+                  </div>
+
+                  <div>
+                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-widest block">
+                      ARCHITECTURAL HIGHLIGHT
+                    </span>
+                    <h4 className="text-base sm:text-lg font-black text-slate-900 font-heading mt-1">
+                      {sol.highlight}
+                    </h4>
+                  </div>
+
+                  <div className="p-4 rounded-xl bg-white border border-slate-200 text-left space-y-2">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-slate-500 font-medium">Network SLA:</span>
+                      <span className="font-extrabold text-brand-orange">99.99% Core</span>
+                    </div>
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-slate-500 font-medium">Head Office:</span>
+                      <span className="font-semibold text-slate-800">Gulberg-III, Lahore</span>
+                    </div>
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-slate-500 font-medium">Support:</span>
+                      <span className="font-bold text-slate-800">24/7/365 Direct NOC</span>
+                    </div>
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-slate-500 font-medium">Deployment:</span>
+                      <span className="font-bold text-slate-800">Dedicated Turnkey</span>
+                    </div>
+                  </div>
+
+                  <Link
+                    href="/services"
+                    className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-brand-orange hover:text-brand-orangeLight transition-colors w-full"
+                  >
+                    <span>View All Services &amp; Products</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* 3. Slider Pagination & Progress Indicator */}
-      <div className="flex items-center justify-between px-2 pt-1 text-xs text-slate-500 dark:text-gray-400">
-        <div className="flex items-center gap-2 font-mono font-bold">
-          <span className="text-brand-orange">0{currentSlide + 1}</span>
-          <span>/</span>
-          <span>0{totalSlides}</span>
-        </div>
-
-        {/* Clickable Pagination Bar */}
-        <div className="flex items-center gap-2">
-          {SOLUTIONS.map((_, idx) => (
-            <button
-              key={idx}
-              onClick={() => setCurrentSlide(idx)}
-              aria-label={`Go to slide ${idx + 1}`}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                idx === currentSlide
-                  ? "w-8 bg-brand-orange shadow-sm shadow-brand-orange/50"
-                  : "w-2.5 bg-slate-300 dark:bg-white/20 hover:bg-slate-400"
-              }`}
-            />
-          ))}
-        </div>
-
-        <div className="flex items-center gap-1.5 text-[11px] font-medium">
-          <span
-            className={`w-2 h-2 rounded-full ${
-              isPaused ? "bg-slate-400" : "bg-brand-orange animate-pulse"
+      {/* 3. Slider Dots & Indicator */}
+      <div className="flex items-center justify-center gap-2 pt-2">
+        {SOLUTIONS.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrentSlide(idx)}
+            aria-label={`Go to slide ${idx + 1}`}
+            className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+              idx === currentSlide ? "w-8 bg-brand-orange" : "w-2 bg-slate-300 hover:bg-slate-400"
             }`}
           />
-          <span>{isPaused ? "Paused" : "Auto-looping"}</span>
-        </div>
+        ))}
       </div>
     </div>
   );

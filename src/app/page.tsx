@@ -184,14 +184,13 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
-              INTERACTIVE BANDWIDTH CALCULATOR
+              OUR SERVICES &amp; PRODUCTS
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight">
-              Tailored Solutions for Every Demand
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 font-heading tracking-tight">
+              Reliable Solutions. Smarter Connectivity.
             </h2>
-            <p className="text-base text-slate-600 dark:text-gray-400">
-              Select your requirements below to explore guaranteed specifications and connect
-              directly with our Lahore engineering team.
+            <p className="text-base text-slate-600">
+              Explore our 5 official service pillars: Corporate Internet, Cloud &amp; Hosting, Managed IT, Cybersecurity, and Digital Solutions.
             </p>
           </div>
 
