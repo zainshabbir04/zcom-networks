@@ -172,13 +172,13 @@ export default function InfrastructureLoopSlider() {
             onClick={() => setActiveSlide(idx)}
             className={`px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-2 shrink-0 ${
               activeSlide === idx
-                ? "bg-slate-900 text-white dark:bg-white dark:text-slate-950 shadow-xl shadow-orange-500/10 scale-102"
-                : "bg-white dark:bg-[#121624] text-slate-700 dark:text-gray-300 border border-slate-200 dark:border-white/10 hover:border-brand-orange/40"
+                ? "bg-brand-orange text-white shadow-xl shadow-orange-500/20 scale-102"
+                : "bg-white dark:bg-[#12161F] text-slate-700 dark:text-slate-300 border border-slate-200/90 dark:border-slate-700/60 hover:border-brand-orange/40"
             }`}
           >
             <span
               className={`w-2 h-2 rounded-full ${
-                activeSlide === idx ? "bg-brand-orange animate-ping" : "bg-slate-400 dark:bg-gray-600"
+                activeSlide === idx ? "bg-white animate-ping" : "bg-slate-400 dark:bg-slate-600"
               }`}
             />
             <span>{item.badge}</span>
@@ -187,7 +187,7 @@ export default function InfrastructureLoopSlider() {
       </div>
 
       {/* Main Slide Card Container */}
-      <div className="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 bg-white dark:bg-[#0E121E] shadow-2xl transition-all duration-500">
+      <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 bg-white dark:bg-[#12161F] shadow-2xl transition-all duration-500">
         <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[500px]">
           {/* Left Column: Visual Banner with Overlay */}
           <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-full">
@@ -245,15 +245,15 @@ export default function InfrastructureLoopSlider() {
                 {slide.telemetry.map((metric, i) => (
                   <div
                     key={i}
-                    className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/5"
+                    className="p-3 rounded-xl bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60"
                   >
-                    <span className="text-[10px] font-bold text-slate-500 dark:text-gray-400 uppercase tracking-wider block">
+                    <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                       {metric.label}
                     </span>
                     <span className="text-base sm:text-lg font-black text-slate-900 dark:text-white font-heading block mt-0.5">
                       <AnimatedCounter value={metric.value} />
                     </span>
-                    <span className="text-[11px] text-slate-600 dark:text-gray-400 block truncate">
+                    <span className="text-[11px] text-slate-600 dark:text-slate-400 block truncate">
                       {metric.sub}
                     </span>
                   </div>
@@ -263,7 +263,7 @@ export default function InfrastructureLoopSlider() {
               {/* Architectural Highlights List */}
               <div className="space-y-2 pt-2">
                 {slide.features.map((feature, i) => (
-                  <div key={i} className="flex items-center gap-2 text-xs sm:text-sm text-slate-700 dark:text-gray-300">
+                  <div key={i} className="flex items-center gap-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                     <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                     <span>{feature}</span>
                   </div>
@@ -272,7 +272,7 @@ export default function InfrastructureLoopSlider() {
             </div>
 
             {/* Slider Bottom Controls & Action Link */}
-            <div className="pt-4 border-t border-slate-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-4">
+            <div className="pt-4 border-t border-slate-200/90 dark:border-slate-700/60 flex flex-wrap items-center justify-between gap-4">
               <Link
                 href="/why-us#coverage-map"
                 className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-brand-orange hover:text-brand-orangeLight transition-colors"
@@ -289,7 +289,7 @@ export default function InfrastructureLoopSlider() {
                     )
                   }
                   aria-label="Previous Infrastructure Slide"
-                  className="w-9 h-9 rounded-full border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-white flex items-center justify-center hover:bg-brand-orange hover:text-white transition-colors"
+                  className="w-9 h-9 rounded-full border border-slate-200/90 dark:border-slate-700/60 bg-slate-100 dark:bg-[#0E1118] text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-colors"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
@@ -298,7 +298,7 @@ export default function InfrastructureLoopSlider() {
                     setActiveSlide((prev) => (prev + 1) % INFRA_SLIDES.length)
                   }
                   aria-label="Next Infrastructure Slide"
-                  className="w-9 h-9 rounded-full border border-slate-200 dark:border-white/10 bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-white flex items-center justify-center hover:bg-brand-orange hover:text-white transition-colors"
+                  className="w-9 h-9 rounded-full border border-slate-200/90 dark:border-slate-700/60 bg-slate-100 dark:bg-[#0E1118] text-slate-700 dark:text-slate-200 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-colors"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>

@@ -47,8 +47,8 @@ export default function FaqAccordion() {
             key={idx}
             className={`rounded-2xl transition-all duration-200 border ${
               isOpen
-                ? "bg-orange-50/60 dark:bg-brand-card/90 border-brand-orange/40 shadow-lg shadow-orange-500/5 dark:shadow-black/20"
-                : "bg-white dark:bg-brand-card/40 border-slate-200/90 dark:border-white/5 hover:border-brand-orange/30 shadow-sm"
+                ? "bg-orange-50/60 dark:bg-[#12161F] border-brand-orange/50 shadow-lg shadow-orange-500/5 dark:shadow-black/20"
+                : "bg-white dark:bg-[#12161F] border-slate-200/90 dark:border-slate-700/60 hover:border-brand-orange/40 shadow-sm"
             }`}
           >
             <button
@@ -63,7 +63,7 @@ export default function FaqAccordion() {
                 className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-colors ${
                   isOpen
                     ? "bg-brand-orange text-white"
-                    : "bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-gray-400"
+                    : "bg-slate-100 dark:bg-[#0E1118] text-slate-600 dark:text-slate-300"
                 }`}
               >
                 {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
@@ -71,7 +71,7 @@ export default function FaqAccordion() {
             </button>
 
             {isOpen && (
-              <div className="px-6 pb-6 pt-1 text-sm sm:text-base text-slate-600 dark:text-gray-300 leading-relaxed border-t border-slate-100 dark:border-white/5 mt-1 animate-in fade-in duration-200">
+              <div className="px-6 pb-6 pt-1 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed border-t border-slate-100 dark:border-slate-700/60 mt-1 animate-in fade-in duration-200">
                 {item.a}
               </div>
             )}

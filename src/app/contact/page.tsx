@@ -67,7 +67,7 @@ export default function ContactPage() {
 
       {/* Coverage Checker Card (Interactive Form) */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-brand-card/70 p-6 sm:p-10 lg:p-12 rounded-3xl border border-orange-200 dark:border-brand-orange/30 shadow-xl shadow-orange-500/5 dark:shadow-black/50 relative overflow-hidden">
+        <div className="bg-white dark:bg-[#12161F] p-6 sm:p-10 lg:p-12 rounded-3xl border border-orange-500/30 dark:border-orange-500/30 shadow-xl shadow-orange-500/5 dark:shadow-black/50 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-80 h-80 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
           <div className="max-w-xl mx-auto space-y-6">
@@ -78,7 +78,7 @@ export default function ContactPage() {
               <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
                 Is Z COM Fiber Available at Your Location?
               </h2>
-              <p className="text-sm text-slate-600 dark:text-gray-400">
+              <p className="text-sm text-slate-600 dark:text-slate-400">
                 Submit your area in Lahore to verify nearest optical fiber node proximity and
                 dispatch our field survey team.
               </p>
@@ -101,7 +101,7 @@ export default function ContactPage() {
               <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white font-heading">
                 We&apos;re Available 24/7/365
               </h3>
-              <p className="text-sm text-slate-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                 Whether you need dedicated enterprise DIA or high-speed home fiber, our Lahore
                 office is always accessible.
               </p>
@@ -111,13 +111,13 @@ export default function ContactPage() {
               {CONTACT_INFO.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-2xl bg-white dark:bg-brand-card/60 border border-slate-200 dark:border-white/5 flex items-start gap-4 hover:border-brand-orange/40 transition-colors shadow-sm"
+                  className="p-5 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 flex items-start gap-4 hover:border-brand-orange/60 transition-colors shadow-sm"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-orange-100 dark:bg-brand-orange/15 flex items-center justify-center shrink-0 mt-0.5 border border-orange-200 dark:border-brand-orange/20">
+                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 text-brand-orange flex items-center justify-center shrink-0 mt-0.5 border border-orange-500/20">
                     {item.icon}
                   </div>
                   <div>
-                    <div className="text-xs font-medium text-slate-500 dark:text-gray-400 uppercase tracking-wide">
+                    <div className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">
                       {item.label}
                     </div>
                     {item.href ? (
@@ -140,7 +140,7 @@ export default function ContactPage() {
 
           {/* Right: Message Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white dark:bg-brand-card/70 p-6 sm:p-10 rounded-3xl border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 space-y-6">
+            <div className="bg-white dark:bg-[#12161F] p-6 sm:p-10 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 shadow-xl shadow-slate-200/50 dark:shadow-black/50 space-y-6">
               <div>
                 <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
                   MESSAGE OUR DESK

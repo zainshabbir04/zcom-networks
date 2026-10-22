@@ -17,6 +17,7 @@
 # misc
 .DS_Store
 *.pem
+house_plan_25x45.html
 
 # debug
 npm-debug.log*

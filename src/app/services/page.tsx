@@ -184,7 +184,7 @@ export default function ServicesPage() {
     <div className="py-12 sm:py-20 space-y-20 transition-colors duration-300">
       {/* Page Header with Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 p-8 sm:p-14 text-center">
+        <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 shadow-xl shadow-slate-200/50 dark:shadow-black/50 p-8 sm:p-14 text-center">
           <div className="absolute inset-0 -z-20">
             <Image
               src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1600&q=80"
@@ -239,9 +239,9 @@ export default function ServicesPage() {
         {filteredServices.map((service) => (
           <div
             key={service.id}
-            className="bg-white dark:bg-brand-card/70 p-6 sm:p-10 rounded-3xl border border-slate-200 dark:border-white/10 hover:border-brand-orange/40 transition-all duration-300 shadow-xl shadow-slate-200/50 dark:shadow-black/50 space-y-6"
+            className="bg-white dark:bg-[#12161F] p-6 sm:p-10 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 hover:border-brand-orange/60 transition-all duration-300 shadow-xl shadow-slate-200/50 dark:shadow-black/50 space-y-6"
           >
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-white/5">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-slate-700/60">
               <div className="flex items-center gap-3 sm:gap-4">
                 <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-orange-100 dark:bg-brand-orange/15 border border-orange-200 dark:border-brand-orange/20 flex items-center justify-center shrink-0">
                   {service.icon}
@@ -265,7 +265,7 @@ export default function ServicesPage() {
               </Link>
             </div>
 
-            <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300 leading-relaxed max-w-4xl">
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-4xl">
               {service.description}
             </p>
 
@@ -274,7 +274,7 @@ export default function ServicesPage() {
               {service.items.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-2xl bg-slate-50 dark:bg-brand-cardDark/70 border border-slate-200/80 dark:border-white/5 space-y-1.5"
+                  className="p-5 rounded-2xl bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60 space-y-1.5"
                 >
                   <div className="flex items-center gap-2 font-semibold text-slate-900 dark:text-white text-sm">
                     <div className="w-4 h-4 rounded-full bg-orange-100 dark:bg-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0">
@@ -282,7 +282,7 @@ export default function ServicesPage() {
                     </div>
                     <span>{item.title}</span>
                   </div>
-                  <p className="text-xs text-slate-500 dark:text-gray-400 pl-6 leading-relaxed">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 pl-6 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -302,7 +302,7 @@ export default function ServicesPage() {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading">
             How We Deliver <AnimatedCounter from={0} to={99.99} decimals={2} suffix="%" /> Availability
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-gray-400">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
             From subterranean armored trenches to multi-homed BGP edge routing, explore the hardware
             powering our SLA commitments.
           </p>
@@ -313,7 +313,7 @@ export default function ServicesPage() {
 
       {/* Bottom CTA */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-brand-card/70 p-6 sm:p-10 lg:p-12 rounded-3xl border border-slate-200 dark:border-white/10 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
+        <div className="bg-white dark:bg-[#12161F] p-6 sm:p-10 lg:p-12 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
           <div className="w-12 h-12 rounded-full bg-orange-100 dark:bg-brand-orange/15 text-brand-orange flex items-center justify-center mx-auto">
             <ShieldCheck className="w-6 h-6" />
           </div>

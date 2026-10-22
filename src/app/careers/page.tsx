@@ -186,7 +186,7 @@ export default function CareersPage() {
           1. HERO BANNER WITH HIGH-RES OFFICE IMAGERY
           ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 p-8 sm:p-16 text-center">
+        <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 shadow-xl shadow-slate-200/50 dark:shadow-black/50 p-8 sm:p-16 text-center">
           {/* Background Image */}
           <div className="absolute inset-0 -z-20">
             <Image
@@ -243,7 +243,7 @@ export default function CareersPage() {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight">
             An Environment Built for Technical Growth
           </h2>
-          <p className="text-sm text-slate-600 dark:text-gray-400">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
             We value technical rigor, proactive problem-solving, and continuous learning.
           </p>
         </div>
@@ -252,15 +252,15 @@ export default function CareersPage() {
           {CULTURE_PERKS.map((perk, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-brand-card/70 p-7 rounded-2xl border border-slate-200/90 dark:border-white/5 glass-card-hover space-y-3 shadow-sm hover:shadow-xl hover:shadow-orange-500/10"
+              className="bg-white dark:bg-[#12161F] p-7 rounded-2xl border border-slate-200/90 dark:border-slate-700/60 space-y-3 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 hover:border-brand-orange/60 transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-xl bg-orange-100 dark:bg-brand-orange/15 flex items-center justify-center border border-orange-200 dark:border-brand-orange/20">
+              <div className="w-12 h-12 rounded-xl bg-orange-500/10 dark:bg-orange-500/15 flex items-center justify-center border border-orange-500/20 text-brand-orange">
                 {perk.icon}
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white font-heading">
                 {perk.title}
               </h3>
-              <p className="text-sm text-slate-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                 {perk.desc}
               </p>
             </div>
@@ -274,7 +274,7 @@ export default function CareersPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Photo Card with Overlay */}
-          <div className="lg:col-span-5 relative h-80 sm:h-96 rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
+          <div className="lg:col-span-5 relative h-80 sm:h-96 rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
             <Image
               src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1000&q=80"
               alt="Fiber Optic Engineering"
@@ -303,26 +303,26 @@ export default function CareersPage() {
             <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading leading-tight">
               Empowering Engineers &amp; Leaders to Thrive
             </h3>
-            <p className="text-base text-slate-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
               At Z COM Networks, we believe that world-class connectivity begins with a passionate,
               supported team. Whether you are troubleshooting sub-millisecond latencies in our
               Gulberg-III Network Operations Center or deploying gigabit fiber terminations in the
               field, your contributions directly empower Lahore&apos;s businesses and residents.
             </p>
             <div className="grid grid-cols-2 gap-4 pt-2">
-              <div className="p-4 rounded-xl bg-white dark:bg-brand-card/60 border border-slate-200 dark:border-white/5 shadow-sm">
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60 shadow-sm">
                 <div className="text-2xl font-extrabold text-brand-orange font-heading">
                   <AnimatedCounter from={0} to={100} suffix="%" />
                 </div>
-                <div className="text-xs text-slate-500 dark:text-gray-400 mt-0.5 font-medium">
+                <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-medium">
                   Local Lahore Leadership &amp; Support
                 </div>
               </div>
-              <div className="p-4 rounded-xl bg-white dark:bg-brand-card/60 border border-slate-200 dark:border-white/5 shadow-sm">
+              <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60 shadow-sm">
                 <div className="text-2xl font-extrabold text-slate-900 dark:text-white font-heading">
                   <AnimatedCounter from={0} to={24} suffix="/7/365" />
                 </div>
-                <div className="text-xs text-slate-500 dark:text-gray-400 mt-0.5 font-medium">
+                <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-medium">
                   Active Network Operations Center
                 </div>
               </div>
@@ -342,7 +342,7 @@ export default function CareersPage() {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight">
             Explore Your Next Career Move
           </h2>
-          <p className="text-sm text-slate-600 dark:text-gray-400">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
             Review the positions below and submit your resume directly to our recruitment desk.
           </p>
         </div>
@@ -351,10 +351,10 @@ export default function CareersPage() {
           {POSITIONS.map((job) => (
             <div
               key={job.id}
-              className="bg-white dark:bg-brand-card/70 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-white/10 hover:border-brand-orange/40 transition-all duration-300 shadow-xl shadow-slate-200/50 dark:shadow-black/50 space-y-6"
+              className="bg-white dark:bg-[#12161F] p-6 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 hover:border-brand-orange/60 transition-all duration-300 shadow-xl shadow-slate-200/50 dark:shadow-black/50 space-y-6"
             >
               {/* Job Header */}
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-white/5">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-slate-700/60">
                 <div>
                   <div className="inline-flex items-center gap-2 text-xs font-semibold text-brand-orange uppercase tracking-wider mb-1">
                     <Briefcase className="w-3.5 h-3.5" />
@@ -366,11 +366,11 @@ export default function CareersPage() {
                 </div>
 
                 <div className="flex flex-wrap items-center gap-3">
-                  <div className="flex items-center gap-1.5 text-xs text-slate-700 dark:text-gray-300 bg-slate-100 dark:bg-white/5 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-white/10">
+                  <div className="flex items-center gap-1.5 text-xs text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-[#0E1118] px-3 py-1.5 rounded-lg border border-slate-200/90 dark:border-slate-700/60">
                     <MapPin className="w-3.5 h-3.5 text-brand-orange" />
                     <span>{job.location}</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs text-slate-700 dark:text-gray-300 bg-slate-100 dark:bg-white/5 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-white/10">
+                  <div className="flex items-center gap-1.5 text-xs text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-[#0E1118] px-3 py-1.5 rounded-lg border border-slate-200/90 dark:border-slate-700/60">
                     <Clock className="w-3.5 h-3.5 text-brand-orange" />
                     <span>{job.type}</span>
                   </div>
@@ -448,8 +448,8 @@ export default function CareersPage() {
           5. GENERAL RESUME SUBMISSION BANNER
           ============================================================ */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-brand-card/70 p-6 sm:p-10 lg:p-12 rounded-3xl border border-slate-200 dark:border-white/10 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
-          <div className="w-14 h-14 rounded-2xl bg-orange-100 dark:bg-brand-orange/15 text-brand-orange flex items-center justify-center mx-auto border border-orange-200 dark:border-brand-orange/30">
+        <div className="bg-white dark:bg-[#12161F] p-6 sm:p-10 lg:p-12 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
+          <div className="w-14 h-14 rounded-2xl bg-orange-500/10 text-brand-orange flex items-center justify-center mx-auto border border-orange-500/20">
             <Mail className="w-7 h-7" />
           </div>
 
@@ -457,7 +457,7 @@ export default function CareersPage() {
             Don&apos;t See Your Exact Role?
           </h3>
 
-          <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300 max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl mx-auto leading-relaxed">
             We are always scouting for exceptional network engineers, fiber technicians, and sales
             talent in Lahore. Send an open application with your CV to our talent acquisition desk.
           </p>
@@ -472,7 +472,7 @@ export default function CareersPage() {
             </a>
           </div>
 
-          <p className="text-xs text-slate-400 dark:text-gray-500">
+          <p className="text-xs text-slate-400 dark:text-slate-500">
             Head Office: 7/4, E-3 Main Boulevard, Gulberg-III, Lahore, Punjab, Pakistan
           </p>
         </div>

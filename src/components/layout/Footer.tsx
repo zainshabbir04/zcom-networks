@@ -17,14 +17,14 @@ import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 export default function Footer() {
   return (
-    <footer className="relative z-20 bg-[#070912] text-slate-400 border-t border-white/10 pt-16 pb-12 overflow-hidden">
+    <footer className="relative z-20 bg-[#080A0F] text-slate-400 border-t border-slate-800/80 pt-16 pb-12 overflow-hidden">
       {/* Ambient background glow */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-orange/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-slate-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
         {/* Tier 1: Modern Pre-Footer Quick Action Grid */}
-        <div className="rounded-3xl bg-gradient-to-r from-white/5 via-white/[0.07] to-white/5 border border-white/10 p-6 sm:p-10 backdrop-blur-xl shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div className="rounded-3xl bg-gradient-to-r from-slate-900/90 via-slate-800/60 to-slate-900/90 border border-slate-700/60 p-6 sm:p-10 backdrop-blur-xl shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center lg:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-bold uppercase tracking-wider">
               <Zap className="w-3.5 h-3.5" />
@@ -52,7 +52,7 @@ export default function Footer() {
               href="https://wa.me/923171118042"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-bold text-sm px-6 py-3.5 rounded-full transition-all border border-white/15 hover:-translate-y-0.5 w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white font-bold text-sm px-6 py-3.5 rounded-full transition-all border border-slate-700 hover:-translate-y-0.5 w-full sm:w-auto"
             >
               <span>WhatsApp NOC</span>
             </a>
@@ -106,7 +106,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all"
+                className="w-10 h-10 rounded-full bg-slate-900/80 border border-slate-700/60 text-slate-300 flex items-center justify-center hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-all shadow-sm"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.32l-.53 3.49h-2.8V24C19.6 23.1 24 18.1 24 12.07z" />
@@ -117,7 +117,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-brand-orange hover:text-white transition-all"
+                className="w-10 h-10 rounded-full bg-slate-900/80 border border-slate-700/60 text-slate-300 flex items-center justify-center hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-all shadow-sm"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z" />
@@ -213,7 +213,7 @@ export default function Footer() {
               <span>Core SLA</span>
             </h4>
             <div className="space-y-3 text-xs">
-              <div className="p-3 rounded-2xl bg-white/5 border border-white/10 space-y-1">
+              <div className="p-3 rounded-2xl bg-[#12161F] border border-slate-700/60 space-y-1">
                 <span className="text-slate-400 block font-semibold">Core Availability</span>
                 <span className="text-lg font-black text-brand-orange font-heading block">
                   <AnimatedCounter from={0} to={99.99} decimals={2} suffix="%" />
@@ -221,7 +221,7 @@ export default function Footer() {
                 <span className="text-slate-400 block">ITU-T G.8032 Auto-Ring</span>
               </div>
 
-              <div className="p-3 rounded-2xl bg-white/5 border border-white/10 space-y-1">
+              <div className="p-3 rounded-2xl bg-[#12161F] border border-slate-700/60 space-y-1">
                 <span className="text-slate-400 block font-semibold">NOC Dispatch SLA</span>
                 <span className="text-lg font-black text-white font-heading block">
                   <AnimatedCounter from={0} to={30} prefix="< " suffix=" min" />
@@ -233,7 +233,7 @@ export default function Footer() {
         </div>
 
         {/* Tier 3: Bottom Status Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="font-semibold text-slate-400">

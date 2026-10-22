@@ -48,8 +48,8 @@ export default function Header() {
       <div
         className={`max-w-7xl mx-auto rounded-2xl sm:rounded-full transition-all duration-300 ${
           scrolled
-            ? "bg-white/95 dark:bg-[#0C0F1D]/95 backdrop-blur-xl border border-slate-200/90 dark:border-white/10 shadow-xl shadow-black/10 py-2 sm:py-2.5 px-4 sm:px-6"
-            : "bg-white/90 dark:bg-[#0C0F1D]/80 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 shadow-lg shadow-black/5 py-2.5 sm:py-3 px-4 sm:px-6"
+            ? "bg-white/95 dark:bg-[#12161F]/95 backdrop-blur-xl border border-slate-200/90 dark:border-slate-700/60 shadow-xl shadow-black/10 py-2 sm:py-2.5 px-4 sm:px-6"
+            : "bg-white/90 dark:bg-[#12161F]/85 backdrop-blur-xl border border-slate-200/80 dark:border-slate-700/50 shadow-lg shadow-black/5 py-2.5 sm:py-3 px-4 sm:px-6"
         }`}
       >
         <div className="flex items-center justify-between gap-4 h-11 sm:h-12">
@@ -68,7 +68,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 bg-slate-100/90 dark:bg-white/5 backdrop-blur-md p-1 rounded-full border border-slate-200/80 dark:border-white/5 shadow-inner">
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 bg-slate-100/90 dark:bg-slate-900/70 backdrop-blur-md p-1 rounded-full border border-slate-200/80 dark:border-slate-700/60 shadow-inner">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -78,7 +78,7 @@ export default function Header() {
                   className={`relative px-3.5 xl:px-4 py-1.5 rounded-full text-xs xl:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
                     isActive
                       ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30 font-extrabold"
-                      : "text-slate-700 dark:text-gray-200 hover:text-brand-orange dark:hover:text-brand-orange hover:bg-white dark:hover:bg-white/10"
+                      : "text-slate-700 dark:text-slate-300 hover:text-brand-orange dark:hover:text-brand-orange hover:bg-white dark:hover:bg-slate-800"
                   }`}
                 >
                   {link.name}
@@ -90,7 +90,7 @@ export default function Header() {
           {/* Desktop Right Actions: Telemetry + Phone Hotline + Theme Toggle + CTA */}
           <div className="hidden lg:flex items-center gap-2.5 xl:gap-3 shrink-0">
             {/* Live Status Pill */}
-            <div className="hidden xl:flex items-center gap-1.5 text-[11px] font-bold text-slate-700 dark:text-gray-200 bg-slate-100 dark:bg-white/5 px-3 py-1.5 rounded-full border border-slate-200/80 dark:border-white/10 whitespace-nowrap">
+            <div className="hidden xl:flex items-center gap-1.5 text-[11px] font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-900/70 px-3 py-1.5 rounded-full border border-slate-200/80 dark:border-slate-700/60 whitespace-nowrap">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>Core <AnimatedCounter from={0} to={100} duration={1400} />G: Optimal</span>
             </div>
@@ -133,7 +133,7 @@ export default function Header() {
 
       {/* Mobile Full-Screen Frosted Drawer */}
       {isOpen && (
-        <div className="lg:hidden mt-2 rounded-3xl bg-white/95 dark:bg-[#0C0F1D]/95 backdrop-blur-2xl border border-white/30 dark:border-white/10 shadow-2xl p-5 sm:p-6 space-y-5 max-h-[85vh] overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-200">
+        <div className="lg:hidden mt-2 rounded-3xl bg-white/95 dark:bg-[#12161F]/95 backdrop-blur-2xl border border-slate-200/90 dark:border-slate-700/60 shadow-2xl p-5 sm:p-6 space-y-5 max-h-[85vh] overflow-y-auto animate-in fade-in slide-in-from-top-4 duration-200">
           <div className="space-y-1">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
@@ -145,7 +145,7 @@ export default function Header() {
                   className={`flex items-center justify-between p-3 rounded-2xl text-base font-bold transition-all ${
                     isActive
                       ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30"
-                      : "text-slate-900 dark:text-gray-100 hover:bg-white/30 dark:hover:bg-white/5"
+                      : "text-slate-900 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
                   }`}
                 >
                   <span>{link.name}</span>
@@ -155,8 +155,8 @@ export default function Header() {
             })}
           </div>
 
-          <div className="pt-4 border-t border-slate-200/60 dark:border-white/10 space-y-3">
-            <div className="flex items-center justify-between text-xs text-slate-600 dark:text-gray-400">
+          <div className="pt-4 border-t border-slate-200/60 dark:border-slate-700/60 space-y-3">
+            <div className="flex items-center justify-between text-xs text-slate-600 dark:text-slate-400">
               <span className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span>NOC 24/7/365</span>
@@ -169,7 +169,7 @@ export default function Header() {
             <div className="grid grid-cols-2 gap-2">
               <a
                 href="tel:+924234511111"
-                className="inline-flex items-center justify-center gap-1.5 py-3 rounded-xl bg-white/40 dark:bg-white/5 text-slate-900 dark:text-white font-bold text-xs"
+                className="inline-flex items-center justify-center gap-1.5 py-3 rounded-xl bg-slate-100 dark:bg-slate-800/80 text-slate-900 dark:text-white font-bold text-xs border border-slate-200 dark:border-slate-700"
               >
                 <Phone className="w-3.5 h-3.5 text-brand-orange" />
                 <span>Call NOC</span>
@@ -178,7 +178,7 @@ export default function Header() {
                 href="https://wa.me/923171118042"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 py-3 rounded-xl bg-emerald-600 text-white font-bold text-xs"
+                className="inline-flex items-center justify-center gap-1.5 py-3 rounded-xl bg-emerald-600 text-white font-bold text-xs shadow-md shadow-emerald-600/20"
               >
                 <span>WhatsApp</span>
               </a>

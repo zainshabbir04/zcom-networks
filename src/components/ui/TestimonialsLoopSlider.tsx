@@ -176,14 +176,14 @@ export default function TestimonialsLoopSlider() {
           <button
             onClick={prevSlide}
             aria-label="Previous Testimonial"
-            className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-[#121624] text-slate-800 dark:text-white flex items-center justify-center hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-all duration-200 shadow-sm"
+            className="w-10 h-10 rounded-full border border-slate-200/90 dark:border-slate-700/60 bg-white dark:bg-[#12161F] text-slate-800 dark:text-slate-200 flex items-center justify-center hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-all duration-200 shadow-sm"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={nextSlide}
             aria-label="Next Testimonial"
-            className="w-10 h-10 rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-[#121624] text-slate-800 dark:text-white flex items-center justify-center hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-all duration-200 shadow-sm"
+            className="w-10 h-10 rounded-full border border-slate-200/90 dark:border-slate-700/60 bg-white dark:bg-[#12161F] text-slate-800 dark:text-slate-200 flex items-center justify-center hover:bg-brand-orange hover:text-white hover:border-brand-orange transition-all duration-200 shadow-sm"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -191,14 +191,14 @@ export default function TestimonialsLoopSlider() {
       </div>
 
       {/* Main Animated Card Showcase */}
-      <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101422] shadow-2xl p-7 sm:p-12 transition-all duration-500">
+      <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 bg-white dark:bg-[#12161F] shadow-2xl p-7 sm:p-12 transition-all duration-500">
         {/* Subtle Background Radial Gradient */}
         <div className="absolute top-0 right-0 w-80 h-80 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-slate-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left Column: Author, Company & Verified Telemetry Stats */}
-          <div className="lg:col-span-5 space-y-6 border-b lg:border-b-0 lg:border-r border-slate-200 dark:border-white/10 pb-6 lg:pb-0 lg:pr-8">
+          <div className="lg:col-span-5 space-y-6 border-b lg:border-b-0 lg:border-r border-slate-200 dark:border-slate-700/60 pb-6 lg:pb-0 lg:pr-8">
             <div className="flex items-center gap-4">
               <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 border-brand-orange shrink-0 shadow-lg">
                 <Image
@@ -216,7 +216,7 @@ export default function TestimonialsLoopSlider() {
                 <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white font-heading">
                   {current.name}
                 </h3>
-                <p className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-gray-400">
+                <p className="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400">
                   {current.title}
                 </p>
                 <p className="text-xs text-brand-orange font-bold flex items-center gap-1">
@@ -234,33 +234,33 @@ export default function TestimonialsLoopSlider() {
                   className="w-4 h-4 fill-amber-400 text-amber-400"
                 />
               ))}
-              <span className="text-xs font-bold text-slate-700 dark:text-gray-300 ml-2">
+              <span className="text-xs font-bold text-slate-700 dark:text-slate-300 ml-2">
                 <AnimatedCounter from={0} to={5.0} decimals={1} /> / 5.0 SLA Rating
               </span>
             </div>
 
             {/* Performance Telemetry Strip */}
             <div className="grid grid-cols-2 gap-3 pt-2">
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/5">
-                <span className="text-[10px] font-bold text-slate-500 dark:text-gray-400 uppercase tracking-wider block">
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60">
+                <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                   Measured Uptime
                 </span>
                 <span className="text-base sm:text-lg font-black text-brand-orange font-heading block mt-0.5">
                   <AnimatedCounter value={current.uptime} />
                 </span>
-                <span className="text-[11px] text-slate-600 dark:text-gray-300 font-medium">
+                <span className="text-[11px] text-slate-600 dark:text-slate-300 font-medium">
                   {current.verifiedSLA}
                 </span>
               </div>
 
-              <div className="p-3 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/5">
-                <span className="text-[10px] font-bold text-slate-500 dark:text-gray-400 uppercase tracking-wider block">
+              <div className="p-3 rounded-xl bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60">
+                <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
                   Deployed Circuit
                 </span>
                 <span className="text-base sm:text-lg font-black text-slate-900 dark:text-white font-heading block mt-0.5">
                   <AnimatedCounter value={`${current.bandwidth.split(" ")[0]} ${current.bandwidth.split(" ")[1]}`} />
                 </span>
-                <span className="text-[11px] text-slate-600 dark:text-gray-300 font-medium truncate block">
+                <span className="text-[11px] text-slate-600 dark:text-slate-300 font-medium truncate block">
                   {current.bandwidth.split(" ").slice(2).join(" ")}
                 </span>
               </div>
@@ -281,7 +281,7 @@ export default function TestimonialsLoopSlider() {
               </blockquote>
             </div>
 
-            <div className="pt-2 flex items-center justify-between text-xs text-slate-500 dark:text-gray-400 border-t border-slate-200/60 dark:border-white/5">
+            <div className="pt-2 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 border-t border-slate-200/60 dark:border-slate-700/60">
               <span className="flex items-center gap-1.5">
                 <Award className="w-4 h-4 text-brand-orange" />
                 <span>Verified Enterprise Contract · Lahore Fiber Backbone</span>

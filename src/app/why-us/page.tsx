@@ -131,38 +131,38 @@ export default function WhyUsPage() {
 
         {/* 4 Core SLA & Performance Benchmark Counters */}
         <div className="pt-6 max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div className="p-4 rounded-2xl bg-white dark:bg-[#121624] border border-slate-200 dark:border-white/10 shadow-sm text-center">
+          <div className="p-4 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 shadow-sm text-center">
             <span className="text-2xl sm:text-3xl font-black text-brand-orange font-heading block">
               <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" />
             </span>
-            <span className="text-xs text-slate-600 dark:text-gray-400 font-semibold mt-1 block">
+            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold mt-1 block">
               Contractual SLA
             </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-white dark:bg-[#121624] border border-slate-200 dark:border-white/10 shadow-sm text-center">
+          <div className="p-4 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 shadow-sm text-center">
             <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-heading block">
               <AnimatedCounter from={0} to={100} suffix=" Gbps" />
             </span>
-            <span className="text-xs text-slate-600 dark:text-gray-400 font-semibold mt-1 block">
+            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold mt-1 block">
               Backbone Core Ring
             </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-white dark:bg-[#121624] border border-slate-200 dark:border-white/10 shadow-sm text-center">
+          <div className="p-4 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 shadow-sm text-center">
             <span className="text-2xl sm:text-3xl font-black text-brand-orange font-heading block">
               <AnimatedCounter from={0} to={1} prefix="1:" suffix=" Sym" />
             </span>
-            <span className="text-xs text-slate-600 dark:text-gray-400 font-semibold mt-1 block">
+            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold mt-1 block">
               Zero Bandwidth Throttling
             </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-white dark:bg-[#121624] border border-slate-200 dark:border-white/10 shadow-sm text-center">
+          <div className="p-4 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 shadow-sm text-center">
             <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-heading block">
               <AnimatedCounter from={0} to={24} suffix="/7/365" />
             </span>
-            <span className="text-xs text-slate-600 dark:text-gray-400 font-semibold mt-1 block">
+            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold mt-1 block">
               Gulberg NOC Dispatch
             </span>
           </div>
@@ -174,14 +174,14 @@ export default function WhyUsPage() {
           ============================================================ */}
       <section id="coverage-map" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 dark:bg-white/5 border border-orange-200 dark:border-white/10 text-brand-orange text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-brand-orange text-xs font-bold uppercase tracking-wider">
             <MapPin className="w-3.5 h-3.5" />
             <span>OPTICAL FOOTPRINT &amp; TRANSMISSION GRID</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight">
             Where Internet is Provided Across Cities
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-gray-400">
+          <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
             Explore our optical fiber transmission grid across major Punjab metropolises and our
             dense metro fiber ring connecting all key business and residential zones in Lahore.
           </p>
@@ -205,15 +205,15 @@ export default function WhyUsPage() {
           {REASONS.map((card, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-brand-card/70 p-7 rounded-2xl border border-slate-200/90 dark:border-white/5 glass-card-hover space-y-3 shadow-sm hover:shadow-xl hover:shadow-orange-500/10"
+              className="bg-white dark:bg-[#12161F] p-7 rounded-2xl border border-slate-200/90 dark:border-slate-700/60 space-y-3 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 hover:border-brand-orange/60 transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-xl bg-orange-100 dark:bg-brand-orange/15 flex items-center justify-center border border-orange-200 dark:border-brand-orange/20">
+              <div className="w-12 h-12 rounded-xl bg-orange-500/10 dark:bg-orange-500/15 flex items-center justify-center border border-orange-500/20 text-brand-orange">
                 {card.icon}
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white font-heading">
                 {card.title}
               </h3>
-              <p className="text-sm text-slate-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                 {card.desc}
               </p>
             </div>
@@ -230,41 +230,41 @@ export default function WhyUsPage() {
           <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
             Z COM Pure Fiber vs Conventional Broadband
           </h2>
-          <p className="text-sm text-slate-600 dark:text-gray-400">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
             A side-by-side comparison illustrating why dedicated optical fiber offers an unmatched
             experience.
           </p>
         </div>
 
-        <div className="bg-white dark:bg-brand-card/70 rounded-3xl border border-slate-200 dark:border-white/10 overflow-hidden shadow-xl shadow-slate-200/50 dark:shadow-black/50">
+        <div className="bg-white dark:bg-[#12161F] rounded-3xl border border-slate-200/90 dark:border-slate-700/60 overflow-hidden shadow-xl shadow-slate-200/50 dark:shadow-black/50">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse text-sm">
               <thead>
-                <tr className="border-b border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-brand-cardDark">
-                  <th className="py-5 px-6 font-heading font-bold text-slate-700 dark:text-gray-300 text-xs uppercase tracking-wider">
+                <tr className="border-b border-slate-200/90 dark:border-slate-700/60 bg-slate-50 dark:bg-[#0E1118]">
+                  <th className="py-5 px-6 font-heading font-bold text-slate-700 dark:text-slate-300 text-xs uppercase tracking-wider">
                     Feature / Standard
                   </th>
-                  <th className="py-5 px-6 font-heading font-bold text-brand-orange text-xs uppercase tracking-wider bg-orange-100/70 dark:bg-brand-orange/10 border-x border-orange-200 dark:border-brand-orange/20">
+                  <th className="py-5 px-6 font-heading font-bold text-brand-orange text-xs uppercase tracking-wider bg-orange-500/10 border-x border-orange-500/20">
                     Z COM Networks Fiber
                   </th>
-                  <th className="py-5 px-6 font-heading font-bold text-slate-500 dark:text-gray-400 text-xs uppercase tracking-wider">
+                  <th className="py-5 px-6 font-heading font-bold text-slate-500 dark:text-slate-400 text-xs uppercase tracking-wider">
                     Conventional Broadband
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-100 dark:divide-white/5">
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-700/60">
                 {COMPARISON_ROWS.map((row, idx) => (
                   <tr key={idx} className="hover:bg-orange-50/30 dark:hover:bg-white/[0.02] transition-colors">
                     <td className="py-4 px-6 font-bold text-slate-900 dark:text-white">
                       {row.feature}
                     </td>
-                    <td className="py-4 px-6 font-medium text-emerald-600 dark:text-emerald-400 bg-orange-50/40 dark:bg-brand-orange/5 border-x border-orange-100 dark:border-brand-orange/10">
+                    <td className="py-4 px-6 font-medium text-emerald-600 dark:text-emerald-400 bg-orange-50/40 dark:bg-orange-500/5 border-x border-orange-200/60 dark:border-orange-500/20">
                       <div className="flex items-center gap-2">
                         <Check className="w-4 h-4 text-brand-orange shrink-0 stroke-[3]" />
                         <span>{row.zcom}</span>
                       </div>
                     </td>
-                    <td className="py-4 px-6 text-slate-500 dark:text-gray-400">
+                    <td className="py-4 px-6 text-slate-500 dark:text-slate-400">
                       <div className="flex items-center gap-2">
                         <X className="w-4 h-4 text-rose-500 shrink-0 stroke-[2.5]" />
                         <span>{row.traditional}</span>
@@ -287,7 +287,7 @@ export default function WhyUsPage() {
           <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
             Verified Experiences from Lahore Leaders
           </h2>
-          <p className="text-sm text-slate-600 dark:text-gray-400">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
             Hear directly from CIOs, medical heads, and technology leaders running mission-critical
             operations on Z COM optical circuits.
           </p>
@@ -297,7 +297,7 @@ export default function WhyUsPage() {
       </section>
 
       {/* Global Technology Partners */}
-      <section className="py-12 bg-slate-100/60 dark:bg-brand-darker/60 border-y border-slate-200/80 dark:border-white/5">
+      <section className="py-12 bg-slate-100/60 dark:bg-[#0E1118]/80 backdrop-blur-md border-y border-slate-200/70 dark:border-slate-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8">
           <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
             CARRIER-GRADE INFRASTRUCTURE
@@ -318,7 +318,7 @@ export default function WhyUsPage() {
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading">
             Trusted by Lahore&apos;s Leading Organizations
           </h2>
-          <p className="text-sm text-slate-600 dark:text-gray-400">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
             Explore our enterprise client deployments across healthcare, hospitality, education,
             real estate, and tech.
           </p>
@@ -328,7 +328,7 @@ export default function WhyUsPage() {
 
       {/* Bottom CTA */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-brand-card/70 p-6 sm:p-10 lg:p-12 rounded-3xl border border-slate-200 dark:border-white/10 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
+        <div className="bg-white dark:bg-[#12161F] p-6 sm:p-10 lg:p-12 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
             Ready to Connect Your Organization?
           </h3>

@@ -90,38 +90,38 @@ export default function AboutPage() {
 
         {/* 4 Animated Metric Badges */}
         <div className="pt-6 max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div className="p-4 rounded-2xl bg-white dark:bg-[#121624] border border-slate-200 dark:border-white/10 shadow-sm text-center">
+          <div className="p-4 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 shadow-sm text-center">
             <span className="text-2xl sm:text-3xl font-black text-brand-orange font-heading block">
               <AnimatedCounter from={0} to={1200} suffix="+ km" />
             </span>
-            <span className="text-xs text-slate-600 dark:text-gray-400 font-semibold mt-1 block">
+            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold mt-1 block">
               Armored Metro Fiber
             </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-white dark:bg-[#121624] border border-slate-200 dark:border-white/10 shadow-sm text-center">
+          <div className="p-4 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 shadow-sm text-center">
             <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-heading block">
               <AnimatedCounter from={0} to={99.99} decimals={2} suffix="%" />
             </span>
-            <span className="text-xs text-slate-600 dark:text-gray-400 font-semibold mt-1 block">
+            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold mt-1 block">
               Contractual Core SLA
             </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-white dark:bg-[#121624] border border-slate-200 dark:border-white/10 shadow-sm text-center">
+          <div className="p-4 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 shadow-sm text-center">
             <span className="text-2xl sm:text-3xl font-black text-brand-orange font-heading block">
               <AnimatedCounter from={0} to={500} suffix="+" />
             </span>
-            <span className="text-xs text-slate-600 dark:text-gray-400 font-semibold mt-1 block">
+            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold mt-1 block">
               Corporate Leased Lines
             </span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-white dark:bg-[#121624] border border-slate-200 dark:border-white/10 shadow-sm text-center">
+          <div className="p-4 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 shadow-sm text-center">
             <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-heading block">
               <AnimatedCounter from={0} to={24} suffix="/7/365" />
             </span>
-            <span className="text-xs text-slate-600 dark:text-gray-400 font-semibold mt-1 block">
+            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold mt-1 block">
               Gulberg-III Local NOC
             </span>
           </div>
@@ -134,7 +134,7 @@ export default function AboutPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* High-Resolution Banner */}
-          <div className="lg:col-span-5 relative h-96 sm:h-[500px] rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
+          <div className="lg:col-span-5 relative h-96 sm:h-[500px] rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
             <Image
               src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80"
               alt="Z COM Optical Fiber Network Infrastructure"
@@ -156,7 +156,7 @@ export default function AboutPage() {
           </div>
 
           {/* Verified Heritage Paragraphs */}
-          <div className="lg:col-span-7 bg-white dark:bg-brand-card/70 p-8 sm:p-12 rounded-3xl border border-slate-200 dark:border-white/10 space-y-6 leading-relaxed text-slate-700 dark:text-gray-300 text-sm sm:text-base shadow-xl shadow-slate-200/50 dark:shadow-black/50">
+          <div className="lg:col-span-7 bg-white dark:bg-[#12161F] p-8 sm:p-12 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 space-y-6 leading-relaxed text-slate-700 dark:text-slate-300 text-sm sm:text-base shadow-xl shadow-slate-200/50 dark:shadow-black/50">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-orange">
               <Award className="w-4 h-4" />
               <span>OUR HERITAGE &amp; PROMISE</span>
@@ -213,7 +213,7 @@ export default function AboutPage() {
         {/* Executive Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Card 1: CEO Mudasir Riaz */}
-          <div className="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 bg-white dark:bg-[#101422] p-6 sm:p-10 shadow-xl shadow-slate-200/50 dark:shadow-black/60 flex flex-col justify-between space-y-6">
+          <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 bg-white dark:bg-[#12161F] p-6 sm:p-10 shadow-xl shadow-slate-200/50 dark:shadow-black/60 flex flex-col justify-between space-y-6">
             <div className="space-y-6">
               {/* Profile Header */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
@@ -234,7 +234,7 @@ export default function AboutPage() {
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
                     Mudasir Riaz
                   </h3>
-                  <p className="text-sm font-semibold text-slate-600 dark:text-gray-400">
+                  <p className="text-sm font-semibold text-slate-600 dark:text-slate-400">
                     Chief Executive Officer (CEO) &amp; Co-Founder
                   </p>
                   <p className="text-xs text-brand-orange font-bold flex items-center gap-1">
@@ -245,7 +245,7 @@ export default function AboutPage() {
               </div>
 
               {/* Bio & Strategy */}
-              <div className="space-y-3 text-sm text-slate-700 dark:text-gray-300 leading-relaxed">
+              <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                 <p>
                   As Chief Executive Officer and visionary co-founder of Z COM Networks, <strong>Mudasir Riaz</strong> has
                   spearheaded the company&apos;s transformation from a local telecom challenger into one of Lahore&apos;s
@@ -260,7 +260,7 @@ export default function AboutPage() {
               </div>
 
               {/* Executive Quote */}
-              <div className="relative rounded-2xl bg-orange-50/70 dark:bg-white/5 border border-orange-200/80 dark:border-white/5 p-5">
+              <div className="relative rounded-2xl bg-orange-50/70 dark:bg-[#0E1118] border border-orange-200/80 dark:border-slate-700/60 p-5">
                 <Quote className="w-8 h-8 text-brand-orange/30 absolute top-3 right-3" />
                 <p className="text-xs sm:text-sm italic font-medium text-slate-800 dark:text-slate-200 leading-relaxed pr-6">
                   &ldquo;Our foundational promise at Z COM Networks has never wavered: to build a transmission network
@@ -282,7 +282,7 @@ export default function AboutPage() {
                 ].map((tag, i) => (
                   <span
                     key={i}
-                    className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-white/5 text-slate-800 dark:text-gray-300 border border-slate-200 dark:border-white/5"
+                    className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-[#0E1118] text-slate-800 dark:text-slate-300 border border-slate-200/90 dark:border-slate-700/60"
                   >
                     {tag}
                   </span>
@@ -292,7 +292,7 @@ export default function AboutPage() {
           </div>
 
           {/* Card 2: CFO Mubasir Riaz */}
-          <div className="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 bg-white dark:bg-[#101422] p-6 sm:p-10 shadow-xl shadow-slate-200/50 dark:shadow-black/60 flex flex-col justify-between space-y-6">
+          <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 bg-white dark:bg-[#12161F] p-6 sm:p-10 shadow-xl shadow-slate-200/50 dark:shadow-black/60 flex flex-col justify-between space-y-6">
             <div className="space-y-6">
               {/* Profile Header */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
@@ -313,7 +313,7 @@ export default function AboutPage() {
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
                     Mubasir Riaz
                   </h3>
-                  <p className="text-sm font-semibold text-slate-600 dark:text-gray-400">
+                  <p className="text-sm font-semibold text-slate-600 dark:text-slate-400">
                     Chief Financial Officer (CFO) &amp; Co-Founder
                   </p>
                   <p className="text-xs text-brand-orange font-bold flex items-center gap-1">
@@ -324,7 +324,7 @@ export default function AboutPage() {
               </div>
 
               {/* Bio & Strategy */}
-              <div className="space-y-3 text-sm text-slate-700 dark:text-gray-300 leading-relaxed">
+              <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                 <p>
                   As Chief Financial Officer and co-founder, <strong>Mubasir Riaz</strong> oversees financial strategy,
                   capital investments in next-generation optical infrastructure, asset stewardship, and commercial
@@ -339,7 +339,7 @@ export default function AboutPage() {
               </div>
 
               {/* Executive Quote */}
-              <div className="relative rounded-2xl bg-orange-50/70 dark:bg-white/5 border border-orange-200/80 dark:border-white/5 p-5">
+              <div className="relative rounded-2xl bg-orange-50/70 dark:bg-[#0E1118] border border-orange-200/80 dark:border-slate-700/60 p-5">
                 <Quote className="w-8 h-8 text-brand-orange/30 absolute top-3 right-3" />
                 <p className="text-xs sm:text-sm italic font-medium text-slate-800 dark:text-slate-200 leading-relaxed pr-6">
                   &ldquo;Sustainable telecommunications infrastructure demands disciplined capital allocation and long-term
@@ -361,7 +361,7 @@ export default function AboutPage() {
                 ].map((tag, i) => (
                   <span
                     key={i}
-                    className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-white/5 text-slate-800 dark:text-gray-300 border border-slate-200 dark:border-white/5"
+                    className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-[#0E1118] text-slate-800 dark:text-slate-300 border border-slate-200/90 dark:border-slate-700/60"
                   >
                     {tag}
                   </span>
@@ -398,28 +398,28 @@ export default function AboutPage() {
           ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white dark:bg-brand-card/70 p-8 sm:p-10 rounded-3xl border border-orange-200 dark:border-brand-orange/30 space-y-4 shadow-lg shadow-orange-500/5">
+          <div className="bg-white dark:bg-[#12161F] p-8 sm:p-10 rounded-3xl border border-orange-500/30 dark:border-orange-500/30 space-y-4 shadow-lg shadow-orange-500/5">
             <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
               OUR MISSION
             </span>
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white font-heading">
               Bridging Distances &amp; Fostering Global Communication
             </h3>
-            <p className="text-slate-700 dark:text-gray-300 leading-relaxed text-base">
+            <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
               Z COM aims to bridge distances and foster global communication with fast, dependable
               fiber internet access. With guaranteed 99.9% uptime SLA, we ensure efficient and seamless
               connectivity for every business and home we serve across Lahore and Punjab.
             </p>
           </div>
 
-          <div className="bg-white dark:bg-brand-card/70 p-8 sm:p-10 rounded-3xl border border-slate-200 dark:border-white/10 space-y-4 shadow-lg shadow-slate-200/50">
+          <div className="bg-white dark:bg-[#12161F] p-8 sm:p-10 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 space-y-4 shadow-lg shadow-slate-200/50 dark:shadow-black/50">
             <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
               OUR VISION
             </span>
             <h3 className="text-2xl font-bold text-slate-900 dark:text-white font-heading">
               Ubiquitous &amp; Empowering High-Speed Connectivity
             </h3>
-            <p className="text-slate-700 dark:text-gray-300 leading-relaxed text-base">
+            <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
               A world where carrier-grade fiber internet is ubiquitous, empowering individuals and
               organizations to innovate without latency or limits &mdash; ensuring 99.9% network
               uptime and 100% customer satisfaction through exceptional optical service.
@@ -439,7 +439,7 @@ export default function AboutPage() {
           <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
             Our <AnimatedCounter from={0} to={6} /> Guiding Core Values
           </h2>
-          <p className="text-sm text-slate-600 dark:text-gray-400">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
             Principles that direct every fiber cable we pull, every server we deploy, and every customer
             we support across Lahore.
           </p>
@@ -449,15 +449,15 @@ export default function AboutPage() {
           {CORE_VALUES.map((val, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-brand-card/70 p-7 rounded-2xl border border-slate-200/90 dark:border-white/5 glass-card-hover space-y-3 shadow-sm hover:shadow-xl hover:shadow-orange-500/10"
+              className="bg-white dark:bg-[#12161F] p-7 rounded-2xl border border-slate-200/90 dark:border-slate-700/60 space-y-3 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 hover:border-brand-orange/60 transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-xl bg-orange-100 dark:bg-brand-orange/15 flex items-center justify-center border border-orange-200 dark:border-brand-orange/20">
+              <div className="w-12 h-12 rounded-xl bg-orange-500/10 dark:bg-orange-500/15 flex items-center justify-center border border-orange-500/20 text-brand-orange">
                 {val.icon}
               </div>
               <h3 className="text-lg font-bold text-slate-900 dark:text-white font-heading">
                 {val.title}
               </h3>
-              <p className="text-sm text-slate-600 dark:text-gray-400 leading-relaxed">
+              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                 {val.desc}
               </p>
             </div>
@@ -468,7 +468,7 @@ export default function AboutPage() {
       {/* ============================================================
           7. GLOBAL TECHNOLOGY PARTNERS MARQUEE LOOP
           ============================================================ */}
-      <section className="py-12 bg-slate-100/60 dark:bg-[#0B0E1A] border-y border-slate-200/80 dark:border-white/5">
+      <section className="py-12 bg-slate-100/60 dark:bg-[#0E1118]/80 backdrop-blur-md border-y border-slate-200/70 dark:border-slate-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8">
           <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
             POWERED BY GLOBAL HARDWARE LEADERS
@@ -484,7 +484,7 @@ export default function AboutPage() {
           8. BOTTOM CALL TO ACTION
           ============================================================ */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-brand-card/70 p-6 sm:p-10 lg:p-12 rounded-3xl border border-slate-200 dark:border-white/10 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
+        <div className="bg-white dark:bg-[#12161F] p-6 sm:p-10 lg:p-12 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
           <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
             Experience the Z COM Difference Today
           </h3>

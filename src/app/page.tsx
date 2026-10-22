@@ -45,8 +45,8 @@ export default function HomePage() {
             2. MODERN CAPABILITIES TICKER BAR (FLOATING GLASS PILL)
             ============================================================ */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 sm:-mt-20 relative z-20">
-          <div className="rounded-3xl bg-white/80 dark:bg-[#0E1220]/80 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 shadow-2xl p-6 sm:p-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 lg:divide-x divide-slate-200/60 dark:divide-white/5">
+          <div className="rounded-3xl bg-white/90 dark:bg-[#12161F]/90 backdrop-blur-2xl border border-slate-200/90 dark:border-slate-700/60 shadow-2xl p-6 sm:p-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 lg:divide-x divide-slate-200/60 dark:divide-slate-700/60">
             <div className="flex items-center gap-3 pt-2 sm:pt-0">
               <div className="w-11 h-11 rounded-2xl bg-orange-100 dark:bg-brand-orange/20 text-brand-orange flex items-center justify-center shrink-0">
                 <CheckCircle2 className="w-5 h-5" />
@@ -147,7 +147,7 @@ export default function HomePage() {
 
           {/* Mission & Vision Cards */}
           <div className="lg:col-span-6 space-y-5">
-            <div className="bg-white dark:bg-[#121624] p-7 rounded-3xl border border-slate-200 dark:border-white/10 hover:border-brand-orange/40 transition-all duration-300 space-y-3 shadow-md">
+            <div className="bg-white dark:bg-[#12161F] p-7 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 hover:border-brand-orange/60 transition-all duration-300 space-y-3 shadow-md hover:shadow-xl hover:shadow-orange-500/10">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-brand-orange uppercase tracking-wider">
                   Our Mission
@@ -164,7 +164,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="bg-white dark:bg-[#121624] p-7 rounded-3xl border border-slate-200 dark:border-white/10 hover:border-brand-orange/40 transition-all duration-300 space-y-3 shadow-md">
+            <div className="bg-white dark:bg-[#12161F] p-7 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 hover:border-brand-orange/60 transition-all duration-300 space-y-3 shadow-md hover:shadow-xl hover:shadow-orange-500/10">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-brand-orange uppercase tracking-wider">
                   Our Vision
@@ -188,7 +188,7 @@ export default function HomePage() {
       {/* ============================================================
           5. INTERACTIVE SOLUTION EXPLORER & PACKAGE CALCULATOR
           ============================================================ */}
-      <section className="py-12 bg-white/70 dark:bg-[#090C16]/75 backdrop-blur-xl border-y border-slate-200/70 dark:border-white/10 relative">
+      <section className="py-12 bg-white/70 dark:bg-[#0B0E14]/80 backdrop-blur-xl border-y border-slate-200/70 dark:border-slate-800/80 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
@@ -213,7 +213,7 @@ export default function HomePage() {
           ============================================================ */}
       <section className="space-y-16">
         {/* Hardware Partners */}
-        <div className="py-12 bg-slate-100/60 dark:bg-[#0B0E1A]/70 backdrop-blur-md border-y border-slate-200/70 dark:border-white/10">
+        <div className="py-12 bg-slate-100/60 dark:bg-[#0E1118]/80 backdrop-blur-md border-y border-slate-200/70 dark:border-slate-800/80">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-6">
             <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
               CARRIER-GRADE COLLABORATION
@@ -247,7 +247,7 @@ export default function HomePage() {
       {/* ============================================================
           8. VERIFIED ENTERPRISE TESTIMONIALS LOOP SLIDER
           ============================================================ */}
-      <section className="py-24 bg-slate-50/65 dark:bg-[#090C16]/75 backdrop-blur-xl border-y border-slate-200/70 dark:border-white/10 relative">
+      <section className="py-24 bg-slate-50/65 dark:bg-[#0B0E14]/80 backdrop-blur-xl border-y border-slate-200/70 dark:border-slate-800/80 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-100 dark:bg-brand-orange/15 border border-orange-200 dark:border-brand-orange/30 text-brand-orange text-xs font-bold uppercase tracking-wider">
@@ -271,7 +271,7 @@ export default function HomePage() {
           9. CAREERS & TEAM SPOTLIGHT BANNER
           ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl overflow-hidden border border-slate-200 dark:border-white/10 shadow-2xl p-6 sm:p-10 lg:p-14 bg-slate-950">
+        <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 shadow-2xl p-6 sm:p-10 lg:p-14 bg-[#0B0E14]">
           <div className="absolute inset-0 -z-20">
             <Image
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80"
@@ -333,7 +333,7 @@ export default function HomePage() {
       {/* ============================================================
           10. FREQUENTLY ASKED QUESTIONS
           ============================================================ */}
-      <section className="py-12 bg-white/70 dark:bg-[#090C16]/75 backdrop-blur-xl border-t border-slate-200/70 dark:border-white/10">
+      <section className="py-12 bg-white/70 dark:bg-[#0B0E14]/80 backdrop-blur-xl border-t border-slate-200/70 dark:border-slate-800/80">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center space-y-4">
             <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
@@ -355,7 +355,7 @@ export default function HomePage() {
           11. FINAL BOTTOM CALL TO ACTION (LIGHT FROSTED GLASS ISLAND)
           ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-        <div className="relative rounded-3xl overflow-hidden border border-orange-200/80 dark:border-white/10 bg-gradient-to-br from-orange-50/70 via-white/85 to-amber-50/40 dark:from-[#101426]/80 dark:via-[#0C0F1D]/90 dark:to-[#141930]/80 backdrop-blur-2xl p-6 sm:p-10 lg:p-16 text-center space-y-6 shadow-2xl shadow-orange-500/5 dark:shadow-black/60">
+        <div className="relative rounded-3xl overflow-hidden border border-orange-200/80 dark:border-slate-700/60 bg-gradient-to-br from-orange-50/70 via-white/85 to-slate-100/60 dark:from-[#161B26]/90 dark:via-[#12161F]/95 dark:to-[#0E1118]/90 backdrop-blur-2xl p-6 sm:p-10 lg:p-16 text-center space-y-6 shadow-2xl shadow-orange-500/5 dark:shadow-black/60">
           {/* Ambient Optical Glows */}
           <div className="absolute -top-24 -left-24 w-80 h-80 bg-brand-orange/15 dark:bg-brand-orange/20 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-amber-400/15 dark:bg-brand-orangeLight/15 rounded-full blur-3xl pointer-events-none" />

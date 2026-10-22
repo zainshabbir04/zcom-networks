@@ -46,7 +46,7 @@ function FiberDotMatrix({ isDark }: { isDark: boolean }) {
       </bufferGeometry>
       <pointsMaterial
         size={0.05}
-        color={isDark ? "#38BDF8" : "#0284C7"}
+        color={isDark ? "#E2E8F0" : "#64748B"}
         transparent
         opacity={isDark ? 0.75 : 0.55}
         sizeAttenuation
@@ -91,9 +91,9 @@ function FiberArcs({ isDark }: { isDark: boolean }) {
 
         const isOrange = (i + j) % 2 === 0;
         const mat = new THREE.LineBasicMaterial({
-          color: isOrange ? (isDark ? 0xF05A22 : 0xEA580C) : (isDark ? 0x38BDF8 : 0x0284C7),
+          color: isOrange ? (isDark ? 0xF05A22 : 0xEA580C) : (isDark ? 0xE2E8F0 : 0x64748B),
           transparent: true,
-          opacity: isDark ? 0.45 : 0.3,
+          opacity: isDark ? 0.45 : 0.35,
           linewidth: 1,
         });
 
@@ -135,9 +135,9 @@ function OrbitalRings({ isDark }: { isDark: boolean }) {
       const geom = new THREE.BufferGeometry().setFromPoints(pts);
       const isOrange = i % 2 === 0;
       const mat = new THREE.LineBasicMaterial({
-        color: isOrange ? (isDark ? 0xF05A22 : 0xEA580C) : (isDark ? 0xFBBF24 : 0xD97706),
+        color: isOrange ? (isDark ? 0xF05A22 : 0xEA580C) : (isDark ? 0xCBD5E1 : 0x64748B),
         transparent: true,
-        opacity: isDark ? 0.35 : 0.2,
+        opacity: isDark ? 0.4 : 0.25,
       });
 
       list.push(new THREE.Line(geom, mat));
@@ -237,20 +237,20 @@ function RotatingScene({
       <mesh>
         <sphereGeometry args={[2.42, 36, 36]} />
         <meshBasicMaterial
-          color={isDark ? "#060913" : "#F8FAFC"}
+          color={isDark ? "#080A0F" : "#F8FAFC"}
           transparent
           opacity={isDark ? 0.75 : 0.45}
         />
       </mesh>
 
-      {/* Atmospheric wireframe shell */}
+      {/* Atmospheric metallic wireframe shell */}
       <mesh>
         <sphereGeometry args={[2.46, 28, 28]} />
         <meshBasicMaterial
-          color={isDark ? "#1E3A8A" : "#BAE6FD"}
+          color={isDark ? "#334155" : "#CBD5E1"}
           wireframe
           transparent
-          opacity={isDark ? 0.15 : 0.25}
+          opacity={isDark ? 0.18 : 0.25}
         />
       </mesh>
 
@@ -306,10 +306,10 @@ export default function StickyBackground3D() {
 
   return (
     <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden select-none">
-      {/* Ambient optical gradient glow orbs behind 3D canvas */}
-      <div className="absolute top-1/4 -left-40 w-[32rem] h-[32rem] rounded-full bg-brand-orange/10 dark:bg-brand-orange/15 blur-[120px] pointer-events-none" />
-      <div className="absolute top-2/3 -right-40 w-[34rem] h-[34rem] rounded-full bg-sky-400/10 dark:bg-sky-500/15 blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/3 w-[28rem] h-[28rem] rounded-full bg-amber-400/8 dark:bg-amber-500/12 blur-[110px] pointer-events-none" />
+      {/* Ambient optical gradient glow orbs behind 3D canvas (Orange & Silver Gray) */}
+      <div className="absolute top-1/4 -left-40 w-[32rem] h-[32rem] rounded-full bg-brand-orange/12 dark:bg-brand-orange/15 blur-[120px] pointer-events-none" />
+      <div className="absolute top-2/3 -right-40 w-[34rem] h-[34rem] rounded-full bg-slate-300/15 dark:bg-slate-500/10 blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/3 w-[28rem] h-[28rem] rounded-full bg-orange-400/8 dark:bg-brand-orange/10 blur-[110px] pointer-events-none" />
 
       {/* Subtle background cyber grid */}
       <div
@@ -334,24 +334,24 @@ export default function StickyBackground3D() {
           }}
           dpr={[1, 1.5]}
         >
-          <ambientLight intensity={isDark ? 0.7 : 0.9} />
+          <ambientLight intensity={isDark ? 0.75 : 0.95} />
           <pointLight
             position={[10, 10, 10]}
-            intensity={isDark ? 0.8 : 1.0}
-            color="#FF9933"
+            intensity={isDark ? 0.9 : 1.1}
+            color="#FF7A1A"
           />
           <pointLight
             position={[-10, -10, -10]}
-            intensity={isDark ? 0.4 : 0.6}
-            color="#38BDF8"
+            intensity={isDark ? 0.45 : 0.65}
+            color="#E2E8F0"
           />
           <RotatingScene isDark={isDark} scrollProgress={scrollProgress} />
         </Canvas>
       )}
 
       {/* Top and Bottom soft fade masks */}
-      <div className="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-slate-50 dark:from-[#060810] to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-slate-100 dark:from-[#060810] to-transparent pointer-events-none" />
+      <div className="absolute top-0 inset-x-0 h-28 bg-gradient-to-b from-slate-50 dark:from-[#0B0E14] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-slate-100 dark:from-[#0B0E14] to-transparent pointer-events-none" />
     </div>
   );
 }

@@ -177,38 +177,38 @@ export default function HeroSlider() {
 
         {/* 0.5s Continuous Speed Loop Badge: "GET THE SPEED YOU NEED" */}
         <div className="flex justify-center pt-0.5">
-          <div className="inline-flex items-center gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-orange-600/40 via-brand-orange/50 to-amber-500/40 border-2 border-brand-orange text-white shadow-xl shadow-brand-orange/30 backdrop-blur-md animate-speed-loop-half max-w-full">
-            <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-300 fill-amber-300 animate-pulse shrink-0" />
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-brand-orange/25 via-slate-800/40 to-brand-orange/25 border border-brand-orange/80 text-white shadow-xl shadow-brand-orange/25 backdrop-blur-md animate-speed-loop-half max-w-full">
+            <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-orangeLight fill-brand-orangeLight animate-pulse shrink-0" />
             <span className="text-[11px] xs:text-xs sm:text-sm font-black tracking-[0.15em] sm:tracking-[0.25em] uppercase text-white font-heading drop-shadow-md truncate">
               GET THE SPEED YOU NEED
             </span>
-            <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-300 fill-amber-300 animate-pulse shrink-0" />
+            <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-orangeLight fill-brand-orangeLight animate-pulse shrink-0" />
           </div>
         </div>
 
         {/* Main Cinematic Heading (Stacked Layout from screenshot) */}
         <div key={slide.id} className="space-y-1 sm:space-y-2 animate-in fade-in zoom-in-95 duration-500">
-          <h1 className="text-2xl sm:text-4xl lg:text-6xl font-light text-slate-800 dark:text-white tracking-[0.15em] sm:tracking-[0.22em] uppercase font-heading drop-shadow-sm">
+          <h1 className="text-2xl sm:text-4xl lg:text-6xl font-light text-slate-700 dark:text-slate-300 tracking-[0.15em] sm:tracking-[0.22em] uppercase font-heading drop-shadow-sm">
             {slide.titleLight}
           </h1>
           <h2 className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-slate-900 dark:text-white tracking-tight uppercase font-heading drop-shadow-md">
             {slide.titleBold.split(" ")[0]}{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-orange-500 to-amber-500 dark:from-white dark:via-orange-200 dark:to-brand-orange">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-orangeLight to-[#FFA26B]">
               {slide.titleBold.split(" ").slice(1).join(" ")}
             </span>
           </h2>
         </div>
 
         {/* Description Text (high-contrast text) */}
-        <p className="text-sm sm:text-lg lg:text-xl text-slate-600 dark:text-slate-200 max-w-2xl mx-auto leading-relaxed font-sans px-2 sm:px-0">
+        <p className="text-sm sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed font-sans px-2 sm:px-0">
           {slide.description}
         </p>
 
-        {/* Action Buttons */}
+        {/* Action Buttons: Electric Orange Primary + Metallic Silver Secondary */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2 w-full max-w-sm sm:max-w-none mx-auto">
           <Link
             href={slide.primaryButtonHref}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-[#0070F3] hover:bg-[#005fd2] text-white font-bold text-sm sm:text-base px-7 py-3.5 sm:px-9 sm:py-4 rounded-xl transition-all duration-200 shadow-xl shadow-blue-600/30 hover:shadow-blue-600/50 hover:-translate-y-0.5"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-sm sm:text-base px-7 py-3.5 sm:px-9 sm:py-4 rounded-xl transition-all duration-200 shadow-xl shadow-brand-orange/30 hover:shadow-brand-orange/50 hover:-translate-y-0.5"
           >
             <span>{slide.primaryButtonText}</span>
             <ArrowRight className="w-4 h-4" />
@@ -216,14 +216,14 @@ export default function HeroSlider() {
 
           <Link
             href={slide.secondaryButtonHref}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-sm sm:text-base px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl transition-all duration-200 shadow-xl shadow-brand-orange/30 hover:shadow-brand-orange/50 hover:-translate-y-0.5"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-slate-200/90 hover:bg-slate-300 dark:bg-slate-800/90 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-sm sm:text-base px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl border border-slate-300 dark:border-slate-700 transition-all duration-200 shadow-md hover:-translate-y-0.5 backdrop-blur-md"
           >
             <span>{slide.secondaryButtonText}</span>
           </Link>
         </div>
 
         {/* Real-time Animated Number Counters (Count up from 0 to max upon view) */}
-        <div className="pt-6 sm:pt-8 max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 border-t border-slate-200 dark:border-white/10 text-center">
+        <div className="pt-6 sm:pt-8 max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 border-t border-slate-200/80 dark:border-slate-800/80 text-center">
           {slide.stats.map((st, i) => (
             <div key={i} className={`p-2 sm:p-2.5 ${i > 0 ? "sm:border-l sm:border-slate-200 dark:sm:border-white/10" : ""}`}>
               <div className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading">
@@ -250,7 +250,7 @@ export default function HeroSlider() {
       <button
         onClick={prevSlide}
         aria-label="Previous Slide"
-        className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/80 dark:bg-black/40 hover:bg-brand-orange dark:hover:bg-brand-orange text-slate-800 dark:text-white hover:text-white dark:hover:text-white items-center justify-center border border-slate-200 dark:border-white/10 shadow-lg backdrop-blur-md transition-all hover:scale-110 active:scale-95"
+        className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/90 dark:bg-slate-800/80 hover:bg-brand-orange dark:hover:bg-brand-orange text-slate-800 dark:text-slate-200 hover:text-white dark:hover:text-white items-center justify-center border border-slate-200 dark:border-slate-700/80 shadow-lg backdrop-blur-md transition-all hover:scale-110 active:scale-95"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
@@ -259,7 +259,7 @@ export default function HeroSlider() {
       <button
         onClick={nextSlide}
         aria-label="Next Slide"
-        className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/80 dark:bg-black/40 hover:bg-brand-orange dark:hover:bg-brand-orange text-slate-800 dark:text-white hover:text-white dark:hover:text-white items-center justify-center border border-slate-200 dark:border-white/10 shadow-lg backdrop-blur-md transition-all hover:scale-110 active:scale-95"
+        className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/90 dark:bg-slate-800/80 hover:bg-brand-orange dark:hover:bg-brand-orange text-slate-800 dark:text-slate-200 hover:text-white dark:hover:text-white items-center justify-center border border-slate-200 dark:border-slate-700/80 shadow-lg backdrop-blur-md transition-all hover:scale-110 active:scale-95"
       >
         <ChevronRight className="w-6 h-6" />
       </button>

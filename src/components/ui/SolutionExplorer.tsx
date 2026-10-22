@@ -190,7 +190,7 @@ export default function SolutionExplorer() {
               className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl text-[11px] sm:text-sm font-bold transition-all duration-300 border ${
                 isActive
                   ? "bg-brand-orange text-white border-brand-orange shadow-lg shadow-brand-orange/30 scale-[1.02] sm:scale-[1.03]"
-                  : "bg-white dark:bg-white/5 text-slate-700 dark:text-gray-300 border-slate-200/90 dark:border-white/10 hover:border-brand-orange/40 hover:bg-orange-50/50 dark:hover:bg-white/10"
+                  : "bg-white dark:bg-[#12161F] text-slate-700 dark:text-slate-300 border-slate-200/90 dark:border-slate-700/60 hover:border-brand-orange/40 hover:bg-orange-50/50 dark:hover:bg-slate-800"
               }`}
             >
               {s.icon}
@@ -206,7 +206,7 @@ export default function SolutionExplorer() {
         <button
           onClick={prevSlide}
           aria-label="Previous Solution"
-          className="hidden sm:flex absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/95 dark:bg-[#121624]/95 hover:bg-brand-orange hover:text-white dark:hover:bg-brand-orange text-slate-800 dark:text-white border border-slate-200/90 dark:border-white/10 shadow-xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
+          className="hidden sm:flex absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/95 dark:bg-[#12161F]/95 hover:bg-brand-orange hover:text-white dark:hover:bg-brand-orange text-slate-800 dark:text-slate-200 border border-slate-200/90 dark:border-slate-700/60 shadow-xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>
@@ -215,14 +215,14 @@ export default function SolutionExplorer() {
         <button
           onClick={nextSlide}
           aria-label="Next Solution"
-          className="hidden sm:flex absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/95 dark:bg-[#121624]/95 hover:bg-brand-orange hover:text-white dark:hover:bg-brand-orange text-slate-800 dark:text-white border border-slate-200/90 dark:border-white/10 shadow-xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
+          className="hidden sm:flex absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-white/95 dark:bg-[#12161F]/95 hover:bg-brand-orange hover:text-white dark:hover:bg-brand-orange text-slate-800 dark:text-slate-200 border border-slate-200/90 dark:border-slate-700/60 shadow-xl items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95"
         >
           <ChevronRight className="w-5 h-5" />
         </button>
 
         {/* Viewport Frame */}
         <div
-          className="overflow-hidden rounded-3xl border border-slate-200 dark:border-white/10 shadow-xl shadow-slate-200/50 dark:shadow-black/50 bg-white dark:bg-brand-card/70 relative"
+          className="overflow-hidden rounded-3xl border border-slate-200/90 dark:border-slate-700/60 shadow-xl shadow-slate-200/50 dark:shadow-black/50 bg-white dark:bg-[#12161F] relative"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
@@ -276,19 +276,19 @@ export default function SolutionExplorer() {
 
                 {/* Right: Action Box */}
                 <div className="lg:col-span-5">
-                  <div className="p-5 sm:p-8 rounded-2xl bg-slate-50 dark:bg-brand-cardDark/90 border border-slate-200 dark:border-white/10 text-center space-y-5 sm:space-y-6 relative overflow-hidden shadow-lg">
+                  <div className="p-5 sm:p-8 rounded-2xl bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60 text-center space-y-5 sm:space-y-6 relative overflow-hidden shadow-lg">
                     <div className="w-16 h-16 rounded-2xl bg-orange-100 dark:bg-brand-orange/15 text-brand-orange mx-auto flex items-center justify-center border border-orange-200 dark:border-brand-orange/30">
                       {sol.icon}
                     </div>
 
                     <div>
-                      <span className="text-xs uppercase font-bold text-slate-500 dark:text-gray-400 tracking-wider">
+                      <span className="text-xs uppercase font-bold text-slate-500 dark:text-slate-400 tracking-wider">
                         Specification Standard
                       </span>
                       <h4 className="text-xl font-bold text-slate-900 dark:text-white mt-1">
                         {sol.highlight}
                       </h4>
-                      <p className="text-xs text-slate-500 dark:text-gray-400 mt-2">
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
                         Free on-site optical feasibility survey across Lahore. Fast 24-48h activation.
                       </p>
                     </div>
@@ -308,7 +308,7 @@ export default function SolutionExplorer() {
 
                       <Link
                         href="/contact"
-                        className="w-full inline-flex items-center justify-center gap-2 bg-white dark:bg-white/5 hover:bg-orange-50 dark:hover:bg-white/10 text-slate-800 dark:text-white text-xs font-semibold py-3 px-6 rounded-xl border border-slate-300 dark:border-white/10 transition-colors"
+                        className="w-full inline-flex items-center justify-center gap-2 bg-white dark:bg-slate-800/80 hover:bg-orange-50 dark:hover:bg-slate-700 text-slate-800 dark:text-white text-xs font-semibold py-3 px-6 rounded-xl border border-slate-300 dark:border-slate-700 transition-colors shadow-sm"
                       >
                         <span>Request Custom Quote &amp; Survey</span>
                       </Link>

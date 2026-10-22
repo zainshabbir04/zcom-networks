@@ -1,23 +1,9 @@
 import type { Metadata } from "next";
-import { Sora, Manrope } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
-
-const sora = Sora({
-  subsets: ["latin"],
-  variable: "--font-sora",
-  weight: ["500", "600", "700", "800"],
-  display: "swap",
-});
-
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
+import { ThemeProvider } from "@/context/ThemeContext";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zcomnetworks.com.pk"),
@@ -55,16 +41,20 @@ export const metadata: Metadata = {
   },
 };
 
-import { ThemeProvider } from "@/context/ThemeContext";
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${sora.variable} ${manrope.variable}`} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap"
+          rel="stylesheet"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function() {
@@ -116,7 +106,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-[#FAFAFA] dark:bg-brand-dark text-slate-900 dark:text-gray-100 min-h-screen flex flex-col antialiased selection:bg-brand-orange selection:text-white transition-colors duration-300">
+      <body className="bg-[#F8FAFC] dark:bg-[#0B0E14] text-slate-900 dark:text-slate-100 min-h-screen flex flex-col antialiased selection:bg-brand-orange selection:text-white transition-colors duration-300">
         <ThemeProvider>
           <Header />
           <main className="flex-1">{children}</main>

@@ -20,7 +20,7 @@ export default function ThemeToggle({ className = "", showLabel = false }: Theme
   if (!mounted) {
     return (
       <div
-        className={`w-9 h-9 sm:w-auto sm:px-3 sm:py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 ${className}`}
+        className={`w-9 h-9 sm:w-auto sm:px-3 sm:py-1.5 rounded-full bg-slate-100 dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-700/80 ${className}`}
       />
     );
   }
@@ -52,16 +52,16 @@ export default function ThemeToggle({ className = "", showLabel = false }: Theme
       title={tooltip}
       className={`group relative inline-flex items-center gap-1.5 px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-full text-xs font-bold transition-all duration-200 select-none ${
         isDark
-          ? "bg-slate-800/90 hover:bg-slate-700 text-amber-300 border border-slate-700/80 shadow-inner"
-          : "bg-orange-50/90 hover:bg-orange-100 text-brand-orange border border-orange-200/90 shadow-sm"
+          ? "bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700/80 shadow-inner"
+          : "bg-white hover:bg-orange-50/50 text-slate-800 border border-slate-200/90 shadow-sm"
       } ${className}`}
     >
       {/* Icon with subtle spin animation on theme change */}
       <div className="relative w-4 h-4 flex items-center justify-center shrink-0">
         {isDark ? (
-          <Moon className="w-3.5 h-3.5 text-amber-300 fill-amber-300/30 transition-transform duration-300 group-hover:-rotate-12" />
+          <Moon className="w-3.5 h-3.5 text-slate-200 fill-slate-200/30 transition-transform duration-300 group-hover:-rotate-12" />
         ) : (
-          <Sun className="w-3.5 h-3.5 text-brand-orange fill-amber-400/40 transition-transform duration-300 group-hover:rotate-45" />
+          <Sun className="w-3.5 h-3.5 text-brand-orange fill-orange-400/40 transition-transform duration-300 group-hover:rotate-45" />
         )}
       </div>
 
@@ -70,7 +70,7 @@ export default function ThemeToggle({ className = "", showLabel = false }: Theme
         {isAuto && (
           <span
             className={`w-1.5 h-1.5 rounded-full animate-pulse ${
-              isDaytime ? "bg-amber-500" : "bg-indigo-400"
+              isDaytime ? "bg-brand-orange" : "bg-slate-300"
             }`}
           />
         )}

@@ -48,7 +48,7 @@ export default function CoverageForm() {
       <div>
         <label
           htmlFor="area"
-          className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-gray-300 mb-1.5"
+          className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5"
         >
           Your Area / Sector in Lahore *
         </label>
@@ -61,7 +61,7 @@ export default function CoverageForm() {
             value={area}
             onChange={(e) => setArea(e.target.value)}
             placeholder="e.g. Gulberg-III, Phase 5 DHA, Johar Town"
-            className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl py-3 pl-10 pr-4 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
+            className="w-full bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60 rounded-xl py-3 pl-10 pr-4 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
           />
         </div>
       </div>
@@ -69,7 +69,7 @@ export default function CoverageForm() {
       <div>
         <label
           htmlFor="phone"
-          className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-gray-300 mb-1.5"
+          className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5"
         >
           WhatsApp / Phone Number *
         </label>
@@ -82,7 +82,7 @@ export default function CoverageForm() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="e.g. 0300 1234567"
-            className="w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl py-3 pl-10 pr-4 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
+            className="w-full bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60 rounded-xl py-3 pl-10 pr-4 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
           />
         </div>
       </div>

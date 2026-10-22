@@ -7,20 +7,22 @@
     --brand-orange: #F05A22;
     --brand-orange-light: #FF7A38;
     --brand-orange-soft: #FFF7ED;
+    --font-sora: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-manrope: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
 
   /* Default Light Mode */
   body {
-    background-color: #FAFAFA;
+    background-color: #F8FAFC;
     color: #0F172A;
     font-family: var(--font-manrope), sans-serif;
     overflow-x: hidden;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  /* Dark Mode */
+  /* Dark Mode - Sleek Titanium Obsidian */
   .dark body {
-    background-color: #0B0D14;
+    background-color: #0B0E14;
     color: #F8FAFC;
   }
 
@@ -31,33 +33,33 @@
 
 /* Glassmorphism styling - adaptive for Light & Dark */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
 }
 
 .dark .glass-panel {
-  background: rgba(24, 28, 40, 0.7);
+  background: rgba(18, 22, 31, 0.82);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: none;
+  border: 1px solid rgba(203, 213, 225, 0.12);
+  box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.45);
 }
 
 .glass-panel-light {
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.6);
+  border: 1px solid rgba(226, 232, 240, 0.8);
 }
 
 .dark .glass-panel-light {
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(203, 213, 225, 0.1);
 }
 
 .glass-card-hover {
@@ -68,12 +70,49 @@
 
 .glass-card-hover:hover {
   transform: translateY(-4px);
-  border-color: rgba(240, 90, 34, 0.4);
-  box-shadow: 0 16px 36px -12px rgba(240, 90, 34, 0.15);
+  border-color: rgba(240, 90, 34, 0.5);
+  box-shadow: 0 16px 36px -12px rgba(240, 90, 34, 0.2);
 }
 
 .dark .glass-card-hover:hover {
-  box-shadow: 0 16px 36px -12px rgba(240, 90, 34, 0.25);
+  box-shadow: 0 16px 36px -12px rgba(240, 90, 34, 0.28);
+}
+
+/* Metallic Silver & Chrome Text Gradients */
+.text-silver-gradient {
+  background: linear-gradient(135deg, #0F172A 0%, #334155 50%, #64748B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dark .text-silver-gradient {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 50%, #94A3B8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-orange-gradient {
+  background: linear-gradient(135deg, #F05A22 0%, #FF6F3C 50%, #FFA26B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Metallic Silver Card / Pill Border with subtle glow */
+.border-silver-glow {
+  border: 1px solid rgba(203, 213, 225, 0.25);
+  box-shadow: 0 0 16px -2px rgba(203, 213, 225, 0.1);
+}
+
+.badge-silver {
+  background-color: rgba(241, 245, 249, 0.9);
+  color: #334155;
+  border: 1px solid #CBD5E1;
+}
+
+.dark .badge-silver {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #E2E8F0;
+  border: 1px solid rgba(203, 213, 225, 0.16);
 }
 
 /* Glow effects */
@@ -85,17 +124,17 @@
   text-shadow: 0 0 24px rgba(240, 90, 34, 0.4);
 }
 
-/* Signin.com.pk inspired highlight badge pills */
+/* Highlight badge pills */
 .highlight-badge-orange {
-  background-color: #FFF7ED;
+  background-color: rgba(240, 90, 34, 0.08);
   color: #C2410C;
-  border: 1px solid #FFEDD5;
+  border: 1px solid rgba(240, 90, 34, 0.25);
 }
 
 .dark .highlight-badge-orange {
   background-color: rgba(240, 90, 34, 0.15);
   color: #FB923C;
-  border-color: rgba(240, 90, 34, 0.3);
+  border-color: rgba(240, 90, 34, 0.35);
 }
 
 .highlight-badge-gold {
@@ -167,14 +206,15 @@
   background: #F1F5F9;
 }
 .dark ::-webkit-scrollbar-track {
-  background: #0E1019;
+  background: #0B0E14;
 }
 ::-webkit-scrollbar-thumb {
   background: #CBD5E1;
   border-radius: 4px;
 }
 .dark ::-webkit-scrollbar-thumb {
-  background: #252A38;
+  background: #1E2430;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #F05A22;

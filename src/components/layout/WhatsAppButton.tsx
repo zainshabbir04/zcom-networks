@@ -9,7 +9,7 @@ export default function WhatsAppButton() {
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex items-center group">
-      <div className="hidden md:block mr-3 bg-brand-cardDark text-xs text-gray-200 py-1.5 px-3 rounded-lg border border-white/10 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+      <div className="hidden md:block mr-3 bg-[#12161F] text-xs text-slate-200 py-1.5 px-3 rounded-lg border border-slate-700/60 shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
         Chat with our Lahore team
       </div>
       <button
