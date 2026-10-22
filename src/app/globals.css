@@ -275,4 +275,58 @@
   animation: speedLoopHalf 0.5s ease-in-out infinite;
 }
 
+/* Circular Orbit Animations for Client Loop */
+@keyframes orbitSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitSpinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes orbitCounterSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes orbitCounterSpinReverse {
+  from {
+    transform: rotate(-360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-orbit-spin {
+  animation: orbitSpin 55s linear infinite;
+}
+
+.animate-orbit-spin-reverse {
+  animation: orbitSpinReverse 42s linear infinite;
+}
+
+.animate-orbit-counter {
+  animation: orbitCounterSpin 55s linear infinite;
+}
+
+.animate-orbit-counter-reverse {
+  animation: orbitCounterSpinReverse 42s linear infinite;
+}
+
+
 
