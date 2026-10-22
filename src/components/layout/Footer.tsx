@@ -5,9 +5,7 @@ import {
   Phone,
   Mail,
   MapPin,
-  ArrowRight,
   ShieldCheck,
-  Zap,
   Globe,
   Radio,
   Server,
@@ -22,44 +20,8 @@ export default function Footer() {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-orange/8 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-slate-500/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
-        {/* Tier 1: Modern Pre-Footer Quick Action Grid */}
-        <div className="rounded-3xl bg-gradient-to-r from-slate-900/90 via-slate-800/60 to-slate-900/90 border border-slate-700/60 p-6 sm:p-10 backdrop-blur-xl shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-6">
-          <div className="space-y-2 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-bold uppercase tracking-wider">
-              <Zap className="w-3.5 h-3.5" />
-              <span>DIRECT GULBERG-III NOC ESCALATION</span>
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-heading">
-              Ready to Upgrade to 1:1 Symmetrical Optical Fiber?
-            </h3>
-            <p className="text-sm text-slate-300 max-w-xl">
-              Connect with our Lahore solutions engineering team for a complimentary site survey
-              and dedicated optical link feasibility.
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 shrink-0 w-full sm:w-auto">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-sm px-7 py-3.5 rounded-full transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5 w-full sm:w-auto"
-            >
-              <span>Schedule Site Survey</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-
-            <a
-              href="https://wa.me/923171118042"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white font-bold text-sm px-6 py-3.5 rounded-full transition-all border border-slate-700 hover:-translate-y-0.5 w-full sm:w-auto"
-            >
-              <span>WhatsApp NOC</span>
-            </a>
-          </div>
-        </div>
-
-        {/* Tier 2: 5-Column Navigation & Information Matrix */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
+        {/* 5-Column Navigation & Information Matrix */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
           {/* Brand & Corporate Overview */}
           <div className="lg:col-span-4 space-y-5">
