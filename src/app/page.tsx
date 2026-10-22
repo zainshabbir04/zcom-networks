@@ -21,7 +21,6 @@ import PartnersMarquee from "@/components/ui/PartnersMarquee";
 import ClientsAnimatedMarquee from "@/components/ui/ClientsAnimatedMarquee";
 import FaqAccordion from "@/components/ui/FaqAccordion";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import TestimonialsLoopSlider from "@/components/ui/TestimonialsLoopSlider";
 
 export default function HomePage() {
   return (
@@ -235,28 +234,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============================================================
-          8. VERIFIED ENTERPRISE TESTIMONIALS LOOP SLIDER
-          ============================================================ */}
-      <section className="py-24 bg-slate-50/65 dark:bg-[#0B0E14]/80 backdrop-blur-xl border-y border-slate-200/70 dark:border-slate-800/80 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="text-center max-w-3xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-100 dark:bg-brand-orange/15 border border-orange-200 dark:border-brand-orange/30 text-brand-orange text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>REAL CLIENT FEEDBACK · LAHORE METROPOLITAN AREA</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight">
-              What Lahore&apos;s Enterprise Leaders Say
-            </h2>
-            <p className="text-base text-slate-600 dark:text-gray-300">
-              Verified testimonials from chief medical officers, VP engineering leads, and IT directors
-              relying on Z COM dedicated optical circuits every single day.
-            </p>
-          </div>
-
-          <TestimonialsLoopSlider />
-        </div>
-      </section>
 
       {/* ============================================================
           9. CAREERS & TEAM SPOTLIGHT BANNER
