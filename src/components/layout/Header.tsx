@@ -62,6 +62,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,94 +90,95 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 sm:top-3 z-40 w-full transition-all duration-300 px-3 sm:px-6 lg:px-8">
+      <header className="sticky top-0 z-40 w-full transition-all duration-300">
         <div
-          className={`max-w-7xl mx-auto rounded-2xl sm:rounded-full transition-all duration-300 ${
-            scrolled
-              ? "bg-white/95 dark:bg-[#12161F]/95 backdrop-blur-xl border border-slate-200/90 dark:border-slate-700/60 shadow-xl shadow-black/10 py-2 sm:py-2.5 px-4 sm:px-6"
-              : "bg-white/90 dark:bg-[#12161F]/85 backdrop-blur-xl border border-slate-200/80 dark:border-slate-700/50 shadow-lg shadow-black/5 py-2.5 sm:py-3 px-4 sm:px-6"
+          className={`transition-all duration-300 ${
+            isHome
+              ? scrolled
+                ? "max-w-7xl mx-auto rounded-2xl bg-[#0B0E14]/85 backdrop-blur-xl border border-slate-800/80 shadow-xl py-2.5 px-4 sm:px-6 mt-2"
+                : "max-w-7xl mx-auto bg-transparent border-0 shadow-none py-4 sm:py-6 px-4 sm:px-8"
+              : scrolled
+                ? "max-w-7xl mx-auto rounded-2xl sm:rounded-full bg-white/95 dark:bg-[#12161F]/95 backdrop-blur-xl border border-slate-200/90 dark:border-slate-700/60 shadow-xl shadow-black/10 py-2 sm:py-2.5 px-4 sm:px-6 sm:mt-3"
+                : "max-w-7xl mx-auto rounded-2xl sm:rounded-full bg-white/90 dark:bg-[#12161F]/85 backdrop-blur-xl border border-slate-200/80 dark:border-slate-700/50 shadow-lg shadow-black/5 py-2.5 sm:py-3 px-4 sm:px-6 sm:mt-3"
           }`}
         >
           <div className="flex items-center justify-between gap-4 h-11 sm:h-12">
-            {/* Logo */}
+            {/* Logo: Transparent over video on home screen */}
             <Link href="/" className="flex items-center gap-2.5 group shrink-0">
-              <div className="relative h-9 sm:h-10 w-36 sm:w-44 transition-transform duration-200 group-hover:scale-102">
+              <div className="relative h-9 sm:h-11 w-36 sm:w-48 transition-transform duration-200 group-hover:scale-105">
                 <Image
                   src="https://zcomnetworks.com.pk/assets/zcom-logo.png?v=2"
                   alt="Z COM Networks - Premier Optical Fiber ISP"
                   fill
-                  className="object-contain object-left"
+                  className="object-contain object-left drop-shadow-lg"
                   priority
                   unoptimized
                 />
               </div>
             </Link>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-1 xl:gap-2 bg-slate-100/90 dark:bg-slate-900/70 backdrop-blur-md p-1 rounded-full border border-slate-200/80 dark:border-slate-700/60 shadow-inner">
-              {NAV_LINKS.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className={`relative px-3.5 xl:px-4 py-1.5 rounded-full text-xs xl:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
-                      isActive
-                        ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30 font-extrabold"
-                        : "text-slate-700 dark:text-slate-300 hover:text-brand-orange dark:hover:text-brand-orange hover:bg-white dark:hover:bg-slate-800"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                );
-              })}
-            </nav>
+            {/* Desktop Navigation Links: Hidden on home screen, only shown on non-home pages */}
+            {!isHome && (
+              <nav className="hidden lg:flex items-center gap-1 xl:gap-2 bg-slate-100/90 dark:bg-slate-900/70 backdrop-blur-md p-1 rounded-full border border-slate-200/80 dark:border-slate-700/60 shadow-inner">
+                {NAV_LINKS.map((link) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className={`relative px-3.5 xl:px-4 py-1.5 rounded-full text-xs xl:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
+                        isActive
+                          ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30 font-extrabold"
+                          : "text-slate-700 dark:text-slate-300 hover:text-brand-orange dark:hover:text-brand-orange hover:bg-white dark:hover:bg-slate-800"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
+              </nav>
+            )}
 
-            {/* Desktop Right Actions: Telemetry + Hotline + Theme Toggle + CTA + Mega Menu Toggle */}
-            <div className="hidden lg:flex items-center gap-2.5 xl:gap-3 shrink-0">
-              {/* Live Status Pill */}
-              <div className="hidden xl:flex items-center gap-1.5 text-[11px] font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-900/70 px-3 py-1.5 rounded-full border border-slate-200/80 dark:border-slate-700/60 whitespace-nowrap">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>Core <AnimatedCounter from={0} to={100} duration={1400} />G: Optimal</span>
-              </div>
+            {/* Right Controls: Theme Toggle + Menu Toggle */}
+            <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
+              {/* Non-Home actions */}
+              {!isHome && (
+                <>
+                  <div className="hidden xl:flex items-center gap-1.5 text-[11px] font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-900/70 px-3 py-1.5 rounded-full border border-slate-200/80 dark:border-slate-700/60 whitespace-nowrap">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>Core <AnimatedCounter from={0} to={100} duration={1400} />G: Optimal</span>
+                  </div>
+
+                  <Link
+                    href="/contact"
+                    className="hidden sm:inline-flex items-center gap-1.5 bg-brand-orange hover:bg-brand-orangeLight text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-200 shadow-md shadow-brand-orange/25 hover:shadow-brand-orange/40 hover:-translate-y-0.5 shrink-0 whitespace-nowrap"
+                  >
+                    <span>Check Availability</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </>
+              )}
 
               {/* Theme Toggle */}
               <ThemeToggle />
-
-              {/* Check Availability CTA */}
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-1.5 bg-brand-orange hover:bg-brand-orangeLight text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-200 shadow-md shadow-brand-orange/25 hover:shadow-brand-orange/40 hover:-translate-y-0.5 shrink-0 whitespace-nowrap"
-              >
-                <span>Check Availability</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
 
               {/* GCS-Style Stylized Mega Menu Toggle Button */}
               <button
                 onClick={() => setIsOpen(true)}
                 aria-label="Open Fullscreen Menu"
-                className="p-2 sm:px-3 sm:py-2 rounded-full bg-slate-900 text-white dark:bg-slate-800 dark:hover:bg-brand-orange hover:bg-brand-orange transition-all duration-200 flex items-center gap-2 shadow-sm cursor-pointer group"
-                title="Open Mega Navigation"
+                className={`p-2 sm:px-3.5 sm:py-2 rounded-full transition-all duration-200 flex items-center gap-2 shadow-lg cursor-pointer group backdrop-blur-md ${
+                  isHome && !scrolled
+                    ? "bg-black/40 hover:bg-brand-orange text-white border border-white/20 hover:border-brand-orange"
+                    : "bg-slate-900 text-white dark:bg-slate-800 dark:hover:bg-brand-orange hover:bg-brand-orange border border-slate-700/60"
+                }`}
+                title="Open Navigation Menu"
               >
                 <div className="flex flex-col gap-1 w-4">
                   <span className="h-0.5 w-4 bg-white rounded-full transition-transform group-hover:translate-x-0.5"></span>
                   <span className="h-0.5 w-3 bg-brand-orange rounded-full group-hover:w-4 transition-all"></span>
                   <span className="h-0.5 w-4 bg-white rounded-full transition-transform group-hover:-translate-x-0.5"></span>
                 </div>
-                <span className="text-xs font-bold uppercase tracking-wider hidden sm:inline">Menu</span>
-              </button>
-            </div>
-
-            {/* Mobile Actions: Theme Toggle + Menu Button */}
-            <div className="flex lg:hidden items-center gap-2">
-              <ThemeToggle />
-              <button
-                onClick={() => setIsOpen(true)}
-                aria-label="Open menu"
-                className="p-2 rounded-xl text-slate-800 dark:text-white hover:bg-white/20 dark:hover:bg-white/10 transition-colors"
-              >
-                <Menu className="w-6 h-6" />
+                <span className="text-xs font-bold uppercase tracking-wider">Menu</span>
               </button>
             </div>
           </div>
