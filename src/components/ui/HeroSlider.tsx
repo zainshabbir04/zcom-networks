@@ -149,6 +149,53 @@ export default function HeroSlider() {
     setCurrentSlide(index);
   };
 
+  // Guarantee active video playback across all modern browsers
+  useEffect(() => {
+    BANNER_VIDEOS.forEach((_, idx) => {
+      const vid = videoRefs.current[idx];
+      if (vid) {
+        vid.muted = true;
+        vid.defaultMuted = true;
+        vid.playsInline = true;
+        if (idx === currentSlide % BANNER_VIDEOS.length) {
+          if (isPlayingVideo) {
+            const playPromise = vid.play();
+            if (playPromise !== undefined) {
+              playPromise.catch((err) => {
+                console.warn("Video play prevented by browser policy:", err);
+              });
+            }
+          } else {
+            vid.pause();
+          }
+        } else {
+          vid.pause();
+        }
+      }
+    });
+  }, [currentSlide, isPlayingVideo]);
+
+  // First interaction unlock (click, touch, scroll) for strict browser autoplay policies
+  useEffect(() => {
+    const unlockPlay = () => {
+      const activeVid = videoRefs.current[currentSlide % BANNER_VIDEOS.length];
+      if (activeVid && isPlayingVideo) {
+        activeVid.muted = true;
+        activeVid.play().catch(() => {});
+      }
+    };
+
+    window.addEventListener("click", unlockPlay, { once: true });
+    window.addEventListener("touchstart", unlockPlay, { once: true });
+    window.addEventListener("scroll", unlockPlay, { once: true });
+
+    return () => {
+      window.removeEventListener("click", unlockPlay);
+      window.removeEventListener("touchstart", unlockPlay);
+      window.removeEventListener("scroll", unlockPlay);
+    };
+  }, [currentSlide, isPlayingVideo]);
+
   // Rotating kinetic words loop (like gcspvt.com)
   useEffect(() => {
     const wordInterval = setInterval(() => {
@@ -181,6 +228,7 @@ export default function HeroSlider() {
         activeVideo.pause();
         setIsPlayingVideo(false);
       } else {
+        activeVideo.muted = true;
         activeVideo.play().catch(() => {});
         setIsPlayingVideo(true);
       }
@@ -193,12 +241,12 @@ export default function HeroSlider() {
     <section
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative min-h-[95vh] flex items-center justify-center pt-24 pb-20 sm:pt-28 lg:pt-32 lg:pb-24 overflow-hidden bg-[#07090E] text-white transition-colors duration-300"
+      className="relative min-h-[95vh] flex items-center justify-center pt-24 pb-20 sm:pt-28 lg:pt-32 lg:pb-24 overflow-hidden bg-black text-white transition-colors duration-300"
     >
       {/* ============================================================
           1. BACKGROUND VIDEO LAYER (Triple-Buffered Cross-Fade)
           ============================================================ */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden -z-20">
+      <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none">
         {BANNER_VIDEOS.map((vid, idx) => {
           const isActive = idx === (currentSlide % BANNER_VIDEOS.length);
           return (
@@ -206,14 +254,29 @@ export default function HeroSlider() {
               key={vid.id}
               ref={(el) => {
                 videoRefs.current[idx] = el;
+                if (el) {
+                  el.muted = true;
+                  el.defaultMuted = true;
+                  if (isActive && isPlayingVideo) {
+                    el.play().catch(() => {});
+                  }
+                }
               }}
+              src={vid.src}
               autoPlay
               loop
               muted
               playsInline
               preload="auto"
-              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out filter brightness-[0.65] contrast-[1.15] ${
-                isActive ? "opacity-100 z-0" : "opacity-0 -z-10 pointer-events-none"
+              onLoadedData={(e) => {
+                const target = e.currentTarget;
+                target.muted = true;
+                if (isActive && isPlayingVideo) {
+                  target.play().catch(() => {});
+                }
+              }}
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+                isActive ? "opacity-100" : "opacity-0 pointer-events-none"
               }`}
             >
               <source src={vid.src} type="video/mp4" />
@@ -223,17 +286,17 @@ export default function HeroSlider() {
       </div>
 
       {/* ============================================================
-          2. CINEMATIC VIDEO OVERLAY (Ensures Pristine WCAG Readability)
+          2. CINEMATIC VIDEO OVERLAY (Carefully balanced for video clarity + crisp typography)
           ============================================================ */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-[#0B0E14] -z-10 pointer-events-none" />
-      <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/40 to-black/85 -z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-black/40 z-[1] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0B0E14] via-black/25 to-black/60 z-[1] pointer-events-none" />
 
       {/* Subtle Electric Orange Ambient Glows in corners */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-brand-orange/15 rounded-full blur-[140px] pointer-events-none -z-10" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-slate-400/10 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-brand-orange/20 rounded-full blur-[140px] pointer-events-none z-[1]" />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-slate-400/10 rounded-full blur-[140px] pointer-events-none z-[1]" />
 
       {/* ============================================================
-          3. MAIN HERO CONTENT CONTAINER
+          3. MAIN HERO CONTENT CONTAINER (z-10, always in front)
           ============================================================ */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5 sm:space-y-7">
         
