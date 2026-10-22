@@ -87,20 +87,10 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full transition-all duration-300">
-        <div
-          className={`transition-all duration-300 ${
-            isHome
-              ? scrolled
-                ? "max-w-7xl mx-auto rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200 shadow-md py-2.5 px-4 sm:px-6 mt-2"
-                : "max-w-7xl mx-auto bg-transparent border-0 shadow-none py-4 sm:py-6 px-4 sm:px-8"
-              : scrolled
-                ? "max-w-7xl mx-auto rounded-2xl sm:rounded-full bg-white/95 backdrop-blur-xl border border-slate-200 shadow-md py-2 sm:py-2.5 px-4 sm:px-6 sm:mt-3"
-                : "max-w-7xl mx-auto rounded-2xl sm:rounded-full bg-white/90 backdrop-blur-xl border border-slate-200/80 shadow-sm py-2.5 sm:py-3 px-4 sm:px-6 sm:mt-3"
-          }`}
-        >
+      <header className="sticky top-0 z-40 w-full bg-transparent border-0 shadow-none transition-all duration-300">
+        <div className="max-w-7xl mx-auto bg-transparent border-0 shadow-none py-3.5 sm:py-5 px-4 sm:px-8 transition-all duration-300">
           <div className="flex items-center justify-between gap-4 h-11 sm:h-12">
-            {/* Logo: Transparent over video on home screen */}
+            {/* Logo: 100% Transparent on complete site */}
             <Link href="/" className="flex items-center gap-2.5 group shrink-0">
               <div className="relative h-9 sm:h-11 w-36 sm:w-48 transition-transform duration-200 group-hover:scale-105">
                 <Image
@@ -114,9 +104,9 @@ export default function Header() {
               </div>
             </Link>
 
-            {/* Desktop Navigation Links: Hidden on home screen, only shown in menu or on non-home pages */}
+            {/* Desktop Navigation Links: Transparent across the complete site */}
             {!isHome && (
-              <nav className="hidden lg:flex items-center gap-1 xl:gap-2 bg-slate-100 p-1 rounded-full border border-slate-200">
+              <nav className="hidden lg:flex items-center gap-1 xl:gap-2 bg-transparent p-1 border-0">
                 {NAV_LINKS.map((link) => {
                   const isActive = pathname === link.href;
                   return (
@@ -126,7 +116,7 @@ export default function Header() {
                       className={`relative px-3.5 xl:px-4 py-1.5 rounded-full text-xs xl:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
                         isActive
                           ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30 font-extrabold"
-                          : "text-slate-700 hover:text-brand-orange hover:bg-white"
+                          : "text-slate-700 hover:text-brand-orange hover:bg-orange-50/70"
                       }`}
                     >
                       {link.name}
@@ -136,11 +126,11 @@ export default function Header() {
               </nav>
             )}
 
-            {/* Right Controls: Only Menu Toggle (No light/dark toggle) */}
+            {/* Right Controls: Only Menu Toggle & Transparent Status */}
             <div className="flex items-center gap-3 shrink-0">
               {!isHome && (
                 <>
-                  <div className="hidden xl:flex items-center gap-1.5 text-[11px] font-bold text-slate-700 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 whitespace-nowrap">
+                  <div className="hidden xl:flex items-center gap-1.5 text-[11px] font-bold text-slate-700 bg-white/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200/80 whitespace-nowrap shadow-sm">
                     <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
                     <span>Core <AnimatedCounter from={0} to={100} duration={1400} />G: Optimal</span>
                   </div>
@@ -155,15 +145,11 @@ export default function Header() {
                 </>
               )}
 
-              {/* GCS-Style Stylized Mega Menu Toggle Button */}
+              {/* GCS-Style Stylized Mega Menu Toggle Button - Floating Transparent Pill */}
               <button
                 onClick={() => setIsOpen(true)}
                 aria-label="Open Navigation Menu"
-                className={`p-2 sm:px-4 sm:py-2.5 rounded-full transition-all duration-200 flex items-center gap-2 shadow-lg cursor-pointer group backdrop-blur-md ${
-                  isHome && !scrolled
-                    ? "bg-black/40 hover:bg-brand-orange text-white border border-white/20 hover:border-brand-orange"
-                    : "bg-slate-900 text-white hover:bg-brand-orange border border-slate-700"
-                }`}
+                className="p-2 sm:px-4 sm:py-2.5 rounded-full transition-all duration-200 flex items-center gap-2 shadow-lg cursor-pointer group bg-black/40 hover:bg-brand-orange text-white border border-white/20 hover:border-brand-orange backdrop-blur-md"
                 title="Open Navigation Menu"
               >
                 <div className="flex flex-col gap-1 w-4">
