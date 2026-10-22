@@ -11,18 +11,21 @@ import {
   Briefcase,
   ChevronLeft,
   ChevronRight,
-  Layers,
-  Award,
-  Users,
+  Play,
+  Pause,
+  Video,
 } from "lucide-react";
 
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 interface SlideData {
   id: string;
+  videoSrc: string;
+  videoLabel: string;
   pillBadge: string;
   pillIcon: React.ReactNode;
   subtitle: string;
+  rotatingKeyword: string;
   titleLight: string;
   titleBold: string;
   description: string;
@@ -39,19 +42,35 @@ interface SlideData {
   }[];
 }
 
+const BANNER_VIDEOS = [
+  { id: "v1", src: "/videos/1.mp4", label: "01 · Metro Fiber Core" },
+  { id: "v2", src: "/videos/2.mp4", label: "02 · Enterprise DIA" },
+  { id: "v3", src: "/videos/3.mp4", label: "03 · High-Speed Transport" },
+];
+
+const ROTATING_WORDS = [
+  "Pure Optical Fiber",
+  "1:1 Dedicated DIA",
+  "100G Metro Backbone",
+  "Sub-ms Peering",
+];
+
 const SLIDES: SlideData[] = [
   {
     id: "internet-experience",
-    pillBadge: "Z COM NETWORKS · LAHORE'S TOP-TIER ISP",
+    videoSrc: "/videos/1.mp4",
+    videoLabel: "01 · Metro Fiber Core",
+    pillBadge: "Z COM NETWORKS · LAHORE'S TOP-TIER CARRIER ISP",
     pillIcon: <Radio className="w-3.5 h-3.5 text-brand-orange" />,
     subtitle: "PIONEERING CARRIER-GRADE OPTICAL FIBER CONNECTIVITY",
-    titleLight: "A WHOLE NEW",
-    titleBold: "INTERNET EXPERIENCE",
+    rotatingKeyword: "Pure Optical Fiber",
+    titleLight: "WE POWER LAHORE WITH",
+    titleBold: "INTERNET EXCELLENCE",
     description:
       "Dedicated 1:1 symmetrical bandwidth, unshared enterprise optical links, and buffer-free residential fiber connectivity across Lahore with guaranteed 99.9% uptime SLA.",
-    primaryButtonText: "LEARN MORE",
-    primaryButtonHref: "/about",
-    secondaryButtonText: "CHECK AVAILABILITY",
+    primaryButtonText: "EXPLORE SOLUTIONS",
+    primaryButtonHref: "/services",
+    secondaryButtonText: "CHECK FEASIBILITY",
     secondaryButtonHref: "/contact",
     stats: [
       { val: 99.9, decimals: 1, suffix: "%", label: "Contractual SLA" },
@@ -62,9 +81,12 @@ const SLIDES: SlideData[] = [
   },
   {
     id: "dedicated-internet",
+    videoSrc: "/videos/2.mp4",
+    videoLabel: "02 · Enterprise DIA",
     pillBadge: "CORPORATE & ENTERPRISE CONNECTIVITY",
     pillIcon: <Server className="w-3.5 h-3.5 text-brand-orange" />,
     subtitle: "MISSION-CRITICAL BANDWIDTH WITH CONTRACTUAL SLA",
+    rotatingKeyword: "1:1 Dedicated DIA",
     titleLight: "GUARANTEED 1:1",
     titleBold: "DEDICATED INTERNET",
     description:
@@ -82,9 +104,12 @@ const SLIDES: SlideData[] = [
   },
   {
     id: "data-connectivity",
+    videoSrc: "/videos/3.mp4",
+    videoLabel: "03 · High-Speed Transport",
     pillBadge: "METRO ETHERNET & DARK FIBER",
     pillIcon: <Zap className="w-3.5 h-3.5 text-brand-orange" />,
     subtitle: "PRIVATE SECURE OPTICAL TRANSMISSION ACROSS LAHORE",
+    rotatingKeyword: "100G Metro Backbone",
     titleLight: "HIGH-CAPACITY",
     titleBold: "DATA CONNECTIVITY",
     description:
@@ -100,32 +125,15 @@ const SLIDES: SlideData[] = [
       { val: 100, suffix: "% Fiber", label: "Pure Underground Optical" },
     ],
   },
-  {
-    id: "careers-spotlight",
-    pillBadge: "WE ARE HIRING IN GULBERG-III, LAHORE",
-    pillIcon: <Briefcase className="w-3.5 h-3.5 text-brand-orange" />,
-    subtitle: "GROW YOUR CAREER IN TELECOMMUNICATIONS & NETWORK ENGINEERING",
-    titleLight: "BUILD THE FUTURE AT",
-    titleBold: "Z COM NETWORKS",
-    description:
-      "Join our fast-expanding team in Lahore. We are hiring NOC Network Engineers (L1/L2), Fiber Optic Splicing Technicians, Enterprise B2B Account Managers, and Customer Support Specialists.",
-    primaryButtonText: "EXPLORE OPEN POSITIONS",
-    primaryButtonHref: "/careers",
-    secondaryButtonText: "SEND RESUME VIA EMAIL",
-    secondaryButtonHref: "mailto:sales@zcomnetworks.com.pk?subject=Job%20Application%20-%20Z%20COM%20Networks",
-    stats: [
-      { val: 5, suffix: " Openings", label: "Active Job Positions" },
-      { val: 100, suffix: "%", label: "Competitive Salaries" },
-      { val: 1, suffix: " Prime HQ", label: "Main Blvd Gulberg-III" },
-      { val: 365, suffix: " Days", label: "Continuous Career Growth" },
-    ],
-  },
 ];
 
 export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isPlayingVideo, setIsPlayingVideo] = useState(true);
+  const [rotatingIndex, setRotatingIndex] = useState(0);
   const slideTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const totalSlides = SLIDES.length;
 
@@ -141,13 +149,22 @@ export default function HeroSlider() {
     setCurrentSlide(index);
   };
 
-  // Auto-play timer (rotates every 6 seconds if not hovered)
+  // Rotating kinetic words loop (like gcspvt.com)
+  useEffect(() => {
+    const wordInterval = setInterval(() => {
+      setRotatingIndex((prev) => (prev + 1) % ROTATING_WORDS.length);
+    }, 2400);
+
+    return () => clearInterval(wordInterval);
+  }, []);
+
+  // Slide Auto-play timer (rotates every 7 seconds if not paused)
   useEffect(() => {
     if (isPaused) return;
 
     slideTimerRef.current = setTimeout(() => {
       nextSlide();
-    }, 6000);
+    }, 7000);
 
     return () => {
       if (slideTimerRef.current) {
@@ -156,28 +173,115 @@ export default function HeroSlider() {
     };
   }, [currentSlide, isPaused]);
 
+  // Video play/pause toggle
+  const toggleVideoPlayback = () => {
+    const activeVideo = videoRefs.current[currentSlide % BANNER_VIDEOS.length];
+    if (activeVideo) {
+      if (isPlayingVideo) {
+        activeVideo.pause();
+        setIsPlayingVideo(false);
+      } else {
+        activeVideo.play().catch(() => {});
+        setIsPlayingVideo(true);
+      }
+    }
+  };
+
   const slide = SLIDES[currentSlide];
 
   return (
     <section
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      className="relative min-h-[90vh] flex items-center justify-center pt-20 pb-16 sm:pt-24 lg:pt-28 lg:pb-20 overflow-hidden bg-transparent text-slate-900 dark:text-white transition-colors duration-300"
+      className="relative min-h-[95vh] flex items-center justify-center pt-24 pb-20 sm:pt-28 lg:pt-32 lg:pb-24 overflow-hidden bg-[#07090E] text-white transition-colors duration-300"
     >
-      {/* Soft Radial Mask for crisp text contrast over the sticky 3D background */}
-      <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-slate-100/30 dark:from-black/10 dark:via-black/30 dark:to-[#060810]/50 pointer-events-none -z-10" />
+      {/* ============================================================
+          1. BACKGROUND VIDEO LAYER (Triple-Buffered Cross-Fade)
+          ============================================================ */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden -z-20">
+        {BANNER_VIDEOS.map((vid, idx) => {
+          const isActive = idx === (currentSlide % BANNER_VIDEOS.length);
+          return (
+            <video
+              key={vid.id}
+              ref={(el) => {
+                videoRefs.current[idx] = el;
+              }}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out filter brightness-[0.65] contrast-[1.15] ${
+                isActive ? "opacity-100 z-0" : "opacity-0 -z-10 pointer-events-none"
+              }`}
+            >
+              <source src={vid.src} type="video/mp4" />
+            </video>
+          );
+        })}
+      </div>
 
-      {/* Slide Content Container */}
+      {/* ============================================================
+          2. CINEMATIC VIDEO OVERLAY (Ensures Pristine WCAG Readability)
+          ============================================================ */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/55 to-[#0B0E14] -z-10 pointer-events-none" />
+      <div className="absolute inset-0 bg-radial-gradient from-transparent via-black/40 to-black/85 -z-10 pointer-events-none" />
+
+      {/* Subtle Electric Orange Ambient Glows in corners */}
+      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-brand-orange/15 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-slate-400/10 rounded-full blur-[140px] pointer-events-none -z-10" />
+
+      {/* ============================================================
+          3. MAIN HERO CONTENT CONTAINER
+          ============================================================ */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-5 sm:space-y-7">
-        {/* Dynamic Badge */}
-        <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-orange-500/10 dark:bg-orange-500/15 border border-orange-500/30 text-orange-600 dark:text-orange-400 text-[11px] sm:text-sm font-bold tracking-wider uppercase backdrop-blur-md shadow-lg shadow-orange-500/10 max-w-full truncate">
+        
+        {/* Top Floating Badge with Pulse */}
+        <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-slate-900/80 border border-slate-700/80 text-orange-400 text-xs sm:text-sm font-bold tracking-wider uppercase backdrop-blur-xl shadow-lg shadow-black/40 max-w-full">
           <span className="w-2 h-2 rounded-full bg-brand-orange animate-ping shrink-0" />
           <span className="truncate">{slide.pillBadge}</span>
         </div>
 
-        {/* 0.5s Continuous Speed Loop Badge: "GET THE SPEED YOU NEED" */}
+        {/* Dynamic Kinetic "WE POWER" Rotating Headline (Inspired by GCS) */}
+        <div className="flex flex-col items-center justify-center space-y-1 sm:space-y-2">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
+            <span className="text-xl sm:text-3xl lg:text-4xl font-extralight tracking-[0.2em] uppercase font-heading text-slate-300">
+              WE POWER
+            </span>
+            <div className="relative h-9 sm:h-12 overflow-hidden flex items-center min-w-[240px] sm:min-w-[340px] justify-center sm:justify-start">
+              {ROTATING_WORDS.map((word, idx) => (
+                <span
+                  key={word}
+                  className={`absolute font-black tracking-tight text-xl sm:text-3xl lg:text-4xl uppercase font-heading text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-orangeLight to-[#FFA26B] transition-all duration-500 ease-out whitespace-nowrap ${
+                    idx === rotatingIndex
+                      ? "opacity-100 translate-y-0 filter blur-0"
+                      : "opacity-0 -translate-y-6 filter blur-sm pointer-events-none"
+                  }`}
+                >
+                  {word}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Main Cinematic Heading */}
+          <div key={slide.id} className="space-y-1 animate-in fade-in zoom-in-95 duration-500">
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-light text-slate-200 tracking-[0.18em] uppercase font-heading drop-shadow-md">
+              {slide.titleLight}
+            </h1>
+            <h2 className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-white tracking-tight uppercase font-heading drop-shadow-2xl">
+              {slide.titleBold.split(" ")[0]}{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-orangeLight to-[#FFA26B]">
+                {slide.titleBold.split(" ").slice(1).join(" ")}
+              </span>
+            </h2>
+          </div>
+        </div>
+
+        {/* 0.5s Continuous Speed Loop Badge */}
         <div className="flex justify-center pt-0.5">
-          <div className="inline-flex items-center gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-brand-orange/25 via-slate-800/40 to-brand-orange/25 border border-brand-orange/80 text-white shadow-xl shadow-brand-orange/25 backdrop-blur-md animate-speed-loop-half max-w-full">
+          <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full bg-gradient-to-r from-brand-orange/30 via-slate-900/60 to-brand-orange/30 border border-brand-orange/80 text-white shadow-xl shadow-brand-orange/20 backdrop-blur-md animate-speed-loop-half max-w-full">
             <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-orangeLight fill-brand-orangeLight animate-pulse shrink-0" />
             <span className="text-[11px] xs:text-xs sm:text-sm font-black tracking-[0.15em] sm:tracking-[0.25em] uppercase text-white font-heading drop-shadow-md truncate">
               GET THE SPEED YOU NEED
@@ -186,21 +290,8 @@ export default function HeroSlider() {
           </div>
         </div>
 
-        {/* Main Cinematic Heading (Stacked Layout from screenshot) */}
-        <div key={slide.id} className="space-y-1 sm:space-y-2 animate-in fade-in zoom-in-95 duration-500">
-          <h1 className="text-2xl sm:text-4xl lg:text-6xl font-light text-slate-700 dark:text-slate-300 tracking-[0.15em] sm:tracking-[0.22em] uppercase font-heading drop-shadow-sm">
-            {slide.titleLight}
-          </h1>
-          <h2 className="text-3xl xs:text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-black text-slate-900 dark:text-white tracking-tight uppercase font-heading drop-shadow-md">
-            {slide.titleBold.split(" ")[0]}{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-orangeLight to-[#FFA26B]">
-              {slide.titleBold.split(" ").slice(1).join(" ")}
-            </span>
-          </h2>
-        </div>
-
-        {/* Description Text (high-contrast text) */}
-        <p className="text-sm sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed font-sans px-2 sm:px-0">
+        {/* Description Text */}
+        <p className="text-sm sm:text-lg lg:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed font-sans px-2 sm:px-0 drop-shadow">
           {slide.description}
         </p>
 
@@ -208,7 +299,7 @@ export default function HeroSlider() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2 w-full max-w-sm sm:max-w-none mx-auto">
           <Link
             href={slide.primaryButtonHref}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-sm sm:text-base px-7 py-3.5 sm:px-9 sm:py-4 rounded-xl transition-all duration-200 shadow-xl shadow-brand-orange/30 hover:shadow-brand-orange/50 hover:-translate-y-0.5"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-sm sm:text-base px-7 py-3.5 sm:px-9 sm:py-4 rounded-xl transition-all duration-200 shadow-xl shadow-brand-orange/35 hover:shadow-brand-orange/60 hover:-translate-y-0.5"
           >
             <span>{slide.primaryButtonText}</span>
             <ArrowRight className="w-4 h-4" />
@@ -216,17 +307,61 @@ export default function HeroSlider() {
 
           <Link
             href={slide.secondaryButtonHref}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-slate-200/90 hover:bg-slate-300 dark:bg-slate-800/90 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 font-bold text-sm sm:text-base px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl border border-slate-300 dark:border-slate-700 transition-all duration-200 shadow-md hover:-translate-y-0.5 backdrop-blur-md"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-slate-900/90 hover:bg-slate-800 text-slate-100 font-bold text-sm sm:text-base px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl border border-slate-700/80 transition-all duration-200 shadow-lg hover:-translate-y-0.5 backdrop-blur-md"
           >
             <span>{slide.secondaryButtonText}</span>
           </Link>
         </div>
 
-        {/* Real-time Animated Number Counters (Count up from 0 to max upon view) */}
-        <div className="pt-6 sm:pt-8 max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 border-t border-slate-200/80 dark:border-slate-800/80 text-center">
+        {/* Video Mode Bar & Video Switcher (GCS Style) */}
+        <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
+          {BANNER_VIDEOS.map((vid, idx) => {
+            const isActive = idx === (currentSlide % BANNER_VIDEOS.length);
+            return (
+              <button
+                key={vid.id}
+                onClick={() => goToSlide(idx)}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-200 flex items-center gap-2 backdrop-blur-md cursor-pointer ${
+                  isActive
+                    ? "bg-brand-orange text-white shadow-lg shadow-brand-orange/30 scale-102 border border-brand-orange"
+                    : "bg-slate-900/70 text-slate-300 hover:text-white border border-slate-700/60 hover:border-slate-500"
+                }`}
+              >
+                <Video className="w-3 h-3 text-current" />
+                <span>{vid.label}</span>
+              </button>
+            );
+          })}
+
+          {/* Pause / Play Toggle */}
+          <button
+            onClick={toggleVideoPlayback}
+            aria-label={isPlayingVideo ? "Pause Background Video" : "Play Background Video"}
+            className="px-2.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900/70 hover:bg-slate-800 text-slate-300 border border-slate-700/60 backdrop-blur-md flex items-center gap-1.5 cursor-pointer"
+            title={isPlayingVideo ? "Pause Video" : "Play Video"}
+          >
+            {isPlayingVideo ? (
+              <>
+                <Pause className="w-3 h-3 text-orange-400" />
+                <span className="hidden sm:inline text-[11px]">Pause Video</span>
+              </>
+            ) : (
+              <>
+                <Play className="w-3 h-3 text-emerald-400" />
+                <span className="hidden sm:inline text-[11px]">Play Video</span>
+              </>
+            )}
+          </button>
+        </div>
+
+        {/* Real-time Animated Number Counters */}
+        <div className="pt-6 sm:pt-8 max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 border-t border-slate-700/60 text-center">
           {slide.stats.map((st, i) => (
-            <div key={i} className={`p-2 sm:p-2.5 ${i > 0 ? "sm:border-l sm:border-slate-200 dark:sm:border-white/10" : ""}`}>
-              <div className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 dark:text-white font-heading">
+            <div
+              key={i}
+              className={`p-2 sm:p-2.5 ${i > 0 ? "sm:border-l sm:border-slate-700/60" : ""}`}
+            >
+              <div className="text-xl sm:text-2xl lg:text-3xl font-black text-white font-heading">
                 <AnimatedCounter
                   from={0}
                   to={st.val}
@@ -236,7 +371,7 @@ export default function HeroSlider() {
                   duration={1800}
                 />
               </div>
-              <div className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-300 font-semibold mt-1">
+              <div className="text-[11px] sm:text-xs text-slate-300 font-semibold mt-1">
                 {st.label}
               </div>
             </div>
@@ -244,27 +379,29 @@ export default function HeroSlider() {
         </div>
       </div>
 
-      {/* Slide Navigation Controls */}
+      {/* ============================================================
+          4. SLIDE & VIDEO NAVIGATION CONTROLS
+          ============================================================ */}
 
-      {/* 1. Left Arrow */}
+      {/* Left Arrow */}
       <button
         onClick={prevSlide}
-        aria-label="Previous Slide"
-        className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/90 dark:bg-slate-800/80 hover:bg-brand-orange dark:hover:bg-brand-orange text-slate-800 dark:text-slate-200 hover:text-white dark:hover:text-white items-center justify-center border border-slate-200 dark:border-slate-700/80 shadow-lg backdrop-blur-md transition-all hover:scale-110 active:scale-95"
+        aria-label="Previous Slide & Video"
+        className="hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-slate-900/80 hover:bg-brand-orange text-white items-center justify-center border border-slate-700/80 shadow-2xl backdrop-blur-md transition-all hover:scale-110 active:scale-95 cursor-pointer"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
 
-      {/* 2. Right Arrow */}
+      {/* Right Arrow */}
       <button
         onClick={nextSlide}
-        aria-label="Next Slide"
-        className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/90 dark:bg-slate-800/80 hover:bg-brand-orange dark:hover:bg-brand-orange text-slate-800 dark:text-slate-200 hover:text-white dark:hover:text-white items-center justify-center border border-slate-200 dark:border-slate-700/80 shadow-lg backdrop-blur-md transition-all hover:scale-110 active:scale-95"
+        aria-label="Next Slide & Video"
+        className="hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-slate-900/80 hover:bg-brand-orange text-white items-center justify-center border border-slate-700/80 shadow-2xl backdrop-blur-md transition-all hover:scale-110 active:scale-95 cursor-pointer"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
 
-      {/* 3. Vertical Pagination Dot Indicators on the Right Side */}
+      {/* Vertical Pagination Dots on the Right Side */}
       <div className="hidden lg:flex flex-col gap-3 absolute right-6 top-1/2 -translate-y-1/2 z-20">
         {SLIDES.map((s, idx) => {
           const isActive = idx === currentSlide;
@@ -273,18 +410,18 @@ export default function HeroSlider() {
               key={s.id}
               onClick={() => goToSlide(idx)}
               aria-label={`Go to slide ${idx + 1}`}
-              className={`transition-all duration-300 rounded-full flex items-center justify-center ${
+              className={`transition-all duration-300 rounded-full flex items-center justify-center cursor-pointer ${
                 isActive
-                  ? "w-3.5 h-3.5 bg-brand-orange ring-4 ring-brand-orange/20 shadow-lg shadow-brand-orange/50"
-                  : "w-2.5 h-2.5 bg-slate-300 dark:bg-white/40 hover:bg-slate-400 dark:hover:bg-white"
+                  ? "w-3.5 h-3.5 bg-brand-orange ring-4 ring-brand-orange/30 shadow-lg shadow-brand-orange/50"
+                  : "w-2.5 h-2.5 bg-white/40 hover:bg-white"
               }`}
             />
           );
         })}
       </div>
 
-      {/* 4. Horizontal Dots for Mobile / Tablet */}
-      <div className="flex lg:hidden items-center justify-center gap-2 absolute bottom-5 inset-x-0 z-20">
+      {/* Horizontal Dots for Mobile / Tablet */}
+      <div className="flex lg:hidden items-center justify-center gap-2 absolute bottom-4 inset-x-0 z-20">
         {SLIDES.map((s, idx) => {
           const isActive = idx === currentSlide;
           return (
@@ -292,10 +429,8 @@ export default function HeroSlider() {
               key={s.id}
               onClick={() => goToSlide(idx)}
               aria-label={`Go to slide ${idx + 1}`}
-              className={`transition-all duration-300 rounded-full ${
-                isActive
-                  ? "w-6 h-2 bg-brand-orange"
-                  : "w-2 h-2 bg-slate-300 dark:bg-white/40 hover:bg-slate-400 dark:hover:bg-white"
+              className={`transition-all duration-300 rounded-full cursor-pointer ${
+                isActive ? "w-6 h-2 bg-brand-orange" : "w-2 h-2 bg-white/40 hover:bg-white"
               }`}
             />
           );
