@@ -9,16 +9,13 @@ import {
   X,
   ArrowRight,
   Phone,
-  ShieldCheck,
-  ChevronRight,
-  Zap,
   Radio,
   Server,
   Building2,
   Mail,
   ExternalLink,
+  Zap,
 } from "lucide-react";
-import ThemeToggle from "@/components/ui/ThemeToggle";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 const NAV_LINKS = [
@@ -95,11 +92,11 @@ export default function Header() {
           className={`transition-all duration-300 ${
             isHome
               ? scrolled
-                ? "max-w-7xl mx-auto rounded-2xl bg-[#0B0E14]/85 backdrop-blur-xl border border-slate-800/80 shadow-xl py-2.5 px-4 sm:px-6 mt-2"
+                ? "max-w-7xl mx-auto rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200 shadow-md py-2.5 px-4 sm:px-6 mt-2"
                 : "max-w-7xl mx-auto bg-transparent border-0 shadow-none py-4 sm:py-6 px-4 sm:px-8"
               : scrolled
-                ? "max-w-7xl mx-auto rounded-2xl sm:rounded-full bg-white/95 dark:bg-[#12161F]/95 backdrop-blur-xl border border-slate-200/90 dark:border-slate-700/60 shadow-xl shadow-black/10 py-2 sm:py-2.5 px-4 sm:px-6 sm:mt-3"
-                : "max-w-7xl mx-auto rounded-2xl sm:rounded-full bg-white/90 dark:bg-[#12161F]/85 backdrop-blur-xl border border-slate-200/80 dark:border-slate-700/50 shadow-lg shadow-black/5 py-2.5 sm:py-3 px-4 sm:px-6 sm:mt-3"
+                ? "max-w-7xl mx-auto rounded-2xl sm:rounded-full bg-white/95 backdrop-blur-xl border border-slate-200 shadow-md py-2 sm:py-2.5 px-4 sm:px-6 sm:mt-3"
+                : "max-w-7xl mx-auto rounded-2xl sm:rounded-full bg-white/90 backdrop-blur-xl border border-slate-200/80 shadow-sm py-2.5 sm:py-3 px-4 sm:px-6 sm:mt-3"
           }`}
         >
           <div className="flex items-center justify-between gap-4 h-11 sm:h-12">
@@ -110,16 +107,16 @@ export default function Header() {
                   src="https://zcomnetworks.com.pk/assets/zcom-logo.png?v=2"
                   alt="Z COM Networks - Premier Optical Fiber ISP"
                   fill
-                  className="object-contain object-left drop-shadow-lg"
+                  className="object-contain object-left drop-shadow-md"
                   priority
                   unoptimized
                 />
               </div>
             </Link>
 
-            {/* Desktop Navigation Links: Hidden on home screen, only shown on non-home pages */}
+            {/* Desktop Navigation Links: Hidden on home screen, only shown in menu or on non-home pages */}
             {!isHome && (
-              <nav className="hidden lg:flex items-center gap-1 xl:gap-2 bg-slate-100/90 dark:bg-slate-900/70 backdrop-blur-md p-1 rounded-full border border-slate-200/80 dark:border-slate-700/60 shadow-inner">
+              <nav className="hidden lg:flex items-center gap-1 xl:gap-2 bg-slate-100 p-1 rounded-full border border-slate-200">
                 {NAV_LINKS.map((link) => {
                   const isActive = pathname === link.href;
                   return (
@@ -129,7 +126,7 @@ export default function Header() {
                       className={`relative px-3.5 xl:px-4 py-1.5 rounded-full text-xs xl:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
                         isActive
                           ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30 font-extrabold"
-                          : "text-slate-700 dark:text-slate-300 hover:text-brand-orange dark:hover:text-brand-orange hover:bg-white dark:hover:bg-slate-800"
+                          : "text-slate-700 hover:text-brand-orange hover:bg-white"
                       }`}
                     >
                       {link.name}
@@ -139,12 +136,11 @@ export default function Header() {
               </nav>
             )}
 
-            {/* Right Controls: Theme Toggle + Menu Toggle */}
-            <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-              {/* Non-Home actions */}
+            {/* Right Controls: Only Menu Toggle (No light/dark toggle) */}
+            <div className="flex items-center gap-3 shrink-0">
               {!isHome && (
                 <>
-                  <div className="hidden xl:flex items-center gap-1.5 text-[11px] font-bold text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-900/70 px-3 py-1.5 rounded-full border border-slate-200/80 dark:border-slate-700/60 whitespace-nowrap">
+                  <div className="hidden xl:flex items-center gap-1.5 text-[11px] font-bold text-slate-700 bg-slate-100 px-3 py-1.5 rounded-full border border-slate-200 whitespace-nowrap">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                     <span>Core <AnimatedCounter from={0} to={100} duration={1400} />G: Optimal</span>
                   </div>
@@ -159,17 +155,14 @@ export default function Header() {
                 </>
               )}
 
-              {/* Theme Toggle */}
-              <ThemeToggle />
-
               {/* GCS-Style Stylized Mega Menu Toggle Button */}
               <button
                 onClick={() => setIsOpen(true)}
-                aria-label="Open Fullscreen Menu"
-                className={`p-2 sm:px-3.5 sm:py-2 rounded-full transition-all duration-200 flex items-center gap-2 shadow-lg cursor-pointer group backdrop-blur-md ${
+                aria-label="Open Navigation Menu"
+                className={`p-2 sm:px-4 sm:py-2.5 rounded-full transition-all duration-200 flex items-center gap-2 shadow-lg cursor-pointer group backdrop-blur-md ${
                   isHome && !scrolled
                     ? "bg-black/40 hover:bg-brand-orange text-white border border-white/20 hover:border-brand-orange"
-                    : "bg-slate-900 text-white dark:bg-slate-800 dark:hover:bg-brand-orange hover:bg-brand-orange border border-slate-700/60"
+                    : "bg-slate-900 text-white hover:bg-brand-orange border border-slate-700"
                 }`}
                 title="Open Navigation Menu"
               >
@@ -186,7 +179,7 @@ export default function Header() {
       </header>
 
       {/* ============================================================
-          GCS-STYLE FULL-SCREEN SLIDE-IN MEGA MENU OVERLAY
+          WHITE THEME FULL-SCREEN SLIDE-IN MEGA MENU OVERLAY
           ============================================================ */}
       <div
         className={`fixed inset-0 z-50 transition-all duration-500 ease-out overflow-y-auto ${
@@ -195,21 +188,21 @@ export default function Header() {
             : "opacity-0 pointer-events-none invisible"
         }`}
       >
-        {/* Dark Titanium Obsidian Backdrop */}
+        {/* Pure White / Platinum Glass Backdrop */}
         <div
           onClick={() => setIsOpen(false)}
-          className="fixed inset-0 bg-[#0B0E14]/95 backdrop-blur-3xl -z-10"
+          className="fixed inset-0 bg-white/98 backdrop-blur-2xl -z-10"
         />
 
-        {/* Ambient Glows */}
-        <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-brand-orange/15 rounded-full blur-[150px] pointer-events-none -z-10" />
-        <div className="absolute bottom-0 left-0 w-[35rem] h-[35rem] bg-slate-500/10 rounded-full blur-[150px] pointer-events-none -z-10" />
+        {/* Ambient Subtle Light Orange Glows */}
+        <div className="absolute top-0 right-0 w-[40rem] h-[40rem] bg-orange-400/10 rounded-full blur-[150px] pointer-events-none -z-10" />
+        <div className="absolute bottom-0 left-0 w-[35rem] h-[35rem] bg-slate-300/25 rounded-full blur-[150px] pointer-events-none -z-10" />
 
         {/* Mega Menu Content Wrapper */}
-        <div className="min-h-screen flex flex-col justify-between p-6 sm:p-10 lg:p-14 max-w-7xl mx-auto text-white">
+        <div className="min-h-screen flex flex-col justify-between p-6 sm:p-10 lg:p-14 max-w-7xl mx-auto text-slate-800">
           
           {/* Header Bar inside Mega Menu */}
-          <div className="flex items-center justify-between pb-8 border-b border-slate-800">
+          <div className="flex items-center justify-between pb-8 border-b border-slate-200">
             <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-3">
               <div className="relative h-10 w-44">
                 <Image
@@ -223,7 +216,7 @@ export default function Header() {
             </Link>
 
             <div className="flex items-center gap-4">
-              <div className="hidden sm:flex items-center gap-2 text-xs text-slate-400">
+              <div className="hidden sm:flex items-center gap-2 text-xs text-slate-600 font-semibold">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span>Gulberg-III Network Operations Center: Online</span>
               </div>
@@ -232,14 +225,14 @@ export default function Header() {
               <button
                 onClick={() => setIsOpen(false)}
                 aria-label="Close menu"
-                className="w-12 h-12 rounded-full bg-slate-900 border border-slate-700/80 hover:bg-brand-orange hover:border-brand-orange text-white flex items-center justify-center transition-all duration-200 hover:rotate-90 shadow-xl cursor-pointer"
+                className="w-12 h-12 rounded-full bg-slate-100 border border-slate-300 hover:bg-brand-orange hover:border-brand-orange text-slate-700 hover:text-white flex items-center justify-center transition-all duration-200 hover:rotate-90 shadow-md cursor-pointer"
               >
                 <X className="w-6 h-6" />
               </button>
             </div>
           </div>
 
-          {/* Main 3-Column Content (GCS Style) */}
+          {/* Main 3-Column Content */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 py-10 my-auto items-start">
             
             {/* Column 1: Primary Navigation with Numbers & Hover Arrows */}
@@ -261,12 +254,12 @@ export default function Header() {
                         onClick={() => setIsOpen(false)}
                         className={`group flex items-center justify-between py-2.5 px-4 rounded-2xl transition-all duration-200 ${
                           isActive
-                            ? "bg-brand-orange text-white"
-                            : "hover:bg-slate-900/80 text-slate-300 hover:text-white"
+                            ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30"
+                            : "hover:bg-orange-50/70 text-slate-800 hover:text-brand-orange"
                         }`}
                       >
                         <div className="flex items-baseline gap-4">
-                          <span className="text-xs font-mono opacity-50 font-semibold">{link.num}</span>
+                          <span className="text-xs font-mono text-slate-400 font-semibold">{link.num}</span>
                           <span className="text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase font-heading tracking-tight group-hover:translate-x-1.5 transition-transform">
                             {link.name}
                           </span>
@@ -279,9 +272,9 @@ export default function Header() {
               </ul>
             </div>
 
-            {/* Column 2: Spotlight Services (Dynamic preview like GCS) */}
-            <div className="lg:col-span-4 space-y-4 border-t lg:border-t-0 lg:border-l border-slate-800 pt-6 lg:pt-0 lg:pl-10">
-              <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block">
+            {/* Column 2: Spotlight Services */}
+            <div className="lg:col-span-4 space-y-4 border-t lg:border-t-0 lg:border-l border-slate-200 pt-6 lg:pt-0 lg:pl-10">
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-widest block">
                 OPTICAL ARCHITECTURE
               </span>
               <div className="space-y-3">
@@ -290,17 +283,17 @@ export default function Header() {
                     key={idx}
                     href={srv.href}
                     onClick={() => setIsOpen(false)}
-                    className="p-3.5 rounded-xl bg-slate-900/60 hover:bg-slate-800/80 border border-slate-800/80 hover:border-brand-orange/40 transition-all block group"
+                    className="p-3.5 rounded-xl bg-slate-50 hover:bg-orange-50/50 border border-slate-200 hover:border-orange-300 transition-all block group"
                   >
                     <div className="flex items-center gap-2">
-                      <div className="p-1.5 rounded-lg bg-orange-500/10 border border-orange-500/20">
+                      <div className="p-1.5 rounded-lg bg-orange-100 border border-orange-200">
                         {srv.icon}
                       </div>
-                      <h4 className="text-sm font-bold text-white group-hover:text-brand-orange transition-colors">
+                      <h4 className="text-sm font-bold text-slate-800 group-hover:text-brand-orange transition-colors">
                         {srv.title}
                       </h4>
                     </div>
-                    <p className="text-xs text-slate-400 mt-1 pl-8 leading-relaxed">
+                    <p className="text-xs text-slate-600 mt-1 pl-8 leading-relaxed">
                       {srv.desc}
                     </p>
                   </Link>
@@ -309,15 +302,15 @@ export default function Header() {
             </div>
 
             {/* Column 3: Contact & Direct Dispatch */}
-            <div className="lg:col-span-2 space-y-6 border-t lg:border-t-0 lg:border-l border-slate-800 pt-6 lg:pt-0 lg:pl-8">
-              <span className="text-xs font-bold text-slate-400 uppercase tracking-widest block">
+            <div className="lg:col-span-2 space-y-6 border-t lg:border-t-0 lg:border-l border-slate-200 pt-6 lg:pt-0 lg:pl-8">
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-widest block">
                 24/7 HELPDESK
               </span>
 
               <div className="space-y-4">
                 <a
                   href="tel:+924234511111"
-                  className="flex items-center gap-2.5 text-xs font-bold text-white hover:text-brand-orange transition-colors"
+                  className="flex items-center gap-2.5 text-xs font-bold text-slate-800 hover:text-brand-orange transition-colors"
                 >
                   <Phone className="w-4 h-4 text-brand-orange" />
                   <span>+92 42 345 11 111</span>
@@ -325,7 +318,7 @@ export default function Header() {
 
                 <a
                   href="mailto:sales@zcomnetworks.com.pk"
-                  className="flex items-center gap-2.5 text-xs font-bold text-white hover:text-brand-orange transition-colors"
+                  className="flex items-center gap-2.5 text-xs font-bold text-slate-800 hover:text-brand-orange transition-colors"
                 >
                   <Mail className="w-4 h-4 text-brand-orange" />
                   <span className="truncate">sales@zcomnetworks.com.pk</span>
@@ -335,7 +328,7 @@ export default function Header() {
                   href="https://wa.me/923171118042"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs py-2.5 px-4 rounded-xl shadow-lg transition-all"
+                  className="inline-flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs py-2.5 px-4 rounded-xl shadow-md transition-all"
                 >
                   <span>WhatsApp Chat</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -344,7 +337,7 @@ export default function Header() {
                 <Link
                   href="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="inline-flex items-center justify-center gap-2 w-full bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-xs py-2.5 px-4 rounded-xl shadow-lg shadow-brand-orange/30 transition-all"
+                  className="inline-flex items-center justify-center gap-2 w-full bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-xs py-2.5 px-4 rounded-xl shadow-md shadow-brand-orange/30 transition-all"
                 >
                   <span>Book Site Survey</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -352,14 +345,14 @@ export default function Header() {
               </div>
 
               {/* Social Channels */}
-              <div className="pt-4 border-t border-slate-800 space-y-2">
-                <span className="text-[11px] font-semibold text-slate-400 block uppercase">Follow Us</span>
+              <div className="pt-4 border-t border-slate-200 space-y-2">
+                <span className="text-[11px] font-semibold text-slate-500 block uppercase">Follow Us</span>
                 <div className="flex items-center gap-2">
                   <a
                     href="https://www.facebook.com/profile.php?id=61562135909070"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full bg-slate-900 border border-slate-700/80 flex items-center justify-center hover:bg-brand-orange hover:border-brand-orange text-white transition-all"
+                    className="w-9 h-9 rounded-full bg-slate-100 border border-slate-300 flex items-center justify-center hover:bg-brand-orange hover:border-brand-orange text-slate-700 hover:text-white transition-all shadow-sm"
                     aria-label="Facebook"
                   >
                     <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -370,7 +363,7 @@ export default function Header() {
                     href="https://pk.linkedin.com/company/z-com-networks-private-limited"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full bg-slate-900 border border-slate-700/80 flex items-center justify-center hover:bg-brand-orange hover:border-brand-orange text-white transition-all"
+                    className="w-9 h-9 rounded-full bg-slate-100 border border-slate-300 flex items-center justify-center hover:bg-brand-orange hover:border-brand-orange text-slate-700 hover:text-white transition-all shadow-sm"
                     aria-label="LinkedIn"
                   >
                     <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -384,9 +377,9 @@ export default function Header() {
           </div>
 
           {/* Footer inside Mega Menu */}
-          <div className="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <div className="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
             <span>© {new Date().getFullYear()} Z COM Networks Private Limited · All Rights Reserved.</span>
-            <span className="text-slate-400">Head Office: 7/4, E-3 Main Boulevard, Gulberg-III, Lahore, Pakistan</span>
+            <span className="text-slate-600">Head Office: 7/4, E-3 Main Boulevard, Gulberg-III, Lahore, Pakistan</span>
           </div>
 
         </div>

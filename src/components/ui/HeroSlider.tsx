@@ -100,9 +100,9 @@ export default function HeroSlider() {
   };
 
   return (
-    <section className="relative h-[70vh] sm:h-[80vh] lg:h-[88vh] w-full overflow-hidden bg-black">
+    <section className="relative h-screen min-h-screen w-full overflow-hidden bg-black">
       {/* ============================================================
-          1. BACKGROUND VIDEO LAYER (Pure Full-Screen Video Banner)
+          1. BACKGROUND VIDEO LAYER (Pure Full-Screen Video Banner - 100% Viewport Fit)
           ============================================================ */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
         {BANNER_VIDEOS.map((vid, idx) => {
@@ -145,11 +145,6 @@ export default function HeroSlider() {
           );
         })}
       </div>
-
-      {/* ============================================================
-          2. SEAMLESS BOTTOM TRANSITION GRADIENT
-          ============================================================ */}
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0B0E14] via-[#0B0E14]/40 to-transparent z-[1] pointer-events-none" />
     </section>
   );
 }

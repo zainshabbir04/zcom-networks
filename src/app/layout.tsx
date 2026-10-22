@@ -47,37 +47,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@500;600;700;800&display=swap"
           rel="stylesheet"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function() {
-              try {
-                var mode = localStorage.getItem('zcom_theme_mode');
-                var theme;
-                if (mode === 'dark') {
-                  theme = 'dark';
-                } else if (mode === 'light') {
-                  theme = 'light';
-                } else {
-                  // Auto Day/Night mode: 6:00 AM to 6:59 PM is daytime (light), otherwise nighttime (dark)
-                  var hour = new Date().getHours();
-                  theme = (hour >= 6 && hour < 19) ? 'light' : 'dark';
-                }
-                if (theme === 'dark') {
-                  document.documentElement.classList.add('dark');
-                } else {
-                  document.documentElement.classList.remove('dark');
-                }
-              } catch (e) {}
-            })()`,
-          }}
         />
         <script
           type="application/ld+json"
@@ -106,7 +82,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="bg-[#F8FAFC] dark:bg-[#0B0E14] text-slate-900 dark:text-slate-100 min-h-screen flex flex-col antialiased selection:bg-brand-orange selection:text-white transition-colors duration-300">
+      <body className="bg-white text-slate-800 min-h-screen flex flex-col antialiased selection:bg-brand-orange selection:text-white">
         <ThemeProvider>
           <Header />
           <main className="flex-1">{children}</main>
