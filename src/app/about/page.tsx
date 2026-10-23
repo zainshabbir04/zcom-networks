@@ -88,9 +88,9 @@ const CORE_VALUES: { icon: React.ReactNode; title: string; desc: React.ReactNode
 
 export default function AboutPage() {
   return (
-    <div className="relative transition-colors duration-300 -mt-20 sm:-mt-24 space-y-20 sm:space-y-28 pb-16">
+    <div className="relative transition-colors duration-300 space-y-20 sm:space-y-28 pb-16">
       {/* ============================================================
-          1. OUTSTANDING CINEMATIC HERO BANNER (FIXED TOP, LEFT & RIGHT)
+          1. OUTSTANDING CINEMATIC HERO BANNER (STARTS DIRECTLY BELOW NAVBAR)
           ============================================================ */}
       <section className="relative w-full overflow-hidden bg-slate-950 border-b border-slate-800">
         {/* Layer 0: User-Uploaded Majestic Architecture Image (100% Full Viewport Width) */}
@@ -108,8 +108,8 @@ export default function AboutPage() {
           <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-brand-orange/15 rounded-full blur-[140px] pointer-events-none" />
         </div>
 
-        {/* Layer 1: Foreground Content Over Banner (Offset to clear transparent header) */}
-        <div className="relative z-10 min-h-[500px] sm:min-h-[540px] lg:min-h-[580px] w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-36 pb-10 sm:pb-14 flex flex-col justify-between">
+        {/* Layer 1: Foreground Content Over Banner (Starts cleanly below navbar) */}
+        <div className="relative z-10 min-h-[460px] sm:min-h-[480px] lg:min-h-[500px] w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 flex flex-col justify-between">
           {/* Top Telemetry Header Block */}
           <div className="max-w-4xl mx-auto text-center space-y-4 relative z-10">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 backdrop-blur-2xl border border-white/25 text-brand-orange text-xs font-bold uppercase tracking-wider shadow-xl">

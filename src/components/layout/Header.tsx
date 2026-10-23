@@ -21,7 +21,6 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
-  const isDarkHero = pathname === "/" || pathname === "/about";
 
   // Track window scroll to prevent transparent text clash when scrolling
   useEffect(() => {
@@ -53,42 +52,42 @@ export default function Header() {
     <>
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-300 ${
-          scrolled
-            ? "bg-white/90 backdrop-blur-xl border-b border-slate-200/80 shadow-sm"
-            : "bg-transparent border-transparent shadow-none"
+          isHome
+            ? scrolled
+              ? "bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-sm"
+              : "bg-transparent border-transparent shadow-none"
+            : "bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-sm"
         }`}
       >
-        <div className="max-w-7xl mx-auto bg-transparent border-0 shadow-none py-3.5 sm:py-5 px-4 sm:px-8 transition-all duration-300">
+        <div className="max-w-7xl mx-auto py-3 sm:py-4 px-4 sm:px-8 transition-all duration-300">
           <div className="flex items-center justify-between gap-4 h-11 sm:h-12">
-            {/* Logo: 100% Transparent on complete site */}
+            {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group shrink-0">
               <div className="relative h-9 sm:h-11 w-36 sm:w-48 transition-transform duration-200 group-hover:scale-105">
                 <Image
                   src="https://zcomnetworks.com.pk/assets/zcom-logo.png?v=2"
                   alt="Z COM Networks - Premier Optical Fiber ISP"
                   fill
-                  className="object-contain object-left drop-shadow-md"
+                  className="object-contain object-left drop-shadow-sm"
                   priority
                   unoptimized
                 />
               </div>
             </Link>
 
-            {/* Desktop Navigation Links: Transparent across the complete site */}
+            {/* Desktop Navigation Links: Sleek Segmented Dock Style */}
             {!isHome && (
-              <nav className="hidden lg:flex items-center gap-1 xl:gap-2 bg-transparent p-1 border-0">
+              <nav className="hidden lg:flex items-center gap-1 bg-slate-100/90 backdrop-blur-md p-1.5 rounded-full border border-slate-200/80 shadow-inner">
                 {NAV_LINKS.map((link) => {
                   const isActive = pathname === link.href;
                   return (
                     <Link
                       key={link.name}
                       href={link.href}
-                      className={`relative px-3.5 xl:px-4 py-1.5 rounded-full text-xs xl:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
+                      className={`relative px-4 py-1.5 rounded-full text-xs xl:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
                         isActive
                           ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30 font-extrabold"
-                          : isDarkHero && !scrolled
-                          ? "text-white/90 hover:text-brand-orange hover:bg-white/10"
-                          : "text-slate-700 hover:text-brand-orange hover:bg-orange-50/70"
+                          : "text-slate-700 hover:text-slate-900 hover:bg-white"
                       }`}
                     >
                       {link.name}
@@ -98,34 +97,20 @@ export default function Header() {
               </nav>
             )}
 
-            {/* Right Controls: Only Menu Toggle & Transparent Status */}
+            {/* Right Controls: Telemetry Pill & Modern Menu Button (Check Availability removed) */}
             <div className="flex items-center gap-3 shrink-0">
               {!isHome && (
-                <>
-                  <div className={`hidden xl:flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-full whitespace-nowrap shadow-sm backdrop-blur-md border ${
-                    isDarkHero && !scrolled
-                      ? "text-white bg-black/40 border-white/20"
-                      : "text-slate-700 bg-white/70 border-slate-200/80"
-                  }`}>
-                    <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
-                    <span>Core <AnimatedCounter from={0} to={100} duration={1400} />G: Optimal</span>
-                  </div>
-
-                  <Link
-                    href="/contact"
-                    className="hidden sm:inline-flex items-center gap-1.5 bg-brand-orange hover:bg-brand-orangeLight text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2 sm:py-2.5 rounded-full transition-all duration-200 shadow-md shadow-brand-orange/25 hover:shadow-brand-orange/40 hover:-translate-y-0.5 shrink-0 whitespace-nowrap"
-                  >
-                    <span>Check Availability</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </>
+                <div className="hidden xl:flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100/90 px-3.5 py-1.5 rounded-full border border-slate-200/80 whitespace-nowrap shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
+                  <span>Core <AnimatedCounter from={0} to={100} duration={1400} />G: Optimal</span>
+                </div>
               )}
 
-              {/* Stylized Menu Toggle Button - Floating Transparent Pill */}
+              {/* Stylized Modern Menu Button */}
               <button
                 onClick={() => setIsOpen(true)}
                 aria-label="Open Navigation Menu"
-                className="p-2 sm:px-4 sm:py-2.5 rounded-full transition-all duration-200 flex items-center gap-2 shadow-lg cursor-pointer group bg-black/40 hover:bg-brand-orange text-white border border-white/20 hover:border-brand-orange backdrop-blur-md"
+                className="px-4 py-2 rounded-full transition-all duration-200 flex items-center gap-2 shadow-sm cursor-pointer group bg-slate-900 hover:bg-brand-orange text-white border border-slate-800 hover:border-brand-orange"
                 title="Open Navigation Menu"
               >
                 <div className="flex flex-col gap-1 w-4">
