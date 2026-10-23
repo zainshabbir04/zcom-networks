@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -146,25 +146,15 @@ const INFRA_SLIDES: InfraSlide[] = [
 export default function InfrastructureLoopSlider() {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const tabContainerRef = useRef<HTMLDivElement>(null);
-  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  // Auto-advance slider every 2 seconds
+  // Auto-advance slider every 5 seconds (only section slides, zero page scroll)
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % INFRA_SLIDES.length);
-    }, 2000);
+    }, 5000);
     return () => clearInterval(interval);
   }, [isPaused]);
-
-  // Keep active tab centered in view
-  useEffect(() => {
-    const el = tabRefs.current[activeSlide];
-    if (el && tabContainerRef.current) {
-      el.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-    }
-  }, [activeSlide]);
 
   const nextSlide = () => setActiveSlide((prev) => (prev + 1) % INFRA_SLIDES.length);
   const prevSlide = () =>
@@ -178,19 +168,13 @@ export default function InfrastructureLoopSlider() {
       onTouchStart={() => setIsPaused(true)}
       onTouchEnd={() => setIsPaused(false)}
     >
-      {/* Top Tab Bar: Allows Quick Navigation with 2s Live Indicator */}
-      <div
-        ref={tabContainerRef}
-        className="flex items-center gap-2 overflow-x-auto pb-4 mb-6 scrollbar-none"
-      >
+      {/* Top Tab Bar: Allows Quick Navigation Across All 5 Assets */}
+      <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-6 scrollbar-none">
         {INFRA_SLIDES.map((item, idx) => {
           const isActive = activeSlide === idx;
           return (
             <button
               key={item.id}
-              ref={(el) => {
-                tabRefs.current[idx] = el;
-              }}
               onClick={() => setActiveSlide(idx)}
               className={`relative px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-2 shrink-0 overflow-hidden cursor-pointer ${
                 isActive
@@ -205,13 +189,13 @@ export default function InfrastructureLoopSlider() {
               />
               <span>{item.badge}</span>
 
-              {/* 2-Second Live Progress Bar in Active Tab */}
+              {/* 5-Second Live Progress Bar in Active Tab */}
               {isActive && !isPaused && (
                 <span
                   key={activeSlide}
                   className="absolute bottom-0 left-0 h-1 bg-white/80 rounded-full"
                   style={{
-                    animation: "infraProgress 2000ms linear forwards",
+                    animation: "infraProgress 5000ms linear forwards",
                   }}
                 />
               )}
