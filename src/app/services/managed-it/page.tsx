@@ -86,141 +86,164 @@ export default function ManagedItPage() {
     <div className="relative transition-colors duration-300 space-y-16 sm:space-y-24 pb-16">
       
       {/* ============================================================
-          1. OUTSTANDING CINEMATIC HERO BANNER (STARTS DIRECTLY BELOW NAVBAR)
+          1. MODERN ASYMMETRIC SPLIT-GRID HERO BANNER
           ============================================================ */}
-      <section className="relative w-full overflow-hidden bg-slate-950 border-b border-slate-800">
-        {/* Layer 0: High-Res Dedicated Image (100% Full Viewport Width) */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <Image
-            src="/images/services/managed-it.jpg"
-            alt="Managed IT Solutions - Z COM NOC"
-            fill
-            priority
-            unoptimized
-            className="object-cover object-center scale-100"
-          />
-          {/* Subtle Ambient Vignette & Warm Orange Glow */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#06080D]/95 via-[#07090E]/60 to-[#07090E]/85" />
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-brand-orange/15 rounded-full blur-[140px] pointer-events-none" />
-        </div>
+      <section className="relative w-full overflow-hidden bg-[#07090E] border-b border-slate-800">
+        {/* Ambient Glows & Tech Grid Background */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-brand-orange/15 rounded-full blur-[130px] pointer-events-none" />
+        <div className="absolute bottom-0 left-10 w-80 h-80 bg-slate-700/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f293715_1px,transparent_1px),linear-gradient(to_bottom,#1f293715_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
 
-        {/* Layer 1: Foreground Content Over Banner */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 flex flex-col justify-between space-y-8">
-          
-          {/* Top Breadcrumb & Status Pill */}
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
-            <nav className="flex items-center gap-2 text-xs font-semibold text-slate-300">
-              <Link href="/" className="hover:text-brand-orange transition-colors">Home</Link>
-              <span className="text-slate-500">/</span>
-              <span className="text-slate-400">Services</span>
-              <span className="text-slate-500">/</span>
-              <span className="text-brand-orange font-bold">Managed IT Solutions &amp; Services</span>
-            </nav>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-xl border border-white/20 text-brand-orange text-xs font-bold uppercase tracking-wider">
-              <span className="w-2 h-2 rounded-full bg-brand-orange animate-ping" />
-              <span className="text-white">PROACTIVE NOC &amp; HARDWARE CARE</span>
+        {/* Banner Content Container */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Left Column: Information, Headings, CTAs & Telemetry Dock (7 Cols) */}
+            <div className="lg:col-span-7 space-y-6">
+              
+              {/* Breadcrumbs & Status Tag */}
+              <div className="flex flex-wrap items-center gap-2.5 text-xs font-semibold">
+                <nav className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300">
+                  <Link href="/" className="hover:text-brand-orange transition-colors">Home</Link>
+                  <span className="text-slate-600">/</span>
+                  <span className="text-slate-400">Services</span>
+                  <span className="text-slate-600">/</span>
+                  <span className="text-brand-orange font-bold">Managed IT Solutions</span>
+                </nav>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/15 border border-brand-orange/30 text-brand-orange text-[11px] font-black uppercase tracking-wider">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-ping" />
+                  <span>24/7 PROACTIVE NOC</span>
+                </div>
+              </div>
+
+              {/* Headline */}
+              <div className="space-y-2">
+                <div className="inline-flex items-center gap-2 text-xs font-bold text-slate-400 uppercase tracking-wider">
+                  <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
+                  <span>OFFICIAL Z COM SERVICES &amp; PRODUCTS</span>
+                </div>
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading tracking-tight leading-[1.1]">
+                  Managed IT Solutions <br className="hidden sm:inline" />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-brand-orange to-amber-300">
+                    &amp; Services
+                  </span>
+                </h1>
+              </div>
+
+              {/* Subtitle */}
+              <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed font-normal max-w-2xl">
+                Eliminate downtime and empower corporate business operations with 24/7 proactive NOC supervision, enterprise server maintenance, certified structured cabling, and rapid on-site field engineering dispatch.
+              </p>
+
+              {/* CTAs */}
+              <div className="flex flex-wrap items-center gap-3 pt-1">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5"
+                >
+                  <span>Request IT Infrastructure Audit</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
+                <a
+                  href="#capabilities"
+                  className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/15 text-white border border-white/20 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-all hover:-translate-y-0.5"
+                >
+                  <span>Explore Capabilities</span>
+                </a>
+              </div>
+
+              {/* Integrated Segmented Telemetry Dock (4 Stats) */}
+              <div className="pt-2">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-3.5 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md">
+                  <div className="p-2.5 rounded-xl bg-black/40 border border-white/5 text-center">
+                    <div className="flex items-center justify-center gap-1 text-brand-orange mb-1">
+                      <Clock className="w-3.5 h-3.5" />
+                      <span className="text-xs font-bold uppercase tracking-wider">NOC</span>
+                    </div>
+                    <span className="text-lg sm:text-xl font-black text-white font-heading block">
+                      <AnimatedCounter from={0} to={24} suffix="/7/365" />
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-medium block">Continuous Care</span>
+                  </div>
+
+                  <div className="p-2.5 rounded-xl bg-black/40 border border-white/5 text-center">
+                    <div className="flex items-center justify-center gap-1 text-orange-400 mb-1">
+                      <Zap className="w-3.5 h-3.5" />
+                      <span className="text-xs font-bold uppercase tracking-wider">MTTR</span>
+                    </div>
+                    <span className="text-lg sm:text-xl font-black text-white font-heading block">
+                      &lt; <AnimatedCounter from={0} to={30} suffix="m" />
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-medium block">Emergency SLA</span>
+                  </div>
+
+                  <div className="p-2.5 rounded-xl bg-black/40 border border-white/5 text-center">
+                    <div className="flex items-center justify-center gap-1 text-brand-orange mb-1">
+                      <ShieldCheck className="w-3.5 h-3.5" />
+                      <span className="text-xs font-bold uppercase tracking-wider">Tier</span>
+                    </div>
+                    <span className="text-lg sm:text-xl font-black text-white font-heading block">
+                      Level-3
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-medium block">Certified Team</span>
+                  </div>
+
+                  <div className="p-2.5 rounded-xl bg-black/40 border border-white/5 text-center">
+                    <div className="flex items-center justify-center gap-1 text-orange-400 mb-1">
+                      <Settings className="w-3.5 h-3.5" />
+                      <span className="text-xs font-bold uppercase tracking-wider">Health</span>
+                    </div>
+                    <span className="text-lg sm:text-xl font-black text-white font-heading block">
+                      <AnimatedCounter from={0} to={100} suffix="%" />
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-medium block">Proactive Audits</span>
+                  </div>
+                </div>
+              </div>
+
             </div>
+
+            {/* Right Column: High-Tech Floating Visual Showcase (5 Cols) */}
+            <div className="lg:col-span-5 relative">
+              {/* Ambient Glow behind image */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-brand-orange/30 to-amber-500/20 rounded-3xl blur-2xl opacity-75 group-hover:opacity-100 transition-opacity" />
+
+              <div className="relative rounded-3xl overflow-hidden border border-white/20 bg-slate-900 shadow-2xl group">
+                <div className="relative h-[340px] sm:h-[420px] w-full">
+                  <Image
+                    src="/images/services/managed-it.jpg"
+                    alt="Managed IT Solutions - Z COM NOC"
+                    fill
+                    priority
+                    unoptimized
+                    className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                </div>
+
+                {/* Floating Top Badge */}
+                <div className="absolute top-4 right-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/70 backdrop-blur-xl border border-white/25 text-white text-xs font-bold shadow-xl">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Live NOC Facility: Active</span>
+                </div>
+
+                {/* Floating Bottom Card */}
+                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/75 backdrop-blur-xl border border-white/20 shadow-xl space-y-1">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="font-extrabold text-brand-orange uppercase tracking-wider">
+                      Rapid Engineering Dispatch
+                    </span>
+                    <span className="text-white/70 font-semibold text-[11px]">Certified OTDR &amp; Splicing</span>
+                  </div>
+                  <p className="text-xs text-slate-200 font-medium leading-relaxed">
+                    Preventative hardware health monitoring, switchport zoning, and sub-30 minute emergency dispatch.
+                  </p>
+                </div>
+              </div>
+            </div>
+
           </div>
-
-          {/* Center Heading & Value Proposition */}
-          <div className="max-w-4xl mx-auto text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-bold uppercase tracking-wider backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-              <span className="text-white">OFFICIAL Z COM SERVICES &amp; PRODUCTS</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white font-heading tracking-tight leading-tight drop-shadow-md">
-              Managed IT Solutions{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-brand-orange to-amber-300">
-                &amp; Services
-              </span>
-            </h1>
-
-            <p className="text-sm sm:text-base lg:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed font-normal drop-shadow-sm">
-              Eliminate downtime and empower corporate business operations with 24/7 proactive NOC supervision, enterprise server maintenance, certified structured cabling, and rapid on-site field engineering dispatch.
-            </p>
-
-            {/* Quick Action Navigation Buttons */}
-            <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-full transition-all shadow-md shadow-brand-orange/30 hover:-translate-y-0.5"
-              >
-                <span>Request IT Infrastructure Audit</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <a
-                href="#capabilities"
-                className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-xl text-white border border-white/30 font-bold text-xs sm:text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5"
-              >
-                <span>Explore Capabilities</span>
-              </a>
-            </div>
-          </div>
-
-          {/* 4 Floating Telemetry Glassmorphism Metric Hub */}
-          <div className="pt-6 sm:pt-8 max-w-5xl mx-auto w-full grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-            <div className="p-4 rounded-xl sm:rounded-2xl bg-black/50 backdrop-blur-2xl border border-white/20 shadow-xl hover:bg-black/65 hover:border-brand-orange/60 transition-all text-center group">
-              <div className="w-8 h-8 mx-auto rounded-lg bg-brand-orange/25 text-brand-orange flex items-center justify-center mb-1.5">
-                <Clock className="w-4 h-4" />
-              </div>
-              <span className="text-2xl sm:text-3xl font-black text-brand-orange font-heading block group-hover:scale-105 transition-transform">
-                <AnimatedCounter from={0} to={24} suffix="/7/365" />
-              </span>
-              <span className="text-xs text-white font-bold mt-0.5 block font-heading">
-                NOC Supervision
-              </span>
-              <span className="text-[10px] text-slate-300 font-medium block">
-                Continuous Telemetry
-              </span>
-            </div>
-
-            <div className="p-4 rounded-xl sm:rounded-2xl bg-black/50 backdrop-blur-2xl border border-white/20 shadow-xl hover:bg-black/65 hover:border-brand-orange/60 transition-all text-center group">
-              <div className="w-8 h-8 mx-auto rounded-lg bg-orange-400/25 text-orange-400 flex items-center justify-center mb-1.5">
-                <Zap className="w-4 h-4" />
-              </div>
-              <span className="text-2xl sm:text-3xl font-black text-white font-heading block group-hover:scale-105 transition-transform">
-                &lt; <AnimatedCounter from={0} to={30} suffix=" min" />
-              </span>
-              <span className="text-xs text-white font-bold mt-0.5 block font-heading">
-                Emergency MTTR
-              </span>
-              <span className="text-[10px] text-slate-300 font-medium block">
-                On-Site Field Response
-              </span>
-            </div>
-
-            <div className="p-4 rounded-xl sm:rounded-2xl bg-black/50 backdrop-blur-2xl border border-white/20 shadow-xl hover:bg-black/65 hover:border-brand-orange/60 transition-all text-center group">
-              <div className="w-8 h-8 mx-auto rounded-lg bg-brand-orange/25 text-brand-orange flex items-center justify-center mb-1.5">
-                <ShieldCheck className="w-4 h-4" />
-              </div>
-              <span className="text-2xl sm:text-3xl font-black text-brand-orange font-heading block group-hover:scale-105 transition-transform">
-                Level-3
-              </span>
-              <span className="text-xs text-white font-bold mt-0.5 block font-heading">
-                Certified Engineers
-              </span>
-              <span className="text-[10px] text-slate-300 font-medium block">
-                Direct Senior Escalation
-              </span>
-            </div>
-
-            <div className="p-4 rounded-xl sm:rounded-2xl bg-black/50 backdrop-blur-2xl border border-white/20 shadow-xl hover:bg-black/65 hover:border-brand-orange/60 transition-all text-center group">
-              <div className="w-8 h-8 mx-auto rounded-lg bg-orange-400/25 text-orange-400 flex items-center justify-center mb-1.5">
-                <Settings className="w-4 h-4" />
-              </div>
-              <span className="text-2xl sm:text-3xl font-black text-white font-heading block group-hover:scale-105 transition-transform">
-                <AnimatedCounter from={0} to={100} suffix="%" />
-              </span>
-              <span className="text-xs text-white font-bold mt-0.5 block font-heading">
-                Proactive Oversight
-              </span>
-              <span className="text-[10px] text-slate-300 font-medium block">
-                Hardware Health Audits
-              </span>
-            </div>
-          </div>
-
         </div>
       </section>
 
