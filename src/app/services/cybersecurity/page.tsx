@@ -23,7 +23,6 @@ import {
   KeyRound,
 } from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import InfrastructureLoopSlider from "@/components/ui/InfrastructureLoopSlider";
 
 export const metadata: Metadata = {
   title: "Cybersecurity Services | Firewalls, DDoS & Audits | Z COM Networks",
@@ -79,36 +78,6 @@ const SUB_SERVICES = [
       "Centralized device posture verification and USB/removable media controls",
       "Remote workforce endpoint security with encrypted data tunneling",
     ],
-  },
-];
-
-const SPECS = [
-  { label: "Scrubbing Core", value: "100+ Gbps", desc: "Volumetric DDoS scrubbing capacity" },
-  { label: "Threat Diversion", value: "< 1 Second", desc: "Automated real-time anomaly rerouting" },
-  { label: "Architecture", value: "Zero-Trust (ZTNA)", desc: "Least-privilege network access controls" },
-  { label: "SOC Oversight", value: "24/7 Monitoring", desc: "Continuous perimeter telemetry and alerts" },
-];
-
-const WORKFLOW = [
-  {
-    step: "01",
-    title: "Vulnerability Assessment",
-    desc: "Complete scan of your public IP blocks, firewall port rules, and internal subnet configurations.",
-  },
-  {
-    step: "02",
-    title: "Perimeter Hardening",
-    desc: "Implementation of granular NGFW policies, DMZ segmentation, and automated IPS/IDS signatures.",
-  },
-  {
-    step: "03",
-    title: "Traffic Scrubbing Integration",
-    desc: "Automated routing diversion through high-capacity BGP scrubbing centers to shield your gateway.",
-  },
-  {
-    step: "04",
-    title: "Continuous SOC Oversight",
-    desc: "Real-time threat intelligence feeds, incident containment, and monthly executive security reviews.",
   },
 ];
 
@@ -315,87 +284,7 @@ export default function CybersecurityPage() {
       </section>
 
       {/* ============================================================
-          3. TECHNICAL SPECIFICATIONS MATRIX
-          ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-[#090C15] text-white p-6 sm:p-10 border border-slate-800 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 space-y-6">
-            <div className="text-center sm:text-left space-y-1">
-              <span className="text-xs font-bold text-brand-orange uppercase tracking-wider block">
-                CYBERSECURITY STANDARDS
-              </span>
-              <h3 className="text-xl sm:text-2xl font-black font-heading">
-                Carrier-Grade Defense Infrastructure
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {SPECS.map((spec, sIdx) => (
-                <div key={sIdx} className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1">
-                  <span className="text-xs text-slate-400 block">{spec.label}</span>
-                  <span className="text-xl font-extrabold text-brand-orange block font-heading">{spec.value}</span>
-                  <span className="text-[11px] text-slate-300 block">{spec.desc}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          4. THREAT RESPONSE WORKFLOW
-          ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="text-center max-w-3xl mx-auto space-y-2">
-          <span className="text-xs font-bold text-brand-orange uppercase tracking-wider block">
-            DEFENSE LIFECYCLE
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 font-heading">
-            Continuous Threat Mitigation
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600">
-            Automated perimeter defense with human intelligence and forensic threat tracking.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {WORKFLOW.map((wf, wIdx) => (
-            <div
-              key={wIdx}
-              className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-brand-orange/50 shadow-md hover:shadow-lg transition-all space-y-2 relative"
-            >
-              <span className="text-3xl font-black text-brand-orange/30 font-heading block">{wf.step}</span>
-              <h4 className="text-base font-extrabold text-slate-900">{wf.title}</h4>
-              <p className="text-xs text-slate-500 leading-relaxed">{wf.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ============================================================
-          5. OPTICAL INFRASTRUCTURE ARCHITECTURE LOOP
-          ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-brand-orange text-xs font-bold uppercase tracking-wider">
-            <Zap className="w-3.5 h-3.5" />
-            <span>OPTICAL INFRASTRUCTURE ARCHITECTURE</span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 font-heading">
-            Hardware Scrubbing &amp; Secure Gateways
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600">
-            Underground armored ring transport with isolated management channels and encrypted tunnels.
-          </p>
-        </div>
-
-        <InfrastructureLoopSlider />
-      </section>
-
-      {/* ============================================================
-          6. DIRECT CONTACT STRIP (FROM FLYER)
+          3. DIRECT CONTACT STRIP (FROM FLYER)
           ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-slate-900 text-white border border-slate-800 p-6 sm:p-10 shadow-2xl relative overflow-hidden">

@@ -23,7 +23,6 @@ import {
   Globe,
 } from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import InfrastructureLoopSlider from "@/components/ui/InfrastructureLoopSlider";
 
 export const metadata: Metadata = {
   title: "Managed IT Solutions & Services | 24/7 NOC & Hardware | Z COM Networks",
@@ -79,36 +78,6 @@ const SUB_SERVICES = [
       "Disaster recovery circuit cutovers and emergency temporary links",
       "Local Gulberg NOC fleet deployed across all metro commercial hubs",
     ],
-  },
-];
-
-const SPECS = [
-  { label: "NOC Supervision", value: "24/7/365", desc: "Uninterrupted proactive network operations" },
-  { label: "Emergency MTTR", value: "< 30 Minutes", desc: "Contractual on-site field engineering response" },
-  { label: "Engineering Tier", value: "Level-3 Certified", desc: "Senior network and hardware specialists" },
-  { label: "Cabling Standards", value: "Fluke Certified", desc: "100% verified bandwidth and insertion loss" },
-];
-
-const WORKFLOW = [
-  {
-    step: "01",
-    title: "Comprehensive IT Audit",
-    desc: "We analyze your server racks, cabling topology, switch configurations, and network bottlenecks.",
-  },
-  {
-    step: "02",
-    title: "Sensor & Telemetry Setup",
-    desc: "Deployment of real-time NOC telemetry agents for optical power, CPU, temperature, and port bandwidth.",
-  },
-  {
-    step: "03",
-    title: "Preventative Servicing",
-    desc: "Bi-weekly physical checks, dust extraction, redundant PSU verification, and scheduled firmware updates.",
-  },
-  {
-    step: "04",
-    title: "Rapid Emergency Dispatch",
-    desc: "Immediate on-site vehicle dispatch with replacement modules and diagnostic tools upon any anomaly.",
   },
 ];
 
@@ -315,87 +284,7 @@ export default function ManagedItPage() {
       </section>
 
       {/* ============================================================
-          3. TECHNICAL SPECIFICATIONS MATRIX
-          ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-[#090C15] text-white p-6 sm:p-10 border border-slate-800 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 space-y-6">
-            <div className="text-center sm:text-left space-y-1">
-              <span className="text-xs font-bold text-brand-orange uppercase tracking-wider block">
-                OPERATIONAL STANDARDS
-              </span>
-              <h3 className="text-xl sm:text-2xl font-black font-heading">
-                Contractual Response &amp; Engineering Benchmarks
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {SPECS.map((spec, sIdx) => (
-                <div key={sIdx} className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1">
-                  <span className="text-xs text-slate-400 block">{spec.label}</span>
-                  <span className="text-xl font-extrabold text-brand-orange block font-heading">{spec.value}</span>
-                  <span className="text-[11px] text-slate-300 block">{spec.desc}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          4. MAINTENANCE WORKFLOW
-          ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="text-center max-w-3xl mx-auto space-y-2">
-          <span className="text-xs font-bold text-brand-orange uppercase tracking-wider block">
-            OPERATIONAL LIFECYCLE
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 font-heading">
-            How We Protect Your Operations
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600">
-            A continuous loop of audit, active sensor oversight, preventative care, and emergency readiness.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {WORKFLOW.map((wf, wIdx) => (
-            <div
-              key={wIdx}
-              className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-brand-orange/50 shadow-md hover:shadow-lg transition-all space-y-2 relative"
-            >
-              <span className="text-3xl font-black text-brand-orange/30 font-heading block">{wf.step}</span>
-              <h4 className="text-base font-extrabold text-slate-900">{wf.title}</h4>
-              <p className="text-xs text-slate-500 leading-relaxed">{wf.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ============================================================
-          5. OPTICAL INFRASTRUCTURE ARCHITECTURE LOOP
-          ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-brand-orange text-xs font-bold uppercase tracking-wider">
-            <Zap className="w-3.5 h-3.5" />
-            <span>OPTICAL INFRASTRUCTURE ARCHITECTURE</span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 font-heading">
-            Hardware &amp; Equipment Maintenance
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600">
-            Backed by optical diagnostic instruments, OTDR testers, and carrier-grade chassis switches.
-          </p>
-        </div>
-
-        <InfrastructureLoopSlider />
-      </section>
-
-      {/* ============================================================
-          6. DIRECT CONTACT STRIP (FROM FLYER)
+          3. DIRECT CONTACT STRIP (FROM FLYER)
           ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-slate-900 text-white border border-slate-800 p-6 sm:p-10 shadow-2xl relative overflow-hidden">

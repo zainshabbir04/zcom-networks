@@ -23,7 +23,6 @@ import {
   ChevronRight,
 } from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import InfrastructureLoopSlider from "@/components/ui/InfrastructureLoopSlider";
 
 export const metadata: Metadata = {
   title: "Corporate Internet Solutions | DIA, MPLS & Metro Optical | Z COM Networks",
@@ -79,36 +78,6 @@ const SUB_SERVICES = [
       "Scalable from 100 Mbps to 100 Gbps dedicated optical waves",
       "Underground armored subterranean conduits with OTDR telemetry",
     ],
-  },
-];
-
-const SPECS = [
-  { label: "Throughput Ratio", value: "1:1 Symmetrical", desc: "Completely uncontended upstream & downstream" },
-  { label: "Core Availability", value: "99.99% SLA", desc: "Contractually committed high availability" },
-  { label: "Ring Auto-Failover", value: "< 50ms", desc: "Sub-second dynamic path switching" },
-  { label: "NOC Escalation", value: "24/7 Level-3", desc: "Direct access to senior network architects" },
-];
-
-const WORKFLOW = [
-  {
-    step: "01",
-    title: "Optical Path Feasibility",
-    desc: "Our GIS engineering team surveys nearest splice chambers and subterranean duct routes for optimal entry.",
-  },
-  {
-    step: "02",
-    title: "Dual Conduit Provisioning",
-    desc: "Armored optical cable deployed through dedicated subterranean conduits with dual-path physical redundancy.",
-  },
-  {
-    step: "03",
-    title: "Hardware & BERT Certification",
-    desc: "Carrier-grade switch commissioning with comprehensive RFC 2544 and BERT latency/throughput verification.",
-  },
-  {
-    step: "04",
-    title: "Live NOC Telemetry",
-    desc: "Circuit integrated into 24/7 NOC monitoring with real-time packet loss, jitter, and optical power tracking.",
   },
 ];
 
@@ -315,87 +284,7 @@ export default function CorporateInternetPage() {
       </section>
 
       {/* ============================================================
-          3. TECHNICAL SPECIFICATIONS MATRIX
-          ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-[#090C15] text-white p-6 sm:p-10 border border-slate-800 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 space-y-6">
-            <div className="text-center sm:text-left space-y-1">
-              <span className="text-xs font-bold text-brand-orange uppercase tracking-wider block">
-                TECHNICAL BENCHMARKS
-              </span>
-              <h3 className="text-xl sm:text-2xl font-black font-heading">
-                Guaranteed Optical Transport Standards
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {SPECS.map((spec, sIdx) => (
-                <div key={sIdx} className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1">
-                  <span className="text-xs text-slate-400 block">{spec.label}</span>
-                  <span className="text-xl font-extrabold text-brand-orange block font-heading">{spec.value}</span>
-                  <span className="text-[11px] text-slate-300 block">{spec.desc}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          4. TURNKEY PROVISIONING WORKFLOW
-          ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="text-center max-w-3xl mx-auto space-y-2">
-          <span className="text-xs font-bold text-brand-orange uppercase tracking-wider block">
-            DEPLOYMENT PROCESS
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 font-heading">
-            Rapid Turnkey Circuit Commissioning
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600">
-            From optical path feasibility to active NOC telemetry in 4 systematic milestones.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {WORKFLOW.map((wf, wIdx) => (
-            <div
-              key={wIdx}
-              className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-brand-orange/50 shadow-md hover:shadow-lg transition-all space-y-2 relative"
-            >
-              <span className="text-3xl font-black text-brand-orange/30 font-heading block">{wf.step}</span>
-              <h4 className="text-base font-extrabold text-slate-900">{wf.title}</h4>
-              <p className="text-xs text-slate-500 leading-relaxed">{wf.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ============================================================
-          5. OPTICAL INFRASTRUCTURE ARCHITECTURE LOOP
-          ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-brand-orange text-xs font-bold uppercase tracking-wider">
-            <Zap className="w-3.5 h-3.5" />
-            <span>OPTICAL INFRASTRUCTURE ARCHITECTURE</span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 font-heading">
-            Engineered For Zero Packet Loss
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600">
-            Explore the subterranean armored ring and carrier hardware powering our corporate circuits.
-          </p>
-        </div>
-
-        <InfrastructureLoopSlider />
-      </section>
-
-      {/* ============================================================
-          6. DIRECT CONTACT STRIP (FROM FLYER)
+          3. DIRECT CONTACT STRIP (FROM FLYER)
           ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-slate-900 text-white border border-slate-800 p-6 sm:p-10 shadow-2xl relative overflow-hidden">

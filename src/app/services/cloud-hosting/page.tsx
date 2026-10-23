@@ -22,7 +22,6 @@ import {
   Zap,
 } from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import InfrastructureLoopSlider from "@/components/ui/InfrastructureLoopSlider";
 
 export const metadata: Metadata = {
   title: "Cloud & Hosting Solutions | VMs, Colocation, Email & Web | Z COM Networks",
@@ -78,36 +77,6 @@ const SUB_SERVICES = [
       "Intuitive cPanel or Plesk control panel with 1-click application installers",
       "Unmetered monthly bandwidth and automated off-site daily backups",
     ],
-  },
-];
-
-const SPECS = [
-  { label: "Compute SLA", value: "99.9% Uptime", desc: "Contractually enforced hypervisor availability" },
-  { label: "Data Center Tier", value: "Tier-3 Standard", desc: "N+1 redundant power, UPS & cooling systems" },
-  { label: "Storage Architecture", value: "NVMe Gen4", desc: "Sub-millisecond read/write latency benchmarks" },
-  { label: "Core Cross-Connect", value: "100G Ready", desc: "Direct low-latency optical peering" },
-];
-
-const WORKFLOW = [
-  {
-    step: "01",
-    title: "Workload Sizing & Architecture",
-    desc: "Our cloud architects assess your compute, RAM, IOPS, and storage throughput requirements for optimal sizing.",
-  },
-  {
-    step: "02",
-    title: "Secure Tenant Isolation",
-    desc: "Dedicated VLANs, private virtual firewalls, and resource reservations are provisioned on our enterprise nodes.",
-  },
-  {
-    step: "03",
-    title: "Zero-Downtime Migration",
-    desc: "Assisted live database and application migration to eliminate corporate workflow disruptions.",
-  },
-  {
-    step: "04",
-    title: "Active Telemetry & Backups",
-    desc: "Automated snapshot routines and 24/7 hypervisor health monitoring integrated with Level-3 support.",
   },
 ];
 
@@ -314,87 +283,7 @@ export default function CloudHostingPage() {
       </section>
 
       {/* ============================================================
-          3. TECHNICAL SPECIFICATIONS MATRIX
-          ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-[#090C15] text-white p-6 sm:p-10 border border-slate-800 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 space-y-6">
-            <div className="text-center sm:text-left space-y-1">
-              <span className="text-xs font-bold text-brand-orange uppercase tracking-wider block">
-                INFRASTRUCTURE SPECIFICATIONS
-              </span>
-              <h3 className="text-xl sm:text-2xl font-black font-heading">
-                High-Availability Compute &amp; Facility Standards
-              </h3>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {SPECS.map((spec, sIdx) => (
-                <div key={sIdx} className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1">
-                  <span className="text-xs text-slate-400 block">{spec.label}</span>
-                  <span className="text-xl font-extrabold text-brand-orange block font-heading">{spec.value}</span>
-                  <span className="text-[11px] text-slate-300 block">{spec.desc}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============================================================
-          4. PROVISIONING & MIGRATION WORKFLOW
-          ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="text-center max-w-3xl mx-auto space-y-2">
-          <span className="text-xs font-bold text-brand-orange uppercase tracking-wider block">
-            MIGRATION &amp; ONBOARDING
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 font-heading">
-            Seamless Zero-Downtime Deployment
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600">
-            Our cloud specialists guide your corporate migration with meticulous staging and live verification.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {WORKFLOW.map((wf, wIdx) => (
-            <div
-              key={wIdx}
-              className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-brand-orange/50 shadow-md hover:shadow-lg transition-all space-y-2 relative"
-            >
-              <span className="text-3xl font-black text-brand-orange/30 font-heading block">{wf.step}</span>
-              <h4 className="text-base font-extrabold text-slate-900">{wf.title}</h4>
-              <p className="text-xs text-slate-500 leading-relaxed">{wf.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ============================================================
-          5. OPTICAL INFRASTRUCTURE ARCHITECTURE LOOP
-          ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-brand-orange text-xs font-bold uppercase tracking-wider">
-            <Zap className="w-3.5 h-3.5" />
-            <span>OPTICAL INFRASTRUCTURE ARCHITECTURE</span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 font-heading">
-            Direct Core Optical Peering
-          </h2>
-          <p className="text-sm sm:text-base text-slate-600">
-            All virtual workloads and colocation racks interconnect directly with our high-capacity transport ring.
-          </p>
-        </div>
-
-        <InfrastructureLoopSlider />
-      </section>
-
-      {/* ============================================================
-          6. DIRECT CONTACT STRIP (FROM FLYER)
+          3. DIRECT CONTACT STRIP (FROM FLYER)
           ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-slate-900 text-white border border-slate-800 p-6 sm:p-10 shadow-2xl relative overflow-hidden">
