@@ -18,8 +18,19 @@ const NAV_LINKS = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
+
+  // Track window scroll to prevent transparent text clash when scrolling
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Lock body scroll when menu is open
   useEffect(() => {
@@ -39,7 +50,13 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full bg-transparent border-0 shadow-none transition-all duration-300">
+      <header
+        className={`sticky top-0 z-40 w-full transition-all duration-300 ${
+          scrolled
+            ? "bg-white/90 backdrop-blur-xl border-b border-slate-200/80 shadow-sm"
+            : "bg-transparent border-transparent shadow-none"
+        }`}
+      >
         <div className="max-w-7xl mx-auto bg-transparent border-0 shadow-none py-3.5 sm:py-5 px-4 sm:px-8 transition-all duration-300">
           <div className="flex items-center justify-between gap-4 h-11 sm:h-12">
             {/* Logo: 100% Transparent on complete site */}

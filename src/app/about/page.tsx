@@ -210,42 +210,78 @@ export default function AboutPage() {
           </p>
         </div>
 
-        {/* Executive Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        {/* Executive Cards Showcase Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
           {/* Card 1: CEO Mudasir Riaz */}
-          <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 bg-white dark:bg-[#12161F] p-6 sm:p-10 shadow-xl shadow-slate-200/50 dark:shadow-black/60 flex flex-col justify-between space-y-6">
+          <div className="group relative rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-orange-500/10 hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between space-y-8">
             <div className="space-y-6">
-              {/* Profile Header */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-                <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-brand-orange shadow-lg shrink-0 bg-slate-900">
-                  <Image
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
-                    alt="Mudasir Riaz - Chief Executive Officer (CEO) Z COM Networks"
-                    fill
-                    className="object-cover"
-                  />
+              {/* Header with Large Portrait & Primary Info */}
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                {/* Executive Portrait Frame */}
+                <div className="relative w-48 sm:w-52 lg:w-56 shrink-0">
+                  <div className="relative rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md p-2 group-hover:border-brand-orange/50 transition-colors">
+                    <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-white">
+                      <Image
+                        src="/images/leadership/mudasir-riaz-ceo.jpg"
+                        alt="Mudasir Riaz - Chief Executive Officer (CEO) & Co-Founder Z COM Networks"
+                        fill
+                        sizes="(max-width: 640px) 200px, 250px"
+                        className="object-contain object-bottom transition-transform duration-500 group-hover:scale-105"
+                        priority
+                      />
+                    </div>
+                    {/* Status Pill */}
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-slate-200/90 shadow-sm flex items-center gap-1.5 whitespace-nowrap text-[10px] font-bold text-slate-800">
+                      <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
+                      <span>Executive Board</span>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="space-y-1">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-orange-100 dark:bg-brand-orange/20 text-brand-orange">
-                    <Sparkles className="w-3 h-3" />
+                {/* Executive Credentials & Titles */}
+                <div className="space-y-2.5 text-center sm:text-left flex-1">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-orange-50 border border-brand-orange/30 text-brand-orange">
+                    <Sparkles className="w-3.5 h-3.5" />
                     <span>CHIEF EXECUTIVE OFFICER</span>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
+
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading tracking-tight">
                     Mudasir Riaz
                   </h3>
-                  <p className="text-sm font-semibold text-slate-600 dark:text-slate-400">
+
+                  <p className="text-sm font-semibold text-slate-700">
                     Chief Executive Officer (CEO) &amp; Co-Founder
                   </p>
-                  <p className="text-xs text-brand-orange font-bold flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5" />
+
+                  <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs text-brand-orange font-semibold pt-1">
+                    <MapPin className="w-3.5 h-3.5 shrink-0" />
                     <span>Gulberg-III Corporate Headquarters, Lahore</span>
-                  </p>
+                  </div>
+
+                  {/* Highlights Bar */}
+                  <div className="grid grid-cols-2 gap-2 pt-3">
+                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center sm:text-left">
+                      <span className="text-xs font-bold text-slate-900 block font-heading">
+                        1,200+ km
+                      </span>
+                      <span className="text-[10px] text-slate-500 font-medium block">
+                        Metro Fiber Conduits
+                      </span>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center sm:text-left">
+                      <span className="text-xs font-bold text-slate-900 block font-heading">
+                        99.99% SLA
+                      </span>
+                      <span className="text-[10px] text-slate-500 font-medium block">
+                        Core Uptime Guarantee
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Bio & Strategy */}
-              <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              {/* Bio & Track Record */}
+              <div className="space-y-3 text-sm text-slate-700 leading-relaxed border-t border-slate-100 pt-5">
                 <p>
                   As Chief Executive Officer and visionary co-founder of Z COM Networks, <strong>Mudasir Riaz</strong> has
                   spearheaded the company&apos;s transformation from a local telecom challenger into one of Lahore&apos;s
@@ -259,72 +295,113 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              {/* Executive Quote */}
-              <div className="relative rounded-2xl bg-orange-50/70 dark:bg-[#0E1118] border border-orange-200/80 dark:border-slate-700/60 p-5">
-                <Quote className="w-8 h-8 text-brand-orange/30 absolute top-3 right-3" />
-                <p className="text-xs sm:text-sm italic font-medium text-slate-800 dark:text-slate-200 leading-relaxed pr-6">
+              {/* Quote Block */}
+              <div className="relative rounded-2xl bg-gradient-to-r from-orange-50/70 via-slate-50/60 to-white border-l-4 border-brand-orange border border-slate-200/80 p-5 space-y-2">
+                <Quote className="w-5 h-5 text-brand-orange/60" />
+                <p className="text-xs sm:text-sm italic font-medium text-slate-800 leading-relaxed">
                   &ldquo;Our foundational promise at Z COM Networks has never wavered: to build a transmission network
                   so resilient and fast that Lahore&apos;s enterprises never have to compromise on bandwidth. Every kilometer
                   of fiber we lay is engineered for future generations.&rdquo;
                 </p>
-                <div className="mt-2 text-xs font-bold text-brand-orange">
+                <div className="text-xs font-bold text-brand-orange">
                   &mdash; Mudasir Riaz, CEO
                 </div>
               </div>
 
-              {/* Core Executive Focus Badges */}
-              <div className="flex flex-wrap gap-2 pt-1">
-                {[
-                  "Optical Network Architecture",
-                  "100G DWDM Ring Strategy",
-                  "PTA Regulatory Compliance",
-                  "Enterprise SLA Accountability",
-                ].map((tag, i) => (
-                  <span
-                    key={i}
-                    className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-[#0E1118] text-slate-800 dark:text-slate-300 border border-slate-200/90 dark:border-slate-700/60"
-                  >
-                    {tag}
-                  </span>
-                ))}
+              {/* Competencies Badges */}
+              <div className="space-y-2 pt-1">
+                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">
+                  Strategic Domain Focus
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Optical Network Architecture",
+                    "100G DWDM Ring Strategy",
+                    "PTA Regulatory Compliance",
+                    "Enterprise SLA Accountability",
+                  ].map((tag, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 rounded-lg text-xs font-medium bg-slate-100/80 text-slate-800 border border-slate-200/90"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
           {/* Card 2: CFO Mubasir Riaz */}
-          <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 bg-white dark:bg-[#12161F] p-6 sm:p-10 shadow-xl shadow-slate-200/50 dark:shadow-black/60 flex flex-col justify-between space-y-6">
+          <div className="group relative rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-orange-500/10 hover:border-brand-orange/40 transition-all duration-300 flex flex-col justify-between space-y-8">
             <div className="space-y-6">
-              {/* Profile Header */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-                <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-brand-orange shadow-lg shrink-0 bg-slate-900">
-                  <Image
-                    src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80"
-                    alt="Mubasir Riaz - Chief Financial Officer (CFO) Z COM Networks"
-                    fill
-                    className="object-cover"
-                  />
+              {/* Header with Large Portrait & Primary Info */}
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+                {/* Executive Portrait Frame */}
+                <div className="relative w-48 sm:w-52 lg:w-56 shrink-0">
+                  <div className="relative rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-md p-2 group-hover:border-brand-orange/50 transition-colors">
+                    <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-white">
+                      <Image
+                        src="/images/leadership/mubasir-riaz-cfo.jpg"
+                        alt="Mubasir Riaz - Chief Financial Officer (CFO) & Co-Founder Z COM Networks"
+                        fill
+                        sizes="(max-width: 640px) 200px, 250px"
+                        className="object-contain object-bottom transition-transform duration-500 group-hover:scale-105"
+                        priority
+                      />
+                    </div>
+                    {/* Status Pill */}
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-slate-200/90 shadow-sm flex items-center gap-1.5 whitespace-nowrap text-[10px] font-bold text-slate-800">
+                      <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
+                      <span>Executive Board</span>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="space-y-1">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider bg-orange-100 dark:bg-brand-orange/20 text-brand-orange">
-                    <TrendingUp className="w-3 h-3" />
+                {/* Executive Credentials & Titles */}
+                <div className="space-y-2.5 text-center sm:text-left flex-1">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-orange-50 border border-brand-orange/30 text-brand-orange">
+                    <TrendingUp className="w-3.5 h-3.5" />
                     <span>CHIEF FINANCIAL OFFICER</span>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
+
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading tracking-tight">
                     Mubasir Riaz
                   </h3>
-                  <p className="text-sm font-semibold text-slate-600 dark:text-slate-400">
+
+                  <p className="text-sm font-semibold text-slate-700">
                     Chief Financial Officer (CFO) &amp; Co-Founder
                   </p>
-                  <p className="text-xs text-brand-orange font-bold flex items-center gap-1">
-                    <Building className="w-3.5 h-3.5" />
+
+                  <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs text-brand-orange font-semibold pt-1">
+                    <Building className="w-3.5 h-3.5 shrink-0" />
                     <span>Fiscal Governance &amp; Capital Planning</span>
-                  </p>
+                  </div>
+
+                  {/* Highlights Bar */}
+                  <div className="grid grid-cols-2 gap-2 pt-3">
+                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center sm:text-left">
+                      <span className="text-xs font-bold text-slate-900 block font-heading">
+                        100% Debt-Free
+                      </span>
+                      <span className="text-[10px] text-slate-500 font-medium block">
+                        Core Ring Infrastructure
+                      </span>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center sm:text-left">
+                      <span className="text-xs font-bold text-slate-900 block font-heading">
+                        Tier-1 Assets
+                      </span>
+                      <span className="text-[10px] text-slate-500 font-medium block">
+                        Cisco &amp; Juniper Routing
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Bio & Strategy */}
-              <div className="space-y-3 text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              {/* Bio & Track Record */}
+              <div className="space-y-3 text-sm text-slate-700 leading-relaxed border-t border-slate-100 pt-5">
                 <p>
                   As Chief Financial Officer and co-founder, <strong>Mubasir Riaz</strong> oversees financial strategy,
                   capital investments in next-generation optical infrastructure, asset stewardship, and commercial
@@ -338,34 +415,39 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              {/* Executive Quote */}
-              <div className="relative rounded-2xl bg-orange-50/70 dark:bg-[#0E1118] border border-orange-200/80 dark:border-slate-700/60 p-5">
-                <Quote className="w-8 h-8 text-brand-orange/30 absolute top-3 right-3" />
-                <p className="text-xs sm:text-sm italic font-medium text-slate-800 dark:text-slate-200 leading-relaxed pr-6">
+              {/* Quote Block */}
+              <div className="relative rounded-2xl bg-gradient-to-r from-orange-50/70 via-slate-50/60 to-white border-l-4 border-brand-orange border border-slate-200/80 p-5 space-y-2">
+                <Quote className="w-5 h-5 text-brand-orange/60" />
+                <p className="text-xs sm:text-sm italic font-medium text-slate-800 leading-relaxed">
                   &ldquo;Sustainable telecommunications infrastructure demands disciplined capital allocation and long-term
                   vision. At Z COM, our financial strategy is directly aligned with engineering excellence &mdash; ensuring
                   continuous reinvestment into network resilience and local customer support.&rdquo;
                 </p>
-                <div className="mt-2 text-xs font-bold text-brand-orange">
+                <div className="text-xs font-bold text-brand-orange">
                   &mdash; Mubasir Riaz, CFO
                 </div>
               </div>
 
-              {/* Core Executive Focus Badges */}
-              <div className="flex flex-wrap gap-2 pt-1">
-                {[
-                  "Capital Infrastructure Investment",
-                  "Fiscal Governance & Sustainability",
-                  "Optical Asset Procurement",
-                  "Transparent Enterprise Pricing",
-                ].map((tag, i) => (
-                  <span
-                    key={i}
-                    className="px-2.5 py-1 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-[#0E1118] text-slate-800 dark:text-slate-300 border border-slate-200/90 dark:border-slate-700/60"
-                  >
-                    {tag}
-                  </span>
-                ))}
+              {/* Competencies Badges */}
+              <div className="space-y-2 pt-1">
+                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block">
+                  Strategic Domain Focus
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Capital Infrastructure Investment",
+                    "Fiscal Governance & Sustainability",
+                    "Optical Asset Procurement",
+                    "Transparent Enterprise Pricing",
+                  ].map((tag, i) => (
+                    <span
+                      key={i}
+                      className="px-3 py-1 rounded-lg text-xs font-medium bg-slate-100/80 text-slate-800 border border-slate-200/90"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
