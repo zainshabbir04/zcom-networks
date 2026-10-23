@@ -30,24 +30,43 @@ import PartnersMarquee from "@/components/ui/PartnersMarquee";
 export const metadata: Metadata = {
   title: "About Us | Executive Leadership & Optical Infrastructure | Z COM Networks",
   description:
-    "Learn about Z COM Networks Private Limited — Lahore's premier optical ISP. Meet CEO Mudasir Riaz, CFO Mubasir Riaz, explore our 1,200+ km metro fiber ring, mission, vision, and 24/7 Gulberg NOC.",
+    "Learn about Z COM Networks Private Limited — premier enterprise optical ISP. Meet CEO Mudasir Riaz, CFO Mubasir Riaz, explore our metro network backbone, mission, vision, and 24/7 Gulberg NOC.",
 };
 
-const CORE_VALUES = [
+const CORE_VALUES: { icon: React.ReactNode; title: string; desc: React.ReactNode }[] = [
   {
     icon: <Star className="w-6 h-6 text-brand-orange" />,
     title: "Customer-First Engineering",
-    desc: "We prioritize our clients' mission-critical needs, ensuring 24/7 access to Level-3 network engineers instead of outsourced call centers.",
+    desc: (
+      <>
+        We prioritize our clients&apos; mission-critical needs, ensuring{" "}
+        <AnimatedCounter from={0} to={24} suffix="/7" /> access to Level-
+        <AnimatedCounter from={0} to={3} /> network engineers instead of outsourced call centers.
+      </>
+    ),
   },
   {
     icon: <Lightbulb className="w-6 h-6 text-brand-orange" />,
     title: "Relentless Innovation",
-    desc: "We continuously modernize our core with 100G DWDM transmission hardware, native IPv6 dual-stacking, and automated OTDR fiber health telemetry.",
+    desc: (
+      <>
+        We continuously modernize our core with{" "}
+        <AnimatedCounter from={0} to={100} suffix="G" /> DWDM transmission hardware, native IPv
+        <AnimatedCounter from={0} to={6} /> dual-stacking, and automated OTDR network health telemetry.
+      </>
+    ),
   },
   {
     icon: <LinkIcon className="w-6 h-6 text-brand-orange" />,
     title: "Uncompromising Reliability",
-    desc: "Every leased line and residential circuit is provisioned with 1:1 symmetrical throughput and self-healing ring auto-failover in <50ms.",
+    desc: (
+      <>
+        Every leased line and residential circuit is provisioned with{" "}
+        <AnimatedCounter from={0} to={1} prefix="1:" suffix=" symmetrical throughput" /> and
+        self-healing ring auto-failover in &lt;
+        <AnimatedCounter from={0} to={50} suffix="ms" />.
+      </>
+    ),
   },
   {
     icon: <Search className="w-6 h-6 text-brand-orange" />,
@@ -57,7 +76,7 @@ const CORE_VALUES = [
   {
     icon: <Users className="w-6 h-6 text-brand-orange" />,
     title: "Local Community Empowerment",
-    desc: "Headquartered in Gulberg-III, we actively power Lahore's hospitals, universities, software export hubs, and residential communities.",
+    desc: "Headquartered in Gulberg-III, we actively power premier hospitals, universities, software export hubs, and communities.",
   },
   {
     icon: <Shield className="w-6 h-6 text-brand-orange" />,
@@ -68,62 +87,79 @@ const CORE_VALUES = [
 
 export default function AboutPage() {
   return (
-    <div className="py-12 sm:py-20 space-y-24 transition-colors duration-300">
+    <div className="py-6 sm:py-10 space-y-20 sm:space-y-24 transition-colors duration-300">
       {/* ============================================================
-          1. PAGE HEADER & ANIMATED TELEMETRY STRIP
+          1. PAGE HEADER & ANIMATED TELEMETRY STRIP (HERO BANNER)
           ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100 dark:bg-brand-orange/15 border border-orange-200 dark:border-brand-orange/30 text-brand-orange text-xs font-bold uppercase tracking-wider">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>ABOUT Z COM NETWORKS PRIVATE LIMITED</span>
+      <section className="relative -mt-6 sm:-mt-10 pt-24 sm:pt-32 pb-16 sm:pb-20 overflow-hidden rounded-3xl sm:rounded-[2.5rem] border border-slate-800/80 shadow-2xl mx-4 sm:mx-6 lg:mx-8 bg-[#090C12]">
+        {/* Background Banner Image */}
+        <div className="absolute inset-0 -z-20">
+          <Image
+            src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=2000&q=80"
+            alt="Z COM Enterprise Network Infrastructure Banner"
+            fill
+            priority
+            className="object-cover object-center filter brightness-[0.35] contrast-125 scale-105"
+          />
         </div>
 
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight max-w-4xl mx-auto">
-          Engineering Lahore&apos;s Most Reliable <span className="text-brand-orange">Optical Fiber Fabric</span>
-        </h1>
+        {/* Ambient Dark & Brand-Orange Gradient Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#080A0F]/85 via-[#0B0E14]/75 to-[#080A0F]/95 -z-10" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-brand-orange/15 rounded-full blur-[120px] pointer-events-none -z-10" />
 
-        <p className="text-base sm:text-lg text-slate-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-          Founded on the principle that modern enterprises and digital households require
-          uncontended, carrier-grade internet without compromises. Today, Z COM powers Lahore&apos;s
-          commercial towers, tertiary healthcare facilities, educational campuses, and premier residential hubs.
-        </p>
-
-        {/* 4 Animated Metric Badges */}
-        <div className="pt-6 max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div className="p-4 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 shadow-sm text-center">
-            <span className="text-2xl sm:text-3xl font-black text-brand-orange font-heading block">
-              <AnimatedCounter from={0} to={1200} suffix="+ km" />
-            </span>
-            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold mt-1 block">
-              Armored Metro Fiber
-            </span>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange text-xs font-bold uppercase tracking-wider shadow-sm">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>ABOUT Z COM NETWORKS PRIVATE LIMITED</span>
           </div>
 
-          <div className="p-4 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 shadow-sm text-center">
-            <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-heading block">
-              <AnimatedCounter from={0} to={99.99} decimals={2} suffix="%" />
-            </span>
-            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold mt-1 block">
-              Contractual Core SLA
-            </span>
-          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white font-heading tracking-tight max-w-4xl mx-auto leading-tight">
+            Engineering Next-Generation <span className="text-brand-orange">Carrier-Grade Connectivity</span>
+          </h1>
 
-          <div className="p-4 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 shadow-sm text-center">
-            <span className="text-2xl sm:text-3xl font-black text-brand-orange font-heading block">
-              <AnimatedCounter from={0} to={500} suffix="+" />
-            </span>
-            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold mt-1 block">
-              Corporate Leased Lines
-            </span>
-          </div>
+          <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            Founded on the principle that modern enterprises and digital households require
+            uncontended, carrier-grade internet without compromises. Today, Z COM powers
+            commercial towers, tertiary healthcare facilities, educational campuses, and premier residential hubs.
+          </p>
 
-          <div className="p-4 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 shadow-sm text-center">
-            <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-heading block">
-              <AnimatedCounter from={0} to={24} suffix="/7/365" />
-            </span>
-            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold mt-1 block">
-              Gulberg-III Local NOC
-            </span>
+          {/* 4 Animated Metric Badges (Frosted Glass Matrix) */}
+          <div className="pt-6 max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg text-center hover:bg-white/15 transition-colors">
+              <span className="text-2xl sm:text-3xl font-black text-brand-orange font-heading block">
+                <AnimatedCounter from={0} to={1200} suffix="+ km" />
+              </span>
+              <span className="text-xs text-slate-200 font-semibold mt-1 block">
+                Subterranean Metro Core
+              </span>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg text-center hover:bg-white/15 transition-colors">
+              <span className="text-2xl sm:text-3xl font-black text-white font-heading block">
+                <AnimatedCounter from={0} to={99.99} decimals={2} suffix="%" />
+              </span>
+              <span className="text-xs text-slate-200 font-semibold mt-1 block">
+                Contractual Core SLA
+              </span>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg text-center hover:bg-white/15 transition-colors">
+              <span className="text-2xl sm:text-3xl font-black text-brand-orange font-heading block">
+                <AnimatedCounter from={0} to={500} suffix="+" />
+              </span>
+              <span className="text-xs text-slate-200 font-semibold mt-1 block">
+                Corporate Leased Lines
+              </span>
+            </div>
+
+            <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg text-center hover:bg-white/15 transition-colors">
+              <span className="text-2xl sm:text-3xl font-black text-white font-heading block">
+                <AnimatedCounter from={0} to={24} suffix="/7/365" />
+              </span>
+              <span className="text-xs text-slate-200 font-semibold mt-1 block">
+                Gulberg-III Local NOC
+              </span>
+            </div>
           </div>
         </div>
       </section>
@@ -136,21 +172,21 @@ export default function AboutPage() {
           {/* High-Resolution Banner */}
           <div className="lg:col-span-5 relative h-96 sm:h-[500px] rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
             <Image
-              src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80"
-              alt="Z COM Optical Fiber Network Infrastructure"
+              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
+              alt="Z COM Core Optical Network Infrastructure"
               fill
               className="object-cover filter brightness-[0.85] contrast-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 text-white">
               <span className="px-3 py-1 rounded-full bg-brand-orange text-white text-[11px] font-bold uppercase tracking-wider">
-                Lahore Metro Fiber Ring
+                Metropolitan Enterprise Ring
               </span>
               <h3 className="text-xl font-bold text-white font-heading mt-2">
                 Carrier-Grade Architecture
               </h3>
               <p className="text-xs text-slate-300 mt-1">
-                Engineered for 99.9% uptime, zero packet loss, and sub-millisecond local routing.
+                Engineered for <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> uptime, zero packet loss, and sub-millisecond local routing.
               </p>
             </div>
           </div>
@@ -163,7 +199,7 @@ export default function AboutPage() {
             </div>
 
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading leading-tight">
-              Pioneering Unthrottled Fiber Broadband in Pakistan
+              Pioneering Unthrottled High-Speed Connectivity
             </h2>
 
             <p>
@@ -175,15 +211,16 @@ export default function AboutPage() {
 
             <p>
               Unlike legacy ISPs that rely on aging copper lines or congested shared wireless spectrum, Z COM has built
-              a proprietary underground fiber optic network. With 1:1 symmetrical speeds, enterprise clients experience
+              a proprietary underground optical transmission network. With{" "}
+              <AnimatedCounter from={0} to={1} prefix="1:" suffix=" symmetrical throughput" />, enterprise clients experience
               the exact same blazing-fast upload speeds as download speeds, facilitating seamless cloud backups,
               remote development workflows, and high-definition video conferencing.
             </p>
 
             <p>
-              Headquartered at <strong>48-E/1, Office #3, 2nd Floor, Commercial Area, Block E 1, Gulberg-III, Lahore</strong>,
-              our state-of-the-art Network Operations Center (NOC) monitors every optical node in real time. We are
-              proud to be the chosen connectivity partner for Lahore&apos;s leading hospitals, universities, luxury hotels,
+              Headquartered at <strong>48-E/1, Office #3, 2nd Floor, Commercial Area, Block E 1, Gulberg-III</strong>,
+              our state-of-the-art Network Operations Center (NOC) monitors every transmission node in real time. We are
+              proud to be the chosen connectivity partner for leading hospitals, universities, luxury hotels,
               and multinational software houses.
             </p>
           </div>
@@ -195,18 +232,18 @@ export default function AboutPage() {
           ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-100 dark:bg-brand-orange/15 border border-orange-200 dark:border-brand-orange/30 text-brand-orange text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100 border border-orange-200 text-brand-orange text-xs font-bold uppercase tracking-wider">
             <Users className="w-3.5 h-3.5" />
             <span>EXECUTIVE LEADERSHIP TEAM</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 font-heading tracking-tight">
             Visionary Leadership Driving Innovation
           </h2>
 
-          <p className="text-base text-slate-600 dark:text-gray-300">
+          <p className="text-base text-slate-600 max-w-2xl mx-auto">
             Meet the leaders spearheading Z COM Networks&apos; mission to deliver the fastest,
-            most resilient optical fiber infrastructure across Lahore and Punjab.
+            most resilient carrier-grade optical infrastructure across enterprise corridors.
           </p>
         </div>
 
@@ -255,22 +292,22 @@ export default function AboutPage() {
 
                   <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs text-brand-orange font-semibold pt-1">
                     <MapPin className="w-3.5 h-3.5 shrink-0" />
-                    <span>Gulberg-III Corporate Headquarters, Lahore</span>
+                    <span>Gulberg-III Corporate Headquarters</span>
                   </div>
 
                   {/* Highlights Bar */}
                   <div className="grid grid-cols-2 gap-2 pt-3">
                     <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center sm:text-left">
                       <span className="text-xs font-bold text-slate-900 block font-heading">
-                        1,200+ km
+                        <AnimatedCounter from={0} to={1200} suffix="+ km" />
                       </span>
                       <span className="text-[10px] text-slate-500 font-medium block">
-                        Metro Fiber Conduits
+                        Metro Optical Conduits
                       </span>
                     </div>
                     <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center sm:text-left">
                       <span className="text-xs font-bold text-slate-900 block font-heading">
-                        99.99% SLA
+                        <AnimatedCounter from={0} to={99.99} decimals={2} suffix="%" /> SLA
                       </span>
                       <span className="text-[10px] text-slate-500 font-medium block">
                         Core Uptime Guarantee
@@ -284,14 +321,15 @@ export default function AboutPage() {
               <div className="space-y-3 text-sm text-slate-700 leading-relaxed border-t border-slate-100 pt-5">
                 <p>
                   As Chief Executive Officer and visionary co-founder of Z COM Networks, <strong>Mudasir Riaz</strong> has
-                  spearheaded the company&apos;s transformation from a local telecom challenger into one of Lahore&apos;s
+                  spearheaded the company&apos;s transformation from a local telecom challenger into one of the region&apos;s
                   most trusted carrier-grade optical ISPs.
                 </p>
                 <p>
                   With extensive background in optical telecommunications engineering, transmission systems, and
                   telecom regulatory governance, Mudasir champions a culture of uncompromising SLA delivery. He has
-                  overseen the deployment of more than 1,200 kilometers of subterranean armored fiber conduits across
-                  Lahore, establishing critical interconnects along M-2, M-11, and the GT Road corridor.
+                  overseen the deployment of more than <AnimatedCounter from={0} to={1200} suffix="+" /> kilometers of
+                  subterranean armored conduits across regional business sectors, establishing critical interconnects
+                  along M-<AnimatedCounter from={0} to={2} />, M-<AnimatedCounter from={0} to={11} />, and the GT Road corridor.
                 </p>
               </div>
 
@@ -300,8 +338,8 @@ export default function AboutPage() {
                 <Quote className="w-5 h-5 text-brand-orange/60" />
                 <p className="text-xs sm:text-sm italic font-medium text-slate-800 leading-relaxed">
                   &ldquo;Our foundational promise at Z COM Networks has never wavered: to build a transmission network
-                  so resilient and fast that Lahore&apos;s enterprises never have to compromise on bandwidth. Every kilometer
-                  of fiber we lay is engineered for future generations.&rdquo;
+                  so resilient and fast that modern enterprises never have to compromise on bandwidth. Every kilometer
+                  of network infrastructure we lay is engineered for future generations.&rdquo;
                 </p>
                 <div className="text-xs font-bold text-brand-orange">
                   &mdash; Mudasir Riaz, CEO
@@ -316,8 +354,8 @@ export default function AboutPage() {
                 <div className="flex flex-wrap gap-2">
                   {[
                     "Optical Network Architecture",
-                    "100G DWDM Ring Strategy",
-                    "PTA Regulatory Compliance",
+                    "DWDM Core Strategy",
+                    "Telecom Regulatory Compliance",
                     "Enterprise SLA Accountability",
                   ].map((tag, i) => (
                     <span
@@ -382,7 +420,7 @@ export default function AboutPage() {
                   <div className="grid grid-cols-2 gap-2 pt-3">
                     <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center sm:text-left">
                       <span className="text-xs font-bold text-slate-900 block font-heading">
-                        100% Debt-Free
+                        <AnimatedCounter from={0} to={100} suffix="%" /> Debt-Free
                       </span>
                       <span className="text-[10px] text-slate-500 font-medium block">
                         Core Ring Infrastructure
@@ -390,7 +428,7 @@ export default function AboutPage() {
                     </div>
                     <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center sm:text-left">
                       <span className="text-xs font-bold text-slate-900 block font-heading">
-                        Tier-1 Assets
+                        Tier-<AnimatedCounter from={0} to={1} /> Assets
                       </span>
                       <span className="text-[10px] text-slate-500 font-medium block">
                         Cisco &amp; Juniper Routing
@@ -409,9 +447,9 @@ export default function AboutPage() {
                 </p>
                 <p>
                   Mubasir has been instrumental in structuring strategic capital allocations that enabled Z COM to acquire
-                  tier-1 routing assets from Cisco and Juniper, deploy cutting-edge GPON/XGS-PON subscriber distribution,
-                  and maintain a robust, debt-efficient balance sheet. His leadership ensures clients receive competitive,
-                  transparent enterprise pricing without hidden surcharges or unpredictable bandwidth billing.
+                  Tier-<AnimatedCounter from={0} to={1} /> routing assets from Cisco and Juniper, deploy cutting-edge
+                  subscriber distribution, and maintain a robust, debt-efficient balance sheet. His leadership ensures
+                  clients receive competitive, transparent enterprise pricing without hidden surcharges or unpredictable bandwidth billing.
                 </p>
               </div>
 
@@ -464,10 +502,10 @@ export default function AboutPage() {
             <span>INTERACTIVE INFRASTRUCTURE SHOWCASE</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading">
-            Behind Our 99.99% Reliability Guarantee
+            Behind Our <AnimatedCounter from={0} to={99.99} decimals={2} suffix="%" /> Reliability Guarantee
           </h2>
           <p className="text-sm sm:text-base text-slate-600 dark:text-gray-400">
-            Explore the physical optical conduits, carrier-grade DWDM core rings, and 24/7 Gulberg NOC
+            Explore the physical optical conduits, carrier-grade <AnimatedCounter from={0} to={100} suffix="G" /> DWDM core rings, and <AnimatedCounter from={0} to={24} suffix="/7" /> Gulberg NOC
             that power our uninterrupted connectivity.
           </p>
         </div>
@@ -489,8 +527,8 @@ export default function AboutPage() {
             </h3>
             <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
               Z COM aims to bridge distances and foster global communication with fast, dependable
-              fiber internet access. With guaranteed 99.9% uptime SLA, we ensure efficient and seamless
-              connectivity for every business and home we serve across Lahore and Punjab.
+              high-speed internet access. With guaranteed <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> uptime SLA, we ensure efficient and seamless
+              connectivity for every business and home we serve across commercial and enterprise sectors.
             </p>
           </div>
 
@@ -502,9 +540,9 @@ export default function AboutPage() {
               Ubiquitous &amp; Empowering High-Speed Connectivity
             </h3>
             <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
-              A world where carrier-grade fiber internet is ubiquitous, empowering individuals and
-              organizations to innovate without latency or limits &mdash; ensuring 99.9% network
-              uptime and 100% customer satisfaction through exceptional optical service.
+              A world where carrier-grade high-speed internet is ubiquitous, empowering individuals and
+              organizations to innovate without latency or limits &mdash; ensuring <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> network
+              uptime and <AnimatedCounter from={0} to={100} suffix="%" /> customer satisfaction through exceptional optical service.
             </p>
           </div>
         </div>
@@ -522,8 +560,7 @@ export default function AboutPage() {
             Our <AnimatedCounter from={0} to={6} /> Guiding Core Values
           </h2>
           <p className="text-sm text-slate-600 dark:text-slate-400">
-            Principles that direct every fiber cable we pull, every server we deploy, and every customer
-            we support across Lahore.
+            Principles that direct every transmission link we commission, every server we deploy, and every enterprise client we support.
           </p>
         </div>
 
@@ -539,9 +576,9 @@ export default function AboutPage() {
               <h3 className="text-lg font-bold text-slate-900 dark:text-white font-heading">
                 {val.title}
               </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
                 {val.desc}
-              </p>
+              </div>
             </div>
           ))}
         </div>
@@ -571,8 +608,7 @@ export default function AboutPage() {
             Experience the Z COM Difference Today
           </h3>
           <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300 max-w-xl mx-auto">
-            Contact our Lahore team for a customized enterprise connectivity proposal or residential
-            fiber connection setup.
+            Contact our executive team for a customized enterprise connectivity proposal or dedicated connection setup.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2">
             <Link
