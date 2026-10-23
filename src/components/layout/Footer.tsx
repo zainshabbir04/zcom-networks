@@ -96,32 +96,32 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/services" className="hover:text-brand-orange transition-colors">
+                <Link href="/services/corporate-internet" className="hover:text-brand-orange transition-colors">
                   Corporate Internet (DIA &amp; MPLS)
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-brand-orange transition-colors">
-                  Point to Point Fiber Connectivity
+                <Link href="/services/corporate-internet" className="hover:text-brand-orange transition-colors">
+                  Point to Point Connectivity
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-brand-orange transition-colors">
+                <Link href="/services/cloud-hosting" className="hover:text-brand-orange transition-colors">
                   Cloud &amp; Hosting (VMs / Colocation)
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-brand-orange transition-colors">
+                <Link href="/services/managed-it" className="hover:text-brand-orange transition-colors">
                   Managed IT Solutions &amp; NOC Services
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-brand-orange transition-colors">
+                <Link href="/services/cybersecurity" className="hover:text-brand-orange transition-colors">
                   Cybersecurity &amp; DDoS Defense
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-brand-orange transition-colors">
+                <Link href="/services/digital-solutions" className="hover:text-brand-orange transition-colors">
                   Digital Solutions (Web &amp; Apps)
                 </Link>
               </li>

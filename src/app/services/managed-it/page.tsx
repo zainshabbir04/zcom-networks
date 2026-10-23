@@ -82,7 +82,7 @@ export default function ManagedItPage() {
         <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-6">
           <Link href="/" className="hover:text-brand-orange transition-colors">Home</Link>
           <span>/</span>
-          <Link href="/services" className="hover:text-brand-orange transition-colors">Services</Link>
+          <span className="text-slate-400">Services</span>
           <span>/</span>
           <span className="text-brand-orange font-bold">Managed IT Solutions and Services</span>
         </div>
