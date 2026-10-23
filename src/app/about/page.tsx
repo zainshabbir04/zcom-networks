@@ -21,6 +21,11 @@ import {
   CheckCircle2,
   MapPin,
   Building,
+  Zap,
+  Clock,
+  Layers,
+  Activity,
+  Check,
 } from "lucide-react";
 
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
@@ -39,9 +44,9 @@ const CORE_VALUES: { icon: React.ReactNode; title: string; desc: React.ReactNode
     title: "Customer-First Engineering",
     desc: (
       <>
-        We prioritize our clients&apos; mission-critical needs, ensuring{" "}
-        <AnimatedCounter from={0} to={24} suffix="/7" /> access to Level-
-        <AnimatedCounter from={0} to={3} /> network engineers instead of outsourced call centers.
+        We prioritize our clients&apos; mission-critical operations, ensuring{" "}
+        <AnimatedCounter from={0} to={24} suffix="/7" /> direct access to Level-
+        <AnimatedCounter from={0} to={3} /> certified network engineers rather than tiered call center scripts.
       </>
     ),
   },
@@ -50,9 +55,9 @@ const CORE_VALUES: { icon: React.ReactNode; title: string; desc: React.ReactNode
     title: "Relentless Innovation",
     desc: (
       <>
-        We continuously modernize our core with{" "}
-        <AnimatedCounter from={0} to={100} suffix="G" /> DWDM transmission hardware, native IPv
-        <AnimatedCounter from={0} to={6} /> dual-stacking, and automated OTDR network health telemetry.
+        We continuously modernize our core transmission transport with scalable{" "}
+        <AnimatedCounter from={0} to={100} suffix="G" /> DWDM hardware, native IPv
+        <AnimatedCounter from={0} to={6} /> dual-stacking, and automated OTDR network reflection telemetry.
       </>
     ),
   },
@@ -61,7 +66,7 @@ const CORE_VALUES: { icon: React.ReactNode; title: string; desc: React.ReactNode
     title: "Uncompromising Reliability",
     desc: (
       <>
-        Every leased line and residential circuit is provisioned with{" "}
+        Every corporate leased line and enterprise circuit is provisioned with true{" "}
         <AnimatedCounter from={0} to={1} prefix="1:" suffix=" symmetrical throughput" /> and
         self-healing ring auto-failover in &lt;
         <AnimatedCounter from={0} to={50} suffix="ms" />.
@@ -71,93 +76,125 @@ const CORE_VALUES: { icon: React.ReactNode; title: string; desc: React.ReactNode
   {
     icon: <Search className="w-6 h-6 text-brand-orange" />,
     title: "Absolute Transparency",
-    desc: "No hidden Fair Usage Policies (FUP), no artificial peak-hour throttling, and clear contractual Service Level Agreements (SLAs).",
+    desc: "Zero hidden Fair Usage Policies (FUP), no artificial peak-hour throttling, and contractual Service Level Agreements (SLAs) enforced 24/7.",
   },
   {
     icon: <Users className="w-6 h-6 text-brand-orange" />,
-    title: "Local Community Empowerment",
-    desc: "Headquartered in Gulberg-III, we actively power premier hospitals, universities, software export hubs, and communities.",
+    title: "Institutional Empowerment",
+    desc: "Headquartered in Gulberg-III, we actively power premier tertiary hospitals, universities, software export hubs, and enterprise complexes.",
   },
   {
     icon: <Shield className="w-6 h-6 text-brand-orange" />,
     title: "Ethical Corporate Governance",
-    desc: "We uphold the highest ethical standards in all commercial contracts, data protection policies, and telecom regulatory compliance.",
+    desc: "We uphold the highest ethical standards in all commercial contracts, data sovereignty policies, and telecom regulatory compliance.",
   },
 ];
 
 export default function AboutPage() {
   return (
-    <div className="py-6 sm:py-10 space-y-20 sm:space-y-24 transition-colors duration-300">
+    <div className="py-4 sm:py-8 space-y-24 sm:space-y-32 transition-colors duration-300">
       {/* ============================================================
-          1. PAGE HEADER & ANIMATED TELEMETRY STRIP (HERO BANNER)
+          1. CINEMATIC HERO BANNER (HIGH-IMPACT VISUAL SHOWCASE)
           ============================================================ */}
-      <section className="relative -mt-6 sm:-mt-10 pt-24 sm:pt-32 pb-16 sm:pb-20 overflow-hidden rounded-3xl sm:rounded-[2.5rem] border border-slate-800/80 shadow-2xl mx-4 sm:mx-6 lg:mx-8 bg-[#090C12]">
+      <section className="relative -mt-6 sm:-mt-10 pt-28 sm:pt-36 pb-20 sm:pb-28 overflow-hidden rounded-3xl sm:rounded-[3rem] border border-slate-800/80 shadow-2xl mx-4 sm:mx-6 lg:mx-8 bg-[#07090E]">
         {/* Background Banner Image */}
         <div className="absolute inset-0 -z-20">
           <Image
-            src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=2000&q=80"
-            alt="Z COM Enterprise Network Infrastructure Banner"
+            src="/images/about/hero-banner.jpg"
+            alt="Z COM Enterprise Core Network Infrastructure Banner"
             fill
             priority
-            className="object-cover object-center filter brightness-[0.35] contrast-125 scale-105"
+            className="object-cover object-center filter brightness-[0.38] contrast-125 scale-105"
           />
         </div>
 
-        {/* Ambient Dark & Brand-Orange Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#080A0F]/85 via-[#0B0E14]/75 to-[#080A0F]/95 -z-10" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-brand-orange/15 rounded-full blur-[120px] pointer-events-none -z-10" />
+        {/* Ambient Dark & Light Orange Atmospheric Gradients */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#07090E]/90 via-[#0A0D14]/75 to-[#07090E]/95 -z-10" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-brand-orange/20 rounded-full blur-[140px] pointer-events-none -z-10" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-slate-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-brand-orange text-xs font-bold uppercase tracking-wider shadow-sm">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
+          {/* Official Telemetry Badge */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-brand-orange text-xs font-bold uppercase tracking-wider shadow-lg">
+            <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
             <Sparkles className="w-3.5 h-3.5" />
             <span>ABOUT Z COM NETWORKS PRIVATE LIMITED</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white font-heading tracking-tight max-w-4xl mx-auto leading-tight">
-            Engineering Next-Generation <span className="text-brand-orange">Carrier-Grade Connectivity</span>
+          {/* Primary Grand Heading */}
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white font-heading tracking-tight max-w-5xl mx-auto leading-[1.15]">
+            Engineering Next-Generation{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-orange-400 to-amber-300">
+              Carrier-Grade Connectivity
+            </span>
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            Founded on the principle that modern enterprises and digital households require
-            uncontended, carrier-grade internet without compromises. Today, Z COM powers
-            commercial towers, tertiary healthcare facilities, educational campuses, and premier residential hubs.
+          {/* Strategic Executive Subtitle */}
+          <p className="text-base sm:text-lg lg:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal">
+            Founded on the principle that modern enterprises and mission-critical institutions
+            require uncontended, carrier-grade internet without compromise. Today, Z COM powers
+            commercial towers, healthcare complexes, educational campuses, and corporate headquarters.
           </p>
 
-          {/* 4 Animated Metric Badges (Frosted Glass Matrix) */}
-          <div className="pt-6 max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg text-center hover:bg-white/15 transition-colors">
-              <span className="text-2xl sm:text-3xl font-black text-brand-orange font-heading block">
+          {/* 4 Interactive Telemetry Frosted-Glass Metric Cards */}
+          <div className="pt-4 max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/[0.08] backdrop-blur-2xl border border-white/20 shadow-xl hover:bg-white/[0.14] hover:border-brand-orange/60 transition-all duration-300 text-center group">
+              <div className="w-10 h-10 mx-auto rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center mb-3">
+                <Layers className="w-5 h-5" />
+              </div>
+              <span className="text-3xl sm:text-4xl font-black text-brand-orange font-heading block group-hover:scale-105 transition-transform">
                 <AnimatedCounter from={0} to={1200} suffix="+ km" />
               </span>
-              <span className="text-xs text-slate-200 font-semibold mt-1 block">
+              <span className="text-xs sm:text-sm text-slate-200 font-bold mt-1.5 block font-heading">
                 Subterranean Metro Core
               </span>
+              <span className="text-[11px] text-slate-400 font-medium block mt-0.5">
+                Armored Ring Infrastructure
+              </span>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg text-center hover:bg-white/15 transition-colors">
-              <span className="text-2xl sm:text-3xl font-black text-white font-heading block">
+            <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/[0.08] backdrop-blur-2xl border border-white/20 shadow-xl hover:bg-white/[0.14] hover:border-brand-orange/60 transition-all duration-300 text-center group">
+              <div className="w-10 h-10 mx-auto rounded-xl bg-orange-400/20 text-orange-400 flex items-center justify-center mb-3">
+                <ShieldCheck className="w-5 h-5" />
+              </div>
+              <span className="text-3xl sm:text-4xl font-black text-white font-heading block group-hover:scale-105 transition-transform">
                 <AnimatedCounter from={0} to={99.99} decimals={2} suffix="%" />
               </span>
-              <span className="text-xs text-slate-200 font-semibold mt-1 block">
+              <span className="text-xs sm:text-sm text-slate-200 font-bold mt-1.5 block font-heading">
                 Contractual Core SLA
               </span>
+              <span className="text-[11px] text-slate-400 font-medium block mt-0.5">
+                Guaranteed Uptime Delivery
+              </span>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg text-center hover:bg-white/15 transition-colors">
-              <span className="text-2xl sm:text-3xl font-black text-brand-orange font-heading block">
+            <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/[0.08] backdrop-blur-2xl border border-white/20 shadow-xl hover:bg-white/[0.14] hover:border-brand-orange/60 transition-all duration-300 text-center group">
+              <div className="w-10 h-10 mx-auto rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center mb-3">
+                <Zap className="w-5 h-5" />
+              </div>
+              <span className="text-3xl sm:text-4xl font-black text-brand-orange font-heading block group-hover:scale-105 transition-transform">
                 <AnimatedCounter from={0} to={500} suffix="+" />
               </span>
-              <span className="text-xs text-slate-200 font-semibold mt-1 block">
+              <span className="text-xs sm:text-sm text-slate-200 font-bold mt-1.5 block font-heading">
                 Corporate Leased Lines
+              </span>
+              <span className="text-[11px] text-slate-400 font-medium block mt-0.5">
+                1:1 Symmetrical Circuits
               </span>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-lg text-center hover:bg-white/15 transition-colors">
-              <span className="text-2xl sm:text-3xl font-black text-white font-heading block">
+            <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/[0.08] backdrop-blur-2xl border border-white/20 shadow-xl hover:bg-white/[0.14] hover:border-brand-orange/60 transition-all duration-300 text-center group">
+              <div className="w-10 h-10 mx-auto rounded-xl bg-orange-400/20 text-orange-400 flex items-center justify-center mb-3">
+                <Clock className="w-5 h-5" />
+              </div>
+              <span className="text-3xl sm:text-4xl font-black text-white font-heading block group-hover:scale-105 transition-transform">
                 <AnimatedCounter from={0} to={24} suffix="/7/365" />
               </span>
-              <span className="text-xs text-slate-200 font-semibold mt-1 block">
+              <span className="text-xs sm:text-sm text-slate-200 font-bold mt-1.5 block font-heading">
                 Gulberg-III Local NOC
+              </span>
+              <span className="text-[11px] text-slate-400 font-medium block mt-0.5">
+                Level-3 Dedicated Engineers
               </span>
             </div>
           </div>
@@ -168,60 +205,103 @@ export default function AboutPage() {
           2. COMPANY HERITAGE & MISSION-CRITICAL PROMISE
           ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          {/* High-Resolution Banner */}
-          <div className="lg:col-span-5 relative h-96 sm:h-[500px] rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* High-Resolution Infrastructure Presentation */}
+          <div className="lg:col-span-5 relative h-[420px] sm:h-[520px] rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl shadow-slate-200/60 group">
             <Image
-              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80"
+              src="/images/about/infrastructure.jpg"
               alt="Z COM Core Optical Network Infrastructure"
               fill
-              className="object-cover filter brightness-[0.85] contrast-110"
+              className="object-cover filter brightness-[0.85] contrast-110 group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6 text-white">
-              <span className="px-3 py-1 rounded-full bg-brand-orange text-white text-[11px] font-bold uppercase tracking-wider">
-                Metropolitan Enterprise Ring
+
+            {/* Floating Telemetry Pills */}
+            <div className="absolute top-6 left-6 right-6 flex items-center justify-between">
+              <span className="px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-white/20 text-slate-900 text-xs font-bold uppercase tracking-wider shadow-lg flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
+                <span>Metropolitan Enterprise Ring</span>
               </span>
-              <h3 className="text-xl font-bold text-white font-heading mt-2">
+            </div>
+
+            <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
+              <span className="px-3 py-1 rounded-full bg-brand-orange text-white text-[11px] font-bold uppercase tracking-wider inline-block">
                 Carrier-Grade Architecture
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold text-white font-heading">
+                Subterranean Conduits &amp; Core Transport
               </h3>
-              <p className="text-xs text-slate-300 mt-1">
-                Engineered for <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> uptime, zero packet loss, and sub-millisecond local routing.
+              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                Engineered for <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> uptime,
+                zero packet loss, and sub-millisecond local routing.
               </p>
             </div>
           </div>
 
-          {/* Verified Heritage Paragraphs */}
-          <div className="lg:col-span-7 bg-white dark:bg-[#12161F] p-8 sm:p-12 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 space-y-6 leading-relaxed text-slate-700 dark:text-slate-300 text-sm sm:text-base shadow-xl shadow-slate-200/50 dark:shadow-black/50">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-orange">
+          {/* Heritage Narrative & Core Guarantees */}
+          <div className="lg:col-span-7 bg-white p-8 sm:p-12 rounded-3xl border border-slate-200/90 space-y-6 leading-relaxed text-slate-700 text-sm sm:text-base shadow-xl shadow-slate-200/50">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-brand-orange/30 text-brand-orange text-xs font-bold uppercase tracking-wider">
               <Award className="w-4 h-4" />
               <span>OUR HERITAGE &amp; PROMISE</span>
             </div>
 
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading leading-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 font-heading leading-tight tracking-tight">
               Pioneering Unthrottled High-Speed Connectivity
             </h2>
 
             <p>
               Z COM Networks is a premier licensed internet service provider delivering high-speed,
-              reliable connectivity for corporate enterprises and residential sectors. We prioritize customer
+              uncontended connectivity for corporate enterprises and residential communities. We prioritize customer
               satisfaction through carrier-grade hardware, redundant optical transmission paths, and exceptional
               support &mdash; ensuring zero jitter and uninterrupted browsing, conferencing, and data transfers.
             </p>
 
             <p>
-              Unlike legacy ISPs that rely on aging copper lines or congested shared wireless spectrum, Z COM has built
-              a proprietary underground optical transmission network. With{" "}
-              <AnimatedCounter from={0} to={1} prefix="1:" suffix=" symmetrical throughput" />, enterprise clients experience
-              the exact same blazing-fast upload speeds as download speeds, facilitating seamless cloud backups,
-              remote development workflows, and high-definition video conferencing.
+              Unlike legacy ISPs relying on aging copper lines or congested shared wireless spectrum, Z COM has built
+              a proprietary underground optical transmission network. With true{" "}
+              <strong className="text-slate-900">
+                <AnimatedCounter from={0} to={1} prefix="1:" suffix=" symmetrical throughput" />
+              </strong>
+              , enterprise clients experience the exact same blazing-fast upload speeds as download speeds, facilitating
+              seamless cloud backups, remote development workflows, and high-definition video conferencing.
             </p>
 
-            <p>
-              Headquartered at <strong>48-E/1, Office #3, 2nd Floor, Commercial Area, Block E 1, Gulberg-III</strong>,
-              our state-of-the-art Network Operations Center (NOC) monitors every transmission node in real time. We are
-              proud to be the chosen connectivity partner for leading hospitals, universities, luxury hotels,
-              and multinational software houses.
+            {/* 3 Pillar Checklist */}
+            <div className="pt-2 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-slate-100">
+              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1">
+                <div className="w-7 h-7 rounded-lg bg-brand-orange/15 text-brand-orange flex items-center justify-center">
+                  <Check className="w-4 h-4" />
+                </div>
+                <h4 className="text-xs font-bold text-slate-900 font-heading">
+                  <AnimatedCounter from={0} to={100} suffix="%" /> Non-Shared
+                </h4>
+                <p className="text-[11px] text-slate-500">Dedicated CIR Bandwidth</p>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1">
+                <div className="w-7 h-7 rounded-lg bg-brand-orange/15 text-brand-orange flex items-center justify-center">
+                  <Check className="w-4 h-4" />
+                </div>
+                <h4 className="text-xs font-bold text-slate-900 font-heading">
+                  &lt;<AnimatedCounter from={0} to={50} suffix="ms" /> Failover
+                </h4>
+                <p className="text-[11px] text-slate-500">Auto-Healing Ring Topology</p>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-1">
+                <div className="w-7 h-7 rounded-lg bg-brand-orange/15 text-brand-orange flex items-center justify-center">
+                  <Check className="w-4 h-4" />
+                </div>
+                <h4 className="text-xs font-bold text-slate-900 font-heading">
+                  Level-<AnimatedCounter from={0} to={3} /> NOC
+                </h4>
+                <p className="text-[11px] text-slate-500">24/7/365 Local Engineers</p>
+              </div>
+            </div>
+
+            <p className="text-xs sm:text-sm text-slate-500 pt-1">
+              Headquartered at <strong className="text-slate-700">48-E/1, Office #3, 2nd Floor, Commercial Area, Block E 1, Gulberg-III</strong>,
+              our Network Operations Center (NOC) continuously monitors every transmission link in real time.
             </p>
           </div>
         </div>
@@ -497,14 +577,14 @@ export default function AboutPage() {
           ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 dark:bg-brand-orange/15 border border-orange-200 dark:border-brand-orange/30 text-brand-orange text-xs font-bold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 border border-orange-200 text-brand-orange text-xs font-bold uppercase tracking-wider">
             <Cpu className="w-3.5 h-3.5" />
             <span>INTERACTIVE INFRASTRUCTURE SHOWCASE</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading">
             Behind Our <AnimatedCounter from={0} to={99.99} decimals={2} suffix="%" /> Reliability Guarantee
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-gray-400">
+          <p className="text-sm sm:text-base text-slate-600">
             Explore the physical optical conduits, carrier-grade <AnimatedCounter from={0} to={100} suffix="G" /> DWDM core rings, and <AnimatedCounter from={0} to={24} suffix="/7" /> Gulberg NOC
             that power our uninterrupted connectivity.
           </p>
@@ -518,28 +598,28 @@ export default function AboutPage() {
           ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white dark:bg-[#12161F] p-8 sm:p-10 rounded-3xl border border-orange-500/30 dark:border-orange-500/30 space-y-4 shadow-lg shadow-orange-500/5">
+          <div className="bg-white p-8 sm:p-10 rounded-3xl border border-orange-500/30 space-y-4 shadow-xl shadow-orange-500/5 hover:border-brand-orange transition-colors">
             <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
               OUR MISSION
             </span>
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white font-heading">
+            <h3 className="text-2xl font-bold text-slate-900 font-heading">
               Bridging Distances &amp; Fostering Global Communication
             </h3>
-            <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
+            <p className="text-slate-700 leading-relaxed text-base">
               Z COM aims to bridge distances and foster global communication with fast, dependable
               high-speed internet access. With guaranteed <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> uptime SLA, we ensure efficient and seamless
               connectivity for every business and home we serve across commercial and enterprise sectors.
             </p>
           </div>
 
-          <div className="bg-white dark:bg-[#12161F] p-8 sm:p-10 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 space-y-4 shadow-lg shadow-slate-200/50 dark:shadow-black/50">
+          <div className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/90 space-y-4 shadow-xl shadow-slate-200/50 hover:border-brand-orange/60 transition-colors">
             <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
               OUR VISION
             </span>
-            <h3 className="text-2xl font-bold text-slate-900 dark:text-white font-heading">
+            <h3 className="text-2xl font-bold text-slate-900 font-heading">
               Ubiquitous &amp; Empowering High-Speed Connectivity
             </h3>
-            <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">
+            <p className="text-slate-700 leading-relaxed text-base">
               A world where carrier-grade high-speed internet is ubiquitous, empowering individuals and
               organizations to innovate without latency or limits &mdash; ensuring <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> network
               uptime and <AnimatedCounter from={0} to={100} suffix="%" /> customer satisfaction through exceptional optical service.
@@ -556,10 +636,10 @@ export default function AboutPage() {
           <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
             HOW WE OPERATE
           </span>
-          <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
+          <h2 className="text-3xl font-extrabold text-slate-900 font-heading">
             Our <AnimatedCounter from={0} to={6} /> Guiding Core Values
           </h2>
-          <p className="text-sm text-slate-600 dark:text-slate-400">
+          <p className="text-sm text-slate-600">
             Principles that direct every transmission link we commission, every server we deploy, and every enterprise client we support.
           </p>
         </div>
@@ -568,15 +648,15 @@ export default function AboutPage() {
           {CORE_VALUES.map((val, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-[#12161F] p-7 rounded-2xl border border-slate-200/90 dark:border-slate-700/60 space-y-3 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 hover:border-brand-orange/60 transition-all duration-300"
+              className="bg-white p-7 rounded-2xl border border-slate-200/90 space-y-3 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 hover:border-brand-orange/60 transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-xl bg-orange-500/10 dark:bg-orange-500/15 flex items-center justify-center border border-orange-500/20 text-brand-orange">
+              <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center border border-orange-500/20 text-brand-orange">
                 {val.icon}
               </div>
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white font-heading">
+              <h3 className="text-lg font-bold text-slate-900 font-heading">
                 {val.title}
               </h3>
-              <div className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              <div className="text-sm text-slate-600 leading-relaxed">
                 {val.desc}
               </div>
             </div>
@@ -587,12 +667,12 @@ export default function AboutPage() {
       {/* ============================================================
           7. GLOBAL TECHNOLOGY PARTNERS MARQUEE LOOP
           ============================================================ */}
-      <section className="py-12 bg-slate-100/60 dark:bg-[#0E1118]/80 backdrop-blur-md border-y border-slate-200/70 dark:border-slate-800/80">
+      <section className="py-12 bg-slate-100/60 backdrop-blur-md border-y border-slate-200/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8">
           <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
             POWERED BY GLOBAL HARDWARE LEADERS
           </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading mt-2">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading mt-2">
             Enterprise Optical Routing Partners
           </h2>
         </div>
@@ -603,11 +683,11 @@ export default function AboutPage() {
           8. BOTTOM CALL TO ACTION
           ============================================================ */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-[#12161F] p-6 sm:p-10 lg:p-12 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
+        <div className="bg-white p-6 sm:p-10 lg:p-12 rounded-3xl border border-slate-200/90 text-center space-y-6 shadow-xl shadow-slate-200/50">
+          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">
             Experience the Z COM Difference Today
           </h3>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300 max-w-xl mx-auto">
+          <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto">
             Contact our executive team for a customized enterprise connectivity proposal or dedicated connection setup.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 pt-2">
