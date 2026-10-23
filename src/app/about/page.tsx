@@ -26,6 +26,9 @@ import {
   Layers,
   Activity,
   Check,
+  Compass,
+  Target,
+  ChevronRight,
 } from "lucide-react";
 
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
@@ -45,7 +48,7 @@ const CORE_VALUES: { icon: React.ReactNode; title: string; desc: React.ReactNode
     desc: (
       <>
         We prioritize our clients&apos; mission-critical operations, ensuring{" "}
-        <AnimatedCounter from={0} to={24} suffix="/7" /> direct access to Level-
+        <AnimatedCounter from={0} to={24} suffix="/7" /> direct escalation to Level-
         <AnimatedCounter from={0} to={3} /> certified network engineers rather than tiered call center scripts.
       </>
     ),
@@ -92,108 +95,125 @@ const CORE_VALUES: { icon: React.ReactNode; title: string; desc: React.ReactNode
 
 export default function AboutPage() {
   return (
-    <div className="py-4 sm:py-8 space-y-24 sm:space-y-32 transition-colors duration-300">
+    <div className="py-4 sm:py-6 space-y-24 sm:space-y-36 transition-colors duration-300">
       {/* ============================================================
-          1. CINEMATIC HERO BANNER (HIGH-IMPACT VISUAL SHOWCASE)
+          1. OUTSTANDING CINEMATIC HERO BANNER
           ============================================================ */}
-      <section className="relative -mt-6 sm:-mt-10 pt-28 sm:pt-36 pb-20 sm:pb-28 overflow-hidden rounded-3xl sm:rounded-[3rem] border border-slate-800/80 shadow-2xl mx-4 sm:mx-6 lg:mx-8 bg-[#07090E]">
-        {/* Background Banner Image */}
-        <div className="absolute inset-0 -z-20">
-          <Image
-            src="/images/about/hero-banner.jpg"
-            alt="Z COM Enterprise Core Network Infrastructure Banner"
-            fill
-            priority
-            className="object-cover object-center filter brightness-[0.38] contrast-125 scale-105"
-          />
-        </div>
-
-        {/* Ambient Dark & Light Orange Atmospheric Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#07090E]/90 via-[#0A0D14]/75 to-[#07090E]/95 -z-10" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-brand-orange/20 rounded-full blur-[140px] pointer-events-none -z-10" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-slate-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
-
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8 relative z-10">
-          {/* Official Telemetry Badge */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-brand-orange text-xs font-bold uppercase tracking-wider shadow-lg">
-            <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>ABOUT Z COM NETWORKS PRIVATE LIMITED</span>
+      <section className="relative -mt-6 sm:-mt-10 overflow-hidden rounded-3xl sm:rounded-[3.5rem] border border-slate-800/80 shadow-2xl mx-3 sm:mx-6 lg:mx-8 bg-[#07090E]">
+        {/* User-Uploaded Majestic Corporate Architecture Banner */}
+        <div className="relative min-h-[640px] sm:min-h-[720px] lg:min-h-[780px] w-full flex flex-col justify-between p-6 sm:p-10 lg:p-16">
+          <div className="absolute inset-0 -z-20">
+            <Image
+              src="/images/about/hero-banner.jpg"
+              alt="Z COM Executive Architecture and Carrier-Grade Network Fabric"
+              fill
+              priority
+              className="object-cover object-center filter brightness-[0.7] contrast-110"
+            />
           </div>
 
-          {/* Primary Grand Heading */}
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white font-heading tracking-tight max-w-5xl mx-auto leading-[1.15]">
-            Engineering Next-Generation{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-orange-400 to-amber-300">
-              Carrier-Grade Connectivity
-            </span>
-          </h1>
+          {/* Ambient Vignette & Golden-Orange Atmospheric Overlays */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#06080D] via-[#07090E]/60 to-[#07090E]/80 -z-10" />
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-brand-orange/20 rounded-full blur-[140px] pointer-events-none -z-10" />
 
-          {/* Strategic Executive Subtitle */}
-          <p className="text-base sm:text-lg lg:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal">
-            Founded on the principle that modern enterprises and mission-critical institutions
-            require uncontended, carrier-grade internet without compromise. Today, Z COM powers
-            commercial towers, healthcare complexes, educational campuses, and corporate headquarters.
-          </p>
+          {/* Top Telemetry Header Block */}
+          <div className="pt-20 sm:pt-24 max-w-4xl mx-auto text-center space-y-6 relative z-10">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-2xl border border-white/25 text-brand-orange text-xs font-bold uppercase tracking-wider shadow-2xl">
+              <span className="w-2.5 h-2.5 rounded-full bg-brand-orange animate-ping" />
+              <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
+              <span className="text-white">ABOUT Z COM NETWORKS PRIVATE LIMITED</span>
+            </div>
 
-          {/* 4 Interactive Telemetry Frosted-Glass Metric Cards */}
-          <div className="pt-4 max-w-5xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/[0.08] backdrop-blur-2xl border border-white/20 shadow-xl hover:bg-white/[0.14] hover:border-brand-orange/60 transition-all duration-300 text-center group">
-              <div className="w-10 h-10 mx-auto rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center mb-3">
-                <Layers className="w-5 h-5" />
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white font-heading tracking-tight leading-[1.12] drop-shadow-lg">
+              Engineering Next-Generation{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-brand-orange to-amber-300">
+                Carrier-Grade Connectivity
+              </span>
+            </h1>
+
+            <p className="text-base sm:text-xl text-slate-200 max-w-3xl mx-auto leading-relaxed font-medium drop-shadow-md">
+              Built on the core principle that modern enterprises and mission-critical institutions
+              require uncontended, carrier-grade internet without compromise. Today, Z COM powers
+              commercial towers, healthcare complexes, educational campuses, and corporate headquarters.
+            </p>
+
+            {/* Quick Action Navigation Buttons */}
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
+              <a
+                href="#leadership"
+                className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-sm px-6 py-3 rounded-full transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5"
+              >
+                <span>Executive Leadership</span>
+                <ChevronRight className="w-4 h-4" />
+              </a>
+
+              <a
+                href="#heritage"
+                className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-xl text-white border border-white/30 font-bold text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5"
+              >
+                <span>Our Infrastructure &amp; Heritage</span>
+              </a>
+            </div>
+          </div>
+
+          {/* 4 Floating Telemetry Glassmorphism Metric Hub */}
+          <div className="pt-12 sm:pt-16 max-w-6xl mx-auto w-full grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5 relative z-10">
+            <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-black/50 backdrop-blur-2xl border border-white/20 shadow-2xl hover:bg-black/65 hover:border-brand-orange/60 transition-all duration-300 text-center group">
+              <div className="w-9 h-9 mx-auto rounded-xl bg-brand-orange/25 text-brand-orange flex items-center justify-center mb-2.5">
+                <Layers className="w-4 h-4" />
               </div>
               <span className="text-3xl sm:text-4xl font-black text-brand-orange font-heading block group-hover:scale-105 transition-transform">
                 <AnimatedCounter from={0} to={1200} suffix="+ km" />
               </span>
-              <span className="text-xs sm:text-sm text-slate-200 font-bold mt-1.5 block font-heading">
+              <span className="text-xs sm:text-sm text-white font-bold mt-1 block font-heading">
                 Subterranean Metro Core
               </span>
-              <span className="text-[11px] text-slate-400 font-medium block mt-0.5">
-                Armored Ring Infrastructure
+              <span className="text-[10px] sm:text-[11px] text-slate-300 font-medium block mt-0.5">
+                Armored Ring Conduits
               </span>
             </div>
 
-            <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/[0.08] backdrop-blur-2xl border border-white/20 shadow-xl hover:bg-white/[0.14] hover:border-brand-orange/60 transition-all duration-300 text-center group">
-              <div className="w-10 h-10 mx-auto rounded-xl bg-orange-400/20 text-orange-400 flex items-center justify-center mb-3">
-                <ShieldCheck className="w-5 h-5" />
+            <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-black/50 backdrop-blur-2xl border border-white/20 shadow-2xl hover:bg-black/65 hover:border-brand-orange/60 transition-all duration-300 text-center group">
+              <div className="w-9 h-9 mx-auto rounded-xl bg-orange-400/25 text-orange-400 flex items-center justify-center mb-2.5">
+                <ShieldCheck className="w-4 h-4" />
               </div>
               <span className="text-3xl sm:text-4xl font-black text-white font-heading block group-hover:scale-105 transition-transform">
                 <AnimatedCounter from={0} to={99.99} decimals={2} suffix="%" />
               </span>
-              <span className="text-xs sm:text-sm text-slate-200 font-bold mt-1.5 block font-heading">
+              <span className="text-xs sm:text-sm text-white font-bold mt-1 block font-heading">
                 Contractual Core SLA
               </span>
-              <span className="text-[11px] text-slate-400 font-medium block mt-0.5">
-                Guaranteed Uptime Delivery
+              <span className="text-[10px] sm:text-[11px] text-slate-300 font-medium block mt-0.5">
+                Zero Packet Loss Standard
               </span>
             </div>
 
-            <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/[0.08] backdrop-blur-2xl border border-white/20 shadow-xl hover:bg-white/[0.14] hover:border-brand-orange/60 transition-all duration-300 text-center group">
-              <div className="w-10 h-10 mx-auto rounded-xl bg-brand-orange/20 text-brand-orange flex items-center justify-center mb-3">
-                <Zap className="w-5 h-5" />
+            <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-black/50 backdrop-blur-2xl border border-white/20 shadow-2xl hover:bg-black/65 hover:border-brand-orange/60 transition-all duration-300 text-center group">
+              <div className="w-9 h-9 mx-auto rounded-xl bg-brand-orange/25 text-brand-orange flex items-center justify-center mb-2.5">
+                <Zap className="w-4 h-4" />
               </div>
               <span className="text-3xl sm:text-4xl font-black text-brand-orange font-heading block group-hover:scale-105 transition-transform">
                 <AnimatedCounter from={0} to={500} suffix="+" />
               </span>
-              <span className="text-xs sm:text-sm text-slate-200 font-bold mt-1.5 block font-heading">
+              <span className="text-xs sm:text-sm text-white font-bold mt-1 block font-heading">
                 Corporate Leased Lines
               </span>
-              <span className="text-[11px] text-slate-400 font-medium block mt-0.5">
-                1:1 Symmetrical Circuits
+              <span className="text-[10px] sm:text-[11px] text-slate-300 font-medium block mt-0.5">
+                1:1 Symmetrical Bandwidth
               </span>
             </div>
 
-            <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/[0.08] backdrop-blur-2xl border border-white/20 shadow-xl hover:bg-white/[0.14] hover:border-brand-orange/60 transition-all duration-300 text-center group">
-              <div className="w-10 h-10 mx-auto rounded-xl bg-orange-400/20 text-orange-400 flex items-center justify-center mb-3">
-                <Clock className="w-5 h-5" />
+            <div className="p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-black/50 backdrop-blur-2xl border border-white/20 shadow-2xl hover:bg-black/65 hover:border-brand-orange/60 transition-all duration-300 text-center group">
+              <div className="w-9 h-9 mx-auto rounded-xl bg-orange-400/25 text-orange-400 flex items-center justify-center mb-2.5">
+                <Clock className="w-4 h-4" />
               </div>
               <span className="text-3xl sm:text-4xl font-black text-white font-heading block group-hover:scale-105 transition-transform">
                 <AnimatedCounter from={0} to={24} suffix="/7/365" />
               </span>
-              <span className="text-xs sm:text-sm text-slate-200 font-bold mt-1.5 block font-heading">
+              <span className="text-xs sm:text-sm text-white font-bold mt-1 block font-heading">
                 Gulberg-III Local NOC
               </span>
-              <span className="text-[11px] text-slate-400 font-medium block mt-0.5">
+              <span className="text-[10px] sm:text-[11px] text-slate-300 font-medium block mt-0.5">
                 Level-3 Dedicated Engineers
               </span>
             </div>
@@ -204,15 +224,15 @@ export default function AboutPage() {
       {/* ============================================================
           2. COMPANY HERITAGE & MISSION-CRITICAL PROMISE
           ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="heritage" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* High-Resolution Infrastructure Presentation */}
-          <div className="lg:col-span-5 relative h-[420px] sm:h-[520px] rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl shadow-slate-200/60 group">
+          <div className="lg:col-span-5 relative h-[440px] sm:h-[540px] rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl shadow-slate-200/60 group">
             <Image
               src="/images/about/infrastructure.jpg"
               alt="Z COM Core Optical Network Infrastructure"
               fill
-              className="object-cover filter brightness-[0.85] contrast-110 group-hover:scale-105 transition-transform duration-700"
+              className="object-cover filter brightness-[0.88] contrast-110 group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
 
@@ -310,7 +330,7 @@ export default function AboutPage() {
       {/* ============================================================
           3. EXECUTIVE LEADERSHIP: CEO MUDASIR RIAZ & CFO MUBASIR RIAZ
           ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      <section id="leadership" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100 border border-orange-200 text-brand-orange text-xs font-bold uppercase tracking-wider">
             <Users className="w-3.5 h-3.5" />
@@ -599,7 +619,10 @@ export default function AboutPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-white p-8 sm:p-10 rounded-3xl border border-orange-500/30 space-y-4 shadow-xl shadow-orange-500/5 hover:border-brand-orange transition-colors">
-            <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
+            <div className="w-12 h-12 rounded-2xl bg-brand-orange/15 text-brand-orange flex items-center justify-center">
+              <Compass className="w-6 h-6" />
+            </div>
+            <span className="text-xs font-bold text-brand-orange tracking-widest uppercase block">
               OUR MISSION
             </span>
             <h3 className="text-2xl font-bold text-slate-900 font-heading">
@@ -613,7 +636,10 @@ export default function AboutPage() {
           </div>
 
           <div className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/90 space-y-4 shadow-xl shadow-slate-200/50 hover:border-brand-orange/60 transition-colors">
-            <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
+            <div className="w-12 h-12 rounded-2xl bg-slate-900 text-brand-orange flex items-center justify-center">
+              <Target className="w-6 h-6" />
+            </div>
+            <span className="text-xs font-bold text-brand-orange tracking-widest uppercase block">
               OUR VISION
             </span>
             <h3 className="text-2xl font-bold text-slate-900 font-heading">
