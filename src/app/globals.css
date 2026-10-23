@@ -24,6 +24,15 @@
   }
 }
 
+@keyframes infraProgress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
 /* Glassmorphism styling - adaptive for Light & Dark */
 .glass-panel {
   background: rgba(255, 255, 255, 0.88);
