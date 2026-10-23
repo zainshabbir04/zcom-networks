@@ -21,6 +21,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === "/";
+  const isDarkHero = pathname === "/" || pathname === "/about";
 
   // Track window scroll to prevent transparent text clash when scrolling
   useEffect(() => {
@@ -85,6 +86,8 @@ export default function Header() {
                       className={`relative px-3.5 xl:px-4 py-1.5 rounded-full text-xs xl:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
                         isActive
                           ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30 font-extrabold"
+                          : isDarkHero && !scrolled
+                          ? "text-white/90 hover:text-brand-orange hover:bg-white/10"
                           : "text-slate-700 hover:text-brand-orange hover:bg-orange-50/70"
                       }`}
                     >
@@ -99,7 +102,11 @@ export default function Header() {
             <div className="flex items-center gap-3 shrink-0">
               {!isHome && (
                 <>
-                  <div className="hidden xl:flex items-center gap-1.5 text-[11px] font-bold text-slate-700 bg-white/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200/80 whitespace-nowrap shadow-sm">
+                  <div className={`hidden xl:flex items-center gap-1.5 text-[11px] font-bold px-3 py-1.5 rounded-full whitespace-nowrap shadow-sm backdrop-blur-md border ${
+                    isDarkHero && !scrolled
+                      ? "text-white bg-black/40 border-white/20"
+                      : "text-slate-700 bg-white/70 border-slate-200/80"
+                  }`}>
                     <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
                     <span>Core <AnimatedCounter from={0} to={100} duration={1400} />G: Optimal</span>
                   </div>
