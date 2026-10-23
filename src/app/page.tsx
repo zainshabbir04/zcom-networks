@@ -16,7 +16,6 @@ import {
 } from "lucide-react";
 
 import HeroSlider from "@/components/ui/HeroSlider";
-import SolutionExplorer from "@/components/ui/SolutionExplorer";
 import PartnersMarquee from "@/components/ui/PartnersMarquee";
 import ClientsAnimatedMarquee from "@/components/ui/ClientsAnimatedMarquee";
 import FaqAccordion from "@/components/ui/FaqAccordion";
@@ -176,26 +175,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ============================================================
-          5. INTERACTIVE SOLUTION EXPLORER & PACKAGE CALCULATOR
-          ============================================================ */}
-      <section className="py-12 bg-white/70 dark:bg-[#0B0E14]/80 backdrop-blur-xl border-y border-slate-200/70 dark:border-slate-800/80 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="text-center max-w-3xl mx-auto space-y-4">
-            <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
-              OUR SERVICES &amp; PRODUCTS
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 font-heading tracking-tight">
-              Reliable Solutions. Smarter Connectivity.
-            </h2>
-            <p className="text-base text-slate-600">
-              Explore our 5 official service pillars: Corporate Internet, Cloud &amp; Hosting, Managed IT, Cybersecurity, and Digital Solutions.
-            </p>
-          </div>
-
-          <SolutionExplorer />
-        </div>
-      </section>
 
 
       {/* ============================================================
