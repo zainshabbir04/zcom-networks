@@ -42,12 +42,12 @@ const INFRA_SLIDES: InfraSlide[] = [
     title: "Gulberg-III 24/7 Tier-3 NOC Facility",
     subtitle: "Real-time Telemetry, Optical Monitoring & Instant Level-3 Dispatch",
     description:
-      "Our central Network Operations Center in Gulberg-III, Lahore features dual-redundant power backup, multi-screen PRTG optical telemetry, automated fiber cut pinging, and a dedicated team of certified network engineers on duty around the clock.",
+      "Our central Network Operations Center in Gulberg-III features dual-redundant power backup, multi-screen PRTG optical telemetry, automated network cut pinging, and a dedicated team of certified network engineers on duty around the clock.",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
-    location: "Gulberg-III Corporate Headquarters, Lahore",
+    location: "Gulberg-III Corporate Headquarters",
     telemetry: [
       { label: "Active Monitoring", value: "24/7/365", sub: "Automated PRTG / Zabbix" },
-      { label: "Mean Time to Detect", value: "< 15 sec", sub: "Fiber Break Alarm" },
+      { label: "Mean Time to Detect", value: "< 15 sec", sub: "Network Break Alarm" },
       { label: "Power Redundancy", value: "N+1", sub: "Dual Generators + Online UPS" },
       { label: "Engineer Escalation", value: "Level-3", sub: "Direct NOC Phone Access" },
     ],
@@ -60,15 +60,15 @@ const INFRA_SLIDES: InfraSlide[] = [
   {
     id: "trenching",
     badge: "PHYSICAL OPTICAL LAYER",
-    title: "1,200+ km Armored Metro Fiber Network",
-    subtitle: "Heavy-Duty Subterranean Optical Conduits Spanning Lahore",
+    title: "1,200+ km Armored Metro Core Network",
+    subtitle: "Heavy-Duty Subterranean Optical Conduits Spanning Metropolitan Zones",
     description:
-      "Unlike providers relying on fragile aerial cables vulnerable to storms and utility poles, Z COM has built over 1,200 kilometers of deep-trench armored underground fiber conduits connecting Main Boulevard Gulberg, Mall Road, Ferozepur Road, Canal Road, and DHA Phases 1 through 8.",
+      "Unlike providers relying on fragile aerial cables vulnerable to storms and utility poles, Z COM has built over 1,200 kilometers of deep-trench armored underground optical conduits connecting Main Boulevard Gulberg, Mall Road, Ferozepur Road, Canal Road, and DHA Phases 1 through 8.",
     image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80",
-    location: "Subterranean Metropolitan Trenches, Lahore",
+    location: "Subterranean Metropolitan Trenches",
     telemetry: [
       { label: "Underground Network", value: "1,200+ km", sub: "Armored Conduit Route" },
-      { label: "Core Fiber Count", value: "96 / 144 Core", sub: "Single-Mode G.652D" },
+      { label: "Core Strand Count", value: "96 / 144 Core", sub: "Single-Mode G.652D" },
       { label: "Physical Depth", value: "1.5 - 2.0 m", sub: "Protected Trenching" },
       { label: "Aerial Exposure", value: "0%", sub: "Core Ring Underground" },
     ],
@@ -84,7 +84,7 @@ const INFRA_SLIDES: InfraSlide[] = [
     title: "100 Gbps DWDM Multi-Ring Optical Backbone",
     subtitle: "Dense Wavelength Division Multiplexing with <50ms Auto-Failover",
     description:
-      "Our core metro distribution runs on multi-lambda DWDM optical transport technology capable of delivering scalable 100 Gbps channels. In the event of a physical fiber severance, the self-healing ring topology redirects packet flows in less than 50 milliseconds without session drops.",
+      "Our core metro distribution runs on multi-lambda DWDM optical transport technology capable of delivering scalable 100 Gbps channels. In the event of a physical conduit severance, the self-healing ring topology redirects packet flows in less than 50 milliseconds without session drops.",
     image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
     location: "Metro Optical Nodes & Distribution Rings",
     telemetry: [
@@ -103,11 +103,11 @@ const INFRA_SLIDES: InfraSlide[] = [
     id: "peering",
     badge: "UPSTREAM TRANSIT",
     title: "Multi-Homed Tier-1 Upstream & Direct Peering",
-    subtitle: "Direct Interconnections to PIE, Cloudflare, Akamai, Google & AWS",
+    subtitle: "Direct Interconnections to Cloudflare, Akamai, Google & AWS",
     description:
-      "Z COM Networks connects directly to Pakistan Internet Exchange (PIE) and maintains redundant multi-gigabit upstream feeds through national Tier-1 carriers. Local caching servers and direct BGP peering deliver zero-buffering 4K streaming and instant gaming response.",
+      "Z COM Networks connects directly to Regional Internet Exchanges and maintains redundant multi-gigabit upstream feeds through national Tier-1 carriers. Local caching servers and direct BGP peering deliver zero-buffering 4K streaming and instant gaming response.",
     image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80",
-    location: "Lahore Internet Exchange Points & Edge PoPs",
+    location: "Regional Internet Exchange Points & Edge PoPs",
     telemetry: [
       { label: "Upstream Diversity", value: "Triple Tier-1", sub: "Subsea Cable Outlets" },
       { label: "Direct CDN Peering", value: "Local Edge", sub: "Google, Cloudflare, Meta" },
@@ -124,20 +124,20 @@ const INFRA_SLIDES: InfraSlide[] = [
     id: "field-fleet",
     badge: "RAPID RESPONSE",
     title: "Rapid Optical Fusion Splicing & Field Fleet",
-    subtitle: "Mobile Technicians Dispatched in Lahore with <30 Minute MTTR",
+    subtitle: "Mobile Technicians Dispatched with <30 Minute MTTR",
     description:
-      "When unforeseen municipal construction cuts a feeder fiber, Z COM's dedicated mobile fleet arrives equipped with Fujikura precision core-alignment fusion splicers, EXFO optical time-domain reflectometers (OTDR), and emergency standby fiber rolls.",
+      "When unforeseen municipal construction cuts a feeder conduit, Z COM's dedicated mobile fleet arrives equipped with Fujikura precision core-alignment fusion splicers, EXFO optical time-domain reflectometers (OTDR), and emergency standby optical equipment.",
     image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
-    location: "Mobile Field Fleets across Lahore Zones",
+    location: "Mobile Field Fleets across Metropolitan Zones",
     telemetry: [
-      { label: "Lahore MTTR SLA", value: "< 30 min", sub: "Emergency On-Site Arrival" },
+      { label: "Rapid MTTR SLA", value: "< 30 min", sub: "Emergency On-Site Arrival" },
       { label: "Splice Precision", value: "< 0.02 dB", sub: "Fujikura Core Alignment" },
       { label: "Dedicated Fleet", value: "15+ Units", sub: "Equipped Mobile Vans" },
       { label: "Standby Spares", value: "100% In-Stock", sub: "Pre-Terminated Optical Hubs" },
     ],
     features: [
       "GPS-tracked rapid dispatch fleet",
-      "24/7 emergency trenching and fiber restoration teams",
+      "24/7 emergency trenching and network restoration teams",
       "Live optical power level verification prior to handoff",
     ],
   },
