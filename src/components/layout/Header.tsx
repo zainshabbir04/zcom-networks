@@ -1,10 +1,19 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { X, ArrowRight } from "lucide-react";
+import {
+  X,
+  ArrowRight,
+  ChevronDown,
+  Globe,
+  Cloud,
+  Server,
+  ShieldCheck,
+  Code2,
+} from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 const NAV_LINKS = [
@@ -16,11 +25,60 @@ const NAV_LINKS = [
   { name: "Contact", href: "/contact" },
 ];
 
+const SERVICES_MENU = [
+  {
+    name: "Corporate Internet Solutions",
+    href: "/services/corporate-internet",
+    desc: "1:1 Symmetrical Dedicated Internet Access (DIA), MPLS & P2P links",
+    icon: Globe,
+  },
+  {
+    name: "Cloud & Hosting Solutions",
+    href: "/services/cloud-hosting",
+    desc: "High-performance VMs, VPS, enterprise email & tier-3 colocation",
+    icon: Cloud,
+  },
+  {
+    name: "Managed IT Solutions",
+    href: "/services/managed-it",
+    desc: "Proactive NOC infrastructure, LAN/WAN architecture & Wi-Fi 6",
+    icon: Server,
+  },
+  {
+    name: "Cybersecurity Services",
+    href: "/services/cybersecurity",
+    desc: "Next-gen firewalls, multi-vector DDoS defense & endpoint security",
+    icon: ShieldCheck,
+  },
+  {
+    name: "Digital Solutions",
+    href: "/services/digital-solutions",
+    desc: "Bespoke corporate websites, native mobile apps & UI/UX systems",
+    icon: Code2,
+  },
+];
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
   const pathname = usePathname();
   const isHome = pathname === "/";
+
+  const handleDropdownEnter = () => {
+    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+    setServicesDropdownOpen(true);
+  };
+
+  const handleDropdownLeave = () => {
+    if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setServicesDropdownOpen(false);
+    }, 200);
+  };
 
   // Track window scroll to prevent transparent text clash when scrolling
   useEffect(() => {
@@ -46,6 +104,8 @@ export default function Header() {
 
   useEffect(() => {
     setIsOpen(false);
+    setServicesDropdownOpen(false);
+    setMobileServicesOpen(false);
   }, [pathname]);
 
   return (
@@ -66,7 +126,7 @@ export default function Header() {
               <div className="relative h-9 sm:h-11 w-36 sm:w-48 transition-transform duration-200 group-hover:scale-105">
                 <Image
                   src="https://zcomnetworks.com.pk/assets/zcom-logo.png?v=2"
-                  alt="Z COM Networks - Premier Optical Fiber ISP"
+                  alt="Z COM Networks - Premier Enterprise Optical ISP"
                   fill
                   className="object-contain object-left drop-shadow-sm"
                   priority
@@ -75,11 +135,96 @@ export default function Header() {
               </div>
             </Link>
 
-            {/* Desktop Navigation Links: Sleek Segmented Dock Style */}
+            {/* Desktop Navigation Links: Sleek Segmented Dock Style with Services Dropdown */}
             {!isHome && (
               <nav className="hidden lg:flex items-center gap-1 bg-slate-100/90 backdrop-blur-md p-1.5 rounded-full border border-slate-200/80 shadow-inner">
                 {NAV_LINKS.map((link) => {
-                  const isActive = pathname === link.href;
+                  const isActive =
+                    pathname === link.href ||
+                    (link.name === "Services" && pathname.startsWith("/services"));
+
+                  if (link.name === "Services") {
+                    return (
+                      <div
+                        key={link.name}
+                        className="relative"
+                        onMouseEnter={handleDropdownEnter}
+                        onMouseLeave={handleDropdownLeave}
+                      >
+                        <Link
+                          href={link.href}
+                          className={`relative px-4 py-1.5 rounded-full text-xs xl:text-sm font-bold whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 ${
+                            isActive
+                              ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30 font-extrabold"
+                              : "text-slate-700 hover:text-slate-900 hover:bg-white"
+                          }`}
+                        >
+                          <span>{link.name}</span>
+                          <ChevronDown
+                            className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                              servicesDropdownOpen ? "rotate-180" : ""
+                            }`}
+                          />
+                        </Link>
+
+                        {/* Services Dropdown Menu Panel */}
+                        {servicesDropdownOpen && (
+                          <div
+                            className="absolute top-full left-1/2 -translate-x-1/2 pt-2.5 z-50 w-[380px] sm:w-[440px]"
+                            onMouseEnter={handleDropdownEnter}
+                            onMouseLeave={handleDropdownLeave}
+                          >
+                            <div className="rounded-3xl bg-white/98 backdrop-blur-2xl border border-slate-200/90 shadow-2xl p-3.5 space-y-1 animate-in fade-in slide-in-from-top-2 duration-200">
+                              <div className="px-3 py-2 flex items-center justify-between border-b border-slate-100 mb-1">
+                                <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">
+                                  Enterprise Solutions &amp; Products
+                                </span>
+                                <Link
+                                  href="/services"
+                                  onClick={() => setServicesDropdownOpen(false)}
+                                  className="text-xs font-bold text-brand-orange hover:underline flex items-center gap-1"
+                                >
+                                  <span>All Services</span>
+                                  <ArrowRight className="w-3 h-3" />
+                                </Link>
+                              </div>
+
+                              {SERVICES_MENU.map((srv) => {
+                                const Icon = srv.icon;
+                                const isSrvActive = pathname === srv.href;
+                                return (
+                                  <Link
+                                    key={srv.href}
+                                    href={srv.href}
+                                    onClick={() => setServicesDropdownOpen(false)}
+                                    className={`flex items-start gap-3 p-2.5 rounded-2xl transition-all duration-200 group ${
+                                      isSrvActive
+                                        ? "bg-orange-50 border border-brand-orange/30"
+                                        : "hover:bg-slate-50 border border-transparent"
+                                    }`}
+                                  >
+                                    <div className="w-9 h-9 rounded-xl bg-orange-100/70 group-hover:bg-brand-orange group-hover:text-white text-brand-orange flex items-center justify-center shrink-0 transition-colors mt-0.5">
+                                      <Icon className="w-4 h-4" />
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                      <div className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-brand-orange transition-colors flex items-center justify-between">
+                                        <span>{srv.name}</span>
+                                        <ArrowRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-brand-orange" />
+                                      </div>
+                                      <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5">
+                                        {srv.desc}
+                                      </p>
+                                    </div>
+                                  </Link>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  }
+
                   return (
                     <Link
                       key={link.name}
@@ -126,7 +271,7 @@ export default function Header() {
       </header>
 
       {/* ============================================================
-          WHITE THEME FULL-SCREEN MENU OVERLAY (ONLY MAIN MENU HEADINGS)
+          WHITE THEME FULL-SCREEN MENU OVERLAY WITH SERVICES ACCORDION
           ============================================================ */}
       <div
         className={`fixed inset-0 z-50 transition-all duration-300 ease-out overflow-y-auto ${
@@ -168,17 +313,88 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Main Menu Headings Only */}
+          {/* Main Menu Headings with Services Dropdown List */}
           <div className="flex-1 flex flex-col justify-center items-center py-10 sm:py-16">
-            <nav className="flex flex-col items-center gap-3 sm:gap-4 w-full max-w-md">
+            <nav className="flex flex-col items-center gap-3 w-full max-w-md">
               {NAV_LINKS.map((link) => {
-                const isActive = pathname === link.href;
+                const isActive =
+                  pathname === link.href ||
+                  (link.name === "Services" && pathname.startsWith("/services"));
+
+                if (link.name === "Services") {
+                  return (
+                    <div key={link.name} className="w-full flex flex-col items-center">
+                      <div className="w-full flex items-center justify-center gap-2">
+                        <Link
+                          href={link.href}
+                          onClick={() => setIsOpen(false)}
+                          className={`flex-1 text-center py-2.5 sm:py-3 px-6 rounded-2xl text-2xl sm:text-3xl font-extrabold uppercase font-heading tracking-tight transition-all duration-200 ${
+                            isActive
+                              ? "text-brand-orange bg-orange-50 font-black shadow-sm"
+                              : "text-slate-800 hover:text-brand-orange hover:bg-slate-100/80"
+                          }`}
+                        >
+                          {link.name}
+                        </Link>
+                        <button
+                          onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                          aria-label="Toggle Services Dropdown Menu"
+                          className="w-12 h-12 rounded-2xl bg-slate-100 hover:bg-brand-orange hover:text-white text-slate-700 flex items-center justify-center transition-colors cursor-pointer shrink-0"
+                        >
+                          <ChevronDown
+                            className={`w-5 h-5 transition-transform duration-300 ${
+                              mobileServicesOpen ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+                      </div>
+
+                      {/* Dropdown Menu for Services inside Full Menu */}
+                      {mobileServicesOpen && (
+                        <div className="w-full mt-2 p-2.5 rounded-2xl bg-slate-50 border border-slate-200/90 space-y-1.5 animate-in fade-in duration-200">
+                          {SERVICES_MENU.map((srv) => {
+                            const Icon = srv.icon;
+                            const isSrvActive = pathname === srv.href;
+                            return (
+                              <Link
+                                key={srv.href}
+                                href={srv.href}
+                                onClick={() => {
+                                  setIsOpen(false);
+                                  setMobileServicesOpen(false);
+                                }}
+                                className={`flex items-center gap-3 p-2.5 rounded-xl transition-colors ${
+                                  isSrvActive
+                                    ? "bg-white text-brand-orange font-bold shadow-sm"
+                                    : "hover:bg-white text-slate-800"
+                                }`}
+                              >
+                                <div className="w-8 h-8 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center shrink-0">
+                                  <Icon className="w-4 h-4" />
+                                </div>
+                                <div className="text-left flex-1 min-w-0">
+                                  <div className="text-xs sm:text-sm font-bold truncate">
+                                    {srv.name}
+                                  </div>
+                                  <div className="text-[10px] text-slate-500 truncate">
+                                    {srv.desc}
+                                  </div>
+                                </div>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
                 return (
                   <Link
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`w-full text-center py-3 sm:py-4 px-6 rounded-2xl text-2xl sm:text-4xl font-extrabold uppercase font-heading tracking-tight transition-all duration-200 ${
+                    className={`w-full text-center py-2.5 sm:py-3 px-6 rounded-2xl text-2xl sm:text-3xl font-extrabold uppercase font-heading tracking-tight transition-all duration-200 ${
                       isActive
                         ? "text-brand-orange bg-orange-50 font-black shadow-sm"
                         : "text-slate-800 hover:text-brand-orange hover:bg-slate-100/80 hover:scale-105"
