@@ -16,13 +16,19 @@ import {
   Wrench,
   Radio,
   Sparkles,
+  Layers,
+  Activity,
+  Clock,
+  Settings,
+  Globe,
 } from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import InfrastructureLoopSlider from "@/components/ui/InfrastructureLoopSlider";
 
 export const metadata: Metadata = {
   title: "Managed IT Solutions & Services | 24/7 NOC & Hardware | Z COM Networks",
   description:
-    "End-to-end Managed IT Solutions in Lahore: 24/7 Managed NOC Monitoring, Server & Hardware Maintenance, Structured Network Cabling, and Emergency Field Engineering.",
+    "End-to-end Managed IT Solutions: 24/7 Managed NOC Monitoring, Server & Hardware Maintenance, Structured Network Cabling, and Emergency Field Engineering.",
 };
 
 const SUB_SERVICES = [
@@ -30,17 +36,19 @@ const SUB_SERVICES = [
     title: "24/7 Managed NOC Monitoring",
     tag: "Proactive Network Telemetry",
     desc: "Continuous round-the-clock surveillance of optical link attenuation, interface saturation, BGP path health, and ping jitter from our Gulberg-III Network Operations Center. We resolve anomalies before users experience disruptions.",
+    icon: Activity,
     features: [
       "Real-time SNMP/NetFlow telemetry across all managed network devices",
       "Automated incident alert generation with immediate technician escalation",
       "Monthly SLA compliance reports, bandwidth analytics & trend audits",
-      "Direct line to Level-3 network engineers (no outsourced call centers)",
+      "Direct line to Level-3 network engineers (no tiered call centers)",
     ],
   },
   {
     title: "Enterprise Server & Hardware Maintenance",
     tag: "Preventative & Reactive Care",
     desc: "Scheduled health audits, firmware lifecycle patching, PSU redundancy checks, and rapid hardware component replacements for enterprise server racks, switches, routers, and NAS/SAN appliances.",
+    icon: Server,
     features: [
       "Preventative maintenance schedules and thermal dissipation audits",
       "Immediate on-site spare part replacement for critical equipment",
@@ -51,180 +59,353 @@ const SUB_SERVICES = [
   {
     title: "Structured Cabling & Campus Networking",
     tag: "Carrier-Grade Deployment",
-    desc: "Turnkey planning, installation, and certification of high-performance CAT6/CAT6A copper and multi-core fiber optic cabling, server rack organization, patch panel labeling, and enterprise campus Wi-Fi deployment.",
+    desc: "Turnkey planning, installation, and certification of high-performance CAT6/CAT6A copper and multi-core optical cabling, server rack organization, patch panel labeling, and enterprise campus Wi-Fi deployment.",
+    icon: Cpu,
     features: [
-      "Fluke-certified CAT6/CAT6A copper and single-mode/multi-mode fiber runs",
+      "Fluke-certified CAT6/CAT6A copper and single-mode/multi-mode optical links",
       "Clean server rack layout, patch cord cable management & labeling",
-      "High-density Wi-Fi 6 access point engineering for campuses & hospitals",
+      "High-density Wi-Fi 6 access point engineering for campuses & complexes",
       "Core, distribution, and access layer enterprise switching setups",
     ],
   },
   {
     title: "On-Site Engineering Emergency Dispatch",
     tag: "Sub-30 Minute MTTR",
-    desc: "Rapid deployment of certified optical and systems engineers directly to your Lahore corporate site. Equipped with Fujikura optical fusion splicers, OTDR fault locators, and replacement hardware modules.",
+    desc: "Rapid deployment of certified optical and systems engineers directly to your corporate site. Equipped with precision optical fusion splicers, OTDR fault locators, and replacement hardware modules.",
+    icon: Wrench,
     features: [
-      "Contractual sub-30 minute emergency on-site response in Lahore",
-      "Advanced OTDR fiber break pinpointing and precision splicing",
+      "Contractual sub-30 minute emergency on-site response standard",
+      "Advanced OTDR conduit anomaly pinpointing and precision splicing",
       "Disaster recovery circuit cutovers and emergency temporary links",
-      "Local Gulberg NOC fleet deployed across all Lahore commercial hubs",
+      "Local Gulberg NOC fleet deployed across all metro commercial hubs",
     ],
+  },
+];
+
+const SPECS = [
+  { label: "NOC Supervision", value: "24/7/365", desc: "Uninterrupted proactive network operations" },
+  { label: "Emergency MTTR", value: "< 30 Minutes", desc: "Contractual on-site field engineering response" },
+  { label: "Engineering Tier", value: "Level-3 Certified", desc: "Senior network and hardware specialists" },
+  { label: "Cabling Standards", value: "Fluke Certified", desc: "100% verified bandwidth and insertion loss" },
+];
+
+const WORKFLOW = [
+  {
+    step: "01",
+    title: "Comprehensive IT Audit",
+    desc: "We analyze your server racks, cabling topology, switch configurations, and network bottlenecks.",
+  },
+  {
+    step: "02",
+    title: "Sensor & Telemetry Setup",
+    desc: "Deployment of real-time NOC telemetry agents for optical power, CPU, temperature, and port bandwidth.",
+  },
+  {
+    step: "03",
+    title: "Preventative Servicing",
+    desc: "Bi-weekly physical checks, dust extraction, redundant PSU verification, and scheduled firmware updates.",
+  },
+  {
+    step: "04",
+    title: "Rapid Emergency Dispatch",
+    desc: "Immediate on-site vehicle dispatch with replacement modules and diagnostic tools upon any anomaly.",
   },
 ];
 
 export default function ManagedItPage() {
   return (
-    <div className="py-8 sm:py-16 space-y-16 transition-colors duration-300">
+    <div className="relative transition-colors duration-300 space-y-16 sm:space-y-24 pb-16">
       
-      {/* 1. Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs font-semibold text-slate-500 mb-6">
-          <Link href="/" className="hover:text-brand-orange transition-colors">Home</Link>
-          <span>/</span>
-          <span className="text-slate-400">Services</span>
-          <span>/</span>
-          <span className="text-brand-orange font-bold">Managed IT Solutions and Services</span>
+      {/* ============================================================
+          1. OUTSTANDING CINEMATIC HERO BANNER (STARTS DIRECTLY BELOW NAVBAR)
+          ============================================================ */}
+      <section className="relative w-full overflow-hidden bg-slate-950 border-b border-slate-800">
+        {/* Layer 0: High-Res Dedicated Image (100% Full Viewport Width) */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <Image
+            src="/images/services/managed-it.jpg"
+            alt="Managed IT Solutions - Z COM NOC"
+            fill
+            priority
+            unoptimized
+            className="object-cover object-center scale-100"
+          />
+          {/* Subtle Ambient Vignette & Warm Orange Glow */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#06080D]/95 via-[#07090E]/60 to-[#07090E]/85" />
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-brand-orange/15 rounded-full blur-[140px] pointer-events-none" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Text */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-brand-orange text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>OFFICIAL Z COM SERVICES &amp; PRODUCTS</span>
+        {/* Layer 1: Foreground Content Over Banner */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 flex flex-col justify-between space-y-8">
+          
+          {/* Top Breadcrumb & Status Pill */}
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
+            <nav className="flex items-center gap-2 text-xs font-semibold text-slate-300">
+              <Link href="/" className="hover:text-brand-orange transition-colors">Home</Link>
+              <span className="text-slate-500">/</span>
+              <span className="text-slate-400">Services</span>
+              <span className="text-slate-500">/</span>
+              <span className="text-brand-orange font-bold">Managed IT Solutions &amp; Services</span>
+            </nav>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-xl border border-white/20 text-brand-orange text-xs font-bold uppercase tracking-wider">
+              <span className="w-2 h-2 rounded-full bg-brand-orange animate-ping" />
+              <span className="text-white">PROACTIVE NOC &amp; HARDWARE CARE</span>
+            </div>
+          </div>
+
+          {/* Center Heading & Value Proposition */}
+          <div className="max-w-4xl mx-auto text-center space-y-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-bold uppercase tracking-wider backdrop-blur-md">
+              <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
+              <span className="text-white">OFFICIAL Z COM SERVICES &amp; PRODUCTS</span>
             </div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 font-heading tracking-tight leading-tight">
-              Managed IT Solutions <span className="text-brand-orange">&amp; Services</span>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white font-heading tracking-tight leading-tight drop-shadow-md">
+              Managed IT Solutions{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-brand-orange to-amber-300">
+                &amp; Services
+              </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-              Eliminate downtime and empower your business operations with 24/7 NOC oversight, proactive enterprise server maintenance, certified structured cabling, and rapid on-site field engineering across Lahore.
+            <p className="text-sm sm:text-base lg:text-lg text-slate-200 max-w-2xl mx-auto leading-relaxed font-normal drop-shadow-sm">
+              Eliminate downtime and empower corporate business operations with 24/7 proactive NOC supervision, enterprise server maintenance, certified structured cabling, and rapid on-site field engineering dispatch.
             </p>
 
-            {/* Quick Metrics */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-center">
-                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block">
-                  <AnimatedCounter from={0} to={24} suffix="/7/365" />
-                </span>
-                <span className="text-xs text-slate-500 font-semibold">Active NOC Monitoring</span>
-              </div>
-              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-center">
-                <span className="text-xl sm:text-2xl font-black text-slate-900 font-heading block">
-                  &lt; 30 min
-                </span>
-                <span className="text-xs text-slate-500 font-semibold">Emergency MTTR</span>
-              </div>
-              <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-center col-span-2 sm:col-span-1">
-                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block">
-                  Level-3
-                </span>
-                <span className="text-xs text-slate-500 font-semibold">Certified Engineers</span>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-4">
+            {/* Quick Action Navigation Buttons */}
+            <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-md shadow-brand-orange/30 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-xs sm:text-sm px-6 py-3 rounded-full transition-all shadow-md shadow-brand-orange/30 hover:-translate-y-0.5"
               >
                 <span>Request IT Infrastructure Audit</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
-
               <a
-                href="https://wa.me/923171118042?text=Hello%20Z%20COM!%20I%20am%20inquiring%20about%20Managed%20IT%20Solutions%20and%20NOC%20Services."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold px-5 py-3 rounded-xl transition-all border border-slate-200"
+                href="#capabilities"
+                className="inline-flex items-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-xl text-white border border-white/30 font-bold text-xs sm:text-sm px-6 py-3 rounded-full transition-all hover:-translate-y-0.5"
               >
-                <span>WhatsApp NOC Desk</span>
-                <ExternalLink className="w-3.5 h-3.5 text-brand-orange" />
+                <span>Explore Capabilities</span>
               </a>
             </div>
           </div>
 
-          {/* Right Image (Image 1: High Density Rack with Patching Cables & Switches) */}
-          <div className="lg:col-span-5 relative">
-            <div className="relative h-[360px] sm:h-[460px] w-full rounded-3xl overflow-hidden border border-slate-200 shadow-2xl">
-              <Image
-                src="/images/services/managed-it.jpg"
-                alt="Managed IT Solutions and Services - Z COM Hardware Infrastructure"
-                fill
-                className="object-cover object-center transition-transform duration-500 hover:scale-105"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/40 shadow-lg">
-                <span className="text-xs font-bold text-brand-orange uppercase block">Managed Network Operations</span>
-                <span className="text-sm font-extrabold text-slate-900 block">Server Maintenance &amp; 24/7 NOC Engineering</span>
+          {/* 4 Floating Telemetry Glassmorphism Metric Hub */}
+          <div className="pt-6 sm:pt-8 max-w-5xl mx-auto w-full grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            <div className="p-4 rounded-xl sm:rounded-2xl bg-black/50 backdrop-blur-2xl border border-white/20 shadow-xl hover:bg-black/65 hover:border-brand-orange/60 transition-all text-center group">
+              <div className="w-8 h-8 mx-auto rounded-lg bg-brand-orange/25 text-brand-orange flex items-center justify-center mb-1.5">
+                <Clock className="w-4 h-4" />
               </div>
+              <span className="text-2xl sm:text-3xl font-black text-brand-orange font-heading block group-hover:scale-105 transition-transform">
+                <AnimatedCounter from={0} to={24} suffix="/7/365" />
+              </span>
+              <span className="text-xs text-white font-bold mt-0.5 block font-heading">
+                NOC Supervision
+              </span>
+              <span className="text-[10px] text-slate-300 font-medium block">
+                Continuous Telemetry
+              </span>
+            </div>
+
+            <div className="p-4 rounded-xl sm:rounded-2xl bg-black/50 backdrop-blur-2xl border border-white/20 shadow-xl hover:bg-black/65 hover:border-brand-orange/60 transition-all text-center group">
+              <div className="w-8 h-8 mx-auto rounded-lg bg-orange-400/25 text-orange-400 flex items-center justify-center mb-1.5">
+                <Zap className="w-4 h-4" />
+              </div>
+              <span className="text-2xl sm:text-3xl font-black text-white font-heading block group-hover:scale-105 transition-transform">
+                &lt; <AnimatedCounter from={0} to={30} suffix=" min" />
+              </span>
+              <span className="text-xs text-white font-bold mt-0.5 block font-heading">
+                Emergency MTTR
+              </span>
+              <span className="text-[10px] text-slate-300 font-medium block">
+                On-Site Field Response
+              </span>
+            </div>
+
+            <div className="p-4 rounded-xl sm:rounded-2xl bg-black/50 backdrop-blur-2xl border border-white/20 shadow-xl hover:bg-black/65 hover:border-brand-orange/60 transition-all text-center group">
+              <div className="w-8 h-8 mx-auto rounded-lg bg-brand-orange/25 text-brand-orange flex items-center justify-center mb-1.5">
+                <ShieldCheck className="w-4 h-4" />
+              </div>
+              <span className="text-2xl sm:text-3xl font-black text-brand-orange font-heading block group-hover:scale-105 transition-transform">
+                Level-3
+              </span>
+              <span className="text-xs text-white font-bold mt-0.5 block font-heading">
+                Certified Engineers
+              </span>
+              <span className="text-[10px] text-slate-300 font-medium block">
+                Direct Senior Escalation
+              </span>
+            </div>
+
+            <div className="p-4 rounded-xl sm:rounded-2xl bg-black/50 backdrop-blur-2xl border border-white/20 shadow-xl hover:bg-black/65 hover:border-brand-orange/60 transition-all text-center group">
+              <div className="w-8 h-8 mx-auto rounded-lg bg-orange-400/25 text-orange-400 flex items-center justify-center mb-1.5">
+                <Settings className="w-4 h-4" />
+              </div>
+              <span className="text-2xl sm:text-3xl font-black text-white font-heading block group-hover:scale-105 transition-transform">
+                <AnimatedCounter from={0} to={100} suffix="%" />
+              </span>
+              <span className="text-xs text-white font-bold mt-0.5 block font-heading">
+                Proactive Oversight
+              </span>
+              <span className="text-[10px] text-slate-300 font-medium block">
+                Hardware Health Audits
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ============================================================
+          2. CORE ARCHITECTURE CAPABILITIES GRID
+          ============================================================ */}
+      <section id="capabilities" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 scroll-mt-24">
+        <div className="text-center max-w-3xl mx-auto space-y-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-brand-orange text-xs font-bold uppercase tracking-wider">
+            <Layers className="w-3.5 h-3.5" />
+            <span>MANAGED SERVICES SUITE</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 font-heading">
+            Enterprise IT Operations &amp; Support
+          </h2>
+          <p className="text-sm sm:text-base text-slate-600">
+            From 24/7 centralized NOC monitoring to rapid on-site optical splicing and hardware maintenance.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {SUB_SERVICES.map((srv, idx) => {
+            const Icon = srv.icon;
+            return (
+              <div
+                key={idx}
+                className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 hover:border-brand-orange/60 shadow-xl shadow-slate-200/40 transition-all duration-300 space-y-4 group hover:-translate-y-1"
+              >
+                <div className="flex items-center justify-between gap-3 pb-3 border-b border-slate-100">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-orange-50 text-brand-orange group-hover:bg-brand-orange group-hover:text-white transition-all flex items-center justify-center shrink-0">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 font-heading group-hover:text-brand-orange transition-colors">
+                      {srv.title}
+                    </h3>
+                  </div>
+                  <span className="px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-brand-orange text-xs font-bold shrink-0">
+                    {srv.tag}
+                  </span>
+                </div>
+
+                <p className="text-sm text-slate-600 leading-relaxed">
+                  {srv.desc}
+                </p>
+
+                <div className="space-y-2.5 pt-2">
+                  {srv.features.map((feat, fIdx) => (
+                    <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 font-medium">
+                      <div className="w-4 h-4 rounded-full bg-orange-100 text-brand-orange flex items-center justify-center shrink-0 mt-0.5">
+                        <Check className="w-2.5 h-2.5 stroke-[3]" />
+                      </div>
+                      <span>{feat}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ============================================================
+          3. TECHNICAL SPECIFICATIONS MATRIX
+          ============================================================ */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="rounded-3xl bg-[#090C15] text-white p-6 sm:p-10 border border-slate-800 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 space-y-6">
+            <div className="text-center sm:text-left space-y-1">
+              <span className="text-xs font-bold text-brand-orange uppercase tracking-wider block">
+                OPERATIONAL STANDARDS
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black font-heading">
+                Contractual Response &amp; Engineering Benchmarks
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {SPECS.map((spec, sIdx) => (
+                <div key={sIdx} className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1">
+                  <span className="text-xs text-slate-400 block">{spec.label}</span>
+                  <span className="text-xl font-extrabold text-brand-orange block font-heading">{spec.value}</span>
+                  <span className="text-[11px] text-slate-300 block">{spec.desc}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Sub-Services Detailed Breakdown */}
+      {/* ============================================================
+          4. MAINTENANCE WORKFLOW
+          ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center max-w-3xl mx-auto space-y-2">
           <span className="text-xs font-bold text-brand-orange uppercase tracking-wider block">
-            CORE SERVICES
+            OPERATIONAL LIFECYCLE
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 font-heading">
-            Managed IT Architecture &amp; Field Support
+            How We Protect Your Operations
           </h2>
           <p className="text-sm sm:text-base text-slate-600">
-            Certified technical management designed to relieve internal corporate IT teams while maintaining 100% operational uptime.
+            A continuous loop of audit, active sensor oversight, preventative care, and emergency readiness.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {SUB_SERVICES.map((srv, idx) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {WORKFLOW.map((wf, wIdx) => (
             <div
-              key={idx}
-              className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 hover:border-brand-orange/60 shadow-xl shadow-slate-200/40 transition-all duration-300 space-y-4 group"
+              key={wIdx}
+              className="p-5 rounded-2xl bg-white border border-slate-200 hover:border-brand-orange/50 shadow-md hover:shadow-lg transition-all space-y-2 relative"
             >
-              <div className="flex items-center justify-between gap-3 pb-3 border-b border-slate-100">
-                <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 font-heading group-hover:text-brand-orange transition-colors">
-                  {srv.title}
-                </h3>
-                <span className="px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-brand-orange text-xs font-bold">
-                  {srv.tag}
-                </span>
-              </div>
-
-              <p className="text-sm text-slate-600 leading-relaxed">
-                {srv.desc}
-              </p>
-
-              <div className="space-y-2 pt-2">
-                {srv.features.map((feat, fIdx) => (
-                  <div key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-700 font-medium">
-                    <div className="w-4 h-4 rounded-full bg-orange-100 text-brand-orange flex items-center justify-center shrink-0 mt-0.5">
-                      <Check className="w-2.5 h-2.5 stroke-[3]" />
-                    </div>
-                    <span>{feat}</span>
-                  </div>
-                ))}
-              </div>
+              <span className="text-3xl font-black text-brand-orange/30 font-heading block">{wf.step}</span>
+              <h4 className="text-base font-extrabold text-slate-900">{wf.title}</h4>
+              <p className="text-xs text-slate-500 leading-relaxed">{wf.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 3. Direct Contact Strip (From Flyer) */}
+      {/* ============================================================
+          5. OPTICAL INFRASTRUCTURE ARCHITECTURE LOOP
+          ============================================================ */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        <div className="text-center max-w-3xl mx-auto space-y-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-brand-orange text-xs font-bold uppercase tracking-wider">
+            <Zap className="w-3.5 h-3.5" />
+            <span>OPTICAL INFRASTRUCTURE ARCHITECTURE</span>
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 font-heading">
+            Hardware &amp; Equipment Maintenance
+          </h2>
+          <p className="text-sm sm:text-base text-slate-600">
+            Backed by optical diagnostic instruments, OTDR testers, and carrier-grade chassis switches.
+          </p>
+        </div>
+
+        <InfrastructureLoopSlider />
+      </section>
+
+      {/* ============================================================
+          6. DIRECT CONTACT STRIP (FROM FLYER)
+          ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl bg-slate-900 text-white border border-slate-800 p-6 sm:p-10 shadow-2xl relative overflow-hidden">
           <div className="relative z-10 space-y-6">
             <div className="text-center sm:text-left space-y-1">
               <span className="text-xs font-bold text-brand-orange uppercase tracking-wider block">
-                DIRECT NOC ESCALATION
+                DIRECT CORPORATE INQUIRIES
               </span>
               <h3 className="text-xl sm:text-2xl font-black font-heading">
-                Need Dedicated Enterprise IT Support?
+                Ready to Upgrade Your Managed IT Operations?
               </h3>
             </div>
 
@@ -264,9 +445,9 @@ export default function ManagedItPage() {
                   <MapPin className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-xs text-slate-400 block font-semibold">Address:</span>
+                  <span className="text-xs text-slate-400 block font-semibold">NOC Headquarters:</span>
                   <span className="text-xs font-semibold text-white leading-tight block">
-                    7/4, E-3 Main Boulevard, Gulberg-III, Lahore.
+                    7/4, E-3 Main Boulevard, Gulberg-III.
                   </span>
                 </div>
               </div>
@@ -278,10 +459,10 @@ export default function ManagedItPage() {
                 className="flex items-center gap-3 p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all group"
               >
                 <div className="w-10 h-10 rounded-xl bg-orange-500/20 text-brand-orange flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <Zap className="w-5 h-5" />
+                  <Globe className="w-5 h-5" />
                 </div>
                 <div className="truncate">
-                  <span className="text-xs text-slate-400 block font-semibold">Web:</span>
+                  <span className="text-xs text-slate-400 block font-semibold">Web Portal:</span>
                   <span className="text-xs sm:text-sm font-bold text-white group-hover:text-brand-orange transition-colors truncate block">
                     www.zcomnetworks.com.pk
                   </span>
