@@ -99,23 +99,24 @@ export default function AboutPage() {
       {/* ============================================================
           1. OUTSTANDING CINEMATIC HERO BANNER
           ============================================================ */}
-      <section className="relative -mt-6 sm:-mt-10 overflow-hidden rounded-3xl sm:rounded-[3.5rem] border border-slate-800/80 shadow-2xl mx-3 sm:mx-6 lg:mx-8 bg-[#07090E]">
-        {/* User-Uploaded Majestic Corporate Architecture Banner */}
-        <div className="relative min-h-[640px] sm:min-h-[720px] lg:min-h-[780px] w-full flex flex-col justify-between p-6 sm:p-10 lg:p-16">
-          <div className="absolute inset-0 -z-20">
-            <Image
-              src="/images/about/hero-banner.jpg"
-              alt="Z COM Executive Architecture and Carrier-Grade Network Fabric"
-              fill
-              priority
-              className="object-cover object-center filter brightness-[0.7] contrast-110"
-            />
-          </div>
+      <section className="relative -mt-6 sm:-mt-10 overflow-hidden rounded-3xl sm:rounded-[3.5rem] border border-slate-800 shadow-2xl mx-3 sm:mx-6 lg:mx-8">
+        {/* Layer 0: User-Uploaded Majestic Architecture Image (Guaranteed 100% Visible) */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <Image
+            src="/images/about/hero-banner.jpg"
+            alt="Z COM Executive Architecture and Carrier-Grade Network Fabric"
+            fill
+            priority
+            unoptimized
+            className="object-cover object-center scale-100"
+          />
+          {/* Subtle Ambient Vignette & Warm Orange Glow */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#06080D]/95 via-[#07090E]/40 to-[#07090E]/75" />
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-brand-orange/15 rounded-full blur-[140px] pointer-events-none" />
+        </div>
 
-          {/* Ambient Vignette & Golden-Orange Atmospheric Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#06080D] via-[#07090E]/60 to-[#07090E]/80 -z-10" />
-          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-brand-orange/20 rounded-full blur-[140px] pointer-events-none -z-10" />
-
+        {/* Layer 1: Foreground Content Over Banner */}
+        <div className="relative z-10 min-h-[640px] sm:min-h-[720px] lg:min-h-[780px] w-full flex flex-col justify-between p-6 sm:p-10 lg:p-16">
           {/* Top Telemetry Header Block */}
           <div className="pt-20 sm:pt-24 max-w-4xl mx-auto text-center space-y-6 relative z-10">
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-2xl border border-white/25 text-brand-orange text-xs font-bold uppercase tracking-wider shadow-2xl">
@@ -232,6 +233,8 @@ export default function AboutPage() {
               src="/images/about/infrastructure.jpg"
               alt="Z COM Core Optical Network Infrastructure"
               fill
+              unoptimized
+              priority
               className="object-cover filter brightness-[0.88] contrast-110 group-hover:scale-105 transition-transform duration-700"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
@@ -362,6 +365,7 @@ export default function AboutPage() {
                         src="/images/leadership/mudasir-riaz-ceo.jpg"
                         alt="Mudasir Riaz - Chief Executive Officer (CEO) & Co-Founder Z COM Networks"
                         fill
+                        unoptimized
                         sizes="(max-width: 640px) 200px, 250px"
                         className="object-contain object-bottom transition-transform duration-500 group-hover:scale-105"
                         priority
@@ -483,6 +487,7 @@ export default function AboutPage() {
                         src="/images/leadership/mubasir-riaz-cfo.jpg"
                         alt="Mubasir Riaz - Chief Financial Officer (CFO) & Co-Founder Z COM Networks"
                         fill
+                        unoptimized
                         sizes="(max-width: 640px) 200px, 250px"
                         className="object-contain object-bottom transition-transform duration-500 group-hover:scale-105"
                         priority
