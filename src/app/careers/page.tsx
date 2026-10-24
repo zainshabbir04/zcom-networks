@@ -181,53 +181,110 @@ const CULTURE_PERKS = [
 
 export default function CareersPage() {
   return (
-    <div className="py-12 sm:py-20 space-y-24 transition-colors duration-300">
+    <div className="relative transition-colors duration-300 space-y-16 sm:space-y-24 pb-16">
       {/* ============================================================
-          1. HERO BANNER WITH HIGH-RES OFFICE IMAGERY
+          1. OUTSTANDING CINEMATIC HERO BANNER (STARTS DIRECTLY BELOW NAVBAR)
           ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 shadow-xl shadow-slate-200/50 dark:shadow-black/50 p-8 sm:p-16 text-center">
-          {/* Background Image */}
-          <div className="absolute inset-0 -z-20">
-            <Image
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80"
-              alt="Z COM Technology Team Collaboration"
-              fill
-              className="object-cover object-center filter brightness-[0.25] contrast-125"
-              priority
-            />
-          </div>
-          {/* Overlay Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/70 to-transparent -z-10" />
+      <section className="relative w-full overflow-hidden bg-slate-950 border-b border-slate-800">
+        {/* Layer 0: User-Uploaded Dedicated Banner Image */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <Image
+            src="/images/careers/hero-banner.jpg"
+            alt="Careers at Z COM Networks - Engineering the Future of High-Speed Connectivity"
+            fill
+            priority
+            unoptimized
+            className="object-cover object-center scale-100"
+          />
+          {/* Cinematic Dark Gradient Overlays for Maximum Legibility & Visual Atmosphere */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/40" />
+          <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-brand-orange/15 rounded-full blur-[140px] pointer-events-none" />
+        </div>
 
-          <div className="max-w-3xl mx-auto space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>CAREERS AT Z COM NETWORKS</span>
+        {/* Layer 1: Foreground Content Over Banner */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+          <div className="max-w-3xl space-y-6">
+            
+            {/* Breadcrumb & Status Pill */}
+            <div className="flex flex-wrap items-center gap-2.5 text-xs font-semibold">
+              <nav className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-slate-300">
+                <Link href="/" className="hover:text-brand-orange transition-colors">Home</Link>
+                <span className="text-slate-500">/</span>
+                <span className="text-brand-orange font-bold">Careers</span>
+              </nav>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/20 backdrop-blur-md border border-brand-orange/40 text-brand-orange text-[11px] font-black uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>CAREERS AT Z COM NETWORKS</span>
+              </div>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white font-heading tracking-tight leading-[1.1]">
+            {/* Bold Headline */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading tracking-tight leading-[1.1] drop-shadow-md">
               Engineer the Future of <br className="hidden sm:inline" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-brand-orangeLight to-[#FFA26B]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-brand-orange to-amber-300">
                 High-Speed Connectivity
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-gray-200 max-w-2xl mx-auto leading-relaxed">
-              We are expanding our Network Operations Center (NOC), fiber deployment crew, and
-              corporate sales teams in Gulberg-III, Lahore. Build your career with Lahore&apos;s
-              top-tier fiber internet provider.
+            {/* Concise Value Description */}
+            <p className="text-sm sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl drop-shadow-sm">
+              Join our expanding Network Operations Center (NOC), optical infrastructure teams, and corporate technology professionals. Build a rewarding career with an industry-leading enterprise connectivity provider.
             </p>
 
-            <div className="pt-2">
+            {/* Action CTA & Stats */}
+            <div className="pt-2 flex flex-wrap items-center gap-4">
               <a
                 href="#openings"
-                className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-sm sm:text-base px-8 py-4 rounded-xl transition-all shadow-xl shadow-brand-orange/30 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5"
               >
                 <span>View Open Positions (<AnimatedCounter from={0} to={POSITIONS.length} />)</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
+
+              <a
+                href="#culture"
+                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-all hover:-translate-y-0.5"
+              >
+                <span>Why Join Us</span>
+              </a>
             </div>
+
+            {/* 4 Quick Telemetry Stats */}
+            <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 text-center sm:text-left">
+                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block">
+                  <AnimatedCounter from={0} to={POSITIONS.length} />
+                </span>
+                <span className="text-xs text-white font-bold mt-0.5 block">Open Roles</span>
+                <span className="text-[10px] text-slate-400 font-medium block">Actively Hiring</span>
+              </div>
+
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 text-center sm:text-left">
+                <span className="text-xl sm:text-2xl font-black text-white font-heading block">
+                  24/7/365
+                </span>
+                <span className="text-xs text-white font-bold mt-0.5 block">Active NOC</span>
+                <span className="text-[10px] text-slate-400 font-medium block">Tier-1 Operations</span>
+              </div>
+
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 text-center sm:text-left">
+                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block">
+                  <AnimatedCounter from={0} to={100} suffix="G" />
+                </span>
+                <span className="text-xs text-white font-bold mt-0.5 block">Core Scale</span>
+                <span className="text-[10px] text-slate-400 font-medium block">Optical DWDM</span>
+              </div>
+
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 text-center sm:text-left">
+                <span className="text-xl sm:text-2xl font-black text-white font-heading block">
+                  <AnimatedCounter from={0} to={100} suffix="%" />
+                </span>
+                <span className="text-xs text-white font-bold mt-0.5 block">Health Cover</span>
+                <span className="text-[10px] text-slate-400 font-medium block">Full Benefits</span>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -235,7 +292,7 @@ export default function CareersPage() {
       {/* ============================================================
           2. CULTURE & PERKS GRID
           ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="culture" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-14">
           <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
             WHY JOIN Z COM?
