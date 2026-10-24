@@ -143,22 +143,19 @@ export default function ContactPage() {
 
       {/* Coverage Checker Card (Interactive Form) */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#0B0F19] via-[#141B2B] to-[#1A120B] border border-orange-500/40 p-6 sm:p-10 lg:p-12 shadow-2xl shadow-orange-500/20">
-          {/* Colorful Vibrant Ambient Mesh Lighting */}
-          <div className="absolute -top-24 -left-24 w-80 h-80 bg-gradient-to-br from-brand-orange via-orange-500 to-amber-400 rounded-full blur-[90px] opacity-30 pointer-events-none" />
-          <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-gradient-to-tl from-orange-600 via-brand-orange to-amber-500 rounded-full blur-[90px] opacity-35 pointer-events-none" />
+        <div className="bg-white dark:bg-[#12161F] p-6 sm:p-10 lg:p-12 rounded-3xl border border-orange-500/30 dark:border-orange-500/30 shadow-xl shadow-orange-500/5 dark:shadow-black/50 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-80 h-80 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
-          <div className="relative z-10 max-w-xl mx-auto space-y-6">
+          <div className="max-w-xl mx-auto space-y-6">
             <div className="text-center space-y-2">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-bold uppercase tracking-wider backdrop-blur-md">
-                <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-                <span>INSTANT AVAILABILITY CHECK</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-heading">
-                Is Z COM Dedicated Connectivity Available at Your Location?
+              <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
+                INSTANT AVAILABILITY CHECK
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
+                Is Z COM Fiber Available at Your Location?
               </h2>
-              <p className="text-sm text-slate-300">
-                Submit your area to verify nearest optical transmission node proximity and
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                Submit your area in Lahore to verify nearest optical fiber node proximity and
                 dispatch our field survey team.
               </p>
             </div>
@@ -190,24 +187,24 @@ export default function ContactPage() {
               {CONTACT_INFO.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-2xl bg-gradient-to-br from-[#0B0F19] via-[#141B2B] to-[#1A120B] border border-orange-500/35 flex items-start gap-4 hover:border-brand-orange/60 transition-colors shadow-lg shadow-black/40 text-white"
+                  className="p-5 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 flex items-start gap-4 hover:border-brand-orange/60 transition-colors shadow-sm"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-orange-500/20 text-brand-orange flex items-center justify-center shrink-0 mt-0.5 border border-orange-500/30">
+                  <div className="w-10 h-10 rounded-xl bg-orange-500/10 text-brand-orange flex items-center justify-center shrink-0 mt-0.5 border border-orange-500/20">
                     {item.icon}
                   </div>
                   <div>
-                    <div className="text-xs font-semibold text-slate-400 uppercase tracking-wide">
+                    <div className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">
                       {item.label}
                     </div>
                     {item.href ? (
                       <a
                         href={item.href}
-                        className="text-sm sm:text-base font-bold text-white hover:text-brand-orange transition-colors mt-0.5 block"
+                        className="text-sm sm:text-base font-bold text-slate-900 dark:text-white hover:text-brand-orange transition-colors mt-0.5 block"
                       >
                         {item.value}
                       </a>
                     ) : (
-                      <div className="text-sm sm:text-base font-semibold text-slate-200 mt-0.5">
+                      <div className="text-sm sm:text-base font-semibold text-slate-800 dark:text-white mt-0.5">
                         {item.value}
                       </div>
                     )}
@@ -219,28 +216,21 @@ export default function ContactPage() {
 
           {/* Right: Message Form */}
           <div className="lg:col-span-7">
-            <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#0B0F19] via-[#141B2B] to-[#1A120B] border border-orange-500/40 p-6 sm:p-10 shadow-2xl shadow-orange-500/20 space-y-6">
-              {/* Colorful Vibrant Ambient Mesh Lighting */}
-              <div className="absolute -top-24 -left-24 w-80 h-80 bg-gradient-to-br from-brand-orange via-orange-500 to-amber-400 rounded-full blur-[90px] opacity-25 pointer-events-none" />
-              <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-gradient-to-tl from-orange-600 via-brand-orange to-amber-500 rounded-full blur-[90px] opacity-30 pointer-events-none" />
-
-              <div className="relative z-10 space-y-6">
-                <div>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-bold uppercase tracking-wider backdrop-blur-md mb-2">
-                    <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-                    <span>MESSAGE OUR DESK</span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-white font-heading mt-1">
-                    Send Us an Inquiry
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-300 mt-1">
-                    Fill in your requirements below and our commercial sales team will review and
-                    respond promptly.
-                  </p>
-                </div>
-
-                <ContactForm />
+            <div className="bg-white dark:bg-[#12161F] p-6 sm:p-10 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 shadow-xl shadow-slate-200/50 dark:shadow-black/50 space-y-6">
+              <div>
+                <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
+                  MESSAGE OUR DESK
+                </span>
+                <h3 className="text-2xl font-bold text-slate-900 dark:text-white font-heading mt-1">
+                  Send Us an Inquiry
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-500 dark:text-gray-400 mt-1">
+                  Fill in your requirements below and our commercial sales team will review and
+                  respond promptly.
+                </p>
               </div>
+
+              <ContactForm />
             </div>
           </div>
         </div>
