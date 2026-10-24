@@ -16,7 +16,6 @@ import {
   HeartHandshake,
   Cpu,
   Mail,
-  Send,
 } from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
@@ -470,8 +469,8 @@ export default function CareersPage() {
                 </div>
               </div>
 
-              {/* Action Buttons */}
-              <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
+              {/* Action Button */}
+              <div className="pt-4 flex items-center">
                 <a
                   href={`mailto:sales@zcomnetworks.com.pk?subject=${encodeURIComponent(
                     `Job Application: ${job.title} - Z COM Networks`
@@ -482,18 +481,6 @@ export default function CareersPage() {
                 >
                   <Mail className="w-4 h-4" />
                   <span>Apply via Email</span>
-                </a>
-
-                <a
-                  href={`https://wa.me/923171118042?text=${encodeURIComponent(
-                    `Hello Z COM HR Team! I am interested in applying for the position of "${job.title}". Please advise how I can share my resume.`
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-brand-orange text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-md shadow-slate-900/20 w-full sm:w-auto"
-                >
-                  <Send className="w-4 h-4" />
-                  <span>Inquire on WhatsApp</span>
                 </a>
               </div>
             </div>
