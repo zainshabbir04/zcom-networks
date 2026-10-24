@@ -112,7 +112,7 @@ const COMPARISON_ROWS = [
 
 export default function WhyUsPage() {
   return (
-    <div className="relative transition-colors duration-300 space-y-20 sm:space-y-28 pb-16">
+    <div className="relative transition-colors duration-300 -mt-20 sm:-mt-24 space-y-20 sm:space-y-28 pb-16">
       
       {/* ============================================================
           1. OUTSTANDING CINEMATIC HERO BANNER (STARTS DIRECTLY BELOW NAVBAR)
@@ -135,7 +135,7 @@ export default function WhyUsPage() {
         </BannerImage>
 
         {/* Layer 1: Foreground Content Over Banner */}
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 lg:pt-36 pb-16 sm:pb-20 lg:pb-24">
           <div className="max-w-3xl space-y-6">
             
             {/* Breadcrumb & Status Pill */}
