@@ -85,7 +85,7 @@ export default function RootLayout({
       <body className="bg-white text-slate-800 min-h-screen flex flex-col antialiased selection:bg-brand-orange selection:text-white">
         <ThemeProvider>
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 animate-page-enter">{children}</main>
           <Footer />
           <WhatsAppButton />
         </ThemeProvider>

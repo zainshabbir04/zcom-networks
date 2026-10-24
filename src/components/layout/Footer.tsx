@@ -12,6 +12,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import ScrollReveal from "@/components/ui/ScrollReveal";
 
 export default function Footer() {
   return (
@@ -20,7 +21,8 @@ export default function Footer() {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-brand-orange/8 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-slate-500/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
+      <ScrollReveal variant="fade-up">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
         {/* 5-Column Navigation & Information Matrix */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
           {/* Brand & Corporate Overview */}
@@ -210,6 +212,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      </ScrollReveal>
     </footer>
   );
 }

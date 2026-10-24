@@ -8,6 +8,7 @@ import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import CoverageForm from "@/components/ui/CoverageForm";
 import ContactForm from "@/components/ui/ContactForm";
 import FaqAccordion from "@/components/ui/FaqAccordion";
+import ScrollReveal, { StaggerContainer } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Contact Us & Coverage Check | Z COM Networks Private Limited",
@@ -143,7 +144,8 @@ export default function ContactPage() {
 
       {/* Coverage Checker Card (Interactive Form) */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#0B0F19] via-[#141B2B] to-[#1A120B] border border-orange-500/40 p-6 sm:p-10 lg:p-14 shadow-2xl shadow-orange-500/20">
+        <ScrollReveal variant="scale-in">
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#0B0F19] via-[#141B2B] to-[#1A120B] border border-orange-500/40 p-6 sm:p-10 lg:p-14 shadow-2xl shadow-orange-500/20 layout-card-hover">
           {/* Colorful Vibrant Ambient Mesh Lighting */}
           <div className="absolute -top-24 -left-24 w-80 h-80 bg-gradient-to-br from-brand-orange via-orange-500 to-amber-400 rounded-full blur-[90px] opacity-35 pointer-events-none" />
           <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-gradient-to-tl from-orange-600 via-brand-orange to-amber-500 rounded-full blur-[90px] opacity-40 pointer-events-none" />
@@ -170,13 +172,14 @@ export default function ContactPage() {
             <CoverageForm />
           </div>
         </div>
+        </ScrollReveal>
       </section>
 
       {/* Main Contact Grid (Info + Message Form) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left: Contact Info Cards */}
-          <div className="lg:col-span-5 space-y-6">
+          <ScrollReveal variant="fade-right" className="lg:col-span-5 space-y-6">
             <div className="space-y-2">
               <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
                 DIRECT CONTACT CHANNELS
@@ -190,7 +193,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div className="space-y-4 pt-2">
+            <StaggerContainer staggerMs={70} className="space-y-4 pt-2">
               {CONTACT_INFO.map((item, idx) => (
                 <div
                   key={idx}
@@ -218,11 +221,11 @@ export default function ContactPage() {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
+            </StaggerContainer>
+          </ScrollReveal>
 
           {/* Right: Message Form */}
-          <div className="lg:col-span-7">
+          <ScrollReveal variant="fade-left" className="lg:col-span-7">
             <div className="bg-white dark:bg-[#12161F] p-6 sm:p-10 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 shadow-xl shadow-slate-200/50 dark:shadow-black/50 space-y-6">
               <div>
                 <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
@@ -239,12 +242,12 @@ export default function ContactPage() {
 
               <ContactForm />
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* FAQ Accordion */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+      <ScrollReveal variant="fade-up" as="section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
           <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
             ANSWERS &amp; ASSISTANCE
@@ -254,7 +257,7 @@ export default function ContactPage() {
           </h2>
         </div>
         <FaqAccordion />
-      </section>
+      </ScrollReveal>
     </div>
   );
 }

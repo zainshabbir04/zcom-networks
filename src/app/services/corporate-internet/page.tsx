@@ -23,6 +23,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import ScrollReveal, { StaggerContainer } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Corporate Internet Solutions | DIA, MPLS & Metro Optical | Z COM Networks",
@@ -179,7 +180,7 @@ export default function CorporateInternetPage() {
       {/* ============================================================
           2. CORE ARCHITECTURE CAPABILITIES GRID
           ============================================================ */}
-      <section id="capabilities" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 scroll-mt-24">
+      <ScrollReveal variant="fade-up" as="section" id="capabilities" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 scroll-mt-24">
         <div className="text-center max-w-3xl mx-auto space-y-2">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-brand-orange text-xs font-bold uppercase tracking-wider">
             <Layers className="w-3.5 h-3.5" />
@@ -193,13 +194,13 @@ export default function CorporateInternetPage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <StaggerContainer staggerMs={100} className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {SUB_SERVICES.map((srv, idx) => {
             const Icon = srv.icon;
             return (
               <div
                 key={idx}
-                className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 hover:border-brand-orange/60 shadow-xl shadow-slate-200/40 transition-all duration-300 space-y-4 group hover:-translate-y-1"
+                className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 hover:border-brand-orange/60 shadow-xl shadow-slate-200/40 transition-all duration-300 space-y-4 group layout-card-hover"
               >
                 <div className="flex items-center justify-between gap-3 pb-3 border-b border-slate-100">
                   <div className="flex items-center gap-3">
@@ -232,14 +233,15 @@ export default function CorporateInternetPage() {
               </div>
             );
           })}
-        </div>
-      </section>
+        </StaggerContainer>
+      </ScrollReveal>
 
       {/* ============================================================
           3. DIRECT CONTACT STRIP (FROM FLYER)
           ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-slate-900 text-white border border-slate-800 p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+        <ScrollReveal variant="scale-in">
+          <div className="rounded-3xl bg-slate-900 layout-card-hover text-white border border-slate-800 p-6 sm:p-10 shadow-2xl relative overflow-hidden">
           <div className="relative z-10 space-y-6">
             <div className="text-center sm:text-left space-y-1">
               <span className="text-xs font-bold text-brand-orange uppercase tracking-wider block">
@@ -312,6 +314,7 @@ export default function CorporateInternetPage() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
       </section>
 
     </div>

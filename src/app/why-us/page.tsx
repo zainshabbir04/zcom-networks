@@ -20,6 +20,7 @@ import {
 
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import NetworkLoopVideo from "@/components/ui/NetworkLoopVideo";
+import ScrollReveal, { StaggerContainer } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Why Choose Us | Z COM Networks Private Limited",
@@ -204,7 +205,7 @@ export default function WhyUsPage() {
       {/* ============================================================
           NETWORK COVERAGE & TRANSMISSION GRID VIDEO ANIMATION
           ============================================================ */}
-      <section id="coverage-map" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
+      <ScrollReveal variant="fade-up" as="section" id="coverage-map" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-brand-orange text-xs font-bold uppercase tracking-wider">
             <MapPin className="w-3.5 h-3.5" />
@@ -231,7 +232,7 @@ export default function WhyUsPage() {
             />
           </div>
         </div>
-      </section>
+      </ScrollReveal>
 
       {/* 8 Reasons Cards */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -244,11 +245,11 @@ export default function WhyUsPage() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <StaggerContainer staggerMs={80} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {REASONS.map((card, idx) => (
             <div
               key={idx}
-              className="bg-white dark:bg-[#12161F] p-7 rounded-2xl border border-slate-200/90 dark:border-slate-700/60 space-y-3 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 hover:border-brand-orange/60 transition-all duration-300"
+              className="bg-white dark:bg-[#12161F] p-7 rounded-2xl border border-slate-200/90 dark:border-slate-700/60 space-y-3 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 hover:border-brand-orange/60 transition-all duration-300 layout-card-hover"
             >
               <div className="w-12 h-12 rounded-xl bg-orange-500/10 dark:bg-orange-500/15 flex items-center justify-center border border-orange-500/20 text-brand-orange">
                 {card.icon}
@@ -261,11 +262,11 @@ export default function WhyUsPage() {
               </p>
             </div>
           ))}
-        </div>
+        </StaggerContainer>
       </section>
 
       {/* Technical Comparison Matrix */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ScrollReveal variant="fade-up" as="section" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
           <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
             SPECIFICATION BENCHMARK
@@ -319,7 +320,7 @@ export default function WhyUsPage() {
             </table>
           </div>
         </div>
-      </section>
+      </ScrollReveal>
 
 
 
@@ -327,7 +328,8 @@ export default function WhyUsPage() {
           BOTTOM CALL TO ACTION (MATCHING ABOUT US COLOR SCHEME)
           ============================================================ */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#0B0F19] via-[#141B2B] to-[#1A120B] border border-orange-500/40 p-8 sm:p-12 lg:p-16 text-center space-y-6 shadow-2xl shadow-orange-500/20">
+        <ScrollReveal variant="scale-in">
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#0B0F19] via-[#141B2B] to-[#1A120B] border border-orange-500/40 p-8 sm:p-12 lg:p-16 text-center space-y-6 shadow-2xl shadow-orange-500/20 layout-card-hover">
           {/* Colorful Vibrant Ambient Mesh Lighting */}
           <div className="absolute -top-24 -left-24 w-80 h-80 bg-gradient-to-br from-brand-orange via-orange-500 to-amber-400 rounded-full blur-[90px] opacity-35 pointer-events-none" />
           <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-gradient-to-tl from-orange-600 via-brand-orange to-amber-500 rounded-full blur-[90px] opacity-40 pointer-events-none" />
@@ -362,6 +364,7 @@ export default function WhyUsPage() {
             </div>
           </div>
         </div>
+        </ScrollReveal>
       </section>
     </div>
   );
