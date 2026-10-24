@@ -26,6 +26,7 @@ import {
 } from "lucide-react";
 
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import MinimalistBanner, { BannerImage, BannerBadge, BannerHeadline, BannerSubtext, BannerActions } from "@/components/ui/MinimalistBanner";
 import InfrastructureLoopSlider from "@/components/ui/InfrastructureLoopSlider";
 import ScrollReveal, { StaggerContainer } from "@/components/ui/ScrollReveal";
 
@@ -93,9 +94,9 @@ export default function AboutPage() {
       {/* ============================================================
           1. CLEAN FULL-WIDTH HERO BANNER (STARTS DIRECTLY BELOW NAVBAR)
           ============================================================ */}
-      <section className="relative w-full overflow-hidden bg-slate-950 border-b border-slate-800">
+      <MinimalistBanner className="relative w-full overflow-hidden bg-slate-950 border-b border-slate-800">
         {/* Layer 0: Full-Width Dedicated Banner Image */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
+        <BannerImage className="absolute inset-0 z-0 overflow-hidden">
           <Image
             src="/images/about/hero-banner.jpg"
             alt="About Z COM Networks - Executive Architecture & Carrier-Grade Network Fabric"
@@ -108,14 +109,14 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/40" />
           <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-brand-orange/15 rounded-full blur-[140px] pointer-events-none" />
-        </div>
+        </BannerImage>
 
         {/* Layer 1: Minimalist Clean Foreground Content */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
           <div className="max-w-3xl space-y-6">
             
             {/* Breadcrumb & Status Pill */}
-            <div className="flex flex-wrap items-center gap-2.5 text-xs font-semibold">
+            <BannerBadge className="flex flex-wrap items-center gap-2.5 text-xs font-semibold">
               <nav className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-slate-300">
                 <Link href="/" className="hover:text-brand-orange transition-colors">Home</Link>
                 <span className="text-slate-500">/</span>
@@ -125,23 +126,27 @@ export default function AboutPage() {
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>ABOUT Z COM NETWORKS</span>
               </div>
-            </div>
+            </BannerBadge>
 
             {/* Bold Clear Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading tracking-tight leading-[1.1] drop-shadow-md">
+            <BannerHeadline>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading tracking-tight leading-[1.1] drop-shadow-md">
               Engineering Next-Generation <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-brand-orange to-amber-300">
                 Carrier-Grade Connectivity
               </span>
             </h1>
+            </BannerHeadline>
 
             {/* Concise Value Description */}
-            <p className="text-sm sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl drop-shadow-sm">
+            <BannerSubtext>
+              <p className="text-sm sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl drop-shadow-sm">
               Built on the core principle that modern enterprises and mission-critical institutions require uncontended, carrier-grade optical connectivity without compromise.
             </p>
+            </BannerSubtext>
 
             {/* Service-Tailored Live Counters Strip (Matching Services Pages Banner) */}
-            <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
+            <BannerActions className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
               <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all text-center sm:text-left">
                 <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Metro Core</span>
                 <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block mt-0.5">
@@ -173,11 +178,11 @@ export default function AboutPage() {
                 </span>
                 <span className="text-[10px] text-slate-300 font-medium block">Certified Engineers</span>
               </div>
-            </div>
+            </BannerActions>
 
           </div>
         </div>
-      </section>
+      </MinimalistBanner>
 
       {/* ============================================================
           2. EXECUTIVE LEADERSHIP: CEO MUDASIR RIAZ & CFO MUBASIR RIAZ

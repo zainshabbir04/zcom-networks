@@ -22,6 +22,7 @@ import {
   Zap,
 } from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import MinimalistBanner, { BannerImage, BannerBadge, BannerHeadline, BannerSubtext, BannerActions } from "@/components/ui/MinimalistBanner";
 import ScrollReveal, { StaggerContainer } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
@@ -88,9 +89,9 @@ export default function CloudHostingPage() {
       {/* ============================================================
           1. CLEAN FULL-WIDTH HERO BANNER (STARTS DIRECTLY BELOW NAVBAR)
           ============================================================ */}
-      <section className="relative w-full overflow-hidden bg-slate-950 border-b border-slate-800">
+      <MinimalistBanner className="relative w-full overflow-hidden bg-slate-950 border-b border-slate-800">
         {/* Layer 0: Full-Width Dedicated Banner Image */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
+        <BannerImage className="absolute inset-0 z-0 overflow-hidden">
           <Image
             src="/images/services/cloud-hosting.jpg"
             alt="Cloud & Hosting Solutions - Z COM Networks"
@@ -103,14 +104,14 @@ export default function CloudHostingPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/40" />
           <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-brand-orange/15 rounded-full blur-[140px] pointer-events-none" />
-        </div>
+        </BannerImage>
 
         {/* Layer 1: Minimalist Clean Foreground Content */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
           <div className="max-w-2xl space-y-6">
             
             {/* Breadcrumb & Status Pill */}
-            <div className="flex flex-wrap items-center gap-2.5 text-xs font-semibold">
+            <BannerBadge className="flex flex-wrap items-center gap-2.5 text-xs font-semibold">
               <nav className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-slate-300">
                 <Link href="/" className="hover:text-brand-orange transition-colors">Home</Link>
                 <span className="text-slate-500">/</span>
@@ -122,23 +123,27 @@ export default function CloudHostingPage() {
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-ping" />
                 <span>TIER-3 COLOCATION &amp; COMPUTE</span>
               </div>
-            </div>
+            </BannerBadge>
 
             {/* Bold Clear Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading tracking-tight leading-[1.1] drop-shadow-md">
+            <BannerHeadline>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading tracking-tight leading-[1.1] drop-shadow-md">
               Cloud &amp; Hosting <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-brand-orange to-amber-300">
                 Solutions
               </span>
             </h1>
+            </BannerHeadline>
 
             {/* Concise Value Description */}
-            <p className="text-sm sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal max-w-xl drop-shadow-sm">
+            <BannerSubtext>
+              <p className="text-sm sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal max-w-xl drop-shadow-sm">
               Power your enterprise workloads with resilient cloud infrastructure, Tier-3 data center colocation, corporate email suites, and high-availability hosting backed by contractual SLAs.
             </p>
+            </BannerSubtext>
 
             {/* Service-Tailored Live Counters Strip (Replaces buttons) */}
-            <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
+            <BannerActions className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
               <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all">
                 <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Uptime SLA</span>
                 <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block mt-0.5">
@@ -170,11 +175,11 @@ export default function CloudHostingPage() {
                 </span>
                 <span className="text-[10px] text-slate-300 font-medium block">Metro Cross-Connect</span>
               </div>
-            </div>
+            </BannerActions>
 
           </div>
         </div>
-      </section>
+      </MinimalistBanner>
 
       {/* ============================================================
           2. CORE ARCHITECTURE CAPABILITIES GRID

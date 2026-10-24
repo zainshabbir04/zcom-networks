@@ -18,6 +18,7 @@ import {
   Mail,
 } from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import MinimalistBanner, { BannerImage, BannerBadge, BannerHeadline, BannerSubtext, BannerActions } from "@/components/ui/MinimalistBanner";
 import ScrollReveal, { StaggerContainer } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
@@ -185,9 +186,9 @@ export default function CareersPage() {
       {/* ============================================================
           1. OUTSTANDING CINEMATIC HERO BANNER (STARTS DIRECTLY BELOW NAVBAR)
           ============================================================ */}
-      <section className="relative w-full overflow-hidden bg-slate-950 border-b border-slate-800">
+      <MinimalistBanner className="relative w-full overflow-hidden bg-slate-950 border-b border-slate-800">
         {/* Layer 0: User-Uploaded Dedicated Banner Image */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
+        <BannerImage className="absolute inset-0 z-0 overflow-hidden">
           <Image
             src="/images/careers/hero-banner.jpg"
             alt="Careers at Z COM Networks - Engineering the Future of High-Speed Connectivity"
@@ -200,14 +201,14 @@ export default function CareersPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/40" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/40" />
           <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-brand-orange/15 rounded-full blur-[140px] pointer-events-none" />
-        </div>
+        </BannerImage>
 
         {/* Layer 1: Foreground Content Over Banner */}
         <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div className="max-w-3xl space-y-6">
             
             {/* Breadcrumb & Status Pill */}
-            <div className="flex flex-wrap items-center gap-2.5 text-xs font-semibold">
+            <BannerBadge className="flex flex-wrap items-center gap-2.5 text-xs font-semibold">
               <nav className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-slate-300">
                 <Link href="/" className="hover:text-brand-orange transition-colors">Home</Link>
                 <span className="text-slate-500">/</span>
@@ -217,26 +218,31 @@ export default function CareersPage() {
                 <Sparkles className="w-3.5 h-3.5" />
                 <span>CAREERS AT Z COM NETWORKS</span>
               </div>
-            </div>
+            </BannerBadge>
 
             {/* Bold Headline */}
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading tracking-tight leading-[1.1] drop-shadow-md">
+            <BannerHeadline>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading tracking-tight leading-[1.1] drop-shadow-md">
               Engineer the Future of <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-brand-orange to-amber-300">
                 High-Speed Connectivity
               </span>
             </h1>
+            </BannerHeadline>
 
             {/* Concise Value Description */}
-            <p className="text-sm sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl drop-shadow-sm">
+            <BannerSubtext>
+              <p className="text-sm sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl drop-shadow-sm">
               Join our expanding Network Operations Center (NOC), optical infrastructure teams, and corporate technology professionals. Build a rewarding career with an industry-leading enterprise connectivity provider.
             </p>
+            </BannerSubtext>
 
+            <BannerActions className="space-y-4">
             {/* Action CTA & Stats */}
             <div className="pt-2 flex flex-wrap items-center gap-4">
               <a
                 href="#openings"
-                className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full btn-minimal-lift"
               >
                 <span>View Open Positions (<AnimatedCounter from={0} to={POSITIONS.length} />)</span>
                 <ArrowRight className="w-4 h-4" />
@@ -244,7 +250,7 @@ export default function CareersPage() {
 
               <a
                 href="#culture"
-                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full btn-minimal-lift"
               >
                 <span>Why Join Us</span>
               </a>
@@ -284,10 +290,11 @@ export default function CareersPage() {
                 <span className="text-[10px] text-slate-400 font-medium block">Full Benefits</span>
               </div>
             </div>
+            </BannerActions>
 
           </div>
         </div>
-      </section>
+      </MinimalistBanner>
 
       {/* ============================================================
           2. CULTURE & PERKS GRID

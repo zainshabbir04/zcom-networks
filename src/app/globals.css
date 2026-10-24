@@ -371,3 +371,24 @@
 .stagger-4 { animation-delay: 400ms; }
 .stagger-5 { animation-delay: 500ms; }
 .stagger-6 { animation-delay: 600ms; }
+
+
+/* ============================================================
+   JITTER "MINIMALIST WEBSITE" INSPIRED ENTRANCE & BUTTON SUITE
+   - Easing: cubic-bezier(0.22, 1, 0.36, 1)
+   - Duration: 0.7s
+   - Hover lift: translateY(-2px), no bounce, no spin, no shadows
+   ============================================================ */
+
+.btn-minimal-lift {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease !important;
+  box-shadow: none !important;
+}
+
+.btn-minimal-lift:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: none !important;
+}
