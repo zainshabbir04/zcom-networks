@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 import {
   Zap,
@@ -108,59 +109,93 @@ const COMPARISON_ROWS = [
 
 export default function WhyUsPage() {
   return (
-    <div className="py-12 sm:py-20 space-y-24">
-      {/* Page Header - Sign In style highlighted pill */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100 dark:bg-brand-orange/15 border border-orange-200 dark:border-brand-orange/30 text-brand-orange text-xs font-bold uppercase tracking-wider">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>THE Z COM ADVANTAGE</span>
+    <div className="relative transition-colors duration-300 space-y-20 sm:space-y-28 pb-16">
+      
+      {/* ============================================================
+          1. OUTSTANDING CINEMATIC HERO BANNER (STARTS DIRECTLY BELOW NAVBAR)
+          ============================================================ */}
+      <section className="relative w-full overflow-hidden bg-slate-950 border-b border-slate-800">
+        {/* Layer 0: User-Uploaded Dedicated Banner Image */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <Image
+            src="/images/why-us/hero-banner.jpg"
+            alt="Why Choose Z COM Networks - Carrier-Grade Optical Infrastructure"
+            fill
+            priority
+            unoptimized
+            className="object-cover object-center scale-100"
+          />
+          {/* Cinematic Dark Gradient Overlays for Maximum Legibility & Visual Atmosphere */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/35" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/40" />
+          <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-brand-orange/15 rounded-full blur-[140px] pointer-events-none" />
         </div>
 
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight">
-          A WHOLE NEW <span className="text-brand-orange">INTERNET EXPERIENCE</span>
-        </h1>
+        {/* Layer 1: Foreground Content Over Banner */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+          <div className="max-w-3xl space-y-6">
+            
+            {/* Breadcrumb & Status Pill */}
+            <div className="flex flex-wrap items-center gap-2.5 text-xs font-semibold">
+              <nav className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-slate-300">
+                <Link href="/" className="hover:text-brand-orange transition-colors">Home</Link>
+                <span className="text-slate-500">/</span>
+                <span className="text-brand-orange font-bold">Why Choose Us</span>
+              </nav>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/20 backdrop-blur-md border border-brand-orange/40 text-brand-orange text-[11px] font-black uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>THE Z COM ADVANTAGE</span>
+              </div>
+            </div>
 
-        <p className="text-base sm:text-lg text-slate-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-          Discover why hundreds of organizations and thousands of homes in Lahore rely on Z COM
-          Networks every single day for mission-critical, unthrottled fiber connectivity.
-        </p>
+            {/* Bold Headline */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading tracking-tight leading-[1.1] drop-shadow-md">
+              A Whole New <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-brand-orange to-amber-300">
+                Internet Experience
+              </span>
+            </h1>
 
-        {/* 4 Core SLA & Performance Benchmark Counters */}
-        <div className="pt-6 max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div className="p-4 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 shadow-sm text-center">
-            <span className="text-2xl sm:text-3xl font-black text-brand-orange font-heading block">
-              <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" />
-            </span>
-            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold mt-1 block">
-              Contractual SLA
-            </span>
-          </div>
+            {/* Concise Value Description */}
+            <p className="text-sm sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl drop-shadow-sm">
+              Discover why hundreds of organizations rely on Z COM Networks every single day for mission-critical, unthrottled, carrier-grade optical connectivity.
+            </p>
 
-          <div className="p-4 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 shadow-sm text-center">
-            <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-heading block">
-              <AnimatedCounter from={0} to={100} suffix=" Gbps" />
-            </span>
-            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold mt-1 block">
-              Backbone Core Ring
-            </span>
-          </div>
+            {/* 4 Core SLA & Benchmark Live Counters */}
+            <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
+              <div className="p-3.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all text-center sm:text-left">
+                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block">
+                  <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" />
+                </span>
+                <span className="text-xs text-white font-bold mt-0.5 block">Contractual SLA</span>
+                <span className="text-[10px] text-slate-400 font-medium block">Uptime Standard</span>
+              </div>
 
-          <div className="p-4 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 shadow-sm text-center">
-            <span className="text-2xl sm:text-3xl font-black text-brand-orange font-heading block">
-              <AnimatedCounter from={0} to={1} prefix="1:" suffix=" Sym" />
-            </span>
-            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold mt-1 block">
-              Zero Bandwidth Throttling
-            </span>
-          </div>
+              <div className="p-3.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all text-center sm:text-left">
+                <span className="text-xl sm:text-2xl font-black text-white font-heading block">
+                  <AnimatedCounter from={0} to={100} suffix="G" />
+                </span>
+                <span className="text-xs text-white font-bold mt-0.5 block">Core Ring</span>
+                <span className="text-[10px] text-slate-400 font-medium block">Optical Backbone</span>
+              </div>
 
-          <div className="p-4 rounded-2xl bg-white dark:bg-[#12161F] border border-slate-200/90 dark:border-slate-700/60 shadow-sm text-center">
-            <span className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-heading block">
-              <AnimatedCounter from={0} to={24} suffix="/7/365" />
-            </span>
-            <span className="text-xs text-slate-600 dark:text-slate-400 font-semibold mt-1 block">
-              Gulberg NOC Dispatch
-            </span>
+              <div className="p-3.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all text-center sm:text-left">
+                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block">
+                  <AnimatedCounter from={0} to={1} prefix="1:" suffix=" Sym" />
+                </span>
+                <span className="text-xs text-white font-bold mt-0.5 block">Zero Throttling</span>
+                <span className="text-[10px] text-slate-400 font-medium block">Uncontended DIA</span>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all text-center sm:text-left">
+                <span className="text-xl sm:text-2xl font-black text-white font-heading block">
+                  <AnimatedCounter from={0} to={24} suffix="/7/365" />
+                </span>
+                <span className="text-xs text-white font-bold mt-0.5 block">NOC Dispatch</span>
+                <span className="text-[10px] text-slate-400 font-medium block">Proactive Support</span>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
