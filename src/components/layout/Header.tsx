@@ -26,7 +26,7 @@ const NAV_LINKS = [
 
 const SERVICES_MENU = [
   {
-    name: "Corporate Internet Solutions",
+    name: "Corporate Solutions",
     href: "/services/corporate-internet",
     badge: "1:1 DIA",
     desc: "1:1 Symmetrical Dedicated Internet Access (DIA), MPLS & P2P links",
