@@ -137,22 +137,39 @@ export default function ManagedItPage() {
               Eliminate downtime and empower corporate business operations with 24/7 proactive NOC supervision, enterprise server maintenance, and rapid certified engineering dispatch.
             </p>
 
-            {/* Direct Action CTAs */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5"
-              >
-                <span>Request IT Infrastructure Audit</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+            {/* Service-Tailored Live Counters Strip (Replaces buttons) */}
+            <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">NOC Monitoring</span>
+                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block mt-0.5">
+                  <AnimatedCounter from={0} to={24} suffix="/7" />
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium block">Continuous Care</span>
+              </div>
 
-              <a
-                href="#capabilities"
-                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-all hover:-translate-y-0.5"
-              >
-                <span>Explore Capabilities</span>
-              </a>
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Field MTTR</span>
+                <span className="text-xl sm:text-2xl font-black text-white font-heading block mt-0.5">
+                  &lt; <AnimatedCounter from={0} to={30} suffix="m" />
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium block">Emergency Dispatch</span>
+              </div>
+
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Tech Tier</span>
+                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block mt-0.5">
+                  Level-3
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium block">Certified Engineers</span>
+              </div>
+
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Health Audits</span>
+                <span className="text-xl sm:text-2xl font-black text-white font-heading block mt-0.5">
+                  <AnimatedCounter from={0} to={100} suffix="%" />
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium block">Proactive Maintenance</span>
+              </div>
             </div>
 
           </div>

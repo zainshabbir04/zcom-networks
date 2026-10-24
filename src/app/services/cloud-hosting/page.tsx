@@ -136,22 +136,39 @@ export default function CloudHostingPage() {
               Power your enterprise workloads with resilient cloud infrastructure, Tier-3 data center colocation, corporate email suites, and high-availability hosting backed by contractual SLAs.
             </p>
 
-            {/* Direct Action CTAs */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5"
-              >
-                <span>Deploy Server / Inquire Space</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+            {/* Service-Tailored Live Counters Strip (Replaces buttons) */}
+            <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Uptime SLA</span>
+                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block mt-0.5">
+                  <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" />
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium block">Cloud Availability</span>
+              </div>
 
-              <a
-                href="#capabilities"
-                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-all hover:-translate-y-0.5"
-              >
-                <span>Explore Capabilities</span>
-              </a>
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Data Center</span>
+                <span className="text-xl sm:text-2xl font-black text-white font-heading block mt-0.5">
+                  Tier-3
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium block">Colocation Racks</span>
+              </div>
+
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Storage IOPS</span>
+                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block mt-0.5">
+                  NVMe
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium block">Gen4 High-IOPS</span>
+              </div>
+
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Uplink Pipe</span>
+                <span className="text-xl sm:text-2xl font-black text-white font-heading block mt-0.5">
+                  <AnimatedCounter from={0} to={100} suffix="G" />
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium block">Metro Cross-Connect</span>
+              </div>
             </div>
 
           </div>

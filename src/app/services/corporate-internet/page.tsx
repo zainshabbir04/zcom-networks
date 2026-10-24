@@ -137,22 +137,39 @@ export default function CorporateInternetPage() {
               Unrivaled 1:1 dedicated optical connectivity engineered for modern enterprises, financial institutions, and corporate complexes demanding 99.99% uptime and ultra-low latency.
             </p>
 
-            {/* Direct Action CTAs */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5"
-              >
-                <span>Request Feasibility Survey</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+            {/* Service-Tailored Live Counters Strip (Replaces buttons) */}
+            <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">SLA Uptime</span>
+                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block mt-0.5">
+                  <AnimatedCounter from={0} to={99.99} decimals={2} suffix="%" />
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium block">Contractual SLA</span>
+              </div>
 
-              <a
-                href="#capabilities"
-                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-all hover:-translate-y-0.5"
-              >
-                <span>Explore Capabilities</span>
-              </a>
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Bandwidth</span>
+                <span className="text-xl sm:text-2xl font-black text-white font-heading block mt-0.5">
+                  1:1 True
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium block">Uncontended DIA</span>
+              </div>
+
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Ring Failover</span>
+                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block mt-0.5">
+                  &lt; <AnimatedCounter from={0} to={50} suffix="ms" />
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium block">Self-Healing Ring</span>
+              </div>
+
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Speed Scale</span>
+                <span className="text-xl sm:text-2xl font-black text-white font-heading block mt-0.5">
+                  <AnimatedCounter from={0} to={100} suffix="G" />
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium block">Optical Transport</span>
+              </div>
             </div>
 
           </div>

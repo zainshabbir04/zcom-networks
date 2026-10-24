@@ -124,22 +124,39 @@ export default function DigitalSolutionsPage() {
               Elevate your corporate brand footprint with high-performance web development, native iOS &amp; Android applications, customer self-service portals, and impactful UI/UX brand identity systems.
             </p>
 
-            {/* Direct Action CTAs */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5"
-              >
-                <span>Start Digital Project</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
+            {/* Service-Tailored Live Counters Strip (Replaces buttons) */}
+            <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">UI/UX Quality</span>
+                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block mt-0.5">
+                  <AnimatedCounter from={0} to={100} suffix="%" />
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium block">Responsive Design</span>
+              </div>
 
-              <a
-                href="#capabilities"
-                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/20 font-bold text-xs sm:text-sm px-6 py-3.5 rounded-full transition-all hover:-translate-y-0.5"
-              >
-                <span>Explore Capabilities</span>
-              </a>
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Web Stack</span>
+                <span className="text-xl sm:text-2xl font-black text-white font-heading block mt-0.5">
+                  Next.js
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium block">React &amp; TypeScript</span>
+              </div>
+
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Mobile Apps</span>
+                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block mt-0.5">
+                  iOS &amp; Android
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium block">Cross-Platform</span>
+              </div>
+
+              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Performance</span>
+                <span className="text-xl sm:text-2xl font-black text-white font-heading block mt-0.5">
+                  &lt; <AnimatedCounter from={0} to={1} suffix="s" />
+                </span>
+                <span className="text-[10px] text-slate-300 font-medium block">Core Web Vitals</span>
+              </div>
             </div>
 
           </div>
