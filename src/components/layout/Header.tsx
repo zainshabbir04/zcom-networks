@@ -117,11 +117,11 @@ export default function Header() {
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-300 ${
           scrolled
-            ? "bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-sm"
-            : "bg-transparent border-transparent shadow-none"
+            ? "bg-slate-950/85 backdrop-blur-2xl border-b border-white/15 shadow-xl shadow-black/40"
+            : "bg-slate-950/65 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20"
         }`}
       >
-        <div className="max-w-7xl mx-auto py-3 sm:py-4 px-4 sm:px-8 transition-all duration-300">
+        <div className="max-w-7xl mx-auto py-3 sm:py-3.5 px-4 sm:px-8 transition-all duration-300">
           <div className="flex items-center justify-between gap-4 h-11 sm:h-12">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group shrink-0">
@@ -137,184 +137,189 @@ export default function Header() {
               </div>
             </Link>
 
-            {/* Desktop Navigation Links: Sleek Segmented Dock Style with Services Dropdown */}
-            {!isHome && (
-              <nav className="hidden lg:flex items-center gap-1 bg-slate-100/90 backdrop-blur-md p-1.5 rounded-full border border-slate-200/80 shadow-inner">
-                {NAV_LINKS.map((link) => {
-                  const isActive =
-                    pathname === link.href ||
-                    (link.name === "Services" && pathname.startsWith("/services"));
+            {/* Desktop Navigation Links: Sleek Frosted Glass Dock with All Pages Visible on All Pages */}
+            <nav className="hidden lg:flex items-center gap-1 bg-white/10 backdrop-blur-md p-1.5 rounded-full border border-white/15 shadow-inner">
+              {NAV_LINKS.map((link) => {
+                const isActive =
+                  pathname === link.href ||
+                  (link.name === "Services" && pathname.startsWith("/services"));
 
-                  if (link.name === "Services") {
-                    return (
-                      <div
-                        key={link.name}
-                        className="relative"
-                        onMouseEnter={handleDropdownEnter}
-                        onMouseLeave={handleDropdownLeave}
+                if (link.name === "Services") {
+                  return (
+                    <div
+                      key={link.name}
+                      className="relative"
+                      onMouseEnter={handleDropdownEnter}
+                      onMouseLeave={handleDropdownLeave}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setServicesDropdownOpen((prev) => !prev)}
+                        aria-expanded={servicesDropdownOpen}
+                        className={`relative px-4 py-1.5 rounded-full text-xs xl:text-sm font-bold whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
+                          isActive
+                            ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30 font-extrabold"
+                            : "text-slate-200 hover:text-white hover:bg-white/15"
+                        }`}
                       >
-                        <button
-                          type="button"
-                          onClick={() => setServicesDropdownOpen((prev) => !prev)}
-                          aria-expanded={servicesDropdownOpen}
-                          className={`relative px-4 py-1.5 rounded-full text-xs xl:text-sm font-bold whitespace-nowrap transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
-                            isActive
-                              ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30 font-extrabold"
-                              : "text-slate-700 hover:text-slate-900 hover:bg-white"
+                        <span>{link.name}</span>
+                        <ChevronDown
+                          className={`w-3.5 h-3.5 transition-transform duration-300 ${
+                            servicesDropdownOpen ? "rotate-180" : ""
                           }`}
-                        >
-                          <span>{link.name}</span>
-                          <ChevronDown
-                            className={`w-3.5 h-3.5 transition-transform duration-300 ${
-                              servicesDropdownOpen ? "rotate-180" : ""
-                            }`}
-                          />
-                        </button>
+                        />
+                      </button>
 
-                        {/* Luxury Solid Floating Services Mega-Dropdown Card */}
-                        {servicesDropdownOpen && (
+                      {/* Luxury Solid Floating Services Mega-Dropdown Card */}
+                      {servicesDropdownOpen && (
+                        <div
+                          className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 w-[460px] sm:w-[560px] max-w-[95vw]"
+                          onMouseEnter={handleDropdownEnter}
+                          onMouseLeave={handleDropdownLeave}
+                        >
                           <div
-                            className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 w-[460px] sm:w-[560px] max-w-[95vw]"
-                            onMouseEnter={handleDropdownEnter}
-                            onMouseLeave={handleDropdownLeave}
+                            style={{ backgroundColor: "#ffffff" }}
+                            className="rounded-3xl bg-white border-2 border-slate-200/95 shadow-[0_30px_90px_rgba(0,0,0,0.4)] overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200 ring-1 ring-black/10"
                           >
+                            {/* Top Gradient Edge Accent */}
+                            <div className="h-1.5 w-full bg-gradient-to-r from-brand-orange via-amber-500 to-orange-600" />
+
+                            {/* Dropdown Header */}
+                            <div
+                              style={{ backgroundColor: "#f8fafc" }}
+                              className="px-5 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between"
+                            >
+                              <div className="flex items-center gap-2.5">
+                                <span className="relative flex h-2.5 w-2.5">
+                                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-75"></span>
+                                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-orange"></span>
+                                </span>
+                                <span className="text-xs font-black uppercase tracking-wider text-slate-900">
+                                  Enterprise Services &amp; Products
+                                </span>
+                              </div>
+                              <span className="text-[11px] font-black px-2.5 py-0.5 rounded-full bg-orange-100 text-brand-orange border border-orange-200">
+                                5 Solutions
+                              </span>
+                            </div>
+
+                            {/* 5 Service Items */}
                             <div
                               style={{ backgroundColor: "#ffffff" }}
-                              className="rounded-3xl bg-white border-2 border-slate-200/95 shadow-[0_30px_90px_rgba(0,0,0,0.4)] overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200 ring-1 ring-black/10"
+                              className="p-3 bg-white space-y-2"
                             >
-                              {/* Top Gradient Edge Accent */}
-                              <div className="h-1.5 w-full bg-gradient-to-r from-brand-orange via-amber-500 to-orange-600" />
-
-                              {/* Dropdown Header */}
-                              <div
-                                style={{ backgroundColor: "#f8fafc" }}
-                                className="px-5 py-3.5 bg-slate-50 border-b border-slate-200 flex items-center justify-between"
-                              >
-                                <div className="flex items-center gap-2.5">
-                                  <span className="relative flex h-2.5 w-2.5">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-orange"></span>
-                                  </span>
-                                  <span className="text-xs font-black uppercase tracking-wider text-slate-900">
-                                    Enterprise Services &amp; Products
-                                  </span>
-                                </div>
-                                <span className="text-[11px] font-black px-2.5 py-0.5 rounded-full bg-orange-100 text-brand-orange border border-orange-200">
-                                  5 Solutions
-                                </span>
-                              </div>
-
-                              {/* 5 Service Items */}
-                              <div
-                                style={{ backgroundColor: "#ffffff" }}
-                                className="p-3 bg-white space-y-2"
-                              >
-                                {SERVICES_MENU.map((srv) => {
-                                  const Icon = srv.icon;
-                                  const isSrvActive = pathname === srv.href;
-                                  return (
-                                    <Link
-                                      key={srv.href}
-                                      href={srv.href}
-                                      onClick={() => setServicesDropdownOpen(false)}
-                                      style={{
-                                        backgroundColor: isSrvActive ? "#fff7ed" : "#f8fafc",
-                                      }}
-                                      className={`flex items-center gap-3.5 p-3 rounded-2xl transition-all duration-200 group border ${
+                              {SERVICES_MENU.map((srv) => {
+                                const Icon = srv.icon;
+                                const isSrvActive = pathname === srv.href;
+                                return (
+                                  <Link
+                                    key={srv.href}
+                                    href={srv.href}
+                                    onClick={() => setServicesDropdownOpen(false)}
+                                    style={{
+                                      backgroundColor: isSrvActive ? "#fff7ed" : "#f8fafc",
+                                    }}
+                                    className={`flex items-center gap-3.5 p-3 rounded-2xl transition-all duration-200 group border ${
+                                      isSrvActive
+                                        ? "border-brand-orange shadow-md shadow-brand-orange/15 ring-1 ring-brand-orange/30"
+                                        : "border-slate-200 hover:border-brand-orange/60 hover:bg-orange-50/70 hover:shadow-md"
+                                    }`}
+                                  >
+                                    {/* Icon Tile */}
+                                    <div
+                                      className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-all duration-200 ${
                                         isSrvActive
-                                          ? "border-brand-orange shadow-md shadow-brand-orange/15 ring-1 ring-brand-orange/30"
-                                          : "border-slate-200 hover:border-brand-orange/60 hover:bg-orange-50/70 hover:shadow-md"
+                                          ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30 scale-105"
+                                          : "bg-orange-100 text-brand-orange group-hover:bg-brand-orange group-hover:text-white group-hover:shadow-md group-hover:shadow-brand-orange/25 group-hover:scale-105"
                                       }`}
                                     >
-                                      {/* Icon Tile */}
-                                      <div
-                                        className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-all duration-200 ${
-                                          isSrvActive
-                                            ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30 scale-105"
-                                            : "bg-orange-100 text-brand-orange group-hover:bg-brand-orange group-hover:text-white group-hover:shadow-md group-hover:shadow-brand-orange/25 group-hover:scale-105"
-                                        }`}
-                                      >
-                                        <Icon className="w-5 h-5" />
-                                      </div>
+                                      <Icon className="w-5 h-5" />
+                                    </div>
 
-                                      {/* Content */}
-                                      <div className="flex-1 min-w-0">
-                                        <div className="flex items-center justify-between gap-2">
-                                          <div className="flex items-center gap-2 min-w-0">
-                                            <span className="text-sm sm:text-[15px] font-extrabold text-slate-900 group-hover:text-brand-orange transition-colors truncate">
-                                              {srv.name}
-                                            </span>
-                                            <span className="hidden sm:inline-block text-[11px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-brand-orange border border-orange-200/80 shrink-0">
-                                              {srv.badge}
-                                            </span>
-                                          </div>
-                                          <div className="w-7 h-7 rounded-full bg-slate-200/80 group-hover:bg-brand-orange text-slate-600 group-hover:text-white flex items-center justify-center shrink-0 transition-all duration-200 group-hover:translate-x-0.5 shadow-sm">
-                                            <ArrowRight className="w-3.5 h-3.5" />
-                                          </div>
+                                    {/* Content */}
+                                    <div className="flex-1 min-w-0">
+                                      <div className="flex items-center justify-between gap-2">
+                                        <div className="flex items-center gap-2 min-w-0">
+                                          <span className="text-sm sm:text-[15px] font-extrabold text-slate-900 group-hover:text-brand-orange transition-colors truncate">
+                                            {srv.name}
+                                          </span>
+                                          <span className="hidden sm:inline-block text-[11px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-brand-orange border border-orange-200/80 shrink-0">
+                                            {srv.badge}
+                                          </span>
                                         </div>
-                                        <p className="text-xs text-slate-600 group-hover:text-slate-800 line-clamp-1 mt-0.5 font-medium">
-                                          {srv.desc}
-                                        </p>
+                                        <div className="w-7 h-7 rounded-full bg-slate-200/80 group-hover:bg-brand-orange text-slate-600 group-hover:text-white flex items-center justify-center shrink-0 transition-all duration-200 group-hover:translate-x-0.5 shadow-sm">
+                                          <ArrowRight className="w-3.5 h-3.5" />
+                                        </div>
                                       </div>
-                                    </Link>
-                                  );
-                                })}
-                              </div>
+                                      <p className="text-xs text-slate-600 group-hover:text-slate-800 line-clamp-1 mt-0.5 font-medium">
+                                        {srv.desc}
+                                      </p>
+                                    </div>
+                                  </Link>
+                                );
+                              })}
+                            </div>
 
-                              {/* Dropdown Bottom SLA Ribbon */}
-                              <div
-                                style={{ backgroundColor: "#f8fafc" }}
-                                className="px-5 py-3 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs"
-                              >
-                                <div className="flex items-center gap-2 text-slate-700 font-bold">
-                                  <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                                  <span>Contractual SLA: 99.99% Availability</span>
-                                </div>
-                                <span className="text-brand-orange font-extrabold">
-                                  Direct Support: +92 42 345 11 111
-                                </span>
+                            {/* Dropdown Bottom SLA Ribbon */}
+                            <div
+                              style={{ backgroundColor: "#f8fafc" }}
+                              className="px-5 py-3 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-xs"
+                            >
+                              <div className="flex items-center gap-2 text-slate-700 font-bold">
+                                <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                <span>Contractual SLA: 99.99% Availability</span>
                               </div>
+                              <span className="text-brand-orange font-extrabold">
+                                Direct Support: +92 42 345 11 111
+                              </span>
                             </div>
                           </div>
-                        )}
-                      </div>
-                    );
-                  }
-
-                  return (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      className={`relative px-4 py-1.5 rounded-full text-xs xl:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
-                        isActive
-                          ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30 font-extrabold"
-                          : "text-slate-700 hover:text-slate-900 hover:bg-white"
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
+                        </div>
+                      )}
+                    </div>
                   );
-                })}
-              </nav>
-            )}
+                }
 
-            {/* Right Controls: Modern Menu Button (Only shown on Home Page) */}
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`relative px-4 py-1.5 rounded-full text-xs xl:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
+                      isActive
+                        ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30 font-extrabold"
+                        : "text-slate-200 hover:text-white hover:bg-white/15"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            {/* Right Controls: Quick Action & Mobile Menu Toggle */}
             <div className="flex items-center gap-3 shrink-0">
-              {isHome && (
-                <button
-                  onClick={() => setIsOpen(true)}
-                  aria-label="Open Navigation Menu"
-                  className="px-4 py-2 rounded-full transition-all duration-200 flex items-center gap-2 shadow-sm cursor-pointer group bg-slate-900 hover:bg-brand-orange text-white border border-slate-800 hover:border-brand-orange"
-                  title="Open Navigation Menu"
-                >
-                  <div className="flex flex-col gap-1 w-4">
-                    <span className="h-0.5 w-4 bg-white rounded-full transition-transform group-hover:translate-x-0.5"></span>
-                    <span className="h-0.5 w-3 bg-brand-orange rounded-full group-hover:w-4 transition-all"></span>
-                    <span className="h-0.5 w-4 bg-white rounded-full transition-transform group-hover:-translate-x-0.5"></span>
-                  </div>
-                  <span className="text-xs font-bold uppercase tracking-wider">Menu</span>
-                </button>
-              )}
+              <Link
+                href="/contact"
+                className="hidden xl:inline-flex items-center gap-1.5 bg-gradient-to-r from-brand-orange via-orange-500 to-amber-500 hover:from-orange-600 hover:to-brand-orange text-white text-xs font-bold px-4 sm:px-5 py-2 rounded-full transition-all shadow-md shadow-brand-orange/30 hover:scale-105"
+              >
+                <span>Get Connected</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+
+              {/* Mobile Menu Button (Only on small screens where dock is hidden) */}
+              <button
+                onClick={() => setIsOpen(true)}
+                aria-label="Open Navigation Menu"
+                className="lg:hidden px-3.5 py-1.5 rounded-full transition-all duration-200 flex items-center gap-2 bg-white/10 hover:bg-brand-orange text-white border border-white/20 hover:border-brand-orange shadow-sm cursor-pointer group backdrop-blur-md"
+                title="Open Navigation Menu"
+              >
+                <div className="flex flex-col gap-1 w-4">
+                  <span className="h-0.5 w-4 bg-white rounded-full transition-transform group-hover:translate-x-0.5"></span>
+                  <span className="h-0.5 w-3 bg-brand-orange rounded-full group-hover:w-4 transition-all"></span>
+                  <span className="h-0.5 w-4 bg-white rounded-full transition-transform group-hover:-translate-x-0.5"></span>
+                </div>
+                <span className="text-xs font-bold uppercase tracking-wider">Menu</span>
+              </button>
             </div>
           </div>
         </div>
