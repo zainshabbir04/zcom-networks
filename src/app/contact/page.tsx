@@ -1,6 +1,9 @@
 import React from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 import { Phone, Mail, MapPin, Clock, MessageSquare, Sparkles } from "lucide-react";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 import CoverageForm from "@/components/ui/CoverageForm";
 import ContactForm from "@/components/ui/ContactForm";
@@ -47,22 +50,95 @@ const CONTACT_INFO = [
 
 export default function ContactPage() {
   return (
-    <div className="py-12 sm:py-20 space-y-20 transition-colors duration-300">
-      {/* Page Header */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100 dark:bg-brand-orange/15 border border-orange-200 dark:border-brand-orange/30 text-brand-orange text-xs font-bold uppercase tracking-wider">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>CONTACT &amp; COVERAGE</span>
+    <div className="relative transition-colors duration-300 space-y-16 sm:space-y-24 pb-16">
+      
+      {/* ============================================================
+          1. OUTSTANDING CINEMATIC HERO BANNER (STARTS DIRECTLY BELOW NAVBAR)
+          ============================================================ */}
+      <section className="relative w-full overflow-hidden bg-slate-950 border-b border-slate-800">
+        {/* Layer 0: User-Uploaded Dedicated Banner Image */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <Image
+            src="/images/contact/hero-banner.jpg"
+            alt="Contact Z COM Networks - 24/7 Enterprise Support"
+            fill
+            priority
+            unoptimized
+            className="object-cover object-center scale-100"
+          />
+          {/* Cinematic Dark Gradient Overlays for Maximum Legibility & Visual Atmosphere */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/40" />
+          <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-brand-orange/15 rounded-full blur-[140px] pointer-events-none" />
         </div>
 
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight">
-          Let&apos;s Connect &amp; Power Your Connectivity
-        </h1>
+        {/* Layer 1: Foreground Content Over Banner */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
+          <div className="max-w-3xl space-y-6">
+            
+            {/* Breadcrumb & Status Pill */}
+            <div className="flex flex-wrap items-center gap-2.5 text-xs font-semibold">
+              <nav className="flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-slate-300">
+                <Link href="/" className="hover:text-brand-orange transition-colors">Home</Link>
+                <span className="text-slate-500">/</span>
+                <span className="text-brand-orange font-bold">Contact Us</span>
+              </nav>
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/20 backdrop-blur-md border border-brand-orange/40 text-brand-orange text-[11px] font-black uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>24/7 DIRECT SUPPORT &amp; NOC</span>
+              </div>
+            </div>
 
-        <p className="text-base sm:text-lg text-slate-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-          Reach out to our 24/7 technical desk, check fiber coverage in your neighborhood, or
-          schedule a free optical site survey in Lahore.
-        </p>
+            {/* Bold Headline */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading tracking-tight leading-[1.1] drop-shadow-md">
+              Let&apos;s Connect &amp; Power <br className="hidden sm:inline" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-brand-orange to-amber-300">
+                Your Connectivity
+              </span>
+            </h1>
+
+            {/* Concise Value Description */}
+            <p className="text-sm sm:text-base lg:text-lg text-slate-200 leading-relaxed font-normal max-w-2xl drop-shadow-sm">
+              Reach out to our round-the-clock technical operations desk, check dedicated coverage availability, or request a complimentary on-site engineering feasibility survey.
+            </p>
+
+            {/* 4 Quick Telemetry Badges / Counters */}
+            <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
+              <div className="p-3.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all text-center sm:text-left">
+                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block">
+                  <AnimatedCounter from={0} to={24} suffix="/7/365" />
+                </span>
+                <span className="text-xs text-white font-bold mt-0.5 block">Hotline NOC</span>
+                <span className="text-[10px] text-slate-400 font-medium block">Always Online</span>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all text-center sm:text-left">
+                <span className="text-xl sm:text-2xl font-black text-white font-heading block">
+                  &lt; <AnimatedCounter from={0} to={15} suffix="m" />
+                </span>
+                <span className="text-xs text-white font-bold mt-0.5 block">Response MTTR</span>
+                <span className="text-[10px] text-slate-400 font-medium block">Priority Care</span>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all text-center sm:text-left">
+                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block">
+                  Free
+                </span>
+                <span className="text-xs text-white font-bold mt-0.5 block">Site Survey</span>
+                <span className="text-[10px] text-slate-400 font-medium block">On-Site Audit</span>
+              </div>
+
+              <div className="p-3.5 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all text-center sm:text-left">
+                <span className="text-xl sm:text-2xl font-black text-white font-heading block">
+                  <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" />
+                </span>
+                <span className="text-xs text-white font-bold mt-0.5 block">SLA Uptime</span>
+                <span className="text-[10px] text-slate-400 font-medium block">Guaranteed Link</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </section>
 
       {/* Coverage Checker Card (Interactive Form) */}
