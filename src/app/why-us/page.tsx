@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import NetworkLoopVideo from "@/components/ui/NetworkLoopVideo";
 
 export const metadata: Metadata = {
   title: "Why Choose Us | Z COM Networks Private Limited",
@@ -224,18 +225,10 @@ export default function WhyUsPage() {
           <div className="absolute -inset-1 bg-gradient-to-r from-brand-orange/30 via-orange-500/15 to-amber-500/20 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
           
           <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-800 bg-black shadow-2xl">
-            <video
+            <NetworkLoopVideo
               src="/videos/network-map.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              controls
-              preload="metadata"
               className="w-full h-auto max-h-[620px] object-contain mx-auto"
-            >
-              Your browser does not support the video tag.
-            </video>
+            />
           </div>
         </div>
       </section>
