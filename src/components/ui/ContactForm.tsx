@@ -54,12 +54,12 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4 text-left">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label
             htmlFor="name"
-            className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-gray-300 mb-1.5"
+            className="block text-xs font-semibold uppercase tracking-wider text-slate-200 mb-1.5"
           >
             Your Full Name *
           </label>
@@ -70,13 +70,13 @@ export default function ContactForm() {
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             placeholder="John Doe"
-            className="w-full bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60 rounded-xl py-3 px-4 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
+            className="w-full bg-black/50 border border-white/15 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
           />
         </div>
         <div>
           <label
             htmlFor="contactPhone"
-            className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5"
+            className="block text-xs font-semibold uppercase tracking-wider text-slate-200 mb-1.5"
           >
             Phone / WhatsApp *
           </label>
@@ -87,7 +87,7 @@ export default function ContactForm() {
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
             placeholder="0300 1234567"
-            className="w-full bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60 rounded-xl py-3 px-4 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
+            className="w-full bg-black/50 border border-white/15 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
           />
         </div>
       </div>
@@ -96,7 +96,7 @@ export default function ContactForm() {
         <div>
           <label
             htmlFor="email"
-            className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5"
+            className="block text-xs font-semibold uppercase tracking-wider text-slate-200 mb-1.5"
           >
             Email Address
           </label>
@@ -106,13 +106,13 @@ export default function ContactForm() {
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             placeholder="name@company.com"
-            className="w-full bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60 rounded-xl py-3 px-4 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
+            className="w-full bg-black/50 border border-white/15 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
           />
         </div>
         <div>
           <label
             htmlFor="subject"
-            className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5"
+            className="block text-xs font-semibold uppercase tracking-wider text-slate-200 mb-1.5"
           >
             Service of Interest
           </label>
@@ -120,15 +120,15 @@ export default function ContactForm() {
             id="subject"
             value={formData.subject}
             onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-            className="w-full bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60 rounded-xl py-3 px-4 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
+            className="w-full bg-black/50 border border-white/15 rounded-xl py-3 px-4 text-sm text-white focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
           >
-            <option value="Corporate Dedicated Internet (DIA)">Corporate Dedicated Internet (DIA)</option>
-            <option value="Residential High-Speed Fiber">Residential High-Speed Fiber</option>
-            <option value="SME Internet Business Solution">SME Internet Business Solution</option>
-            <option value="Point-to-Point Fiber / MPLS VPN">Point-to-Point Fiber / MPLS VPN</option>
-            <option value="Data Center & Colocation">Data Center &amp; Colocation</option>
-            <option value="Web & App Solutions">Web &amp; App Solutions</option>
-            <option value="General Inquiry / Support">General Inquiry / Support</option>
+            <option value="Corporate Dedicated Internet (DIA)" className="bg-slate-900 text-white">Corporate Dedicated Internet (DIA)</option>
+            <option value="Residential High-Speed Fiber" className="bg-slate-900 text-white">Residential High-Speed Fiber</option>
+            <option value="SME Internet Business Solution" className="bg-slate-900 text-white">SME Internet Business Solution</option>
+            <option value="Point-to-Point Fiber / MPLS VPN" className="bg-slate-900 text-white">Point-to-Point Fiber / MPLS VPN</option>
+            <option value="Data Center & Colocation" className="bg-slate-900 text-white">Data Center &amp; Colocation</option>
+            <option value="Web & App Solutions" className="bg-slate-900 text-white">Web &amp; App Solutions</option>
+            <option value="General Inquiry / Support" className="bg-slate-900 text-white">General Inquiry / Support</option>
           </select>
         </div>
       </div>
@@ -136,7 +136,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5"
+          className="block text-xs font-semibold uppercase tracking-wider text-slate-200 mb-1.5"
         >
           Message / Requirement Details
         </label>
@@ -146,19 +146,19 @@ export default function ContactForm() {
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           placeholder="Tell us about your organization, bandwidth requirement, or specific Lahore address..."
-          className="w-full bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60 rounded-xl py-3 px-4 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
+          className="w-full bg-black/50 border border-white/15 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
         />
       </div>
 
       <button
         type="submit"
-        className="w-full inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-lg shadow-brand-orange/30 hover:shadow-brand-orange/50 mt-2"
+        className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-brand-orange via-orange-500 to-amber-500 hover:from-orange-600 hover:to-brand-orange text-white font-extrabold py-4 px-6 rounded-xl transition-all duration-200 shadow-xl shadow-brand-orange/30 hover:shadow-brand-orange/50 mt-2"
       >
         <span>Send Inquiry via WhatsApp</span>
         <ArrowRight className="w-4 h-4" />
       </button>
 
-      <p className="text-[11px] text-slate-500 dark:text-gray-400 text-center">
+      <p className="text-[11px] text-slate-400 text-center">
         Direct channel to our Gulberg-III NOC &amp; sales desk in Lahore.
       </p>
     </form>
