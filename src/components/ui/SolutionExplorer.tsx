@@ -38,7 +38,7 @@ const SOLUTIONS: SolutionItem[] = [
     icon: <Globe className="w-5 h-5 text-brand-orange" />,
     image: "/images/services/corporate-internet.jpg",
     href: "/services/corporate-internet",
-    title: "Corporate Internet Solutions",
+    title: "Corporate Solutions",
     target: "Enterprises, Financial Institutions, Corporate HQs & Campuses",
     description:
       "Enterprise-grade optical connectivity featuring true 1:1 contention, multi-site MPLS routing, encrypted VPN tunnels, and subterranean Point-to-Point fiber links across Lahore.",
@@ -55,7 +55,7 @@ const SOLUTIONS: SolutionItem[] = [
     ],
     highlight: <span>1:1 Symmetrical Bandwidth SLA</span>,
     whatsappMessage:
-      "Hello Z COM! I am inquiring about Corporate Internet Solutions (DIA, MPLS, P2P Fiber) for our organization in Lahore.",
+      "Hello Z COM! I am inquiring about Corporate Solutions (DIA, MPLS, P2P Fiber) for our organization in Lahore.",
   },
   {
     id: "cloud",

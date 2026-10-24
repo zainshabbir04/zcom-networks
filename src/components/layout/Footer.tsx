@@ -99,7 +99,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link href="/services/corporate-internet" className="hover:text-brand-orange transition-colors">
-                  Corporate Internet (DIA &amp; MPLS)
+                  Corporate Solutions (DIA &amp; MPLS)
                 </Link>
               </li>
               <li>

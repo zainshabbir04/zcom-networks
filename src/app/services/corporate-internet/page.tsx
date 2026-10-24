@@ -27,9 +27,9 @@ import MinimalistBanner, { BannerImage, BannerBadge, BannerHeadline, BannerSubte
 import ScrollReveal, { StaggerContainer } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
-  title: "Corporate Internet Solutions | DIA, MPLS & Metro Optical | Z COM Networks",
+  title: "Corporate Solutions | DIA, MPLS & Metro Optical | Z COM Networks",
   description:
-    "Carrier-grade Corporate Internet Solutions: Dedicated Internet Access (DIA), MPLS, VPN Solutions, and Point to Point Optical Connectivity with 99.99% SLA.",
+    "Carrier-grade Corporate Solutions: Dedicated Internet Access (DIA), MPLS, VPN Solutions, and Point to Point Optical Connectivity with 99.99% SLA.",
 };
 
 const SUB_SERVICES = [
@@ -95,7 +95,7 @@ export default function CorporateInternetPage() {
         <BannerImage className="absolute inset-0 z-0 overflow-hidden">
           <Image
             src="/images/services/corporate-internet.jpg"
-            alt="Corporate Internet Solutions - Z COM Networks"
+            alt="Corporate Solutions - Z COM Networks"
             fill
             priority
             unoptimized
@@ -118,7 +118,7 @@ export default function CorporateInternetPage() {
                 <span className="text-slate-500">/</span>
                 <span className="text-slate-400">Services</span>
                 <span className="text-slate-500">/</span>
-                <span className="text-brand-orange font-bold">Corporate Internet Solutions</span>
+                <span className="text-brand-orange font-bold">Corporate Solutions</span>
               </nav>
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange/20 backdrop-blur-md border border-brand-orange/40 text-brand-orange text-[11px] font-black uppercase tracking-wider">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-ping" />
@@ -129,7 +129,7 @@ export default function CorporateInternetPage() {
             {/* Bold Clear Headline */}
             <BannerHeadline>
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white font-heading tracking-tight leading-[1.1] drop-shadow-md">
-              Corporate Internet <br />
+              Corporate <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-brand-orange to-amber-300">
                 Solutions
               </span>
