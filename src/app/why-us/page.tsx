@@ -330,23 +330,42 @@ export default function WhyUsPage() {
 
 
 
-      {/* Bottom CTA */}
+      {/* Bottom CTA Card - Silver Grey with Light Orange Touches */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white dark:bg-[#12161F] p-6 sm:p-10 lg:p-12 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 text-center space-y-6 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
-          <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
-            Ready to Connect Your Organization?
-          </h3>
-          <p className="text-sm sm:text-base text-slate-600 dark:text-gray-300 max-w-xl mx-auto">
-            Book a complimentary optical site survey with our network engineering team in Lahore.
-          </p>
-          <div className="pt-2">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5 w-full sm:w-auto text-center"
-            >
-              <span>Schedule Free Site Survey</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+        <div className="relative overflow-hidden rounded-3xl p-8 sm:p-12 lg:p-14 text-center space-y-6 shadow-2xl bg-gradient-to-br from-slate-100 via-slate-200/85 to-zinc-200 dark:from-[#1E232E] dark:via-[#171B24] dark:to-[#12151C] border border-slate-300/80 dark:border-slate-700/80">
+          
+          {/* Light Orange Accent Touches */}
+          <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-brand-orange to-transparent" />
+          <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-96 h-44 bg-brand-orange/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-20 right-10 w-72 h-36 bg-amber-400/10 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Content */}
+          <div className="relative z-10 space-y-4 max-w-2xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/25 text-brand-orange text-xs font-bold uppercase tracking-wider">
+              <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
+              <span>DIRECT ENTERPRISE ONBOARDING</span>
+            </div>
+
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight leading-tight">
+              Ready to Connect{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">
+                Your Organization?
+              </span>
+            </h3>
+
+            <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl mx-auto leading-relaxed">
+              Book a complimentary optical site survey and custom feasibility assessment with our senior certified network engineering team.
+            </p>
+
+            <div className="pt-3">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold py-3.5 px-8 rounded-full transition-all shadow-lg shadow-brand-orange/30 hover:-translate-y-0.5 text-sm"
+              >
+                <span>Schedule Free Site Survey</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
