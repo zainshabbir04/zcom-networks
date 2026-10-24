@@ -17,7 +17,6 @@ import {
   MapPin,
 } from "lucide-react";
 
-import NetworkCoverageMap from "@/components/ui/NetworkCoverageMap";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 export const metadata: Metadata = {
@@ -167,10 +166,10 @@ export default function WhyUsPage() {
       </section>
 
       {/* ============================================================
-          INTERACTIVE ANIMATED COVERAGE MAP (WHERE INTERNET IS PROVIDED)
+          NETWORK COVERAGE & TRANSMISSION GRID VIDEO ANIMATION
           ============================================================ */}
       <section id="coverage-map" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-brand-orange text-xs font-bold uppercase tracking-wider">
             <MapPin className="w-3.5 h-3.5" />
             <span>OPTICAL FOOTPRINT &amp; TRANSMISSION GRID</span>
@@ -179,12 +178,31 @@ export default function WhyUsPage() {
             Where Internet is Provided Across Cities
           </h2>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400">
-            Explore our optical fiber transmission grid across major Punjab metropolises and our
-            dense metro fiber ring connecting all key business and residential zones in Lahore.
+            Explore our optical fiber transmission grid across major metropolises and our
+            dense metro fiber ring connecting all key business and residential zones.
           </p>
         </div>
 
-        <NetworkCoverageMap />
+        {/* High-Definition Network Animation Video Player */}
+        <div className="relative max-w-5xl mx-auto">
+          {/* Subtle Ambient Orange Glow behind the video card */}
+          <div className="absolute -inset-1 bg-gradient-to-r from-brand-orange/30 via-orange-500/15 to-amber-500/20 rounded-3xl blur-2xl opacity-60 pointer-events-none" />
+          
+          <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-800 bg-black shadow-2xl">
+            <video
+              src="/videos/network-map.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls
+              preload="metadata"
+              className="w-full h-auto max-h-[620px] object-contain mx-auto"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
       </section>
 
       {/* 8 Reasons Cards */}
