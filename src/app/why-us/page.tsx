@@ -17,11 +17,8 @@ import {
   MapPin,
 } from "lucide-react";
 
-import PartnersMarquee from "@/components/ui/PartnersMarquee";
-import ClientsAnimatedMarquee from "@/components/ui/ClientsAnimatedMarquee";
 import NetworkCoverageMap from "@/components/ui/NetworkCoverageMap";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import TestimonialsLoopSlider from "@/components/ui/TestimonialsLoopSlider";
 
 export const metadata: Metadata = {
   title: "Why Choose Us | Z COM Networks Private Limited",
@@ -278,53 +275,7 @@ export default function WhyUsPage() {
         </div>
       </section>
 
-      {/* Verified Client Testimonials Loop Slider */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="text-center max-w-2xl mx-auto space-y-3">
-          <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
-            ENTERPRISE TESTIMONIALS
-          </span>
-          <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
-            Verified Experiences from Lahore Leaders
-          </h2>
-          <p className="text-sm text-slate-600 dark:text-slate-400">
-            Hear directly from CIOs, medical heads, and technology leaders running mission-critical
-            operations on Z COM optical circuits.
-          </p>
-        </div>
 
-        <TestimonialsLoopSlider />
-      </section>
-
-      {/* Global Technology Partners */}
-      <section className="py-12 bg-slate-100/60 dark:bg-[#0E1118]/80 backdrop-blur-md border-y border-slate-200/70 dark:border-slate-800/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-8">
-          <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
-            CARRIER-GRADE INFRASTRUCTURE
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading mt-2">
-            Industry Technology Partners
-          </h2>
-        </div>
-        <PartnersMarquee />
-      </section>
-
-      {/* Trusted Clients - Colorful & Animation Loops */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
-          <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
-            PROVEN TRACK RECORD
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading">
-            Trusted by Lahore&apos;s Leading Organizations
-          </h2>
-          <p className="text-sm text-slate-600 dark:text-slate-400">
-            Explore our enterprise client deployments across healthcare, hospitality, education,
-            real estate, and tech.
-          </p>
-        </div>
-        <ClientsAnimatedMarquee />
-      </section>
 
       {/* Bottom CTA */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
