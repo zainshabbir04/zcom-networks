@@ -22,10 +22,10 @@ export default function CoverageForm() {
 
   if (submitted) {
     return (
-      <div className="p-6 rounded-2xl bg-orange-50 border border-orange-200 text-center space-y-3">
+      <div className="p-6 rounded-2xl bg-black/60 border border-brand-orange/40 text-center space-y-3 backdrop-blur-md">
         <CheckCircle2 className="w-10 h-10 text-brand-orange mx-auto" />
-        <h4 className="font-bold text-slate-900 text-lg">Inquiry Forwarded!</h4>
-        <p className="text-sm text-slate-600">
+        <h4 className="font-bold text-white text-lg font-heading">Inquiry Forwarded!</h4>
+        <p className="text-sm text-slate-300">
           Our Lahore field team has received your location and will confirm node
           feasibility with you momentarily via WhatsApp.
         </p>
@@ -35,7 +35,7 @@ export default function CoverageForm() {
             setArea("");
             setPhone("");
           }}
-          className="text-xs text-brand-orange font-semibold hover:underline pt-2"
+          className="text-xs text-brand-orange font-semibold hover:underline pt-2 cursor-pointer"
         >
           Check another location
         </button>
@@ -44,11 +44,11 @@ export default function CoverageForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4 text-left">
       <div>
         <label
           htmlFor="area"
-          className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5"
+          className="block text-xs font-semibold uppercase tracking-wider text-slate-200 mb-1.5"
         >
           Your Area / Sector in Lahore *
         </label>
@@ -61,7 +61,7 @@ export default function CoverageForm() {
             value={area}
             onChange={(e) => setArea(e.target.value)}
             placeholder="e.g. Gulberg-III, Phase 5 DHA, Johar Town"
-            className="w-full bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60 rounded-xl py-3 pl-10 pr-4 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
+            className="w-full bg-black/50 border border-white/15 rounded-xl py-3.5 pl-10 pr-4 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
           />
         </div>
       </div>
@@ -69,7 +69,7 @@ export default function CoverageForm() {
       <div>
         <label
           htmlFor="phone"
-          className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5"
+          className="block text-xs font-semibold uppercase tracking-wider text-slate-200 mb-1.5"
         >
           WhatsApp / Phone Number *
         </label>
@@ -82,20 +82,20 @@ export default function CoverageForm() {
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="e.g. 0300 1234567"
-            className="w-full bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60 rounded-xl py-3 pl-10 pr-4 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
+            className="w-full bg-black/50 border border-white/15 rounded-xl py-3.5 pl-10 pr-4 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
           />
         </div>
       </div>
 
       <button
         type="submit"
-        className="w-full inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-lg shadow-brand-orange/30 hover:shadow-brand-orange/50 mt-2"
+        className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-brand-orange via-orange-500 to-amber-500 hover:from-orange-600 hover:to-brand-orange text-white font-extrabold text-sm sm:text-base py-4 px-8 rounded-2xl transition-all duration-200 shadow-xl shadow-brand-orange/40 hover:shadow-brand-orange/60 hover:scale-[1.02] cursor-pointer mt-2"
       >
         <span>Verify Coverage &amp; Schedule Survey</span>
         <ArrowRight className="w-4 h-4" />
       </button>
 
-      <p className="text-[11px] text-slate-500 dark:text-gray-400 text-center">
+      <p className="text-[11px] text-slate-400 text-center">
         ✓ 100% Free optical site survey • No installation charges • Zero commitment
       </p>
     </form>
