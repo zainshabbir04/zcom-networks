@@ -14,7 +14,6 @@ import {
   ShieldCheck,
   Code2,
 } from "lucide-react";
-import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 const NAV_LINKS = [
   { name: "Home", href: "/" },
@@ -117,11 +116,9 @@ export default function Header() {
     <>
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-300 ${
-          isHome
-            ? scrolled
-              ? "bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-sm"
-              : "bg-transparent border-transparent shadow-none"
-            : "bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-sm"
+          scrolled
+            ? "bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-sm"
+            : "bg-transparent border-transparent shadow-none"
         }`}
       >
         <div className="max-w-7xl mx-auto py-3 sm:py-4 px-4 sm:px-8 transition-all duration-300">
@@ -301,29 +298,23 @@ export default function Header() {
               </nav>
             )}
 
-            {/* Right Controls: Telemetry Pill & Modern Menu Button (Check Availability removed) */}
+            {/* Right Controls: Modern Menu Button (Only shown on Home Page) */}
             <div className="flex items-center gap-3 shrink-0">
-              {!isHome && (
-                <div className="hidden xl:flex items-center gap-2 text-xs font-bold text-slate-700 bg-slate-100/90 px-3.5 py-1.5 rounded-full border border-slate-200/80 whitespace-nowrap shadow-sm">
-                  <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
-                  <span>Core <AnimatedCounter from={0} to={100} duration={1400} />G: Optimal</span>
-                </div>
+              {isHome && (
+                <button
+                  onClick={() => setIsOpen(true)}
+                  aria-label="Open Navigation Menu"
+                  className="px-4 py-2 rounded-full transition-all duration-200 flex items-center gap-2 shadow-sm cursor-pointer group bg-slate-900 hover:bg-brand-orange text-white border border-slate-800 hover:border-brand-orange"
+                  title="Open Navigation Menu"
+                >
+                  <div className="flex flex-col gap-1 w-4">
+                    <span className="h-0.5 w-4 bg-white rounded-full transition-transform group-hover:translate-x-0.5"></span>
+                    <span className="h-0.5 w-3 bg-brand-orange rounded-full group-hover:w-4 transition-all"></span>
+                    <span className="h-0.5 w-4 bg-white rounded-full transition-transform group-hover:-translate-x-0.5"></span>
+                  </div>
+                  <span className="text-xs font-bold uppercase tracking-wider">Menu</span>
+                </button>
               )}
-
-              {/* Stylized Modern Menu Button */}
-              <button
-                onClick={() => setIsOpen(true)}
-                aria-label="Open Navigation Menu"
-                className="px-4 py-2 rounded-full transition-all duration-200 flex items-center gap-2 shadow-sm cursor-pointer group bg-slate-900 hover:bg-brand-orange text-white border border-slate-800 hover:border-brand-orange"
-                title="Open Navigation Menu"
-              >
-                <div className="flex flex-col gap-1 w-4">
-                  <span className="h-0.5 w-4 bg-white rounded-full transition-transform group-hover:translate-x-0.5"></span>
-                  <span className="h-0.5 w-3 bg-brand-orange rounded-full group-hover:w-4 transition-all"></span>
-                  <span className="h-0.5 w-4 bg-white rounded-full transition-transform group-hover:-translate-x-0.5"></span>
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider">Menu</span>
-              </button>
             </div>
           </div>
         </div>
