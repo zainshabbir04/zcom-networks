@@ -279,9 +279,9 @@ export default function CloudHostingPage() {
                 <div className="w-10 h-10 rounded-xl bg-orange-500/20 text-brand-orange flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   <Mail className="w-5 h-5" />
                 </div>
-                <div className="truncate">
+                <div className="min-w-0 flex-1">
                   <span className="text-xs text-slate-400 block font-semibold">Email:</span>
-                  <span className="text-xs sm:text-sm font-bold text-white group-hover:text-brand-orange transition-colors truncate block">
+                  <span className="text-[11px] sm:text-xs xl:text-sm font-bold text-white group-hover:text-brand-orange transition-colors block break-all">
                     info@zcomnetworks.com.pk
                   </span>
                 </div>
@@ -308,9 +308,9 @@ export default function CloudHostingPage() {
                 <div className="w-10 h-10 rounded-xl bg-orange-500/20 text-brand-orange flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                   <Globe className="w-5 h-5" />
                 </div>
-                <div className="truncate">
+                <div className="min-w-0 flex-1">
                   <span className="text-xs text-slate-400 block font-semibold">Web Portal:</span>
-                  <span className="text-xs sm:text-sm font-bold text-white group-hover:text-brand-orange transition-colors truncate block">
+                  <span className="text-[11px] sm:text-xs xl:text-sm font-bold text-white group-hover:text-brand-orange transition-colors block break-all">
                     www.zcomnetworks.com.pk
                   </span>
                 </div>
