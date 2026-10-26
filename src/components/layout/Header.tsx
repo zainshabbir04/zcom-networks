@@ -232,7 +232,7 @@ export default function Header() {
                             </button>
                           </div>
 
-                          {/* Mobile-Only Accordion Dropdown (Transparent background, only names) */}
+                          {/* Mobile-Only Accordion Dropdown (Transparent background, in points) */}
                           {mobileServicesOpen && (
                             <ul className="lg:hidden mt-3 pl-4 py-2 space-y-2 border-l-2 border-brand-orange/40 animate-in fade-in slide-in-from-top-2 duration-200 bg-transparent">
                               {SERVICES_MENU.map((srv) => {
@@ -244,13 +244,21 @@ export default function Header() {
                                       onClick={() => {
                                         setIsOpen(false);
                                       }}
-                                      className={`block py-1.5 px-3 rounded-lg text-lg sm:text-xl font-extrabold uppercase font-heading tracking-tight transition-all ${
+                                      className={`flex items-center gap-2.5 py-1.5 px-3 rounded-lg text-lg sm:text-xl font-extrabold uppercase font-heading tracking-tight transition-all group ${
                                         isSrvActive
                                           ? "text-brand-orange font-black"
                                           : "text-white/80 hover:text-brand-orange hover:translate-x-1"
                                       }`}
                                     >
-                                      {srv.name}
+                                      {/* Visible Bullet Point */}
+                                      <span
+                                        className={`w-2 h-2 rounded-full shrink-0 transition-transform ${
+                                          isSrvActive
+                                            ? "bg-brand-orange scale-125"
+                                            : "bg-brand-orange group-hover:scale-125"
+                                        }`}
+                                      />
+                                      <span>{srv.name}</span>
                                     </Link>
                                   </li>
                                 );
@@ -308,16 +316,21 @@ export default function Header() {
                             key={srv.href}
                             href={srv.href}
                             onClick={() => setIsOpen(false)}
-                            className={`block py-2 px-3 rounded-xl text-2xl sm:text-3xl font-extrabold uppercase font-heading tracking-tight transition-all duration-200 text-left group bg-transparent ${
+                            className={`flex items-center gap-4 py-2.5 px-3 rounded-xl text-2xl sm:text-3xl font-extrabold uppercase font-heading tracking-tight transition-all duration-200 text-left group bg-transparent ${
                               isSrvActive
                                 ? "text-brand-orange font-black"
-                                : "text-white/80 hover:text-brand-orange hover:translate-x-2"
+                                : "text-white/85 hover:text-brand-orange hover:translate-x-2"
                             }`}
                           >
-                            <span className="flex items-center gap-3">
-                              <span className="w-2 h-2 rounded-full bg-brand-orange opacity-0 group-hover:opacity-100 transition-opacity" />
-                              <span>{srv.name}</span>
-                            </span>
+                            {/* Visible Point / Bullet Marker */}
+                            <span
+                              className={`w-3 h-3 rounded-full shrink-0 transition-all duration-200 ${
+                                isSrvActive
+                                  ? "bg-brand-orange scale-125 ring-4 ring-brand-orange/30"
+                                  : "bg-brand-orange group-hover:scale-125 group-hover:ring-4 group-hover:ring-brand-orange/30"
+                              }`}
+                            />
+                            <span>{srv.name}</span>
                           </Link>
                         </li>
                       );
