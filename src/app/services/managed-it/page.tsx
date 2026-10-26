@@ -257,7 +257,7 @@ export default function ManagedItPage() {
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 pt-2">
               <a
                 href="tel:+924234511111"
                 className="flex items-center gap-3 p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all group"
@@ -282,7 +282,7 @@ export default function ManagedItPage() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <span className="text-xs text-slate-400 block font-semibold">Email:</span>
-                  <span className="text-[11px] sm:text-xs xl:text-sm font-bold text-white group-hover:text-brand-orange transition-colors block break-all">
+                  <span className="text-[11px] sm:text-xs xl:text-sm font-bold text-white group-hover:text-brand-orange transition-colors block whitespace-nowrap">
                     info@zcomnetworks.com.pk
                   </span>
                 </div>
@@ -311,7 +311,7 @@ export default function ManagedItPage() {
                 </div>
                 <div className="min-w-0 flex-1">
                   <span className="text-xs text-slate-400 block font-semibold">Web Portal:</span>
-                  <span className="text-[11px] sm:text-xs xl:text-sm font-bold text-white group-hover:text-brand-orange transition-colors block break-all">
+                  <span className="text-[11px] sm:text-xs xl:text-sm font-bold text-white group-hover:text-brand-orange transition-colors block whitespace-nowrap">
                     www.zcomnetworks.com.pk
                   </span>
                 </div>
