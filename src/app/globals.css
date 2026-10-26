@@ -284,6 +284,30 @@
   animation: speedLoopHalf 0.5s ease-in-out infinite;
 }
 
+/* FULLSCREEN NAVIGATION MENU ANIMATIONS */
+@keyframes menuSlideIn {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes menuSubSlideIn {
+  from { opacity: 0; transform: translateX(-18px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes arrowNudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
+.animate-menu-slide {
+  animation: menuSlideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-menu-subslide {
+  animation: menuSubSlideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-arrow-nudge {
+  animation: arrowNudge 1.2s ease-in-out infinite;
+}
+
+
 
 
 
