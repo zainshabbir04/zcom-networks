@@ -277,7 +277,7 @@ export default function WhyUsPage() {
             SPECIFICATION BENCHMARK
           </span>
           <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
-            Z COM Pure Fiber vs Conventional Broadband
+            Z COM NETWORKS vs Conventional Broadband
           </h2>
           <p className="text-sm text-slate-600 dark:text-slate-400">
             A side-by-side comparison illustrating why dedicated optical fiber offers an unmatched
@@ -294,7 +294,7 @@ export default function WhyUsPage() {
                     Feature / Standard
                   </th>
                   <th className="py-5 px-6 font-heading font-bold text-brand-orange text-xs uppercase tracking-wider bg-orange-500/10 border-x border-orange-500/20">
-                    Z COM Networks Fiber
+                    Z COM NETWORKS
                   </th>
                   <th className="py-5 px-6 font-heading font-bold text-slate-500 dark:text-slate-400 text-xs uppercase tracking-wider">
                     Conventional Broadband
