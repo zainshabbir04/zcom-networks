@@ -66,11 +66,11 @@ export default function ContactPage() {
             fill
             priority
             unoptimized
-            className="object-cover object-center scale-100"
+            className="object-cover object-right scale-100"
           />
           {/* Cinematic Dark Gradient Overlays for Maximum Legibility & Visual Atmosphere */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/40" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/70 to-slate-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-slate-950/30" />
           <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-brand-orange/15 rounded-full blur-[140px] pointer-events-none" />
         </BannerImage>
 
