@@ -480,7 +480,7 @@ export default function CareersPage() {
               {/* Action Button */}
               <div className="pt-4 flex items-center">
                 <a
-                  href={`mailto:sales@zcomnetworks.com.pk?subject=${encodeURIComponent(
+                  href={`mailto:hr@zcomnetworks.com.pk?subject=${encodeURIComponent(
                     `Job Application: ${job.title} - Z COM Networks`
                   )}&body=${encodeURIComponent(
                     `Hello HR / Recruitment Team at Z COM Networks,\n\nI am applying for the position of "${job.title}" at your Gulberg-III, Lahore office.\n\nPlease find my resume attached.\n\nName:\nContact Phone / WhatsApp:\nCurrent Location in Lahore:\nYears of Relevant Experience:\n`
@@ -526,10 +526,10 @@ export default function CareersPage() {
 
             <div className="pt-3 flex flex-wrap items-center justify-center gap-4">
               <a
-                href="mailto:sales@zcomnetworks.com.pk?subject=Open%20Career%20Application%20-%20Z%20COM%20Networks"
+                href="mailto:hr@zcomnetworks.com.pk?subject=Open%20Career%20Application%20-%20Z%20COM%20Networks"
                 className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-brand-orange via-orange-500 to-amber-500 hover:from-orange-600 hover:to-brand-orange text-white font-extrabold text-sm sm:text-base py-4 px-10 rounded-2xl transition-all shadow-xl shadow-brand-orange/40 hover:shadow-brand-orange/60 hover:scale-105"
               >
-                <span>Email Resume to sales@zcomnetworks.com.pk</span>
+                <span>Email Resume to hr@zcomnetworks.com.pk</span>
                 <ArrowRight className="w-5 h-5 shrink-0" />
               </a>
             </div>
