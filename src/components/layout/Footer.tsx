@@ -90,41 +90,36 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Solutions Column */}
+          {/* Services Column */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="text-white font-bold text-sm tracking-wider uppercase font-heading flex items-center gap-2">
               <Server className="w-4 h-4 text-brand-orange" />
-              <span>Services &amp; Products</span>
+              <span>Services</span>
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
                 <Link href="/services/corporate-internet" className="hover:text-brand-orange transition-colors">
-                  Corporate Solutions (DIA &amp; MPLS)
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/corporate-internet" className="hover:text-brand-orange transition-colors">
-                  Point to Point Connectivity
+                  Corporate Solutions
                 </Link>
               </li>
               <li>
                 <Link href="/services/cloud-hosting" className="hover:text-brand-orange transition-colors">
-                  Cloud &amp; Hosting (VMs / Colocation)
+                  Cloud &amp; Hosting Solutions
                 </Link>
               </li>
               <li>
                 <Link href="/services/managed-it" className="hover:text-brand-orange transition-colors">
-                  Managed IT Solutions &amp; NOC Services
+                  Managed IT Solutions
                 </Link>
               </li>
               <li>
                 <Link href="/services/cybersecurity" className="hover:text-brand-orange transition-colors">
-                  Cybersecurity &amp; DDoS Defense
+                  Cybersecurity Services
                 </Link>
               </li>
               <li>
                 <Link href="/services/digital-solutions" className="hover:text-brand-orange transition-colors">
-                  Digital Solutions (Web &amp; Apps)
+                  Digital Solutions
                 </Link>
               </li>
             </ul>
