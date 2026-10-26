@@ -185,7 +185,48 @@ export default function AboutPage() {
       </MinimalistBanner>
 
       {/* ============================================================
-          2. EXECUTIVE LEADERSHIP: CEO MUDASIR RIAZ & CFO MUBASIR RIAZ
+          2. MISSION & VISION DUAL CARDS (PLACED DIRECTLY BELOW BANNER)
+          ============================================================ */}
+      <ScrollReveal variant="fade-up" as="section" id="mission" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-white p-8 sm:p-10 rounded-3xl border border-orange-500/30 space-y-4 shadow-xl shadow-orange-500/5 hover:border-brand-orange transition-colors">
+            <div className="w-12 h-12 rounded-2xl bg-brand-orange/15 text-brand-orange flex items-center justify-center">
+              <Compass className="w-6 h-6" />
+            </div>
+            <span className="text-xs font-bold text-brand-orange tracking-widest uppercase block">
+              OUR MISSION
+            </span>
+            <h3 className="text-2xl font-bold text-slate-900 font-heading">
+              Bridging Distances &amp; Fostering Global Communication
+            </h3>
+            <p className="text-slate-700 leading-relaxed text-base">
+              Z COM aims to bridge distances and foster global communication with fast, dependable
+              high-speed internet access. With guaranteed <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> uptime SLA, we ensure efficient and seamless
+              connectivity for every business and home we serve across commercial and enterprise sectors.
+            </p>
+          </div>
+
+          <div className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/90 space-y-4 shadow-xl shadow-slate-200/50 hover:border-brand-orange/60 transition-colors">
+            <div className="w-12 h-12 rounded-2xl bg-slate-900 text-brand-orange flex items-center justify-center">
+              <Target className="w-6 h-6" />
+            </div>
+            <span className="text-xs font-bold text-brand-orange tracking-widest uppercase block">
+              OUR VISION
+            </span>
+            <h3 className="text-2xl font-bold text-slate-900 font-heading">
+              Ubiquitous &amp; Empowering High-Speed Connectivity
+            </h3>
+            <p className="text-slate-700 leading-relaxed text-base">
+              A world where carrier-grade high-speed internet is ubiquitous, empowering individuals and
+              organizations to innovate without latency or limits &mdash; ensuring <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> network
+              uptime and <AnimatedCounter from={0} to={100} suffix="%" /> customer satisfaction through exceptional optical service.
+            </p>
+          </div>
+        </div>
+      </ScrollReveal>
+
+      {/* ============================================================
+          3. EXECUTIVE LEADERSHIP: CEO MUDASIR RIAZ & CFO MUBASIR RIAZ
           ============================================================ */}
       <ScrollReveal variant="fade-up" as="section" id="leadership" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-4">
@@ -470,47 +511,6 @@ export default function AboutPage() {
         </div>
 
         <InfrastructureLoopSlider />
-      </ScrollReveal>
-
-      {/* ============================================================
-          4. MISSION & VISION DUAL CARDS
-          ============================================================ */}
-      <ScrollReveal variant="fade-up" as="section" id="mission" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="bg-white p-8 sm:p-10 rounded-3xl border border-orange-500/30 space-y-4 shadow-xl shadow-orange-500/5 hover:border-brand-orange transition-colors">
-            <div className="w-12 h-12 rounded-2xl bg-brand-orange/15 text-brand-orange flex items-center justify-center">
-              <Compass className="w-6 h-6" />
-            </div>
-            <span className="text-xs font-bold text-brand-orange tracking-widest uppercase block">
-              OUR MISSION
-            </span>
-            <h3 className="text-2xl font-bold text-slate-900 font-heading">
-              Bridging Distances &amp; Fostering Global Communication
-            </h3>
-            <p className="text-slate-700 leading-relaxed text-base">
-              Z COM aims to bridge distances and foster global communication with fast, dependable
-              high-speed internet access. With guaranteed <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> uptime SLA, we ensure efficient and seamless
-              connectivity for every business and home we serve across commercial and enterprise sectors.
-            </p>
-          </div>
-
-          <div className="bg-white p-8 sm:p-10 rounded-3xl border border-slate-200/90 space-y-4 shadow-xl shadow-slate-200/50 hover:border-brand-orange/60 transition-colors">
-            <div className="w-12 h-12 rounded-2xl bg-slate-900 text-brand-orange flex items-center justify-center">
-              <Target className="w-6 h-6" />
-            </div>
-            <span className="text-xs font-bold text-brand-orange tracking-widest uppercase block">
-              OUR VISION
-            </span>
-            <h3 className="text-2xl font-bold text-slate-900 font-heading">
-              Ubiquitous &amp; Empowering High-Speed Connectivity
-            </h3>
-            <p className="text-slate-700 leading-relaxed text-base">
-              A world where carrier-grade high-speed internet is ubiquitous, empowering individuals and
-              organizations to innovate without latency or limits &mdash; ensuring <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> network
-              uptime and <AnimatedCounter from={0} to={100} suffix="%" /> customer satisfaction through exceptional optical service.
-            </p>
-          </div>
-        </div>
       </ScrollReveal>
 
       {/* ============================================================
