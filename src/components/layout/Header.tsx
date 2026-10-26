@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -67,28 +67,48 @@ const SERVICES_MENU = [
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesHovered, setIsServicesHovered] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(true);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const pathname = usePathname();
 
-  // Lock body scroll when menu is open
+  const handleServicesMouseEnter = () => {
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    setIsServicesHovered(true);
+  };
+
+  const handleServicesMouseLeave = () => {
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    hoverTimeoutRef.current = setTimeout(() => {
+      setIsServicesHovered(false);
+    }, 200);
+  };
+
+  const handleOtherNavMouseEnter = () => {
+    if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
+    setIsServicesHovered(false);
+  };
+
+  // Lock body scroll when menu is open & reset hover states
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
-      setMobileServicesOpen(true);
       setIsServicesHovered(false);
+      setMobileServicesOpen(false);
     } else {
       document.body.style.overflow = "";
+      setIsServicesHovered(false);
     }
     return () => {
       document.body.style.overflow = "";
+      if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
     };
   }, [isOpen]);
 
   useEffect(() => {
     setIsOpen(false);
-    setMobileServicesOpen(true);
     setIsServicesHovered(false);
+    setMobileServicesOpen(false);
   }, [pathname]);
 
   return (
@@ -132,26 +152,20 @@ export default function Header() {
 
       {/* ============================================================
           SIDEBAR OVERLAY MENU (Modeled strictly after gcspvt.com)
-          Left: Main Nav (Arrow on Services only) | Center: Separator | Right: Services Menu ONLY
+          Left: Main Nav (Arrow on Services only) | Center: Separator | Right: Services Menu ONLY on Cursor Hover
           ============================================================ */}
       <div
-        className={`fixed inset-0 z-50 transition-all duration-300 ease-out overflow-y-auto ${
+        className={`fixed inset-0 z-50 transition-all duration-300 ease-out overflow-y-auto bg-slate-950/95 backdrop-blur-2xl ${
           isOpen
             ? "opacity-100 pointer-events-auto visible"
             : "opacity-0 pointer-events-none invisible"
         }`}
       >
-        {/* Pure White Glass Backdrop */}
-        <div
-          onClick={() => setIsOpen(false)}
-          className="fixed inset-0 bg-white/98 backdrop-blur-2xl -z-10"
-        />
-
         {/* Menu Content Wrapper */}
-        <div className="min-h-screen flex flex-col justify-between p-6 sm:p-10 max-w-7xl mx-auto text-slate-800">
+        <div className="min-h-screen flex flex-col justify-between p-6 sm:p-10 max-w-7xl mx-auto text-white">
           
           {/* Header Bar inside Menu */}
-          <div className="flex items-center justify-between pb-6 border-b border-slate-200">
+          <div className="flex items-center justify-between pb-6 border-b border-white/10">
             <Link href="/" onClick={() => setIsOpen(false)} className="flex items-center gap-3">
               <div className="relative h-9 sm:h-11 w-36 sm:w-48">
                 <Image
@@ -168,7 +182,7 @@ export default function Header() {
             <button
               onClick={() => setIsOpen(false)}
               aria-label="Close menu"
-              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-slate-100 border border-slate-300 hover:bg-brand-orange hover:border-brand-orange text-slate-700 hover:text-white flex items-center justify-center transition-all duration-200 hover:rotate-90 shadow-sm cursor-pointer"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/10 border border-white/20 hover:bg-brand-orange hover:border-brand-orange text-white flex items-center justify-center transition-all duration-200 hover:rotate-90 shadow-sm cursor-pointer"
             >
               <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
@@ -176,11 +190,11 @@ export default function Header() {
 
           {/* Sidebar Grid Content (gcspvt.com layout) */}
           <div className="flex-1 flex flex-col justify-center py-6 sm:py-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center w-full min-h-[440px]">
               
               {/* ============================================================
                   COLUMN 1 (LEFT): MAIN NAVIGATION
-                  Only 'SERVICES' has the arrow and triggers the sub-menu!
+                  Only 'SERVICES' has the arrow and triggers the sub-menu on hover!
                   All other items are direct links with no sub-menu.
                   ============================================================ */}
               <div className="lg:col-span-5 flex flex-col justify-center">
@@ -198,27 +212,33 @@ export default function Header() {
                           <div className="w-full flex items-center justify-between rounded-2xl transition-all duration-200 group">
                             <Link
                               href={link.href}
-                              onMouseEnter={() => setIsServicesHovered(true)}
-                              onMouseLeave={() => setIsServicesHovered(false)}
+                              onMouseEnter={handleServicesMouseEnter}
+                              onMouseLeave={handleServicesMouseLeave}
                               onClick={() => setIsOpen(false)}
                               className={`flex-1 flex items-center justify-between py-2.5 sm:py-3.5 px-4 sm:px-6 rounded-2xl text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase font-heading tracking-tight transition-all duration-200 ${
-                                isActive || isServicesHovered
-                                  ? "text-brand-orange bg-orange-50 font-black shadow-sm"
-                                  : "text-slate-800 hover:text-brand-orange hover:bg-slate-100/80"
+                                isServicesHovered
+                                  ? "text-brand-orange bg-white font-black shadow-xl shadow-brand-orange/10 scale-[1.02]"
+                                  : isActive
+                                  ? "text-brand-orange bg-white/10 font-black shadow-sm"
+                                  : "text-white/90 hover:text-brand-orange hover:bg-white/10"
                               }`}
                             >
                               <span>{link.name}</span>
                               
                               {/* Right Arrow (gcspvt.com style: nav-arrow ONLY on Services) */}
                               <span className="flex items-center gap-2">
-                                <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-orange-100 text-brand-orange hidden sm:inline-block border border-orange-200">
+                                <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full hidden sm:inline-block border transition-colors ${
+                                  isServicesHovered
+                                    ? "bg-orange-100 text-brand-orange border-orange-200"
+                                    : "bg-white/15 text-white/80 border-white/20"
+                                }`}>
                                   5 Solutions
                                 </span>
                                 <ArrowRight
-                                  className={`w-6 h-6 transition-transform duration-200 text-brand-orange ${
-                                    isActive || isServicesHovered
-                                      ? "translate-x-1.5"
-                                      : "group-hover:translate-x-1.5"
+                                  className={`w-6 h-6 transition-transform duration-200 ${
+                                    isServicesHovered
+                                      ? "text-brand-orange translate-x-1.5"
+                                      : "text-white/60 group-hover:text-brand-orange group-hover:translate-x-1"
                                   }`}
                                 />
                               </span>
@@ -228,7 +248,7 @@ export default function Header() {
                             <button
                               type="button"
                               onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                              className="lg:hidden p-3 text-slate-500 hover:text-brand-orange"
+                              className="lg:hidden p-3 text-white/70 hover:text-brand-orange"
                               aria-label="Toggle services list"
                             >
                               <ChevronDown
@@ -241,7 +261,7 @@ export default function Header() {
 
                           {/* Mobile-Only Accordion Dropdown (when screen is small) */}
                           {mobileServicesOpen && (
-                            <div className="lg:hidden mt-3 p-3 rounded-2xl bg-white border-2 border-slate-200 space-y-2 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200">
+                            <div className="lg:hidden mt-3 p-3 rounded-2xl bg-white text-slate-800 border-2 border-slate-200 space-y-2 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200">
                               <div className="px-2 py-1.5 flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-slate-700 border-b border-slate-100 pb-1.5 mb-1">
                                 <span>Specialized Solutions</span>
                                 <span className="text-brand-orange font-bold">5 Services</span>
@@ -299,11 +319,12 @@ export default function Header() {
                       <li key={link.name} className="w-full">
                         <Link
                           href={link.href}
+                          onMouseEnter={handleOtherNavMouseEnter}
                           onClick={() => setIsOpen(false)}
                           className={`w-full block py-2.5 sm:py-3.5 px-4 sm:px-6 rounded-2xl text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase font-heading tracking-tight transition-all duration-200 text-left ${
                             isActive
-                              ? "text-brand-orange bg-orange-50 font-black shadow-sm"
-                              : "text-slate-800 hover:text-brand-orange hover:bg-slate-100/80 hover:translate-x-1"
+                              ? "text-brand-orange bg-white/10 font-black shadow-sm"
+                              : "text-white/80 hover:text-white hover:bg-white/10 hover:translate-x-1"
                           }`}
                         >
                           {link.name}
@@ -317,92 +338,92 @@ export default function Header() {
               {/* ============================================================
                   SEPARATOR LINE (Middle - gcspvt.com: sidebar-separator)
                   ============================================================ */}
-              <div className="hidden lg:flex lg:col-span-1 items-stretch justify-center">
-                <div className="w-px bg-slate-200/90 self-stretch my-2 rounded-full" />
+              <div className="hidden lg:flex lg:col-span-1 items-stretch justify-center self-stretch">
+                <div className="w-px bg-white/15 self-stretch my-2 rounded-full" />
               </div>
 
               {/* ============================================================
-                  COLUMN 2 (RIGHT): SERVICES MENU ONLY (Strictly Services Menu, No other page)
+                  COLUMN 2 (RIGHT): SERVICES MENU (ONLY SHOWS WHEN CURSOR IS ON SERVICES)
                   ============================================================ */}
               <div className="hidden lg:flex lg:col-span-6 flex-col justify-center">
-                <div
-                  style={{ backgroundColor: "#ffffff" }}
-                  className={`p-6 rounded-3xl bg-white border-2 transition-all duration-300 space-y-3 ${
-                    isServicesHovered || pathname.startsWith("/services")
-                      ? "border-brand-orange/60 shadow-2xl shadow-orange-500/10 ring-2 ring-brand-orange/20"
-                      : "border-slate-200/90 shadow-xl"
-                  }`}
-                >
-                  <div className="px-2 py-1 flex items-center justify-between text-xs font-black uppercase tracking-wider text-slate-700 border-b border-slate-100 pb-2 mb-1">
-                    <span className="flex items-center gap-2 text-slate-800 font-heading">
-                      <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
-                      Specialized Solutions
-                    </span>
-                    <span className="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-orange-100 text-brand-orange border border-orange-200">
-                      5 Services
-                    </span>
-                  </div>
+                {isServicesHovered ? (
+                  <div
+                    onMouseEnter={handleServicesMouseEnter}
+                    onMouseLeave={handleServicesMouseLeave}
+                    style={{ backgroundColor: "#ffffff" }}
+                    className="p-6 rounded-3xl bg-white text-slate-800 border-2 border-slate-200/90 shadow-2xl space-y-3 animate-in fade-in slide-in-from-left-3 duration-200"
+                  >
+                    <div className="px-2 py-1 flex items-center justify-between text-xs font-black uppercase tracking-wider text-slate-700 border-b border-slate-100 pb-2 mb-1">
+                      <span className="flex items-center gap-2 text-slate-800 font-heading">
+                        <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
+                        Specialized Solutions
+                      </span>
+                      <span className="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-orange-100 text-brand-orange border border-orange-200">
+                        5 Services
+                      </span>
+                    </div>
 
-                  <div className="space-y-2">
-                    {SERVICES_MENU.map((srv) => {
-                      const Icon = srv.icon;
-                      const isSrvActive = pathname === srv.href;
-                      return (
-                        <Link
-                          key={srv.href}
-                          href={srv.href}
-                          onClick={() => setIsOpen(false)}
-                          style={{ backgroundColor: isSrvActive ? "#fff7ed" : "#f8fafc" }}
-                          className={`flex items-center gap-3.5 p-3 rounded-2xl transition-all duration-200 border group ${
-                            isSrvActive
-                              ? "text-brand-orange font-bold shadow-sm border-brand-orange/40 bg-orange-50/60"
-                              : "text-slate-900 border-slate-200/80 hover:border-brand-orange/60 hover:bg-orange-50/40 hover:translate-x-1"
-                          }`}
-                        >
-                          <div
-                            className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-105 ${
+                    <div className="space-y-2">
+                      {SERVICES_MENU.map((srv) => {
+                        const Icon = srv.icon;
+                        const isSrvActive = pathname === srv.href;
+                        return (
+                          <Link
+                            key={srv.href}
+                            href={srv.href}
+                            onClick={() => setIsOpen(false)}
+                            style={{ backgroundColor: isSrvActive ? "#fff7ed" : "#f8fafc" }}
+                            className={`flex items-center gap-3.5 p-3 rounded-2xl transition-all duration-200 border group ${
                               isSrvActive
-                                ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30"
-                                : "bg-orange-100 text-brand-orange group-hover:bg-brand-orange group-hover:text-white"
+                                ? "text-brand-orange font-bold shadow-sm border-brand-orange/40 bg-orange-50/60"
+                                : "text-slate-900 border-slate-200/80 hover:border-brand-orange/60 hover:bg-orange-50/40 hover:translate-x-1"
                             }`}
                           >
-                            <Icon className="w-5 h-5" />
-                          </div>
-                          <div className="text-left flex-1 min-w-0">
-                            <div className="flex items-center justify-between gap-1.5">
-                              <span className="text-sm font-extrabold truncate text-slate-900 group-hover:text-brand-orange transition-colors">
-                                {srv.name}
-                              </span>
-                              <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-brand-orange border border-orange-200/60 shrink-0">
-                                {srv.badge}
-                              </span>
+                            <div
+                              className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-105 ${
+                                isSrvActive
+                                  ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30"
+                                  : "bg-orange-100 text-brand-orange group-hover:bg-brand-orange group-hover:text-white"
+                              }`}
+                            >
+                              <Icon className="w-5 h-5" />
                             </div>
-                            <div className="text-xs text-slate-600 line-clamp-1 mt-0.5 font-medium">
-                              {srv.desc}
+                            <div className="text-left flex-1 min-w-0">
+                              <div className="flex items-center justify-between gap-1.5">
+                                <span className="text-sm font-extrabold truncate text-slate-900 group-hover:text-brand-orange transition-colors">
+                                  {srv.name}
+                                </span>
+                                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-brand-orange border border-orange-200/60 shrink-0">
+                                  {srv.badge}
+                                </span>
+                              </div>
+                              <div className="text-xs text-slate-600 line-clamp-1 mt-0.5 font-medium">
+                                {srv.desc}
+                              </div>
                             </div>
-                          </div>
-                          <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-brand-orange transition-transform duration-200 group-hover:translate-x-0.5 shrink-0" />
-                        </Link>
-                      );
-                    })}
-                  </div>
+                            <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-brand-orange transition-transform duration-200 group-hover:translate-x-0.5 shrink-0" />
+                          </Link>
+                        );
+                      })}
+                    </div>
 
-                  {/* Bottom SLA Quality Ribbon */}
-                  <div className="px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between text-xs text-slate-600 font-semibold mt-1">
-                    <span className="flex items-center gap-1.5">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                      Contractual SLA: 99.99% Availability
-                    </span>
-                    <span className="text-brand-orange font-bold">24/7 Dedicated NOC</span>
+                    {/* Bottom SLA Quality Ribbon */}
+                    <div className="px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between text-xs text-slate-600 font-semibold mt-1">
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                        Contractual SLA: 99.99% Availability
+                      </span>
+                      <span className="text-brand-orange font-bold">24/7 Dedicated NOC</span>
+                    </div>
                   </div>
-                </div>
+                ) : null}
               </div>
 
             </div>
           </div>
 
           {/* Bottom Bar: Social Links & Company Footer (gcspvt.com style) */}
-          <div className="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+          <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
             <span className="font-semibold tracking-wide text-center sm:text-left">
               Z COM Networks Private Limited · Enterprise Optical Infrastructure
             </span>
@@ -411,15 +432,15 @@ export default function Header() {
             <div className="flex items-center gap-5">
               <a
                 href="tel:+924234511111"
-                className="flex items-center gap-2 font-bold text-slate-800 hover:text-brand-orange transition-colors"
+                className="flex items-center gap-2 font-bold text-white hover:text-brand-orange transition-colors"
               >
                 <Phone className="w-3.5 h-3.5 text-brand-orange" />
                 <span>+92 42 345 11 111</span>
               </a>
-              <span className="text-slate-300">|</span>
+              <span className="text-white/20">|</span>
               <a
                 href="mailto:sales@zcomnetworks.com.pk"
-                className="flex items-center gap-1.5 hover:text-brand-orange transition-colors font-medium"
+                className="flex items-center gap-1.5 hover:text-brand-orange transition-colors font-medium text-slate-300"
               >
                 <Mail className="w-3.5 h-3.5 text-slate-400" />
                 <span>sales@zcomnetworks.com.pk</span>
