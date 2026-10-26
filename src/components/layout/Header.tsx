@@ -359,11 +359,11 @@ export default function Header() {
               </a>
               <span className="text-white/20">|</span>
               <a
-                href="mailto:sales@zcomnetworks.com.pk"
+                href="mailto:info@zcomnetworks.com.pk"
                 className="flex items-center gap-1.5 hover:text-brand-orange transition-colors font-medium text-slate-300"
               >
                 <Mail className="w-3.5 h-3.5 text-slate-400" />
-                <span>sales@zcomnetworks.com.pk</span>
+                <span>info@zcomnetworks.com.pk</span>
               </a>
             </div>
           </div>

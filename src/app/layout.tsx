@@ -63,7 +63,7 @@ export default function RootLayout({
               "@type": "InternetServiceProvider",
               name: "Z COM Networks Private Limited",
               telephone: "+92-42-345-11111",
-              email: "sales@zcomnetworks.com.pk",
+              email: "info@zcomnetworks.com.pk",
               url: "https://zcomnetworks.com.pk",
               address: {
                 "@type": "PostalAddress",

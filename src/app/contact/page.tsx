@@ -27,8 +27,8 @@ const CONTACT_INFO = [
   {
     icon: <Mail className="w-5 h-5 text-brand-orange" />,
     label: "Email Inquiries",
-    value: "sales@zcomnetworks.com.pk",
-    href: "mailto:sales@zcomnetworks.com.pk",
+    value: "info@zcomnetworks.com.pk",
+    href: "mailto:info@zcomnetworks.com.pk",
   },
   {
     icon: <MessageSquare className="w-5 h-5 text-brand-orange" />,
@@ -45,7 +45,7 @@ const CONTACT_INFO = [
   {
     icon: <Clock className="w-5 h-5 text-brand-orange" />,
     label: "Operating Hours",
-    value: "24 Hours a Day · 7 Days a Week (Always Open)",
+    value: "24 Hours a Day · 7 Days a Week",
     href: null,
   },
 ];
