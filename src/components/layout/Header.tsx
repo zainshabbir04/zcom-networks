@@ -7,11 +7,6 @@ import { usePathname } from "next/navigation";
 import {
   X,
   ChevronDown,
-  Globe,
-  Cloud,
-  Server,
-  ShieldCheck,
-  Code2,
   ArrowRight,
   Phone,
   Mail,
@@ -30,37 +25,22 @@ const SERVICES_MENU = [
   {
     name: "Corporate Solutions",
     href: "/services/corporate-internet",
-    badge: "1:1 DIA",
-    desc: "1:1 Symmetrical Dedicated Internet Access (DIA), MPLS & P2P links",
-    icon: Globe,
   },
   {
     name: "Cloud & Hosting Solutions",
     href: "/services/cloud-hosting",
-    badge: "Cloud & VPS",
-    desc: "High-performance VMs, VPS, enterprise email & tier-3 colocation",
-    icon: Cloud,
   },
   {
     name: "Managed IT Solutions",
     href: "/services/managed-it",
-    badge: "24/7 NOC",
-    desc: "Proactive NOC infrastructure, LAN/WAN architecture & Wi-Fi 6",
-    icon: Server,
   },
   {
     name: "Cybersecurity Services",
     href: "/services/cybersecurity",
-    badge: "DDoS Defense",
-    desc: "Next-gen firewalls, multi-vector DDoS defense & endpoint security",
-    icon: ShieldCheck,
   },
   {
     name: "Digital Solutions",
     href: "/services/digital-solutions",
-    badge: "Web & Apps",
-    desc: "Bespoke corporate websites, native mobile apps & UI/UX systems",
-    icon: Code2,
   },
 ];
 
@@ -152,7 +132,7 @@ export default function Header() {
 
       {/* ============================================================
           SIDEBAR OVERLAY MENU (Modeled strictly after gcspvt.com)
-          Left: Main Nav (Arrow on Services only) | Center: Separator | Right: Services Menu ONLY on Cursor Hover
+          Left: Main Nav (Arrow on Services only) | Center: Separator | Right: Services Menu ONLY (Transparent, Names only)
           ============================================================ */}
       <div
         className={`fixed inset-0 z-50 transition-all duration-300 ease-out overflow-y-auto bg-slate-950/95 backdrop-blur-2xl ${
@@ -227,13 +207,6 @@ export default function Header() {
                               
                               {/* Right Arrow (gcspvt.com style: nav-arrow ONLY on Services) */}
                               <span className="flex items-center gap-2">
-                                <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full hidden sm:inline-block border transition-colors ${
-                                  isServicesHovered
-                                    ? "bg-orange-100 text-brand-orange border-orange-200"
-                                    : "bg-white/15 text-white/80 border-white/20"
-                                }`}>
-                                  5 Solutions
-                                </span>
                                 <ArrowRight
                                   className={`w-6 h-6 transition-transform duration-200 ${
                                     isServicesHovered
@@ -259,56 +232,30 @@ export default function Header() {
                             </button>
                           </div>
 
-                          {/* Mobile-Only Accordion Dropdown (when screen is small) */}
+                          {/* Mobile-Only Accordion Dropdown (Transparent background, only names) */}
                           {mobileServicesOpen && (
-                            <div className="lg:hidden mt-3 p-3 rounded-2xl bg-white text-slate-800 border-2 border-slate-200 space-y-2 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200">
-                              <div className="px-2 py-1.5 flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-slate-700 border-b border-slate-100 pb-1.5 mb-1">
-                                <span>Specialized Solutions</span>
-                                <span className="text-brand-orange font-bold">5 Services</span>
-                              </div>
+                            <ul className="lg:hidden mt-3 pl-4 py-2 space-y-2 border-l-2 border-brand-orange/40 animate-in fade-in slide-in-from-top-2 duration-200 bg-transparent">
                               {SERVICES_MENU.map((srv) => {
-                                const Icon = srv.icon;
                                 const isSrvActive = pathname === srv.href;
                                 return (
-                                  <Link
-                                    key={srv.href}
-                                    href={srv.href}
-                                    onClick={() => {
-                                      setIsOpen(false);
-                                    }}
-                                    style={{ backgroundColor: isSrvActive ? "#fff7ed" : "#f8fafc" }}
-                                    className={`flex items-center gap-3 p-3 rounded-xl transition-all duration-200 border ${
-                                      isSrvActive
-                                        ? "text-brand-orange font-bold shadow-sm border-brand-orange/40"
-                                        : "text-slate-900 border-slate-200/80 hover:border-brand-orange/50"
-                                    }`}
-                                  >
-                                    <div
-                                      className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                                  <li key={srv.href}>
+                                    <Link
+                                      href={srv.href}
+                                      onClick={() => {
+                                        setIsOpen(false);
+                                      }}
+                                      className={`block py-1.5 px-3 rounded-lg text-lg sm:text-xl font-extrabold uppercase font-heading tracking-tight transition-all ${
                                         isSrvActive
-                                          ? "bg-brand-orange text-white shadow-sm"
-                                          : "bg-orange-100 text-brand-orange"
+                                          ? "text-brand-orange font-black"
+                                          : "text-white/80 hover:text-brand-orange hover:translate-x-1"
                                       }`}
                                     >
-                                      <Icon className="w-5 h-5" />
-                                    </div>
-                                    <div className="text-left flex-1 min-w-0">
-                                      <div className="flex items-center justify-between gap-1">
-                                        <span className="text-xs sm:text-sm font-extrabold truncate text-slate-900">
-                                          {srv.name}
-                                        </span>
-                                        <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-orange-100 text-brand-orange shrink-0">
-                                          {srv.badge}
-                                        </span>
-                                      </div>
-                                      <div className="text-[11px] text-slate-600 truncate mt-0.5">
-                                        {srv.desc}
-                                      </div>
-                                    </div>
-                                  </Link>
+                                      {srv.name}
+                                    </Link>
+                                  </li>
                                 );
                               })}
-                            </div>
+                            </ul>
                           )}
                         </li>
                       );
@@ -343,79 +290,39 @@ export default function Header() {
               </div>
 
               {/* ============================================================
-                  COLUMN 2 (RIGHT): SERVICES MENU (ONLY SHOWS WHEN CURSOR IS ON SERVICES)
+                  COLUMN 2 (RIGHT): SERVICES MENU ONLY (Transparent background, ONLY service names)
+                  Strictly appears when cursor hovers on Services
                   ============================================================ */}
               <div className="hidden lg:flex lg:col-span-6 flex-col justify-center">
                 {isServicesHovered ? (
-                  <div
+                  <ul
                     onMouseEnter={handleServicesMouseEnter}
                     onMouseLeave={handleServicesMouseLeave}
-                    style={{ backgroundColor: "#ffffff" }}
-                    className="p-6 rounded-3xl bg-white text-slate-800 border-2 border-slate-200/90 shadow-2xl space-y-3 animate-in fade-in slide-in-from-left-3 duration-200"
+                    className="flex flex-col gap-3.5 sm:gap-4.5 w-full animate-in fade-in slide-in-from-left-4 duration-200 bg-transparent"
                   >
-                    <div className="px-2 py-1 flex items-center justify-between text-xs font-black uppercase tracking-wider text-slate-700 border-b border-slate-100 pb-2 mb-1">
-                      <span className="flex items-center gap-2 text-slate-800 font-heading">
-                        <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
-                        Specialized Solutions
-                      </span>
-                      <span className="text-[11px] font-extrabold px-2.5 py-0.5 rounded-full bg-orange-100 text-brand-orange border border-orange-200">
-                        5 Services
-                      </span>
-                    </div>
-
-                    <div className="space-y-2">
-                      {SERVICES_MENU.map((srv) => {
-                        const Icon = srv.icon;
-                        const isSrvActive = pathname === srv.href;
-                        return (
+                    {SERVICES_MENU.map((srv) => {
+                      const isSrvActive = pathname === srv.href;
+                      return (
+                        <li key={srv.href} className="w-full">
                           <Link
                             key={srv.href}
                             href={srv.href}
                             onClick={() => setIsOpen(false)}
-                            style={{ backgroundColor: isSrvActive ? "#fff7ed" : "#f8fafc" }}
-                            className={`flex items-center gap-3.5 p-3 rounded-2xl transition-all duration-200 border group ${
+                            className={`block py-2 px-3 rounded-xl text-2xl sm:text-3xl font-extrabold uppercase font-heading tracking-tight transition-all duration-200 text-left group bg-transparent ${
                               isSrvActive
-                                ? "text-brand-orange font-bold shadow-sm border-brand-orange/40 bg-orange-50/60"
-                                : "text-slate-900 border-slate-200/80 hover:border-brand-orange/60 hover:bg-orange-50/40 hover:translate-x-1"
+                                ? "text-brand-orange font-black"
+                                : "text-white/80 hover:text-brand-orange hover:translate-x-2"
                             }`}
                           >
-                            <div
-                              className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-200 group-hover:scale-105 ${
-                                isSrvActive
-                                  ? "bg-brand-orange text-white shadow-md shadow-brand-orange/30"
-                                  : "bg-orange-100 text-brand-orange group-hover:bg-brand-orange group-hover:text-white"
-                              }`}
-                            >
-                              <Icon className="w-5 h-5" />
-                            </div>
-                            <div className="text-left flex-1 min-w-0">
-                              <div className="flex items-center justify-between gap-1.5">
-                                <span className="text-sm font-extrabold truncate text-slate-900 group-hover:text-brand-orange transition-colors">
-                                  {srv.name}
-                                </span>
-                                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-orange-100 text-brand-orange border border-orange-200/60 shrink-0">
-                                  {srv.badge}
-                                </span>
-                              </div>
-                              <div className="text-xs text-slate-600 line-clamp-1 mt-0.5 font-medium">
-                                {srv.desc}
-                              </div>
-                            </div>
-                            <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-brand-orange transition-transform duration-200 group-hover:translate-x-0.5 shrink-0" />
+                            <span className="flex items-center gap-3">
+                              <span className="w-2 h-2 rounded-full bg-brand-orange opacity-0 group-hover:opacity-100 transition-opacity" />
+                              <span>{srv.name}</span>
+                            </span>
                           </Link>
-                        );
-                      })}
-                    </div>
-
-                    {/* Bottom SLA Quality Ribbon */}
-                    <div className="px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between text-xs text-slate-600 font-semibold mt-1">
-                      <span className="flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                        Contractual SLA: 99.99% Availability
-                      </span>
-                      <span className="text-brand-orange font-bold">24/7 Dedicated NOC</span>
-                    </div>
-                  </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
                 ) : null}
               </div>
 
