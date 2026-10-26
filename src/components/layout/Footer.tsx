@@ -47,7 +47,7 @@ export default function Footer() {
             <div className="space-y-2 text-xs text-slate-400">
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
-                <span>7/4, E-3 Main Boulevard, Gulberg-III, Lahore, Punjab, Pakistan</span>
+                <span className="text-white">7/4, E-3 Main Boulevard, Gulberg-III, Lahore, Punjab, Pakistan</span>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-brand-orange shrink-0" />
@@ -125,41 +125,36 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Company & Leadership Column */}
+          {/* Company Column */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="text-white font-bold text-sm tracking-wider uppercase font-heading flex items-center gap-2">
               <Globe className="w-4 h-4 text-brand-orange" />
-              <span>Company &amp; Team</span>
+              <span>Company</span>
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/about" className="hover:text-brand-orange transition-colors">
-                  About Z COM Networks
+                <Link href="/" className="hover:text-brand-orange transition-colors">
+                  Home
                 </Link>
               </li>
               <li>
                 <Link href="/about" className="hover:text-brand-orange transition-colors">
-                  CEO Mudasir Riaz (Profile)
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-brand-orange transition-colors">
-                  CFO Mubasir Riaz (Profile)
+                  About Us
                 </Link>
               </li>
               <li>
                 <Link href="/why-us" className="hover:text-brand-orange transition-colors">
-                  Why Choose Us (8 Reasons)
-                </Link>
-              </li>
-              <li>
-                <Link href="/why-us#coverage-map" className="hover:text-brand-orange transition-colors">
-                  Real GIS Punjab Map &amp; PoPs
+                  Why Us
                 </Link>
               </li>
               <li>
                 <Link href="/careers" className="hover:text-brand-orange transition-colors">
-                  Careers &amp; Active Job Openings
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-brand-orange transition-colors">
+                  Contact Us
                 </Link>
               </li>
             </ul>
