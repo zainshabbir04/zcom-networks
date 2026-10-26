@@ -219,67 +219,67 @@ export default function HomePage() {
 
 
       {/* ============================================================
-          9. CAREERS & TEAM SPOTLIGHT BANNER
+          9. CAREERS & TEAM SPOTLIGHT CARD
+          Enhanced with the signature dark-orange mesh gradient color scheme
           ============================================================ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollReveal variant="scale-in">
-          <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 shadow-2xl p-6 sm:p-10 lg:p-14 bg-[#0B0E14] layout-card-hover">
-          <div className="absolute inset-0 -z-20">
-            <Image
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80"
-              alt="Z COM Technology Team Collaboration"
-              fill
-              className="object-cover object-center filter brightness-[0.25] contrast-125"
-            />
-          </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-transparent -z-10" />
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#0B0F19] via-[#141B2B] to-[#1A120B] border border-orange-500/40 p-8 sm:p-12 lg:p-16 shadow-2xl shadow-orange-500/20 layout-card-hover">
+            {/* Colorful Vibrant Ambient Mesh Lighting */}
+            <div className="absolute -top-24 -left-24 w-80 h-80 bg-gradient-to-br from-brand-orange via-orange-500 to-amber-400 rounded-full blur-[90px] opacity-35 pointer-events-none" />
+            <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-gradient-to-tl from-orange-600 via-brand-orange to-amber-500 rounded-full blur-[90px] opacity-40 pointer-events-none" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-48 bg-brand-orange/20 rounded-full blur-[80px] pointer-events-none" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div className="lg:col-span-8 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-bold uppercase tracking-wider">
-                <Briefcase className="w-3.5 h-3.5" />
-                <span>WE ARE HIRING IN LAHORE</span>
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-8 space-y-4">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-bold uppercase tracking-wider backdrop-blur-md shadow-sm">
+                  <Briefcase className="w-3.5 h-3.5" />
+                  <span>WE ARE HIRING IN LAHORE</span>
+                </div>
+
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-heading tracking-tight leading-tight">
+                  Grow Your Career in{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-brand-orange to-amber-300">
+                    Telecommunications
+                  </span>{" "}
+                  &amp; Network Engineering
+                </h2>
+
+                <p className="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed font-normal">
+                  Join our fast-expanding team in Gulberg-III, Lahore. We offer competitive salaries,
+                  career advancement, cutting-edge carrier-grade equipment, and a collaborative NOC culture.
+                </p>
+
+                <div className="flex flex-wrap items-center gap-6 pt-2 text-xs sm:text-sm text-slate-300 font-semibold">
+                  <div className="flex items-center gap-2">
+                    <Award className="w-4 h-4 text-brand-orange" />
+                    <span>Competitive Compensation</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Users className="w-4 h-4 text-brand-orange" />
+                    <span>Senior Mentorship</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4 text-brand-orange" />
+                    <span>Gulberg-III Headquarters</span>
+                  </div>
+                </div>
               </div>
 
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-heading tracking-tight leading-tight">
-                Grow Your Career in Telecommunications &amp; Network Engineering
-              </h2>
-
-              <p className="text-sm sm:text-base text-gray-200 max-w-2xl leading-relaxed">
-                Join our fast-expanding team in Gulberg-III, Lahore. We offer competitive salaries,
-                career advancement, cutting-edge carrier-grade equipment, and a collaborative NOC culture.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-6 pt-2 text-xs sm:text-sm text-gray-200">
-                <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-brand-orange" />
-                  <span>Competitive Compensation</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Users className="w-4 h-4 text-brand-orange" />
-                  <span>Senior Mentorship</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <ShieldCheck className="w-4 h-4 text-brand-orange" />
-                  <span>Gulberg-III Headquarters</span>
-                </div>
+              <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center gap-3 w-full">
+                <Link
+                  href="/careers"
+                  className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-brand-orange via-orange-500 to-amber-500 hover:from-orange-600 hover:to-brand-orange text-white font-extrabold text-sm sm:text-base py-4 px-8 rounded-2xl transition-all shadow-xl shadow-brand-orange/40 hover:shadow-brand-orange/60 hover:scale-105 w-full sm:w-auto"
+                >
+                  <span>Explore Open Positions</span>
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <span className="text-xs text-slate-400 font-medium text-left lg:text-right">
+                  <AnimatedCounter from={0} to={5} /> Active Openings · Direct Application
+                </span>
               </div>
             </div>
-
-            <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center gap-3 w-full">
-              <Link
-                href="/careers"
-                className="inline-flex items-center justify-center gap-2.5 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold text-sm sm:text-base px-7 py-3.5 rounded-xl transition-all shadow-xl shadow-brand-orange/30 hover:-translate-y-0.5 w-full sm:w-auto"
-              >
-                <span>Explore Open Positions</span>
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <span className="text-xs text-gray-300 font-medium text-left lg:text-right">
-                <AnimatedCounter from={0} to={5} /> Active Openings · Direct Application
-              </span>
-            </div>
           </div>
-        </div>
         </ScrollReveal>
       </section>
 
@@ -303,71 +303,6 @@ export default function HomePage() {
           <FaqAccordion />
         </div>
       </ScrollReveal>
-
-      {/* ============================================================
-          11. FINAL BOTTOM CALL TO ACTION CARD
-          ============================================================ */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
-        <ScrollReveal variant="scale-in">
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#0B0F19] via-[#141B2B] to-[#1A120B] border border-orange-500/40 p-8 sm:p-12 lg:p-16 text-center space-y-6 shadow-2xl shadow-orange-500/20 layout-card-hover">
-          {/* Colorful Vibrant Ambient Mesh Lighting */}
-          <div className="absolute -top-24 -left-24 w-80 h-80 bg-gradient-to-br from-brand-orange via-orange-500 to-amber-400 rounded-full blur-[90px] opacity-35 pointer-events-none" />
-          <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-gradient-to-tl from-orange-600 via-brand-orange to-amber-500 rounded-full blur-[90px] opacity-40 pointer-events-none" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-48 bg-brand-orange/20 rounded-full blur-[80px] pointer-events-none" />
-
-          <div className="relative z-10 space-y-5 max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-bold uppercase tracking-wider backdrop-blur-md shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-brand-orange" />
-              <span>GET CONNECTED IN LAHORE</span>
-            </div>
-
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-heading tracking-tight leading-tight">
-              Ready for{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-brand-orange to-amber-300">
-                lightning-fast
-              </span>{" "}
-              connectivity?
-            </h2>
-
-            <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed font-normal">
-              Contact our Lahore engineering desk today for a free optical site survey, feasibility inspection, and custom enterprise quote.
-            </p>
-
-            <div className="flex items-center justify-center pt-2">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-brand-orange via-orange-500 to-amber-500 hover:from-orange-600 hover:to-brand-orange text-white font-extrabold text-sm sm:text-base py-4 px-10 rounded-2xl transition-all shadow-xl shadow-brand-orange/40 hover:shadow-brand-orange/60 hover:scale-105"
-              >
-                <span>Schedule Free Site Survey</span>
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-            </div>
-
-            {/* Micro Guarantees Trust Strip */}
-            <div className="pt-6 border-t border-white/10 grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-slate-300 font-semibold text-left sm:text-center">
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-brand-orange shrink-0" />
-                <span>Free On-Site Survey</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-brand-orange shrink-0" />
-                <span>24-48h Rapid Turnaround</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-brand-orange shrink-0" />
-                <span>
-                  <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> Contractual SLA
-                </span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-brand-orange shrink-0" />
-                <span>Zero FUP Throttling</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        </ScrollReveal>
-      </section>
       </div>
     </div>
   );
