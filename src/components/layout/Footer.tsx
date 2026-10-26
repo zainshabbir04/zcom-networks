@@ -28,32 +28,6 @@ export default function Footer() {
       <ScrollReveal variant="fade-up">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12">
           
-          {/* Top Pre-Footer Telemetry & Hotline Bar */}
-          <div className="pb-8 border-b border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500" />
-              </span>
-              <span className="text-xs sm:text-sm font-extrabold text-white font-heading uppercase tracking-wider">
-                Enterprise Carrier-Grade Optical Network
-              </span>
-              <span className="hidden lg:inline-block text-xs text-slate-400">
-                · <AnimatedCounter from={0} to={1200} suffix="+ km" /> Subterranean Metro Loops
-              </span>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <a
-                href="tel:+924234511111"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/15 text-white text-xs font-bold hover:bg-brand-orange hover:border-brand-orange transition-all shadow-sm group"
-              >
-                <Phone className="w-3.5 h-3.5 text-brand-orange group-hover:text-white transition-colors" />
-                <span>24/7 NOC: +92 42 345 11 111</span>
-              </a>
-            </div>
-          </div>
-
           {/* 4-Column Navigation & Information Matrix */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
             {/* Column 1: Brand & Contact Info */}
@@ -123,62 +97,7 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Column 2: Services */}
-            <div className="lg:col-span-3 space-y-4">
-              <h4 className="text-white font-extrabold text-xs tracking-widest uppercase font-heading flex items-center gap-2">
-                <span className="w-1.5 h-3.5 bg-brand-orange rounded-full" />
-                <span>SERVICES</span>
-              </h4>
-              <ul className="space-y-3 text-sm">
-                <li>
-                  <Link
-                    href="/services/corporate-internet"
-                    className="text-slate-300 hover:text-brand-orange hover:translate-x-1.5 transition-all flex items-center gap-2 group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-orange opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span>Corporate Solutions</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services/cloud-hosting"
-                    className="text-slate-300 hover:text-brand-orange hover:translate-x-1.5 transition-all flex items-center gap-2 group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-orange opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span>Cloud &amp; Hosting Solutions</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services/managed-it"
-                    className="text-slate-300 hover:text-brand-orange hover:translate-x-1.5 transition-all flex items-center gap-2 group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-orange opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span>Managed IT Solutions</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services/cybersecurity"
-                    className="text-slate-300 hover:text-brand-orange hover:translate-x-1.5 transition-all flex items-center gap-2 group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-orange opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span>Cybersecurity Services</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services/digital-solutions"
-                    className="text-slate-300 hover:text-brand-orange hover:translate-x-1.5 transition-all flex items-center gap-2 group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-brand-orange opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span>Digital Solutions</span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Column 3: Company */}
+            {/* Column 2 (Left): Company */}
             <div className="lg:col-span-2 space-y-4">
               <h4 className="text-white font-extrabold text-xs tracking-widest uppercase font-heading flex items-center gap-2">
                 <span className="w-1.5 h-3.5 bg-brand-orange rounded-full" />
@@ -228,6 +147,61 @@ export default function Footer() {
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-brand-orange opacity-0 group-hover:opacity-100 transition-opacity" />
                     <span>Contact Us</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Column 3 (Right): Services */}
+            <div className="lg:col-span-3 space-y-4">
+              <h4 className="text-white font-extrabold text-xs tracking-widest uppercase font-heading flex items-center gap-2">
+                <span className="w-1.5 h-3.5 bg-brand-orange rounded-full" />
+                <span>SERVICES</span>
+              </h4>
+              <ul className="space-y-3 text-sm">
+                <li>
+                  <Link
+                    href="/services/corporate-internet"
+                    className="text-slate-300 hover:text-brand-orange hover:translate-x-1.5 transition-all flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-orange opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span>Corporate Solutions</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services/cloud-hosting"
+                    className="text-slate-300 hover:text-brand-orange hover:translate-x-1.5 transition-all flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-orange opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span>Cloud &amp; Hosting Solutions</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services/managed-it"
+                    className="text-slate-300 hover:text-brand-orange hover:translate-x-1.5 transition-all flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-orange opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span>Managed IT Solutions</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services/cybersecurity"
+                    className="text-slate-300 hover:text-brand-orange hover:translate-x-1.5 transition-all flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-orange opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span>Cybersecurity Services</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services/digital-solutions"
+                    className="text-slate-300 hover:text-brand-orange hover:translate-x-1.5 transition-all flex items-center gap-2 group"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-brand-orange opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span>Digital Solutions</span>
                   </Link>
                 </li>
               </ul>
