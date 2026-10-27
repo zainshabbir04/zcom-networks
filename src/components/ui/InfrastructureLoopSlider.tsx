@@ -85,7 +85,7 @@ const INFRA_SLIDES: InfraSlide[] = [
     subtitle: "Dense Wavelength Division Multiplexing with <50ms Auto-Failover",
     description:
       "Our core metro distribution runs on multi-lambda DWDM optical transport technology capable of delivering scalable 100 Gbps channels. In the event of a physical conduit severance, the self-healing ring topology redirects packet flows in less than 50 milliseconds without session drops.",
-    image: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/infrastructure/transmission-hardware.jpg",
     location: "Metro Optical Nodes & Distribution Rings",
     telemetry: [
       { label: "Ring Capacity", value: "100 Gbps", sub: "Scalable DWDM Core" },
@@ -127,7 +127,7 @@ const INFRA_SLIDES: InfraSlide[] = [
     subtitle: "Mobile Technicians Dispatched with <30 Minute MTTR",
     description:
       "When unforeseen municipal construction cuts a feeder conduit, Z COM's dedicated mobile fleet arrives equipped with Fujikura precision core-alignment fusion splicers, EXFO optical time-domain reflectometers (OTDR), and emergency standby optical equipment.",
-    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80",
+    image: "/images/infrastructure/rapid-response.jpg",
     location: "Mobile Field Fleets across Metropolitan Zones",
     telemetry: [
       { label: "Rapid MTTR SLA", value: "< 30 min", sub: "Emergency On-Site Arrival" },
@@ -213,43 +213,29 @@ export default function InfrastructureLoopSlider() {
           {INFRA_SLIDES.map((slide, idx) => (
             <div key={slide.id} className="w-full shrink-0">
               <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[500px]">
-                {/* Left Column: Visual Banner with Image */}
-                <div className="lg:col-span-5 relative min-h-[300px] lg:min-h-full">
+                {/* Left Column: Visual Banner with Image (Pristine, No Text Overlays) */}
+                <div className="lg:col-span-5 relative min-h-[320px] lg:min-h-full overflow-hidden bg-slate-950">
                   <Image
                     src={slide.image}
                     alt={slide.title}
                     fill
-                    className="object-cover filter brightness-[0.85] contrast-115"
+                    unoptimized
+                    priority={idx === 0}
+                    className="object-cover transition-transform duration-700 hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
-
-                  {/* Badge & Location pill */}
-                  <div className="absolute top-6 left-6 right-6 flex items-center justify-between">
-                    <span className="px-3 py-1 rounded-full bg-brand-orange text-white text-[11px] font-bold uppercase tracking-wider shadow-lg">
-                      {slide.badge}
-                    </span>
-                    <span className="text-xs font-bold text-white/90 bg-black/60 px-3 py-1 rounded-full backdrop-blur-md">
-                      0{idx + 1} / 0{INFRA_SLIDES.length}
-                    </span>
-                  </div>
-
-                  <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
-                    <div className="flex items-center gap-1.5 text-xs text-orange-400 font-semibold">
-                      <MapPin className="w-3.5 h-3.5" />
-                      <span>{slide.location}</span>
-                    </div>
-                    <h4 className="text-lg font-bold text-white font-heading">
-                      {slide.title}
-                    </h4>
-                  </div>
                 </div>
 
                 {/* Right Column: In-depth Technical Telemetry & Features */}
                 <div className="lg:col-span-7 p-7 sm:p-10 flex flex-col justify-between space-y-6">
                   <div className="space-y-4">
-                    <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-orange">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      <span>CARRIER-GRADE OPTICAL ARCHITECTURE</span>
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      <span className="px-3 py-1 rounded-full bg-brand-orange text-white text-[11px] font-bold uppercase tracking-wider shadow-sm">
+                        {slide.badge}
+                      </span>
+                      <div className="inline-flex items-center gap-1.5 text-xs text-slate-500 font-semibold px-2.5 py-1 rounded-full bg-slate-100 border border-slate-200">
+                        <MapPin className="w-3.5 h-3.5 text-brand-orange" />
+                        <span>{slide.location}</span>
+                      </div>
                     </div>
 
                     <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading leading-tight">
