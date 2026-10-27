@@ -10,9 +10,6 @@ import {
   Radio,
   TrendingUp,
   Sparkles,
-  Briefcase,
-  Users,
-  Award,
 } from "lucide-react";
 
 import HeroSlider from "@/components/ui/HeroSlider";
@@ -217,71 +214,6 @@ export default function HomePage() {
         </div>
       </ScrollReveal>
 
-
-      {/* ============================================================
-          9. CAREERS & TEAM SPOTLIGHT CARD
-          Enhanced with the signature dark-orange mesh gradient color scheme
-          ============================================================ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <ScrollReveal variant="scale-in">
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-[#0B0F19] via-[#141B2B] to-[#1A120B] border border-orange-500/40 p-8 sm:p-12 lg:p-16 shadow-2xl shadow-orange-500/20 layout-card-hover">
-            {/* Colorful Vibrant Ambient Mesh Lighting */}
-            <div className="absolute -top-24 -left-24 w-80 h-80 bg-gradient-to-br from-brand-orange via-orange-500 to-amber-400 rounded-full blur-[90px] opacity-35 pointer-events-none" />
-            <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-gradient-to-tl from-orange-600 via-brand-orange to-amber-500 rounded-full blur-[90px] opacity-40 pointer-events-none" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-48 bg-brand-orange/20 rounded-full blur-[80px] pointer-events-none" />
-
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-8 space-y-4">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-orange/20 border border-brand-orange/40 text-brand-orange text-xs font-bold uppercase tracking-wider backdrop-blur-md shadow-sm">
-                  <Briefcase className="w-3.5 h-3.5" />
-                  <span>WE ARE HIRING IN LAHORE</span>
-                </div>
-
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white font-heading tracking-tight leading-tight">
-                  Grow Your Career in{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-brand-orange to-amber-300">
-                    Telecommunications
-                  </span>{" "}
-                  &amp; Network Engineering
-                </h2>
-
-                <p className="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed font-normal">
-                  Join our fast-expanding team in Gulberg-III, Lahore. We offer competitive salaries,
-                  career advancement, cutting-edge carrier-grade equipment, and a collaborative NOC culture.
-                </p>
-
-                <div className="flex flex-wrap items-center gap-6 pt-2 text-xs sm:text-sm text-slate-300 font-semibold">
-                  <div className="flex items-center gap-2">
-                    <Award className="w-4 h-4 text-brand-orange" />
-                    <span>Competitive Compensation</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Users className="w-4 h-4 text-brand-orange" />
-                    <span>Senior Mentorship</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-brand-orange" />
-                    <span>Gulberg-III Headquarters</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-center gap-3 w-full">
-                <Link
-                  href="/careers"
-                  className="inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-brand-orange via-orange-500 to-amber-500 hover:from-orange-600 hover:to-brand-orange text-white font-extrabold text-sm sm:text-base py-4 px-8 rounded-2xl transition-all shadow-xl shadow-brand-orange/40 hover:shadow-brand-orange/60 hover:scale-105 w-full sm:w-auto"
-                >
-                  <span>Explore Open Positions</span>
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-                <span className="text-xs text-slate-400 font-medium text-left lg:text-right">
-                  <AnimatedCounter from={0} to={5} /> Active Openings · Direct Application
-                </span>
-              </div>
-            </div>
-          </div>
-        </ScrollReveal>
-      </section>
 
       {/* ============================================================
           10. FREQUENTLY ASKED QUESTIONS

@@ -44,7 +44,7 @@ export default function Footer() {
 
               <p className="text-sm leading-relaxed text-slate-400">
                 Z COM Networks Private Limited is a premier licensed Internet Service Provider (ISP)
-                delivering carrier-grade optical connectivity across Lahore and Punjab. Engineered with
+                delivering enterprise carrier-grade optical connectivity, mission-critical infrastructure, and high-speed dedicated internet. Engineered with
                 a <AnimatedCounter from={0} to={1200} suffix="+ km" /> subterranean armored fiber ring, <AnimatedCounter from={0} to={1} prefix="1:" suffix=" symmetrical throughput" />, and contractual{" "}
                 <AnimatedCounter from={0} to={99.99} decimals={2} suffix="%" /> uptime SLA.
               </p>
@@ -233,7 +233,7 @@ export default function Footer() {
                   <span className="text-lg font-black text-white font-heading block">
                     <AnimatedCounter from={0} to={30} prefix="< " suffix=" min" /> MTTR
                   </span>
-                  <span className="text-[11px] text-slate-400 block">Mobile Field Fleets in Lahore</span>
+                  <span className="text-[11px] text-slate-400 block">Dedicated On-Site Field Dispatch</span>
                 </div>
 
                 <Link
