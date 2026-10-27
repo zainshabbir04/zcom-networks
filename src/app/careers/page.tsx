@@ -24,7 +24,7 @@ import ScrollReveal, { StaggerContainer } from "@/components/ui/ScrollReveal";
 export const metadata: Metadata = {
   title: "Careers & Open Positions | Z COM Networks Private Limited",
   description:
-    "Join Lahore's leading high-speed fiber ISP. Explore career opportunities in Network Operations (NOC), fiber optical engineering, field deployment, and enterprise B2B sales at Z COM Networks.",
+    "Join our high-speed optical fiber ISP network. Explore career opportunities in Network Operations (NOC), fiber optical engineering, field deployment, and enterprise B2B sales at Z COM Networks.",
 };
 
 interface JobPosition {
@@ -256,38 +256,16 @@ export default function CareersPage() {
               </a>
             </div>
 
-            {/* 4 Quick Telemetry Stats */}
-            <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
-              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 text-center sm:text-left">
-                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block">
+            {/* Open Roles Telemetry Stat */}
+            <div className="pt-2">
+              <div className="inline-flex items-center gap-4 p-3 px-5 rounded-xl bg-black/40 backdrop-blur-md border border-white/10">
+                <span className="text-2xl sm:text-3xl font-black text-brand-orange font-heading">
                   <AnimatedCounter from={0} to={POSITIONS.length} />
                 </span>
-                <span className="text-xs text-white font-bold mt-0.5 block">Open Roles</span>
-                <span className="text-[10px] text-slate-400 font-medium block">Actively Hiring</span>
-              </div>
-
-              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 text-center sm:text-left">
-                <span className="text-xl sm:text-2xl font-black text-white font-heading block">
-                  24/7/365
-                </span>
-                <span className="text-xs text-white font-bold mt-0.5 block">Active NOC</span>
-                <span className="text-[10px] text-slate-400 font-medium block">Tier-1 Operations</span>
-              </div>
-
-              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 text-center sm:text-left">
-                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block">
-                  <AnimatedCounter from={0} to={100} suffix="G" />
-                </span>
-                <span className="text-xs text-white font-bold mt-0.5 block">Core Scale</span>
-                <span className="text-[10px] text-slate-400 font-medium block">Optical DWDM</span>
-              </div>
-
-              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 text-center sm:text-left">
-                <span className="text-xl sm:text-2xl font-black text-white font-heading block">
-                  <AnimatedCounter from={0} to={100} suffix="%" />
-                </span>
-                <span className="text-xs text-white font-bold mt-0.5 block">Health Cover</span>
-                <span className="text-[10px] text-slate-400 font-medium block">Full Benefits</span>
+                <div className="border-l border-white/15 pl-3.5 text-left">
+                  <span className="text-xs text-white font-bold block">Open Roles</span>
+                  <span className="text-[10px] text-slate-400 font-medium block">Actively Hiring</span>
+                </div>
               </div>
             </div>
             </BannerActions>
