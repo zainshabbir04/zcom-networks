@@ -26,7 +26,7 @@ import ScrollReveal, { StaggerContainer } from "@/components/ui/ScrollReveal";
 export const metadata: Metadata = {
   title: "Why Choose Us | Z COM Networks Private Limited",
   description:
-    "Discover why businesses and homeowners across Lahore trust Z COM Networks — animated optical coverage map, blazing fast symmetrical fiber, 99.9% uptime, 24/7 local support, and industry-leading technology.",
+    "Discover why businesses and homeowners trust Z COM Networks — animated optical coverage map, blazing fast symmetrical fiber, 99.9% uptime, 24/7 local support, and industry-leading technology.",
 };
 
 const REASONS = [
@@ -290,11 +290,14 @@ export default function WhyUsPage() {
             <table className="w-full text-left border-collapse text-sm">
               <thead>
                 <tr className="border-b border-slate-200/90 dark:border-slate-700/60 bg-slate-50 dark:bg-[#0E1118]">
-                  <th className="py-5 px-6 font-heading font-bold text-slate-700 dark:text-slate-300 text-xs uppercase tracking-wider">
+                  <th className="py-5 px-6 font-heading font-extrabold text-brand-orange text-xs uppercase tracking-wider bg-orange-500/15 dark:bg-brand-orange/20 border-r border-orange-500/30">
                     Feature / Standard
                   </th>
-                  <th className="py-5 px-6 font-heading font-bold text-brand-orange text-xs uppercase tracking-wider bg-orange-500/10 border-x border-orange-500/20">
-                    Z COM NETWORKS
+                  <th className="py-5 px-6 font-heading font-bold text-slate-900 dark:text-white text-xs uppercase tracking-wider bg-slate-100/60 dark:bg-white/[0.03] border-r border-slate-200/90 dark:border-slate-700/60">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/10 dark:bg-brand-orange/20 text-brand-orange border border-orange-500/30">
+                      <Check className="w-3.5 h-3.5 stroke-[3]" />
+                      Z COM NETWORKS
+                    </span>
                   </th>
                   <th className="py-5 px-6 font-heading font-bold text-slate-500 dark:text-slate-400 text-xs uppercase tracking-wider">
                     CONVENTIONAL BROADBAND
@@ -303,19 +306,23 @@ export default function WhyUsPage() {
               </thead>
               <tbody className="divide-y divide-slate-100 dark:divide-slate-700/60">
                 {COMPARISON_ROWS.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-orange-50/30 dark:hover:bg-white/[0.02] transition-colors">
-                    <td className="py-4 px-6 font-bold text-slate-900 dark:text-white">
+                  <tr key={idx} className="hover:bg-orange-50/20 dark:hover:bg-white/[0.02] transition-colors">
+                    <td className="py-4 px-6 font-bold text-brand-orange bg-orange-50/80 dark:bg-brand-orange/15 border-r border-orange-200/70 dark:border-brand-orange/25">
                       {row.feature}
                     </td>
-                    <td className="py-4 px-6 font-medium text-brand-orange bg-orange-50/40 border-x border-orange-200/60">
-                      <div className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-brand-orange shrink-0 stroke-[3]" />
+                    <td className="py-4 px-6 font-semibold text-slate-900 dark:text-white bg-white dark:bg-[#12161F] border-r border-slate-100 dark:border-slate-800">
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-5 h-5 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                          <Check className="w-3.5 h-3.5 stroke-[3]" />
+                        </span>
                         <span>{row.zcom}</span>
                       </div>
                     </td>
-                    <td className="py-4 px-6 text-slate-500">
-                      <div className="flex items-center gap-2">
-                        <X className="w-4 h-4 text-slate-400 shrink-0 stroke-[2.5]" />
+                    <td className="py-4 px-6 text-slate-600 dark:text-slate-400">
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-5 h-5 rounded-full bg-rose-500/10 text-rose-500/80 dark:text-rose-400 flex items-center justify-center shrink-0">
+                          <X className="w-3.5 h-3.5 stroke-[2.5]" />
+                        </span>
                         <span>{row.traditional}</span>
                       </div>
                     </td>
