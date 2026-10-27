@@ -221,7 +221,7 @@ export default function AboutPage() {
                     <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-white">
                       <Image
                         src="/images/leadership/mudasir-riaz-ceo.jpg"
-                        alt="Mudasir Riaz - Chief Executive Officer (CEO) & Co-Founder Z COM Networks"
+                        alt="Mudasir Riaz - Chief Executive Officer (CEO) & Founder Z COM Networks"
                         fill
                         unoptimized
                         sizes="(max-width: 640px) 200px, 250px"
@@ -249,7 +249,7 @@ export default function AboutPage() {
                   </h3>
 
                   <p className="text-sm font-semibold text-slate-700">
-                    Chief Executive Officer (CEO) &amp; Co-Founder
+                    Chief Executive Officer (CEO) &amp; Founder
                   </p>
 
                   {/* Highlights Bar */}
@@ -277,7 +277,7 @@ export default function AboutPage() {
               {/* Bio & Track Record */}
               <div className="space-y-3 text-sm text-slate-700 leading-relaxed border-t border-slate-100 pt-5">
                 <p>
-                  As Chief Executive Officer and visionary co-founder of Z COM Networks, <strong>Mudasir Riaz</strong> has
+                  As Chief Executive Officer and visionary founder of Z COM Networks, <strong>Mudasir Riaz</strong> has
                   spearheaded the company&apos;s transformation from a local telecom challenger into one of the region&apos;s
                   most trusted carrier-grade optical ISPs.
                 </p>
