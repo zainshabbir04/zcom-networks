@@ -311,62 +311,35 @@ export default function CareersPage() {
       </section>
 
       {/* ============================================================
-          3. PHOTO BANNER: NOC & FIELD CULTURE
+          3. PHOTO BANNER: STATE-OF-THE-ART NOC & WORK CULTURE
           ============================================================ */}
       <ScrollReveal variant="fade-up" as="section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Photo Card with Overlay */}
-          <div className="lg:col-span-5 relative h-80 sm:h-96 rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 shadow-xl shadow-slate-200/50 dark:shadow-black/50">
-            <Image
-              src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1000&q=80"
-              alt="Fiber Optic Engineering"
-              fill
-              className="object-cover filter contrast-125 brightness-90"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
-            <div className="absolute bottom-6 left-6 right-6">
-              <span className="px-3 py-1 rounded-full bg-brand-orange text-white text-[11px] font-bold uppercase tracking-wider">
-                Field &amp; NOC Operations
-              </span>
-              <h4 className="text-lg font-bold text-white font-heading mt-2">
-                Hands-On Optical Infrastructure
-              </h4>
-              <p className="text-xs text-gray-200 mt-1">
-                From high-density fiber splice closures to core ring routing, work on live carrier networks.
-              </p>
-            </div>
-          </div>
+        <div className="relative w-full rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 shadow-2xl shadow-slate-200/50 dark:shadow-black/60 group bg-slate-950 aspect-[16/9] sm:aspect-[21/9] max-h-[560px]">
+          {/* NOC & Culture Wide Showcase Image */}
+          <Image
+            src="/images/careers/noc-work-culture.jpg"
+            alt="Z COM Networks - State-of-the-Art NOC & Modern Engineering Workplace"
+            fill
+            unoptimized
+            priority
+            sizes="(max-width: 1280px) 100vw, 1200px"
+            className="object-cover object-center w-full h-full transition-transform duration-700 group-hover:scale-[1.02]"
+          />
 
-          {/* Description & Values */}
-          <div className="lg:col-span-7 space-y-6">
-            <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
-              OUR WORK CULTURE
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white font-heading leading-tight">
-              Empowering Engineers &amp; Leaders to Thrive
-            </h3>
-            <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-              At Z COM Networks, we believe that world-class connectivity begins with a passionate,
-              supported team. Whether you are troubleshooting sub-millisecond latencies in our
-              Gulberg-III Network Operations Center or deploying gigabit fiber terminations in the
-              field, your contributions directly empower Lahore&apos;s businesses and residents.
-            </p>
-            <div className="grid grid-cols-2 gap-4 pt-2">
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60 shadow-sm">
-                <div className="text-2xl font-extrabold text-brand-orange font-heading">
-                  <AnimatedCounter from={0} to={100} suffix="%" />
-                </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-medium">
-                  Local Lahore Leadership &amp; Support
-                </div>
-              </div>
-              <div className="p-4 rounded-xl bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60 shadow-sm">
-                <div className="text-2xl font-extrabold text-slate-900 dark:text-white font-heading">
-                  <AnimatedCounter from={0} to={24} suffix="/7/365" />
-                </div>
-                <div className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-medium">
-                  Active Network Operations Center
-                </div>
+          {/* Subtle Ambient Vignette & Gradient for Depth */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
+
+          {/* Top-Left Corner: Official Company Logo */}
+          <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-10">
+            <div className="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md px-4 py-2 sm:px-5 sm:py-2.5 rounded-2xl border border-white/60 dark:border-slate-700/80 shadow-xl flex items-center gap-2">
+              <div className="relative h-7 sm:h-8 w-28 sm:w-36">
+                <Image
+                  src="https://zcomnetworks.com.pk/assets/zcom-logo.png?v=2"
+                  alt="Z COM Networks Logo"
+                  fill
+                  unoptimized
+                  className="object-contain object-left"
+                />
               </div>
             </div>
           </div>
