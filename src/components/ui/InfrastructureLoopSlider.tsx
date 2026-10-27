@@ -26,6 +26,8 @@ interface InfraSlide {
   subtitle: string;
   description: string;
   image: string;
+  imagePosition?: string;
+  objectPosition?: string;
   location: string;
   telemetry: {
     label: string;
@@ -128,6 +130,8 @@ const INFRA_SLIDES: InfraSlide[] = [
     description:
       "When unforeseen municipal construction cuts a feeder conduit, Z COM's dedicated mobile fleet arrives equipped with Fujikura precision core-alignment fusion splicers, EXFO optical time-domain reflectometers (OTDR), and emergency standby optical equipment.",
     image: "/images/infrastructure/rapid-response.jpg",
+    imagePosition: "object-right",
+    objectPosition: "right center",
     location: "Mobile Field Fleets across Metropolitan Zones",
     telemetry: [
       { label: "Rapid MTTR SLA", value: "< 30 min", sub: "Emergency On-Site Arrival" },
@@ -222,7 +226,8 @@ export default function InfrastructureLoopSlider() {
                     unoptimized
                     priority={idx === 0}
                     sizes="(max-width: 1024px) 100vw, 42vw"
-                    className="object-cover object-center w-full h-full transition-transform duration-700 hover:scale-105"
+                    className={`object-cover ${slide.imagePosition || "object-center"} w-full h-full transition-transform duration-700 hover:scale-105`}
+                    style={slide.objectPosition ? { objectPosition: slide.objectPosition } : undefined}
                   />
                 </div>
 
