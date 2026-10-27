@@ -122,7 +122,7 @@ export default function HomePage() {
 
             <p className="text-base text-slate-600 dark:text-gray-400 leading-relaxed">
               Renowned for excellence and innovation, Z COM provides robust broadband solutions
-              for home entertainment, remote work, and mission-critical business operations across Lahore.
+              for home entertainment, remote work, and mission-critical business operations across the region.
             </p>
 
             <div className="pt-2">
@@ -202,11 +202,11 @@ export default function HomePage() {
               PROVEN TRACK RECORD
             </span>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading tracking-tight">
-              Trusted by Lahore&apos;s Leading Organizations
+              Trusted by Leading Organizations
             </h2>
             <p className="text-sm sm:text-base text-slate-600 dark:text-gray-400">
               From tertiary hospitals and luxury hotels to educational campuses and commercial
-              towers, our dedicated fiber keeps Lahore connected.
+              towers, our dedicated fiber keeps critical operations connected.
             </p>
           </div>
 

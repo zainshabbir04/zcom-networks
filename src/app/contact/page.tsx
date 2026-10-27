@@ -14,7 +14,7 @@ import ScrollReveal, { StaggerContainer } from "@/components/ui/ScrollReveal";
 export const metadata: Metadata = {
   title: "Contact Us & Coverage Check | Z COM Networks Private Limited",
   description:
-    "Get in touch with Z COM Networks Private Limited. Check fiber coverage in Lahore, request enterprise DIA quotes, or contact our 24/7 support desk.",
+    "Get in touch with Z COM Networks Private Limited. Check fiber coverage, request enterprise DIA quotes, or contact our 24/7 support desk.",
 };
 
 const CONTACT_INFO = [
@@ -31,15 +31,9 @@ const CONTACT_INFO = [
     href: "mailto:info@zcomnetworks.com.pk",
   },
   {
-    icon: <MessageSquare className="w-5 h-5 text-brand-orange" />,
-    label: "WhatsApp Support Desk",
-    value: "+92 317 1118042",
-    href: "https://wa.me/923171118042",
-  },
-  {
     icon: <MapPin className="w-5 h-5 text-brand-orange" />,
     label: "Head Office Address",
-    value: "7/4, E-3 Main Boulevard, Gulberg-III, Lahore, Punjab, Pakistan",
+    value: "7/4, E-3 Main Boulevard, Gulberg-III, Pakistan",
     href: null,
   },
   {
@@ -169,7 +163,7 @@ export default function ContactPage() {
                 </span>
               </h2>
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-lg mx-auto">
-                Submit your area in Lahore to verify nearest optical transmission node proximity and
+                Submit your area to verify nearest optical transmission node proximity and
                 dispatch our field survey team.
               </p>
             </div>
@@ -193,7 +187,7 @@ export default function ContactPage() {
                 We&apos;re Available 24/7/365
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Whether you need dedicated enterprise DIA or high-speed home fiber, our Lahore
+                Whether you need dedicated enterprise DIA or high-speed home fiber, our central
                 office is always accessible.
               </p>
             </div>

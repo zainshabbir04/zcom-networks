@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Mail } from "lucide-react";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -17,11 +17,11 @@ export default function ContactForm() {
     e.preventDefault();
     if (!formData.name.trim() || !formData.phone.trim()) return;
 
-    const message = `Website Contact Inquiry:\nName: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nSubject: ${formData.subject}\nMessage: ${formData.message}`;
-    window.open(
-      `https://wa.me/923171118042?text=${encodeURIComponent(message)}`,
-      "_blank"
+    const subject = encodeURIComponent(`[Website Inquiry] ${formData.subject} - ${formData.name}`);
+    const body = encodeURIComponent(
+      `Website Contact Inquiry:\n\nFull Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email || "Not Provided"}\nService of Interest: ${formData.subject}\n\nMessage / Requirement Details:\n${formData.message || "No additional message"}\n`
     );
+    window.location.href = `mailto:info@zcomnetworks.com.pk?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -31,8 +31,8 @@ export default function ContactForm() {
         <CheckCircle2 className="w-12 h-12 text-brand-orange mx-auto" />
         <h4 className="font-bold text-slate-900 text-xl">Thank You for Reaching Out!</h4>
         <p className="text-sm text-slate-600">
-          Your inquiry has been dispatched to our sales &amp; engineering desk.
-          Our team in Gulberg-III, Lahore will connect with you shortly.
+          Your inquiry has been dispatched to info@zcomnetworks.com.pk.
+          Our commercial sales &amp; engineering desk will connect with you shortly.
         </p>
         <button
           onClick={() => {
@@ -78,7 +78,7 @@ export default function ContactForm() {
             htmlFor="contactPhone"
             className="block text-xs font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5"
           >
-            Phone / WhatsApp *
+            Phone Number *
           </label>
           <input
             id="contactPhone"
@@ -145,7 +145,7 @@ export default function ContactForm() {
           rows={4}
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          placeholder="Tell us about your organization, bandwidth requirement, or specific Lahore address..."
+          placeholder="Tell us about your organization, bandwidth requirement, or specific address..."
           className="w-full bg-slate-50 dark:bg-[#0E1118] border border-slate-200/90 dark:border-slate-700/60 rounded-xl py-3 px-4 text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-colors"
         />
       </div>
@@ -154,12 +154,13 @@ export default function ContactForm() {
         type="submit"
         className="w-full inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white font-bold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-lg shadow-brand-orange/30 hover:shadow-brand-orange/50 mt-2"
       >
-        <span>Send Inquiry via WhatsApp</span>
+        <Mail className="w-4 h-4 text-white" />
+        <span>Send Inquiry via Email</span>
         <ArrowRight className="w-4 h-4" />
       </button>
 
       <p className="text-[11px] text-slate-500 dark:text-gray-400 text-center">
-        Direct channel to our Gulberg-III NOC &amp; sales desk in Lahore.
+        Direct channel to our 24/7 Gulberg-III NOC &amp; sales desk.
       </p>
     </form>
   );

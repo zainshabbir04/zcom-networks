@@ -35,7 +35,7 @@ const TESTIMONIALS: Testimonial[] = [
     id: "doctors-hospital",
     name: "Dr. Tariq Mahmood",
     title: "Chief of Biomedical Informatics & Systems",
-    company: "Doctors Hospital & Medical Center Lahore",
+    company: "Doctors Hospital & Medical Center",
     category: "Healthcare",
     avatar: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=300&q=80",
     rating: 5,
@@ -59,7 +59,7 @@ const TESTIMONIALS: Testimonial[] = [
     verifiedSLA: "Sub-1.5ms Local Latency",
     highlight: "Ultra-low jitter for 300+ remote engineers",
     quote:
-      "When your engineering team is deploying continuous CI/CD pipelines to AWS and Azure, jitter and packet loss kill productivity. Z COM's direct BGP optical routing and sub-1.5ms intra-city ping give us the fastest cloud transit in Lahore.",
+      "When your engineering team is deploying continuous CI/CD pipelines to AWS and Azure, jitter and packet loss kill productivity. Z COM's direct BGP optical routing and sub-1.5ms intra-city ping give us the fastest cloud transit in the region.",
   },
   {
     id: "nishat-hospitality",
@@ -284,7 +284,7 @@ export default function TestimonialsLoopSlider() {
             <div className="pt-2 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 border-t border-slate-200/60 dark:border-slate-700/60">
               <span className="flex items-center gap-1.5">
                 <Award className="w-4 h-4 text-brand-orange" />
-                <span>Verified Enterprise Contract · Lahore Fiber Backbone</span>
+                <span>Verified Enterprise Contract · Metro Optical Backbone</span>
               </span>
               <span className="font-semibold text-slate-700 dark:text-gray-300">
                 Slide {activeIndex + 1} of {TESTIMONIALS.length}

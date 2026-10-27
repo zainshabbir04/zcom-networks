@@ -2,21 +2,20 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import { ThemeProvider } from "@/context/ThemeContext";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://zcomnetworks.com.pk"),
-  title: "Z COM Networks Private Limited | High-Speed Fiber Internet in Lahore",
+  title: "Z COM Networks Private Limited | High-Speed Fiber Internet",
   description:
-    "Z COM Networks Private Limited is a top-tier Internet Service Provider in Lahore delivering reliable, high-speed fiber internet for corporate and residential clients with 99.9% uptime SLA and 24/7 local support.",
+    "Z COM Networks Private Limited is a top-tier Internet Service Provider delivering reliable, high-speed fiber internet for corporate and residential clients with 99.9% uptime SLA and 24/7 local support.",
   keywords: [
     "Z COM Networks",
-    "ISP Lahore",
-    "Fiber Internet Lahore",
+    "ISP",
+    "Fiber Internet",
     "Dedicated Internet Access",
     "Corporate Internet",
-    "High Speed Internet Gulberg Lahore",
+    "High Speed Optical Internet",
   ],
   authors: [{ name: "Z COM Networks Private Limited" }],
   icons: {
@@ -27,9 +26,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_PK",
     url: "https://zcomnetworks.com.pk/",
-    title: "Z COM Networks Private Limited | High-Speed Fiber Internet in Lahore",
+    title: "Z COM Networks Private Limited | High-Speed Fiber Internet",
     description:
-      "A top-tier Internet Service Provider delivering reliable, high-speed connectivity for corporate and residential sectors in Lahore.",
+      "A top-tier Internet Service Provider delivering reliable, high-speed connectivity for corporate and residential sectors.",
     images: [
       {
         url: "https://zcomnetworks.com.pk/assets/og-image.png",
@@ -68,11 +67,11 @@ export default function RootLayout({
               address: {
                 "@type": "PostalAddress",
                 streetAddress: "7/4, E-3 Main Boulevard, Gulberg-III",
-                addressLocality: "Lahore",
-                addressRegion: "Punjab",
+                addressLocality: "Pakistan",
+                addressRegion: "Pakistan",
                 addressCountry: "PK",
               },
-              areaServed: "Lahore",
+              areaServed: "Pakistan",
               openingHours: "Mo-Su 00:00-23:59",
               sameAs: [
                 "https://www.facebook.com/profile.php?id=61562135909070",
@@ -87,7 +86,6 @@ export default function RootLayout({
           <Header />
           <main className="flex-1 animate-page-enter">{children}</main>
           <Footer />
-          <WhatsAppButton />
         </ThemeProvider>
       </body>
     </html>

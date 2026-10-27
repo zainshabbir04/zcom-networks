@@ -12,11 +12,11 @@ export default function CoverageForm() {
     e.preventDefault();
     if (!area.trim() || !phone.trim()) return;
 
-    const message = `Coverage Check Request:\nArea / Location: ${area}\nContact Phone: ${phone}`;
-    window.open(
-      `https://wa.me/923171118042?text=${encodeURIComponent(message)}`,
-      "_blank"
+    const subject = encodeURIComponent(`Coverage Check Request: ${area}`);
+    const body = encodeURIComponent(
+      `Optical Coverage & Feasibility Inquiry:\n\nArea / Location: ${area}\nContact Phone: ${phone}\n`
     );
+    window.location.href = `mailto:info@zcomnetworks.com.pk?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -26,8 +26,8 @@ export default function CoverageForm() {
         <CheckCircle2 className="w-10 h-10 text-brand-orange mx-auto" />
         <h4 className="font-bold text-white text-lg font-heading">Inquiry Forwarded!</h4>
         <p className="text-sm text-slate-300">
-          Our Lahore field team has received your location and will confirm node
-          feasibility with you momentarily via WhatsApp.
+          Our field team has received your location and will confirm node
+          feasibility with you momentarily via email or phone.
         </p>
         <button
           onClick={() => {
@@ -50,7 +50,7 @@ export default function CoverageForm() {
           htmlFor="area"
           className="block text-xs font-semibold uppercase tracking-wider text-slate-200 mb-1.5"
         >
-          Your Area / Sector in Lahore *
+          Your Area / Sector *
         </label>
         <div className="relative">
           <MapPin className="w-4 h-4 text-brand-orange absolute left-3.5 top-3.5" />
@@ -71,7 +71,7 @@ export default function CoverageForm() {
           htmlFor="phone"
           className="block text-xs font-semibold uppercase tracking-wider text-slate-200 mb-1.5"
         >
-          WhatsApp / Phone Number *
+          Phone Number *
         </label>
         <div className="relative">
           <Phone className="w-4 h-4 text-brand-orange absolute left-3.5 top-3.5" />

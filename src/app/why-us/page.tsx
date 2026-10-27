@@ -63,7 +63,7 @@ const REASONS = [
   {
     icon: <CheckCircle2 className="w-6 h-6 text-brand-orange" />,
     title: "Local Support, Global Reach",
-    desc: "Reliable, high-speed service wherever you are, backed by our extensive Lahore network.",
+    desc: "Reliable, high-speed service wherever you are, backed by our extensive optical network.",
   },
   {
     icon: <TrendingUp className="w-6 h-6 text-brand-orange" />,
@@ -95,7 +95,7 @@ const COMPARISON_ROWS = [
   },
   {
     feature: "Local NOC & Technical Dispatch",
-    zcom: "24/7 Local Lahore NOC & Rapid Field Technicians",
+    zcom: "24/7 Local Tier-3 NOC & Rapid Field Technicians",
     traditional: "Outsourced call centers & days-long turnaround",
   },
   {

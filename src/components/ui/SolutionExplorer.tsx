@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
+  Mail,
   Check,
   ArrowRight,
   ShieldCheck,
@@ -41,21 +42,21 @@ const SOLUTIONS: SolutionItem[] = [
     title: "Corporate Solutions",
     target: "Enterprises, Financial Institutions, Corporate HQs & Campuses",
     description:
-      "Enterprise-grade optical connectivity featuring true 1:1 contention, multi-site MPLS routing, encrypted VPN tunnels, and subterranean Point-to-Point fiber links across Lahore.",
+      "Enterprise-grade optical connectivity featuring true 1:1 contention, multi-site MPLS routing, encrypted VPN tunnels, and subterranean Point-to-Point fiber links across metropolitan zones.",
     features: [
       <span>DIA (Dedicated Internet Access) with 1:1 symmetrical bandwidth</span>,
       <span>
         Contractual <AnimatedCounter from={0} to={99.99} decimals={2} suffix="%" /> Uptime Service Level Agreement (SLA)
       </span>,
       <span>MPLS &amp; encrypted corporate site-to-site VPN solutions</span>,
-      <span>Point to Point subterranean fiber connectivity across Lahore</span>,
+      <span>Point to Point subterranean fiber connectivity across metropolitan nodes</span>,
       <span>
         Proactive <AnimatedCounter from={0} to={24} suffix="/7" /> NOC monitoring with sub-30 minute MTTR dispatch
       </span>,
     ],
     highlight: <span>1:1 Symmetrical Bandwidth SLA</span>,
     whatsappMessage:
-      "Hello Z COM! I am inquiring about Corporate Solutions (DIA, MPLS, P2P Fiber) for our organization in Lahore.",
+      "Hello Z COM! I am inquiring about Corporate Solutions (DIA, MPLS, P2P Fiber) for our organization.",
   },
   {
     id: "cloud",
@@ -69,7 +70,7 @@ const SOLUTIONS: SolutionItem[] = [
       "Scalable virtual compute, secure data center colocation, dedicated corporate email suites, and high-performance web hosting built for high availability and rapid growth.",
     features: [
       <span>High-performance VMs and VPS with dedicated vCPUs &amp; NVMe SSDs</span>,
-      <span>Tier-3 secure server rack co-location in Lahore with redundant UPS</span>,
+      <span>Tier-3 secure server rack co-location with redundant UPS</span>,
       <span>Dedicated business email hosting on clean, spam-filtered IPs</span>,
       <span>Ultra-fast Linux and Windows web hosting with free SSL certificates</span>,
       <span>Automated daily off-site backups with <AnimatedCounter from={0} to={99.9} decimals={1} suffix="%" /> availability</span>,
@@ -87,12 +88,12 @@ const SOLUTIONS: SolutionItem[] = [
     title: "Managed IT Solutions and Services",
     target: "Corporate Campuses, Commercial Facilities, Healthcare & Branch Networks",
     description:
-      "End-to-end IT operations management, preventative server and hardware maintenance, structured network cabling, and rapid on-site field engineering dispatch in Lahore.",
+      "End-to-end IT operations management, preventative server and hardware maintenance, structured network cabling, and rapid on-site field engineering dispatch.",
     features: [
       <span>Continuous <AnimatedCounter from={0} to={24} suffix="/7" /> NOC network telemetry and health monitoring</span>,
       <span>Preventative and emergency server, switch &amp; router maintenance</span>,
       <span>Structured CAT6/Fiber optic cabling and campus Wi-Fi architecture</span>,
-      <span>Dedicated Lahore-based Level-3 field engineering emergency dispatch</span>,
+      <span>Dedicated Level-3 field engineering emergency dispatch</span>,
       <span>Proactive OTDR fiber health monitoring and ring auto-failover</span>,
     ],
     highlight: <span>24/7 Managed NOC Engineering</span>,
@@ -296,13 +297,11 @@ export default function SolutionExplorer() {
                     </Link>
 
                     <a
-                      href={`https://wa.me/923171118042?text=${encodeURIComponent(sol.whatsappMessage)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl transition-all border border-slate-200"
+                      href={`mailto:info@zcomnetworks.com.pk?subject=${encodeURIComponent(sol.title)}&body=${encodeURIComponent(sol.whatsappMessage)}`}
+                      className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl transition-all border border-slate-200 cursor-pointer"
                     >
-                      <span>Inquire via WhatsApp</span>
-                      <ExternalLink className="w-3.5 h-3.5 text-brand-orange" />
+                      <Mail className="w-3.5 h-3.5 text-brand-orange" />
+                      <span>Inquire via Email</span>
                     </a>
                   </div>
                 </div>
@@ -342,7 +341,7 @@ export default function SolutionExplorer() {
                     </div>
                     <div className="flex items-center justify-between text-xs">
                       <span className="text-slate-500 font-medium">Head Office:</span>
-                      <span className="font-semibold text-slate-800">Gulberg-III, Lahore</span>
+                      <span className="font-semibold text-slate-800">Gulberg-III Headquarters</span>
                     </div>
                     <div className="flex items-center justify-between text-xs">
                       <span className="text-slate-500 font-medium">Support:</span>

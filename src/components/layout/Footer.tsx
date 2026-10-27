@@ -53,7 +53,7 @@ export default function Footer() {
                 <div className="flex items-start gap-2.5">
                   <MapPin className="w-4 h-4 text-brand-orange shrink-0 mt-0.5" />
                   <span className="text-white font-medium">
-                    7/4, E-3 Main Boulevard, Gulberg-III, Lahore, Punjab, Pakistan
+                    7/4, E-3 Main Boulevard, Gulberg-III, Pakistan
                   </span>
                 </div>
                 <div className="flex items-center gap-2.5">

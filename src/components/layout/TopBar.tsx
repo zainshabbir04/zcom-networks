@@ -13,7 +13,7 @@ export default function TopBar() {
             <span>METRO BACKBONE</span>
           </span>
           <span className="truncate text-slate-300 font-medium hidden sm:inline">
-            100 Gbps DWDM Optical Transmission Grid Active across Lahore &amp; Punjab Metros
+            100 Gbps DWDM Optical Transmission Grid Active across Regional Enterprise Corridors
           </span>
           <Link
             href="/why-us#coverage-map"
@@ -28,7 +28,7 @@ export default function TopBar() {
         <div className="hidden md:flex items-center gap-4 shrink-0 text-slate-400">
           <div className="flex items-center gap-1.5">
             <MapPin className="w-3 h-3 text-brand-orange" />
-            <span className="text-slate-300">Gulberg-III, Lahore</span>
+            <span className="text-slate-300">Gulberg-III Corporate HQ</span>
           </div>
           <div className="h-3 w-px bg-slate-700/80" />
           <div className="flex items-center gap-1.5 text-white font-bold">

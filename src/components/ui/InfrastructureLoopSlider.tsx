@@ -56,7 +56,7 @@ const INFRA_SLIDES: InfraSlide[] = [
     features: [
       "Continuous OTDR real-time reflection analysis",
       "Carrier-grade BGP multihomed path monitoring",
-      "Direct WhatsApp dispatch integration for enterprises",
+      "Direct 24/7 technical dispatch integration for enterprises",
     ],
   },
   {

@@ -44,7 +44,7 @@ const POSITIONS: JobPosition[] = [
     id: "noc-engineer",
     title: "NOC Network Engineer (L1 / L2)",
     department: "Network Operations Center",
-    location: "Gulberg-III, Lahore",
+    location: "Gulberg-III Corporate HQ",
     type: "Full-Time · Shift Rotations (24/7 NOC)",
     experience: "1–3 Years",
     description:
@@ -65,11 +65,11 @@ const POSITIONS: JobPosition[] = [
     id: "fiber-technician",
     title: "Fiber Optic Splicing & Field Technician",
     department: "Field Deployment & Maintenance",
-    location: "Lahore Metropolitan Area",
+    location: "Metropolitan Area",
     type: "Full-Time · On-Site",
     experience: "1–4 Years",
     description:
-      "Hands-on deployment of aerial and underground optical fiber cables, core fusion splicing, OTDR loss characterization, and customer premises ONT activations across Lahore.",
+      "Hands-on deployment of aerial and underground optical fiber cables, core fusion splicing, OTDR loss characterization, and customer premises ONT activations across metropolitan sectors.",
     responsibilities: [
       "Perform precision fusion splicing on ribbon and loose-tube optical fiber cables.",
       "Operate OTDR, visual fault locators (VFL), and optical power meters for link validation.",
@@ -79,20 +79,20 @@ const POSITIONS: JobPosition[] = [
     qualifications: [
       "DAE in Electronics, Electrical, or Telecommunication diploma.",
       "Demonstrated experience with Fujikura / Sumitomo fusion splicers and OTDR testing.",
-      "Valid motorcycle / vehicle license for mobile dispatch across Lahore.",
+      "Valid motorcycle / vehicle license for mobile field dispatch.",
     ],
   },
   {
     id: "enterprise-sales",
     title: "Enterprise B2B Account Manager",
     department: "Corporate Sales & Business Development",
-    location: "Gulberg-III, Lahore",
+    location: "Gulberg-III Corporate HQ",
     type: "Full-Time",
     experience: "2–5 Years",
     description:
       "Drive acquisition of dedicated enterprise internet (DIA), dark fiber leases, and metro ethernet accounts across commercial towers, universities, and industrial zones.",
     responsibilities: [
-      "Identify corporate prospects in Lahore including software houses, financial institutions, and hospitals.",
+      "Identify corporate prospects including software houses, financial institutions, and hospitals.",
       "Deliver technical connectivity proposals alongside our senior solutions architects.",
       "Lead contract negotiations and service level agreement (SLA) sign-offs.",
       "Maintain ongoing client relationship management to secure renewals and upsells.",
@@ -107,13 +107,13 @@ const POSITIONS: JobPosition[] = [
     id: "support-specialist",
     title: "Technical Customer Support Specialist",
     department: "Customer Operations & Helpdesk",
-    location: "Gulberg-III, Lahore",
+    location: "Gulberg-III Corporate HQ",
     type: "Full-Time · Rotational Shifts",
     experience: "1–2 Years",
     description:
       "First line of technical support for residential and enterprise clients, diagnosing router configurations, DNS issues, and coordinating with NOC engineers.",
     responsibilities: [
-      "Provide real-time omnichannel support via telephone, WhatsApp business, and ticketing portals.",
+      "Provide real-time omnichannel support via telephone, email, and ticketing portals.",
       "Guide clients through ONT reboots, Wi-Fi channel configurations, and LAN troubleshooting.",
       "Log ticket lifecycles and ensure resolution within contractual MTTR targets.",
       "Gather customer feedback to improve support operations and technical workflows.",
@@ -128,7 +128,7 @@ const POSITIONS: JobPosition[] = [
     id: "core-architect",
     title: "Senior Core Network Architect",
     department: "Network Engineering & Architecture",
-    location: "Gulberg-III, Lahore",
+    location: "Gulberg-III Corporate HQ",
     type: "Full-Time",
     experience: "5+ Years",
     description:
@@ -175,7 +175,7 @@ const CULTURE_PERKS = [
   },
   {
     icon: <ShieldCheck className="w-6 h-6 text-brand-orange" />,
-    title: "Central Lahore Headquarters",
+    title: "Central Corporate Headquarters",
     desc: "Modern office located on Main Boulevard, Gulberg-III, with convenient transport and dining access.",
   },
 ];
@@ -434,7 +434,7 @@ export default function CareersPage() {
                   href={`mailto:hr@zcomnetworks.com.pk?subject=${encodeURIComponent(
                     `Job Application: ${job.title} - Z COM Networks`
                   )}&body=${encodeURIComponent(
-                    `Hello HR / Recruitment Team at Z COM Networks,\n\nI am applying for the position of "${job.title}" at your Gulberg-III, Lahore office.\n\nPlease find my resume attached.\n\nName:\nContact Phone / WhatsApp:\nCurrent Location in Lahore:\nYears of Relevant Experience:\n`
+                    `Hello HR / Recruitment Team at Z COM Networks,\n\nI am applying for the position of "${job.title}" at your Gulberg-III office.\n\nPlease find my resume attached.\n\nName:\nContact Phone:\nCurrent City / Location:\nYears of Relevant Experience:\n`
                   )}`}
                   className="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-md shadow-brand-orange/20 w-full sm:w-auto"
                 >

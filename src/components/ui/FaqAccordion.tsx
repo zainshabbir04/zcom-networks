@@ -10,8 +10,8 @@ interface FaqItem {
 
 const FAQS: FaqItem[] = [
   {
-    q: "Which areas in Lahore does Z COM Networks cover?",
-    a: "Z COM Networks provides fiber-optic coverage across major residential, commercial, and industrial sectors throughout Lahore, including Gulberg, DHA (all phases), Cantt, Model Town, Johar Town, Faisal Town, Garden Town, and commercial enterprise districts. Submit your specific location through our Coverage tool to verify optical node availability.",
+    q: "Which areas does Z COM Networks cover?",
+    a: "Z COM Networks provides fiber-optic coverage across major residential, commercial, and industrial sectors including Gulberg, DHA (all phases), Cantt, Model Town, Johar Town, Faisal Town, Garden Town, and commercial enterprise districts. Submit your specific location through our Coverage tool to verify optical node availability.",
   },
   {
     q: "What does Unlimited Data with 'No FUP' mean?",
@@ -23,11 +23,11 @@ const FAQS: FaqItem[] = [
   },
   {
     q: "What are your customer support and dispatch hours?",
-    a: "Our customer support center and Network Operations Center (NOC) located in Gulberg-III, Lahore operate 24 hours a day, 7 days a week, 365 days a year. Our phone lines (+92 42 345 11 111) and WhatsApp (+92 317 1118042) are always staffed by real technical personnel ready to assist.",
+    a: "Our customer support center and Network Operations Center (NOC) located in Gulberg-III operate 24 hours a day, 7 days a week, 365 days a year. Our phone lines (+92 42 345 11 111) and email (info@zcomnetworks.com.pk) are always staffed by real technical personnel ready to assist.",
   },
   {
     q: "How can I schedule a site survey or get connected?",
-    a: "Simply submit your address and contact details using our Availability Form or message our technical desk directly on WhatsApp. Our field survey team will verify node proximity, conduct a free optical site assessment, and schedule installation at your earliest convenience.",
+    a: "Simply submit your address and contact details using our Availability Form or email our technical desk directly at info@zcomnetworks.com.pk. Our field survey team will verify node proximity, conduct a free optical site assessment, and schedule installation at your earliest convenience.",
   },
 ];
 
