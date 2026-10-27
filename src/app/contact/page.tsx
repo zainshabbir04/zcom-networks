@@ -2,13 +2,12 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
-import { Phone, Mail, MapPin, Clock, MessageSquare, Sparkles } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Sparkles } from "lucide-react";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import MinimalistBanner, { BannerImage, BannerBadge, BannerHeadline, BannerSubtext, BannerActions } from "@/components/ui/MinimalistBanner";
 
 import CoverageForm from "@/components/ui/CoverageForm";
 import ContactForm from "@/components/ui/ContactForm";
-import FaqAccordion from "@/components/ui/FaqAccordion";
 import ScrollReveal, { StaggerContainer } from "@/components/ui/ScrollReveal";
 
 export const metadata: Metadata = {
@@ -244,19 +243,6 @@ export default function ContactPage() {
           </ScrollReveal>
         </div>
       </section>
-
-      {/* FAQ Accordion */}
-      <ScrollReveal variant="fade-up" as="section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-        <div className="text-center max-w-2xl mx-auto space-y-3 mb-12">
-          <span className="text-xs font-bold text-brand-orange tracking-widest uppercase">
-            ANSWERS &amp; ASSISTANCE
-          </span>
-          <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white font-heading">
-            Frequently Asked Questions
-          </h2>
-        </div>
-        <FaqAccordion />
-      </ScrollReveal>
     </div>
   );
 }
