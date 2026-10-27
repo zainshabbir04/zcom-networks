@@ -15,8 +15,6 @@ import {
   TrendingUp,
   Cpu,
   Quote,
-  MapPin,
-  Building,
   Zap,
   Clock,
   Layers,
@@ -254,11 +252,6 @@ export default function AboutPage() {
                     Chief Executive Officer (CEO) &amp; Co-Founder
                   </p>
 
-                  <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs text-brand-orange font-semibold pt-1">
-                    <MapPin className="w-3.5 h-3.5 shrink-0" />
-                    <span>Gulberg-III Corporate Headquarters</span>
-                  </div>
-
                   {/* Highlights Bar */}
                   <div className="grid grid-cols-2 gap-2 pt-3">
                     <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 text-center sm:text-left">
@@ -375,11 +368,6 @@ export default function AboutPage() {
                   <p className="text-sm font-semibold text-slate-700">
                     Chief Financial Officer (CFO) &amp; Co-Founder
                   </p>
-
-                  <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs text-brand-orange font-semibold pt-1">
-                    <Building className="w-3.5 h-3.5 shrink-0" />
-                    <span>Fiscal Governance &amp; Capital Planning</span>
-                  </div>
 
                   {/* Highlights Bar */}
                   <div className="grid grid-cols-2 gap-2 pt-3">
