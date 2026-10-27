@@ -26,7 +26,7 @@ import {
 } from "lucide-react";
 
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import MinimalistBanner, { BannerImage, BannerBadge, BannerHeadline, BannerSubtext, BannerActions } from "@/components/ui/MinimalistBanner";
+import MinimalistBanner, { BannerImage, BannerBadge, BannerHeadline, BannerSubtext } from "@/components/ui/MinimalistBanner";
 import InfrastructureLoopSlider from "@/components/ui/InfrastructureLoopSlider";
 import ScrollReveal, { StaggerContainer } from "@/components/ui/ScrollReveal";
 
@@ -144,41 +144,6 @@ export default function AboutPage() {
               Built on the core principle that modern enterprises and mission-critical institutions require uncontended, carrier-grade optical connectivity without compromise.
             </p>
             </BannerSubtext>
-
-            {/* Service-Tailored Live Counters Strip (Matching Services Pages Banner) */}
-            <BannerActions className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
-              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all text-center sm:text-left">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Metro Core</span>
-                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block mt-0.5">
-                  <AnimatedCounter from={0} to={1200} suffix="+ km" />
-                </span>
-                <span className="text-[10px] text-slate-300 font-medium block">Underground Conduits</span>
-              </div>
-
-              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all text-center sm:text-left">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Core SLA</span>
-                <span className="text-xl sm:text-2xl font-black text-white font-heading block mt-0.5">
-                  <AnimatedCounter from={0} to={99.99} decimals={2} suffix="%" />
-                </span>
-                <span className="text-[10px] text-slate-300 font-medium block">Zero Loss Standard</span>
-              </div>
-
-              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all text-center sm:text-left">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Leased Lines</span>
-                <span className="text-xl sm:text-2xl font-black text-brand-orange font-heading block mt-0.5">
-                  <AnimatedCounter from={0} to={500} suffix="+" />
-                </span>
-                <span className="text-[10px] text-slate-300 font-medium block">1:1 Symmetrical</span>
-              </div>
-
-              <div className="p-3 rounded-xl bg-black/40 backdrop-blur-md border border-white/10 hover:border-brand-orange/40 transition-all text-center sm:text-left">
-                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">NOC Dispatch</span>
-                <span className="text-xl sm:text-2xl font-black text-white font-heading block mt-0.5">
-                  <AnimatedCounter from={0} to={24} suffix="/7/365" />
-                </span>
-                <span className="text-[10px] text-slate-300 font-medium block">Certified Engineers</span>
-              </div>
-            </BannerActions>
 
           </div>
         </div>
