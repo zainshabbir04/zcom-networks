@@ -315,7 +315,7 @@ export default function CareersPage() {
           ============================================================ */}
       <ScrollReveal variant="fade-up" as="section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative w-full rounded-3xl overflow-hidden border border-slate-200/90 dark:border-slate-700/60 shadow-2xl shadow-slate-200/50 dark:shadow-black/60 group bg-slate-950 aspect-[16/9] sm:aspect-[21/9] max-h-[560px]">
-          {/* NOC & Culture Wide Showcase Image */}
+          {/* NOC & Culture Wide Showcase Image (Subtly Blurred) */}
           <Image
             src="/images/careers/noc-work-culture.jpg"
             alt="Z COM Networks - State-of-the-Art NOC & Modern Engineering Workplace"
@@ -323,24 +323,23 @@ export default function CareersPage() {
             unoptimized
             priority
             sizes="(max-width: 1280px) 100vw, 1200px"
-            className="object-cover object-center w-full h-full transition-transform duration-700 group-hover:scale-[1.02]"
+            className="object-cover object-center w-full h-full filter blur-[2.5px] scale-[1.03] transition-transform duration-700 group-hover:scale-[1.06]"
           />
 
           {/* Subtle Ambient Vignette & Gradient for Depth */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 pointer-events-none" />
 
-          {/* Top-Left Corner: Official Company Logo */}
-          <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-10">
-            <div className="bg-white/95 dark:bg-slate-900/90 backdrop-blur-md px-4 py-2 sm:px-5 sm:py-2.5 rounded-2xl border border-white/60 dark:border-slate-700/80 shadow-xl flex items-center gap-2">
-              <div className="relative h-7 sm:h-8 w-28 sm:w-36">
-                <Image
-                  src="https://zcomnetworks.com.pk/assets/zcom-logo.png?v=2"
-                  alt="Z COM Networks Logo"
-                  fill
-                  unoptimized
-                  className="object-contain object-left"
-                />
-              </div>
+          {/* Top-Left Corner: Official Company Logo (Enlarged & 100% Transparent) */}
+          <div className="absolute top-5 left-5 sm:top-8 sm:left-8 z-10">
+            <div className="relative h-12 sm:h-14 lg:h-16 w-44 sm:w-56 lg:w-64 transition-transform duration-300 hover:scale-105">
+              <Image
+                src="https://zcomnetworks.com.pk/assets/zcom-logo.png?v=2"
+                alt="Z COM Networks Logo"
+                fill
+                unoptimized
+                priority
+                className="object-contain object-left drop-shadow-[0_4px_16px_rgba(0,0,0,0.35)]"
+              />
             </div>
           </div>
         </div>
