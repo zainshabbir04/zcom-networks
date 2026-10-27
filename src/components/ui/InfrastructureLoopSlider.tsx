@@ -207,21 +207,22 @@ export default function InfrastructureLoopSlider() {
       {/* Main Slide Card Container with True Horizontal Sliding Track */}
       <div className="relative rounded-3xl overflow-hidden border border-slate-200/90 bg-white shadow-2xl">
         <div
-          className="flex transition-transform duration-700 ease-in-out w-full"
+          className="flex transition-transform duration-700 ease-in-out w-full items-stretch"
           style={{ transform: `translateX(-${activeSlide * 100}%)` }}
         >
           {INFRA_SLIDES.map((slide, idx) => (
-            <div key={slide.id} className="w-full shrink-0">
-              <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[500px]">
-                {/* Left Column: Visual Banner with Image (Pristine, No Text Overlays) */}
-                <div className="lg:col-span-5 relative min-h-[320px] lg:min-h-full overflow-hidden bg-slate-950">
+            <div key={slide.id} className="w-full shrink-0 flex flex-col justify-stretch">
+              <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[500px] h-full items-stretch">
+                {/* Left Column: Visual Banner with Image (Fixed Full Height Top-to-Bottom) */}
+                <div className="lg:col-span-5 relative w-full h-80 sm:h-96 lg:h-full min-h-[320px] lg:min-h-full self-stretch overflow-hidden bg-slate-950">
                   <Image
                     src={slide.image}
                     alt={slide.title}
                     fill
                     unoptimized
                     priority={idx === 0}
-                    className="object-cover transition-transform duration-700 hover:scale-105"
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="object-cover object-center w-full h-full transition-transform duration-700 hover:scale-105"
                   />
                 </div>
 
