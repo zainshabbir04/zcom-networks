@@ -6,6 +6,7 @@ const BANNER_VIDEOS = [
   { id: "v1", src: "/videos/1.mp4", duration: 10 },
   { id: "v2", src: "/videos/2.mp4", duration: 6 },
   { id: "v3", src: "/videos/3.mp4", duration: 8 },
+  { id: "v4", src: "/videos/4.mp4", duration: 8 },
 ];
 
 export default function HeroSlider() {
