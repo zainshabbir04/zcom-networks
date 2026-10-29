@@ -207,7 +207,7 @@ export default function Header() {
                               onMouseEnter={handleServicesMouseEnter}
                               onMouseLeave={handleServicesMouseLeave}
                               onClick={() => setIsOpen(false)}
-                              className={`flex-1 flex items-center justify-between py-2.5 sm:py-3.5 px-4 sm:px-6 rounded-2xl text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase font-heading tracking-tight transition-all duration-300 ${
+                              className={`flex-1 flex items-center justify-between py-2 sm:py-2.5 px-4 sm:px-5 rounded-2xl text-xl sm:text-2xl lg:text-3xl font-extrabold uppercase font-heading tracking-tight transition-all duration-300 ${
                                 isServicesHovered
                                   ? "text-brand-orange bg-white font-black shadow-2xl shadow-brand-orange/25 scale-[1.02] ring-2 ring-brand-orange/20"
                                   : isActive
@@ -218,15 +218,15 @@ export default function Header() {
                               <span>{link.name}</span>
                               
                               {/* Right Arrow + Active Radar indicator */}
-                              <span className="flex items-center gap-2.5">
+                              <span className="flex items-center gap-2">
                                 {isServicesHovered && (
-                                  <span className="relative flex h-2.5 w-2.5">
+                                  <span className="relative flex h-2 w-2">
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-75" />
-                                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-orange" />
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-orange" />
                                   </span>
                                 )}
                                 <ArrowRight
-                                  className={`w-6 h-6 transition-all duration-300 ${
+                                  className={`w-5 h-5 transition-all duration-300 ${
                                     isServicesHovered
                                       ? "text-brand-orange translate-x-1 animate-arrow-nudge"
                                       : "text-white/60 group-hover:text-brand-orange group-hover:translate-x-1"
@@ -266,14 +266,14 @@ export default function Header() {
                                       onClick={() => {
                                         setIsOpen(false);
                                       }}
-                                      className={`flex items-center gap-2.5 py-1.5 px-3 rounded-lg text-lg sm:text-xl font-extrabold uppercase font-heading tracking-tight transition-all group ${
+                                      className={`flex items-center gap-2.5 py-1.5 px-2.5 rounded-lg text-base sm:text-lg font-bold uppercase font-heading tracking-tight transition-all group ${
                                         isSrvActive
                                           ? "text-brand-orange font-black"
                                           : "text-white/80 hover:text-brand-orange hover:translate-x-1.5"
                                       }`}
                                     >
                                       {/* Visible Bullet Point with Pulse */}
-                                      <span className="relative flex items-center justify-center w-3 h-3 shrink-0">
+                                      <span className="relative flex items-center justify-center w-2.5 h-2.5 shrink-0">
                                         <span className={`w-2 h-2 rounded-full transition-transform ${
                                           isSrvActive
                                             ? "bg-brand-orange scale-125"
@@ -302,7 +302,7 @@ export default function Header() {
                           href={link.href}
                           onMouseEnter={handleOtherNavMouseEnter}
                           onClick={() => setIsOpen(false)}
-                          className={`w-full flex items-center py-2.5 sm:py-3.5 px-4 sm:px-6 rounded-2xl text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase font-heading tracking-tight transition-all duration-300 text-left group ${
+                          className={`w-full flex items-center py-2 sm:py-2.5 px-4 sm:px-5 rounded-2xl text-xl sm:text-2xl lg:text-3xl font-extrabold uppercase font-heading tracking-tight transition-all duration-300 text-left group ${
                             isActive
                               ? "text-brand-orange bg-white/10 font-black shadow-sm"
                               : "text-white/80 hover:text-white hover:bg-white/10 hover:translate-x-2"
@@ -351,24 +351,24 @@ export default function Header() {
                             key={srv.href}
                             href={srv.href}
                             onClick={() => setIsOpen(false)}
-                            className={`flex items-center justify-between py-2.5 px-4 rounded-2xl text-2xl sm:text-3xl font-extrabold uppercase font-heading tracking-tight transition-all duration-300 text-left group bg-transparent hover:bg-white/5 ${
+                            className={`flex items-center justify-between py-2 px-3.5 rounded-2xl text-lg sm:text-xl lg:text-2xl font-bold uppercase font-heading tracking-tight transition-all duration-300 text-left group bg-transparent hover:bg-white/5 ${
                               isSrvActive
                                 ? "text-brand-orange font-black"
                                 : "text-white/85 hover:text-brand-orange hover:translate-x-3"
                             }`}
                           >
-                            <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-3.5">
                               {/* Pulsing Radar / Glowing Bullet */}
-                              <span className="relative flex items-center justify-center w-5 h-5 shrink-0">
+                              <span className="relative flex items-center justify-center w-4 h-4 shrink-0">
                                 <span
-                                  className={`absolute w-4 h-4 rounded-full bg-brand-orange/40 transition-all duration-300 ${
+                                  className={`absolute w-3.5 h-3.5 rounded-full bg-brand-orange/40 transition-all duration-300 ${
                                     isSrvActive
                                       ? "animate-ping opacity-75"
                                       : "group-hover:animate-ping group-hover:opacity-75 opacity-0"
                                   }`}
                                 />
                                 <span
-                                  className={`w-3 h-3 rounded-full bg-brand-orange transition-all duration-300 shadow-sm ${
+                                  className={`w-2.5 h-2.5 rounded-full bg-brand-orange transition-all duration-300 shadow-sm ${
                                     isSrvActive
                                       ? "scale-125 ring-4 ring-brand-orange/30 shadow-brand-orange/50"
                                       : "group-hover:scale-125 group-hover:ring-4 group-hover:ring-brand-orange/30 group-hover:shadow-brand-orange/50"
@@ -381,7 +381,7 @@ export default function Header() {
                             </div>
 
                             {/* Sleek Slide-in Arrow on Hover */}
-                            <ArrowRight className="w-6 h-6 text-brand-orange opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0" />
+                            <ArrowRight className="w-5 h-5 text-brand-orange opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0" />
                           </Link>
                         </li>
                       );
