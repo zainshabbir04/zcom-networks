@@ -207,11 +207,11 @@ export default function Header() {
                               onMouseEnter={handleServicesMouseEnter}
                               onMouseLeave={handleServicesMouseLeave}
                               onClick={() => setIsOpen(false)}
-                              className={`flex-1 flex items-center justify-between py-2 sm:py-2.5 px-4 sm:px-5 rounded-2xl text-xl sm:text-2xl lg:text-3xl font-extrabold uppercase font-heading tracking-tight transition-all duration-300 ${
+                              className={`flex-1 flex items-center justify-between py-2 px-3.5 sm:px-4 rounded-xl text-base sm:text-lg lg:text-xl font-bold uppercase font-heading tracking-tight transition-all duration-300 ${
                                 isServicesHovered
-                                  ? "text-brand-orange bg-white font-black shadow-2xl shadow-brand-orange/25 scale-[1.02] ring-2 ring-brand-orange/20"
+                                  ? "text-brand-orange bg-white font-extrabold shadow-xl shadow-brand-orange/20 scale-[1.01] ring-2 ring-brand-orange/20"
                                   : isActive
-                                  ? "text-brand-orange bg-white/10 font-black shadow-sm"
+                                  ? "text-brand-orange bg-white/10 font-extrabold shadow-sm"
                                   : "text-white/90 hover:text-brand-orange hover:bg-white/10 hover:translate-x-1"
                               }`}
                             >
@@ -226,7 +226,7 @@ export default function Header() {
                                   </span>
                                 )}
                                 <ArrowRight
-                                  className={`w-5 h-5 transition-all duration-300 ${
+                                  className={`w-4 h-4 transition-all duration-300 ${
                                     isServicesHovered
                                       ? "text-brand-orange translate-x-1 animate-arrow-nudge"
                                       : "text-white/60 group-hover:text-brand-orange group-hover:translate-x-1"
@@ -266,15 +266,15 @@ export default function Header() {
                                       onClick={() => {
                                         setIsOpen(false);
                                       }}
-                                      className={`flex items-center gap-2.5 py-1.5 px-2.5 rounded-lg text-base sm:text-lg font-bold uppercase font-heading tracking-tight transition-all group ${
+                                      className={`flex items-center gap-2 py-1 px-2.5 rounded-lg text-sm sm:text-base font-semibold uppercase font-heading tracking-tight transition-all group ${
                                         isSrvActive
-                                          ? "text-brand-orange font-black"
+                                          ? "text-brand-orange font-bold"
                                           : "text-white/80 hover:text-brand-orange hover:translate-x-1.5"
                                       }`}
                                     >
                                       {/* Visible Bullet Point with Pulse */}
-                                      <span className="relative flex items-center justify-center w-2.5 h-2.5 shrink-0">
-                                        <span className={`w-2 h-2 rounded-full transition-transform ${
+                                      <span className="relative flex items-center justify-center w-2 h-2 shrink-0">
+                                        <span className={`w-1.5 h-1.5 rounded-full transition-transform ${
                                           isSrvActive
                                             ? "bg-brand-orange scale-125"
                                             : "bg-brand-orange group-hover:scale-125"
@@ -302,9 +302,9 @@ export default function Header() {
                           href={link.href}
                           onMouseEnter={handleOtherNavMouseEnter}
                           onClick={() => setIsOpen(false)}
-                          className={`w-full flex items-center py-2 sm:py-2.5 px-4 sm:px-5 rounded-2xl text-xl sm:text-2xl lg:text-3xl font-extrabold uppercase font-heading tracking-tight transition-all duration-300 text-left group ${
+                          className={`w-full flex items-center py-2 px-3.5 sm:px-4 rounded-xl text-base sm:text-lg lg:text-xl font-bold uppercase font-heading tracking-tight transition-all duration-300 text-left group ${
                             isActive
-                              ? "text-brand-orange bg-white/10 font-black shadow-sm"
+                              ? "text-brand-orange bg-white/10 font-extrabold shadow-sm"
                               : "text-white/80 hover:text-white hover:bg-white/10 hover:translate-x-2"
                           }`}
                         >
@@ -337,7 +337,7 @@ export default function Header() {
                   <ul
                     onMouseEnter={handleServicesMouseEnter}
                     onMouseLeave={handleServicesMouseLeave}
-                    className="flex flex-col gap-3.5 sm:gap-4.5 w-full bg-transparent"
+                    className="flex flex-col gap-2.5 sm:gap-3 w-full bg-transparent"
                   >
                     {SERVICES_MENU.map((srv, srvIdx) => {
                       const isSrvActive = pathname === srv.href;
@@ -351,27 +351,27 @@ export default function Header() {
                             key={srv.href}
                             href={srv.href}
                             onClick={() => setIsOpen(false)}
-                            className={`flex items-center justify-between py-2 px-3.5 rounded-2xl text-lg sm:text-xl lg:text-2xl font-bold uppercase font-heading tracking-tight transition-all duration-300 text-left group bg-transparent hover:bg-white/5 ${
+                            className={`flex items-center justify-between py-1.5 sm:py-2 px-3.5 rounded-xl text-sm sm:text-base lg:text-lg font-semibold uppercase font-heading tracking-tight transition-all duration-300 text-left group bg-transparent hover:bg-white/5 ${
                               isSrvActive
-                                ? "text-brand-orange font-black"
-                                : "text-white/85 hover:text-brand-orange hover:translate-x-3"
+                                ? "text-brand-orange font-bold"
+                                : "text-white/85 hover:text-brand-orange hover:translate-x-2.5"
                             }`}
                           >
-                            <div className="flex items-center gap-3.5">
+                            <div className="flex items-center gap-3">
                               {/* Pulsing Radar / Glowing Bullet */}
-                              <span className="relative flex items-center justify-center w-4 h-4 shrink-0">
+                              <span className="relative flex items-center justify-center w-3.5 h-3.5 shrink-0">
                                 <span
-                                  className={`absolute w-3.5 h-3.5 rounded-full bg-brand-orange/40 transition-all duration-300 ${
+                                  className={`absolute w-3 h-3 rounded-full bg-brand-orange/40 transition-all duration-300 ${
                                     isSrvActive
                                       ? "animate-ping opacity-75"
                                       : "group-hover:animate-ping group-hover:opacity-75 opacity-0"
                                   }`}
                                 />
                                 <span
-                                  className={`w-2.5 h-2.5 rounded-full bg-brand-orange transition-all duration-300 shadow-sm ${
+                                  className={`w-2 h-2 rounded-full bg-brand-orange transition-all duration-300 shadow-sm ${
                                     isSrvActive
-                                      ? "scale-125 ring-4 ring-brand-orange/30 shadow-brand-orange/50"
-                                      : "group-hover:scale-125 group-hover:ring-4 group-hover:ring-brand-orange/30 group-hover:shadow-brand-orange/50"
+                                      ? "scale-125 ring-2 ring-brand-orange/30 shadow-brand-orange/50"
+                                      : "group-hover:scale-125 group-hover:ring-2 group-hover:ring-brand-orange/30 group-hover:shadow-brand-orange/50"
                                   }`}
                                 />
                               </span>
@@ -381,7 +381,7 @@ export default function Header() {
                             </div>
 
                             {/* Sleek Slide-in Arrow on Hover */}
-                            <ArrowRight className="w-5 h-5 text-brand-orange opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0" />
+                            <ArrowRight className="w-4 h-4 text-brand-orange opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0" />
                           </Link>
                         </li>
                       );
