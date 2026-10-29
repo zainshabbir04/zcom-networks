@@ -302,16 +302,13 @@ export default function Header() {
                           href={link.href}
                           onMouseEnter={handleOtherNavMouseEnter}
                           onClick={() => setIsOpen(false)}
-                          className={`w-full flex items-center py-2 px-3.5 sm:px-4 rounded-xl text-base sm:text-lg lg:text-xl font-bold uppercase font-heading tracking-tight transition-all duration-300 text-left group ${
+                          className={`w-full flex items-center justify-between py-2 px-3.5 sm:px-4 rounded-xl text-base sm:text-lg lg:text-xl font-bold uppercase font-heading tracking-tight transition-all duration-300 text-left group ${
                             isActive
                               ? "text-brand-orange bg-white/10 font-extrabold shadow-sm"
-                              : "text-white/80 hover:text-white hover:bg-white/10 hover:translate-x-2"
+                              : "text-white/90 hover:text-brand-orange hover:bg-white/10 hover:translate-x-1"
                           }`}
                         >
-                          <span className="flex items-center gap-2.5">
-                            <span className="w-0 group-hover:w-3 h-1 bg-brand-orange rounded-full transition-all duration-300 opacity-0 group-hover:opacity-100" />
-                            <span>{link.name}</span>
-                          </span>
+                          <span>{link.name}</span>
                         </Link>
                       </li>
                     );
