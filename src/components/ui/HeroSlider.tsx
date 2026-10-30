@@ -23,6 +23,7 @@ export default function HeroSlider() {
   // Active video controller: plays full video without skipping any second
   useEffect(() => {
     const activeIdx = currentSlide % totalVideos;
+    const timeouts: NodeJS.Timeout[] = [];
 
     BANNER_VIDEOS.forEach((_, idx) => {
       const vid = videoRefs.current[idx];
@@ -45,9 +46,11 @@ export default function HeroSlider() {
             vid.currentTime = 0;
           }
         }, 700);
-        return () => clearTimeout(timeoutId);
+        timeouts.push(timeoutId);
       }
     });
+
+    return () => timeouts.forEach(clearTimeout);
   }, [currentSlide, totalVideos]);
 
   // First interaction unlock for strict browser autoplay policies
