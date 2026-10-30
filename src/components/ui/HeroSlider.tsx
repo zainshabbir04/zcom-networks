@@ -3,10 +3,11 @@
 import React, { useState, useEffect, useRef } from "react";
 
 const BANNER_VIDEOS = [
-  { id: "v1", src: "/videos/1.mp4", duration: 10 },
-  { id: "v2", src: "/videos/2.mp4", duration: 6 },
-  { id: "v3", src: "/videos/3.mp4", duration: 8 },
-  { id: "v4", src: "/videos/4.mp4", duration: 8 },
+  { id: "v1", src: "/videos/clip-1.mp4", duration: 5 },
+  { id: "v2", src: "/videos/clip-2.mp4", duration: 7 },
+  { id: "v3", src: "/videos/2.mp4", duration: 6 },
+  { id: "v4", src: "/videos/3.mp4", duration: 8 },
+  { id: "v5", src: "/videos/4.mp4", duration: 8 },
 ];
 
 export default function HeroSlider() {
