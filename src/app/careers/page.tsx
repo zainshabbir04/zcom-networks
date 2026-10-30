@@ -46,7 +46,7 @@ const POSITIONS: JobPosition[] = [
     id: "inventory-management-executive",
     title: "Inventory Management Executive",
     department: "Operations & Supply Chain",
-    location: "Corporate HQ, Pakistan",
+    location: "Corporate HQ Lahore, Pakistan",
     type: "Full-Time",
     experience: "2–3 Years",
     emailSubject: "Application – Inventory Management Executive",
@@ -74,7 +74,7 @@ const POSITIONS: JobPosition[] = [
     title: "Corporate Sales Executive",
     badge: "Target-Based Role",
     department: "Corporate Sales & Enterprise B2B",
-    location: "Corporate HQ, Pakistan",
+    location: "Corporate HQ Lahore, Pakistan",
     type: "Full-Time · Target-Based Role",
     experience: "2+ Years",
     emailSubject: "Corporate Sales Executive Application",
@@ -399,7 +399,7 @@ export default function CareersPage() {
                   className="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-md shadow-brand-orange/20 w-full sm:w-auto"
                 >
                   <Mail className="w-4 h-4" />
-                  <span>Apply via Email (hr@zcomnetworks.com.pk)</span>
+                  <span>Apply via Email</span>
                 </a>
               </div>
             </div>
