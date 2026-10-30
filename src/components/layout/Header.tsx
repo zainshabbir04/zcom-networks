@@ -348,7 +348,7 @@ export default function Header() {
                             key={srv.href}
                             href={srv.href}
                             onClick={() => setIsOpen(false)}
-                            className={`flex items-center justify-between py-1.5 sm:py-2 px-3.5 rounded-xl text-sm sm:text-base lg:text-lg font-semibold uppercase font-heading tracking-tight transition-all duration-300 text-left group bg-transparent hover:bg-white/5 ${
+                            className={`flex items-center py-1.5 sm:py-2 px-3.5 rounded-xl text-sm sm:text-base lg:text-lg font-semibold uppercase font-heading tracking-tight transition-all duration-300 text-left group bg-transparent hover:bg-white/5 ${
                               isSrvActive
                                 ? "text-brand-orange font-bold"
                                 : "text-white/85 hover:text-brand-orange hover:translate-x-2.5"
@@ -376,9 +376,6 @@ export default function Header() {
                                 {srv.name}
                               </span>
                             </div>
-
-                            {/* Sleek Slide-in Arrow on Hover */}
-                            <ArrowRight className="w-4 h-4 text-brand-orange opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shrink-0" />
                           </Link>
                         </li>
                       );
