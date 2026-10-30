@@ -30,10 +30,12 @@ export const metadata: Metadata = {
 interface JobPosition {
   id: string;
   title: string;
+  badge?: string;
   department: string;
   location: string;
   type: string;
   experience: string;
+  emailSubject?: string;
   description: string;
   responsibilities: string[];
   qualifications: string[];
@@ -41,108 +43,56 @@ interface JobPosition {
 
 const POSITIONS: JobPosition[] = [
   {
-    id: "noc-engineer",
-    title: "NOC Network Engineer (L1 / L2)",
-    department: "Network Operations Center",
-    location: "Gulberg-III Corporate HQ",
-    type: "Full-Time · Shift Rotations (24/7 NOC)",
-    experience: "1–3 Years",
-    description:
-      "Responsible for real-time monitoring of metropolitan optical rings, proactive link fault isolation, BGP/OSPF routing diagnostics, and maintaining our 99.9% uptime SLA.",
-    responsibilities: [
-      "Continuously monitor core fiber backbone links and enterprise customer DIA circuits.",
-      "Diagnose latency spikes, packet loss, and routing anomalies via carrier monitoring tools.",
-      "Coordinate immediate escalation with field splicing teams for physical cable cuts.",
-      "Document root-cause analyses and configuration changes in network change logs.",
-    ],
-    qualifications: [
-      "BS in Telecommunication, Computer Systems, or Electrical Engineering.",
-      "Hands-on experience with Cisco / Juniper CLI and Layer 2 / Layer 3 switching.",
-      "CCNA or JNCIA certification is highly preferred.",
-    ],
-  },
-  {
-    id: "fiber-technician",
-    title: "Fiber Optic Splicing & Field Technician",
-    department: "Field Deployment & Maintenance",
-    location: "Metropolitan Area",
-    type: "Full-Time · On-Site",
-    experience: "1–4 Years",
-    description:
-      "Hands-on deployment of aerial and underground optical fiber cables, core fusion splicing, OTDR loss characterization, and customer premises ONT activations across metropolitan sectors.",
-    responsibilities: [
-      "Perform precision fusion splicing on ribbon and loose-tube optical fiber cables.",
-      "Operate OTDR, visual fault locators (VFL), and optical power meters for link validation.",
-      "Execute rapid fiber restoration during emergency breaks and civil works outages.",
-      "Install and commission optical fiber patch panels (ODF) and customer ONTs.",
-    ],
-    qualifications: [
-      "DAE in Electronics, Electrical, or Telecommunication diploma.",
-      "Demonstrated experience with Fujikura / Sumitomo fusion splicers and OTDR testing.",
-      "Valid motorcycle / vehicle license for mobile field dispatch.",
-    ],
-  },
-  {
-    id: "enterprise-sales",
-    title: "Enterprise B2B Account Manager",
-    department: "Corporate Sales & Business Development",
-    location: "Gulberg-III Corporate HQ",
+    id: "inventory-management-executive",
+    title: "Inventory Management Executive",
+    department: "Operations & Supply Chain",
+    location: "Corporate HQ, Pakistan",
     type: "Full-Time",
-    experience: "2–5 Years",
+    experience: "2–3 Years",
+    emailSubject: "Application – Inventory Management Executive",
     description:
-      "Drive acquisition of dedicated enterprise internet (DIA), dark fiber leases, and metro ethernet accounts across commercial towers, universities, and industrial zones.",
+      "Responsible for maintaining accurate inventory records, monitoring stock movements, asset accountability, and coordinating with procurement and operations departments to ensure seamless supply chain workflows.",
     responsibilities: [
-      "Identify corporate prospects including software houses, financial institutions, and hospitals.",
-      "Deliver technical connectivity proposals alongside our senior solutions architects.",
-      "Lead contract negotiations and service level agreement (SLA) sign-offs.",
-      "Maintain ongoing client relationship management to secure renewals and upsells.",
+      "Maintain accurate inventory records and update stock movements.",
+      "Monitor stock levels, material issuance, receipts, and returns.",
+      "Conduct regular physical stock counts and reconcile discrepancies.",
+      "Manage inventory documentation and maintain proper records.",
+      "Coordinate with procurement, operations, and other relevant departments.",
+      "Ensure proper storage, tracking, and accountability of company assets and equipment.",
+      "Prepare inventory reports and support stock audits.",
     ],
     qualifications: [
-      "BBA / MBA / BS in Marketing, IT, or Business Administration.",
-      "Proven B2B sales track record in Pakistan's telecom or IT sector.",
-      "Strong communication, presentation, and executive negotiation skills.",
+      "Bachelor's degree in Business Administration, Supply Chain Management, or a relevant field.",
+      "2–3 years of relevant experience in inventory or stock management.",
+      "Proficiency in MS Excel and inventory management systems.",
+      "Strong organizational, analytical, and record-keeping skills.",
+      "High attention to detail and the ability to manage multiple tasks efficiently.",
     ],
   },
   {
-    id: "support-specialist",
-    title: "Technical Customer Support Specialist",
-    department: "Customer Operations & Helpdesk",
-    location: "Gulberg-III Corporate HQ",
-    type: "Full-Time · Rotational Shifts",
-    experience: "1–2 Years",
+    id: "corporate-sales-executive",
+    title: "Corporate Sales Executive",
+    badge: "Target-Based Role",
+    department: "Corporate Sales & Enterprise B2B",
+    location: "Corporate HQ, Pakistan",
+    type: "Full-Time · Target-Based Role",
+    experience: "2+ Years",
+    emailSubject: "Corporate Sales Executive Application",
     description:
-      "First line of technical support for residential and enterprise clients, diagnosing router configurations, DNS issues, and coordinating with NOC engineers.",
+      "Drive B2B enterprise connectivity sales, generate qualified corporate leads, negotiate proposals, and achieve monthly sales targets across corporate and enterprise client accounts.",
     responsibilities: [
-      "Provide real-time omnichannel support via telephone, email, and ticketing portals.",
-      "Guide clients through ONT reboots, Wi-Fi channel configurations, and LAN troubleshooting.",
-      "Log ticket lifecycles and ensure resolution within contractual MTTR targets.",
-      "Gather customer feedback to improve support operations and technical workflows.",
+      "Drive B2B sales of internet and connectivity solutions.",
+      "Identify corporate leads and build a strong sales pipeline.",
+      "Meet monthly sales targets and revenue goals.",
+      "Prepare proposals, negotiate, and close deals.",
+      "Maintain client relationships and coordinate with internal teams.",
     ],
     qualifications: [
-      "Bachelor's degree in Computer Science, IT, or related field.",
-      "Exceptional verbal and written communication in English and Urdu.",
-      "Customer-centric demeanor with strong patience and analytical ability.",
-    ],
-  },
-  {
-    id: "core-architect",
-    title: "Senior Core Network Architect",
-    department: "Network Engineering & Architecture",
-    location: "Gulberg-III Corporate HQ",
-    type: "Full-Time",
-    experience: "5+ Years",
-    description:
-      "Lead the expansion of Z COM's DWDM optical rings, upstream peering with Tier-1 carriers, transit capacity upgrades, and IPv6 dual-stack infrastructure.",
-    responsibilities: [
-      "Architect and scale multi-gigabit routing topology utilizing Juniper MX / Cisco ASR routers.",
-      "Optimize BGP peering policies with local internet exchanges (PKIX) and upstream carriers.",
-      "Deploy robust DDoS mitigation scrubbing centers and automated traffic engineering.",
-      "Mentor junior NOC engineers and formulate network security hardening policies.",
-    ],
-    qualifications: [
-      "BS / MS in Network Engineering, Computer Science, or Electrical Engineering.",
-      "CCNP / CCIE or JNCIP / JNCIE certifications required.",
-      "Deep expertise in BGP, OSPF, MPLS, DWDM, and carrier-grade NAT.",
+      "2+ years of sales experience in an ISP environment.",
+      "Proven corporate / B2B sales experience.",
+      "BS Computer Science or BS IT preferred.",
+      "Strong communication, presentation, and negotiation skills.",
+      "Target-driven, proactive, and comfortable with field visits.",
     ],
   },
 ];
@@ -368,24 +318,35 @@ export default function CareersPage() {
               className="bg-white dark:bg-[#12161F] p-6 sm:p-8 rounded-3xl border border-slate-200/90 dark:border-slate-700/60 hover:border-brand-orange/60 transition-all duration-300 shadow-xl shadow-slate-200/50 dark:shadow-black/50 space-y-6 layout-card-hover"
             >
               {/* Job Header */}
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 border-b border-slate-100 dark:border-slate-700/60">
+              <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 pb-4 border-b border-slate-100 dark:border-slate-700/60">
                 <div>
-                  <div className="inline-flex items-center gap-2 text-xs font-semibold text-brand-orange uppercase tracking-wider mb-1">
-                    <Briefcase className="w-3.5 h-3.5" />
-                    <span>{job.department}</span>
+                  <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                    <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-orange uppercase tracking-wider">
+                      <Briefcase className="w-3.5 h-3.5" />
+                      <span>{job.department}</span>
+                    </span>
+                    {job.badge && (
+                      <span className="text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-brand-orange/15 text-brand-orange border border-brand-orange/30">
+                        {job.badge}
+                      </span>
+                    )}
                   </div>
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white font-heading">
                     {job.title}
                   </h3>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-3">
-                  <div className="flex items-center gap-1.5 text-xs text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-[#0E1118] px-3 py-1.5 rounded-lg border border-slate-200/90 dark:border-slate-700/60">
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <div className="flex items-center gap-1.5 text-xs text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-[#0E1118] px-3 py-1.5 rounded-lg border border-slate-200/90 dark:border-slate-700/60 font-medium">
+                    <Clock className="w-3.5 h-3.5 text-brand-orange" />
+                    <span>{job.experience}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-[#0E1118] px-3 py-1.5 rounded-lg border border-slate-200/90 dark:border-slate-700/60 font-medium">
                     <MapPin className="w-3.5 h-3.5 text-brand-orange" />
                     <span>{job.location}</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-[#0E1118] px-3 py-1.5 rounded-lg border border-slate-200/90 dark:border-slate-700/60">
-                    <Clock className="w-3.5 h-3.5 text-brand-orange" />
+                  <div className="flex items-center gap-1.5 text-xs text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-[#0E1118] px-3 py-1.5 rounded-lg border border-slate-200/90 dark:border-slate-700/60 font-medium">
+                    <Briefcase className="w-3.5 h-3.5 text-brand-orange" />
                     <span>{job.type}</span>
                   </div>
                 </div>
@@ -431,14 +392,14 @@ export default function CareersPage() {
               <div className="pt-4 flex items-center">
                 <a
                   href={`mailto:hr@zcomnetworks.com.pk?subject=${encodeURIComponent(
-                    `Job Application: ${job.title} - Z COM Networks`
+                    job.emailSubject || `Application – ${job.title}`
                   )}&body=${encodeURIComponent(
-                    `Hello HR / Recruitment Team at Z COM Networks,\n\nI am applying for the position of "${job.title}" at your Gulberg-III office.\n\nPlease find my resume attached.\n\nName:\nContact Phone:\nCurrent City / Location:\nYears of Relevant Experience:\n`
+                    `Hello HR / Recruitment Team at Z COM Networks,\n\nI am applying for the position of "${job.title}".\n\nPlease find my resume attached.\n\nName:\nContact Phone:\nCurrent Location:\nYears of Relevant Experience:\n`
                   )}`}
                   className="inline-flex items-center justify-center gap-2 bg-brand-orange hover:bg-brand-orangeLight text-white text-xs sm:text-sm font-bold px-6 py-3 rounded-xl transition-all shadow-md shadow-brand-orange/20 w-full sm:w-auto"
                 >
                   <Mail className="w-4 h-4" />
-                  <span>Apply via Email</span>
+                  <span>Apply via Email (hr@zcomnetworks.com.pk)</span>
                 </a>
               </div>
             </div>
