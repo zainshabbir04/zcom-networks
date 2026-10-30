@@ -2,17 +2,20 @@
 
 import React, { useState, useEffect, useRef } from "react";
 
+const SLIDE_DURATION_SECONDS = 16; // Equal 16-second display duration for all clips
+const SLIDE_DURATION_MS = SLIDE_DURATION_SECONDS * 1000;
+const FADE_TRANSITION_MS = 700;
+
 const BANNER_VIDEOS = [
-  { id: "v1", src: "/videos/1.mp4", duration: 10 },
-  { id: "v2", src: "/videos/2.mp4", duration: 6 },
-  { id: "v3", src: "/videos/3.mp4", duration: 8 },
-  { id: "v4", src: "/videos/4.mp4", duration: 8 },
+  { id: "v1", src: "/videos/1.mp4", duration: SLIDE_DURATION_SECONDS },
+  { id: "v2", src: "/videos/2.mp4", duration: SLIDE_DURATION_SECONDS },
+  { id: "v3", src: "/videos/3.mp4", duration: SLIDE_DURATION_SECONDS },
+  { id: "v4", src: "/videos/4.mp4", duration: SLIDE_DURATION_SECONDS },
 ];
 
 export default function HeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-  const isTransitioningRef = useRef(false);
 
   const totalVideos = BANNER_VIDEOS.length;
 
@@ -20,40 +23,64 @@ export default function HeroSlider() {
     setCurrentSlide((prev) => (prev + 1) % totalVideos);
   };
 
-  // Active video controller: plays full video without skipping any second
+  // Synchronized 16-second timer across all clips with pre-cueing for gapless crossfade
   useEffect(() => {
     const activeIdx = currentSlide % totalVideos;
-    const timeouts: NodeJS.Timeout[] = [];
+    const nextIdx = (activeIdx + 1) % totalVideos;
 
-    BANNER_VIDEOS.forEach((_, idx) => {
-      const vid = videoRefs.current[idx];
-      if (!vid) return;
+    const activeVid = videoRefs.current[activeIdx];
+    if (activeVid) {
+      activeVid.muted = true;
+      activeVid.defaultMuted = true;
+      activeVid.playsInline = true;
+      if (activeVid.paused) {
+        activeVid.currentTime = 0;
+        activeVid.play().catch(() => {});
+      }
+    }
 
-      vid.muted = true;
-      vid.defaultMuted = true;
-      vid.playsInline = true;
+    // Pre-cue next video 700ms before 16s ends so both overlap during the fade
+    const precueTimer = setTimeout(() => {
+      const nextVid = videoRefs.current[nextIdx];
+      if (nextVid) {
+        nextVid.muted = true;
+        nextVid.defaultMuted = true;
+        nextVid.playsInline = true;
+        nextVid.currentTime = 0;
+        nextVid.play().catch(() => {});
+      }
+    }, SLIDE_DURATION_MS - FADE_TRANSITION_MS);
 
-      if (idx === activeIdx) {
-        if (vid.paused) {
-          vid.currentTime = 0;
-          const p = vid.play();
-          if (p !== undefined) p.catch(() => {});
-        }
-      } else {
-        const timeoutId = setTimeout(() => {
-          if (idx !== currentSlide % totalVideos) {
+    // Advance to next clip at exactly 16 seconds
+    const slideTimer = setTimeout(() => {
+      nextSlide();
+    }, SLIDE_DURATION_MS);
+
+    return () => {
+      clearTimeout(precueTimer);
+      clearTimeout(slideTimer);
+    };
+  }, [currentSlide, totalVideos]);
+
+  // Clean up non-active videos after crossfade finishes
+  useEffect(() => {
+    const activeIdx = currentSlide % totalVideos;
+    const cleanupTimer = setTimeout(() => {
+      BANNER_VIDEOS.forEach((_, idx) => {
+        if (idx !== activeIdx) {
+          const vid = videoRefs.current[idx];
+          if (vid && !vid.paused) {
             vid.pause();
             vid.currentTime = 0;
           }
-        }, 700);
-        timeouts.push(timeoutId);
-      }
-    });
+        }
+      });
+    }, FADE_TRANSITION_MS + 50);
 
-    return () => timeouts.forEach(clearTimeout);
+    return () => clearTimeout(cleanupTimer);
   }, [currentSlide, totalVideos]);
 
-  // First interaction unlock for strict browser autoplay policies
+  // First interaction unlock for strict mobile & browser autoplay policies
   useEffect(() => {
     const unlockPlay = () => {
       const activeVid = videoRefs.current[currentSlide % totalVideos];
@@ -73,35 +100,6 @@ export default function HeroSlider() {
       window.removeEventListener("scroll", unlockPlay);
     };
   }, [currentSlide, totalVideos]);
-
-  // Pre-cue next video 0.5s before active video ends for 100% gapless dissolve
-  const handleVideoTimeUpdate = (idx: number, e: React.SyntheticEvent<HTMLVideoElement>) => {
-    const activeIdx = currentSlide % totalVideos;
-    if (idx !== activeIdx) return;
-    const vid = e.currentTarget;
-    if (vid.duration && !isNaN(vid.duration)) {
-      const nextIdx = (activeIdx + 1) % totalVideos;
-      const nextVid = videoRefs.current[nextIdx];
-      if (nextVid && vid.currentTime >= vid.duration - 0.5) {
-        if (nextVid.paused) {
-          nextVid.currentTime = 0;
-          nextVid.play().catch(() => {});
-        }
-      }
-    }
-  };
-
-  // Called when video completes 100% of its full duration (no seconds skipped!)
-  const handleVideoEnded = (idx: number) => {
-    const activeIdx = currentSlide % totalVideos;
-    if (idx !== activeIdx) return;
-    if (isTransitioningRef.current) return;
-    isTransitioningRef.current = true;
-    nextSlide();
-    setTimeout(() => {
-      isTransitioningRef.current = false;
-    }, 800);
-  };
 
   return (
     <section className="relative h-screen min-h-screen w-full overflow-hidden bg-black">
@@ -127,12 +125,10 @@ export default function HeroSlider() {
               }}
               src={vid.src}
               autoPlay
-              loop={false}
+              loop={true}
               muted
               playsInline
               preload="auto"
-              onTimeUpdate={(e) => handleVideoTimeUpdate(idx, e)}
-              onEnded={() => handleVideoEnded(idx)}
               onLoadedData={(e) => {
                 const target = e.currentTarget;
                 target.muted = true;
